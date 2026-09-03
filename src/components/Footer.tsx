@@ -1,6 +1,5 @@
 import Link from "next/link";
 import {
-  Building2,
   Facebook,
   Instagram,
   Linkedin,
@@ -11,6 +10,7 @@ import {
   Youtube,
 } from "lucide-react";
 import { companies } from "@/data/companies";
+import { Logo } from "./Logo";
 
 const quickLinks = [
   { label: "About Us", href: "/about" },
@@ -36,12 +36,7 @@ export function Footer() {
       <div className="container-corporate py-16">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <div className="flex items-center gap-2">
-              <Building2 className="h-7 w-7 text-gold-400" aria-hidden />
-              <span className="text-xl font-semibold tracking-tight text-white">
-                SHATHI<span className="text-gold-400"> Group</span>
-              </span>
-            </div>
+            <Logo variant="inverse" />
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-slate-300">
               SHATHI Group of Companies is a diversified corporate portfolio
               spanning fashion, luxury, building materials, and home living —

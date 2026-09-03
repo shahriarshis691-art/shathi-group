@@ -45,7 +45,7 @@ export const companies: Company[] = [
       "Limited-edition releases",
       "International warranty service",
     ],
-    logoPlaceholder: "/logos/xeroxii-watches.svg",
+    logoPlaceholder: "/logos/xeroxii.svg",
     websiteUrl: "https://xeroxiiwatches.example.com",
   },
   {

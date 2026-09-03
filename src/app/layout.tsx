@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { siteConfig } from "@/data/site";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -16,9 +17,50 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "SHATHI Group of Companies",
-  description:
-    "SHATHI Group of Companies — building a diversified portfolio of trusted businesses.",
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.name,
+    template: `${siteConfig.shortName} | %s`,
+  },
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.shortName,
+  publisher: siteConfig.shortName,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: siteConfig.locale,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: {
+      default: siteConfig.name,
+      template: `${siteConfig.shortName} | %s`,
+    },
+    description: siteConfig.description,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} — ${siteConfig.shortName} corporate mark`,
+        type: "image/jpeg",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: {
+      default: siteConfig.name,
+      template: `${siteConfig.shortName} | %s`,
+    },
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+    site: "@shathigroup",
+    creator: "@shathigroup",
+  },
 };
 
 export default function RootLayout({

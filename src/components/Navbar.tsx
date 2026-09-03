@@ -30,7 +30,7 @@ export function Navbar() {
         className="container-corporate flex h-16 items-center justify-between"
         aria-label="Primary"
       >
-        <Logo />
+        <Logo priority />
 
         <ul className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => (

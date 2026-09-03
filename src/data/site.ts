@@ -1,10 +1,3 @@
-export interface Company {
-  id: string;
-  name: string;
-  tagline: string;
-  description: string;
-}
-
 export interface NavItem {
   label: string;
   href: string;
@@ -13,39 +6,48 @@ export interface NavItem {
 export const navItems: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Companies", href: "/companies" },
+  { label: "Businesses", href: "/businesses" },
   { label: "Leadership", href: "/leadership" },
   { label: "Contact", href: "/contact" },
-];
-
-export const companies: Company[] = [
-  {
-    id: "shathi-textiles",
-    name: "SHATHI Textiles",
-    tagline: "Quality fabrics, globally sourced.",
-    description:
-      "A vertically integrated textile operation serving retail and industrial clients.",
-  },
-  {
-    id: "shathi-logistics",
-    name: "SHATHI Logistics",
-    tagline: "Moving business forward.",
-    description:
-      "End-to-end freight, warehousing, and supply-chain solutions across the region.",
-  },
-  {
-    id: "shathi-properties",
-    name: "SHATHI Properties",
-    tagline: "Spaces that work.",
-    description:
-      "Commercial and residential developments designed for long-term value.",
-  },
 ];
 
 export const siteConfig = {
   name: "SHATHI Group of Companies",
   shortName: "SHATHI Group",
-  email: "info@shathigroup.example",
-  phone: "+1 (000) 000-0000",
-  address: "Corporate Headquarters",
+  domain: "shathigroup.com",
+  url: "https://shathigroup.com",
+  description:
+    "SHATHI Group of Companies is a diversified portfolio of trusted businesses spanning lifestyle apparel, luxury timepieces, premium tiles, and designer sanitaryware — united by integrity, craftsmanship, and long-term value.",
+  keywords: [
+    "SHATHI Group",
+    "SHATHI Group of Companies",
+    "lifestyle apparel",
+    "timepieces",
+    "watches",
+    "tiles",
+    "ceramic tiles",
+    "porcelain tiles",
+    "sanitaryware",
+    "bath fixtures",
+    "home living",
+    "fashion",
+    "luxury",
+    "corporate conglomerate",
+    "conglomerate",
+    "India",
+    "trusted brands",
+  ],
+  ogImage: "/og-image.jpg",
+  language: "en",
+  locale: "en_IN",
+  email: "info@shathigroup.com",
+  phone: "+91 00000 00000",
+  address: "SHATHI Tower, Corporate Park, Main Business District, India",
+  social: {
+    linkedin: "https://linkedin.com",
+    facebook: "https://facebook.com",
+    instagram: "https://instagram.com",
+    twitter: "https://twitter.com",
+    youtube: "https://youtube.com",
+  },
 };

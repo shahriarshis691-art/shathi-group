@@ -1,5 +1,6 @@
 import { ArrowUpRight, Sparkles } from "lucide-react";
 import { companies, type CompanyCategory } from "@/data/companies";
+import { CompanyLogo } from "./CompanyLogo";
 
 const categoryBadge: Record<CompanyCategory, string> = {
   "Fashion & Apparel": "Apparel & Lifestyle",
@@ -64,15 +65,8 @@ export function BusinessGrid() {
                   >
                     {categoryBadge[company.category]}
                   </span>
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy-900 text-gold-400 shadow-corporate">
-                    <span className="text-sm font-semibold tracking-tight">
-                      {company.name
-                        .split(" ")
-                        .map((w) => w[0])
-                        .join("")
-                        .slice(0, 2)
-                        .toUpperCase()}
-                    </span>
+                  <span className="flex h-12 w-12 flex-none items-center justify-center rounded-xl">
+                    <CompanyLogo company={company} />
                   </span>
                 </div>
 

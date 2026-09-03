@@ -1,0 +1,22 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 120 120"
+  width="120"
+  height="120"
+  role="img"
+  aria-label="Shis Fashion"
+>
+  <circle cx="60" cy="60" r="56" fill="#0f2741" stroke="#dc2626" stroke-width="4" />
+  <text
+    x="60"
+    y="73"
+    font-family="Arial, Helvetica, system-ui, -apple-system, sans-serif"
+    font-size="56"
+    font-weight="800"
+    fill="#dc2626"
+    text-anchor="middle"
+    dominant-baseline="central"
+  >
+    SF
+  </text>
+</svg>

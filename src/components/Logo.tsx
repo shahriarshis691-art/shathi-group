@@ -1,16 +1,60 @@
-import { Building2 } from "lucide-react";
-import Link from "next/link";
+"use client";
 
-export function Logo({ className = "" }: { className?: string }) {
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Building2 } from "lucide-react";
+
+export type LogoVariant = "default" | "inverse";
+
+const textVariant: Record<LogoVariant, string> = {
+  default: "text-navy-800",
+  inverse: "text-white",
+};
+
+const accentVariant: Record<LogoVariant, string> = {
+  default: "text-gold-500",
+  inverse: "text-gold-400",
+};
+
+const fallbackVariant: Record<LogoVariant, string> = {
+  default: "text-gold-500",
+  inverse: "text-gold-400",
+};
+
+export interface LogoProps {
+  className?: string;
+  variant?: LogoVariant;
+  priority?: boolean;
+}
+
+export function Logo({ className, variant = "default", priority = false }: LogoProps) {
+  const [imgError, setImgError] = useState(false);
+
   return (
     <Link
       href="/"
-      className={`inline-flex items-center gap-2 text-navy-800 ${className}`}
+      className={`inline-flex items-center gap-2 ${textVariant[variant]} ${className ?? ""}`}
       aria-label="SHATHI Group home"
     >
-      <Building2 className="h-6 w-6 text-gold-500" aria-hidden />
+      {imgError ? (
+        <Building2
+          className={`h-6 w-6 ${fallbackVariant[variant]}`}
+          aria-hidden
+        />
+      ) : (
+        <Image
+          src="/logos/shathi-group.svg"
+          alt="SHATHI Group mark"
+          width={32}
+          height={32}
+          priority={priority}
+          onError={() => setImgError(true)}
+          className="h-8 w-8 object-contain"
+        />
+      )}
       <span className="text-lg font-semibold tracking-tight">
-        SHATHI<span className="text-gold-500"> Group</span>
+        SHATHI<span className={accentVariant[variant]}> Group</span>
       </span>
     </Link>
   );
