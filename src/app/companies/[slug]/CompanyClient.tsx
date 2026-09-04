@@ -1,10 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { ArrowLeft, ArrowUpRight, CheckCircle2, ExternalLink, Factory, Gauge, Gem, Shield, Sparkles, Wrench } from "lucide-react";
 import { type Company } from "@/data/companies";
 import { CompanyLogo } from "@/components/CompanyLogo";
-import { ContactModal } from "@/components/ContactModal";
+import { useInquiryButton } from "@/components/InquiryProvider";
 
 type Slug = Company["slug"];
 
@@ -168,16 +167,11 @@ interface CompanyClientProps {
 }
 
 export function CompanyClient({ company }: CompanyClientProps) {
-  const [inquiryOpen, setInquiryOpen] = useState(false);
+  const inquiryRef = useInquiryButton(company);
   const t = companyThemes[company.slug];
 
   return (
     <>
-      <ContactModal
-        company={inquiryOpen ? company : null}
-        onClose={() => setInquiryOpen(false)}
-      />
-
       {/* Back navigation */}
       <nav className={`border-b ${t.backNavClass}`} aria-label="Breadcrumb">
         <div className="container-corporate">
@@ -221,7 +215,8 @@ export function CompanyClient({ company }: CompanyClientProps) {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <button
-              onClick={() => setInquiryOpen(true)}
+              ref={inquiryRef}
+              type="button"
               className={`inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold shadow-corporate transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 ${t.ctaClass} ${t.ctaHover}`}
             >
               Direct Inquiry / Schedule Meeting
@@ -696,7 +691,8 @@ export function CompanyClient({ company }: CompanyClientProps) {
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <button
-              onClick={() => setInquiryOpen(true)}
+              ref={inquiryRef}
+              type="button"
               className={`inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold shadow-corporate transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 ${t.ctaClass} ${t.ctaHover}`}
             >
               Direct Inquiry / Schedule Meeting

@@ -10,6 +10,7 @@ export interface Company {
   slug: string;
   category: CompanyCategory;
   tagline: string;
+  subtitle?: string;
   description: string;
   features: string[];
   logoPlaceholder: string;
@@ -18,6 +19,7 @@ export interface Company {
   brandStory?: string;
   productVerticals?: string[];
   flagshipHighlights?: string[];
+  globalPresence?: string[];
 }
 
 function logoFor(slug: string) {
@@ -61,13 +63,22 @@ export const companies: Company[] = [
     name: "XeroXii",
     slug: "xeroxii",
     category: "Horology & Luxury Timepieces",
-    tagline: "Precision Craftsmanship & Modern Luxury",
+    tagline: "Haute Horology & Fine Jewellery Maison",
+    subtitle: "Luxury Watches & Fine Jewellery",
     description:
       "XeroXii is a modern luxury watchmaker where precision engineering meets minimalist design, protected by scratch-resistant sapphire crystal and built to age gracefully.",
     features: [
       "Precision Engineering",
       "Sapphire Crystal",
       "Minimalist Luxury",
+    ],
+    globalPresence: [
+      "Bangladesh",
+      "Japan",
+      "United Kingdom",
+      "United States",
+      "France",
+      "Germany",
     ],
     logoPlaceholder: logoFor("xeroxii"),
     websiteUrl: "https://xeroxiiwatches.example.com",

@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
+import { useInquiryButton } from "@/hooks/useInquiryButton";
 
 const navLinks = [
   { label: "About Us", href: "/about" },
@@ -14,6 +15,7 @@ const navLinks = [
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const inquiryRef = useInquiryButton();
 
   useEffect(() => {
     if (!open) return;
@@ -46,12 +48,13 @@ export function Navbar() {
         </ul>
 
         <div className="hidden md:block">
-          <Link
-            href="/contact"
+          <button
+            ref={inquiryRef}
+            type="button"
             className="inline-flex items-center rounded-full bg-navy-800 px-5 py-2 text-sm font-semibold text-white shadow-corporate transition hover:bg-navy-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
           >
             Get in Touch
-          </Link>
+          </button>
         </div>
 
         <button
@@ -90,13 +93,14 @@ export function Navbar() {
               </li>
             ))}
           </ul>
-          <Link
-            href="/contact"
+          <button
+            ref={inquiryRef}
+            type="button"
             onClick={() => setOpen(false)}
             className="mt-4 block w-full rounded-full bg-navy-800 px-5 py-3 text-center text-sm font-semibold text-white shadow-corporate transition hover:bg-navy-700"
           >
             Get in Touch
-          </Link>
+          </button>
         </div>
       </div>
     </header>

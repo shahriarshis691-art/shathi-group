@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { companies } from "@/data/companies";
 import { Logo } from "./Logo";
+import { useInquiryButton } from "@/hooks/useInquiryButton";
 
 const quickLinks = [
   { label: "About Us", href: "/about" },
@@ -30,6 +31,7 @@ const socialLinks = [
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const inquiryRef = useInquiryButton();
 
   return (
     <footer className="bg-navy-900 text-slate-200">
@@ -42,6 +44,14 @@ export function Footer() {
               spanning fashion, luxury, building materials, and home living —
               united by integrity, craftsmanship, and long-term value.
             </p>
+
+            <button
+              ref={inquiryRef}
+              type="button"
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-gold-500 px-5 py-2.5 text-sm font-semibold text-navy-900 shadow-corporate transition hover:bg-gold-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              Corporate Inquiry
+            </button>
 
             <div className="mt-6 flex items-center gap-3">
               {socialLinks.map(({ label, href, icon: Icon }) => (

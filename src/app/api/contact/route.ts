@@ -3,8 +3,11 @@ import { NextResponse } from "next/server";
 export interface ContactPayload {
   name: string;
   email: string;
-  concern: string;
+  phone?: string;
+  companyName: string;
   message: string;
+  inquiryType: string;
+  concern: string;
 }
 
 export interface ContactErrorResponse {
@@ -39,8 +42,11 @@ function validate(body: unknown): ValidationResult {
 
   const name = typeof b.name === "string" ? b.name.trim() : "";
   const email = typeof b.email === "string" ? b.email.trim() : "";
-  const concern = typeof b.concern === "string" ? b.concern.trim() : "";
+  const phone = typeof b.phone === "string" ? b.phone.trim() : "";
+  const companyName = typeof b.companyName === "string" ? b.companyName.trim() : "";
   const message = typeof b.message === "string" ? b.message.trim() : "";
+  const inquiryType = typeof b.inquiryType === "string" ? b.inquiryType.trim() : "";
+  const concern = typeof b.concern === "string" ? b.concern.trim() : "";
 
   if (!name) {
     errors.name = "Full name is required.";
@@ -51,13 +57,13 @@ function validate(body: unknown): ValidationResult {
   }
 
   if (!email) {
-    errors.email = "Email address is required.";
+    errors.email = "Corporate email is required.";
   } else if (!EMAIL_RE.test(email)) {
     errors.email = "Please enter a valid email address.";
   }
 
-  if (!concern) {
-    errors.concern = "Please select a subsidiary or service.";
+  if (!companyName) {
+    errors.companyName = "Company name is required.";
   }
 
   if (!message) {
@@ -76,7 +82,89 @@ function validate(body: unknown): ValidationResult {
     };
   }
 
-  return { ok: true, data: { name, email, concern, message } };
+  return {
+    ok: true,
+    data: { name, email, phone, companyName, message, inquiryType, concern },
+  };
+}
+
+async function sendEmail(data: ContactPayload) {
+  const provider = process.env.EMAIL_PROVIDER;
+
+  if (provider === "resend") {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      throw new Error("RESEND_API_KEY is not configured");
+    }
+
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        from: process.env.EMAIL_FROM ?? "SHATHI Group <noreply@shathigroup.com>",
+        to: process.env.EMAIL_TO ?? "info@shathigroup.com",
+        replyTo: data.email,
+        subject: `New B2B Inquiry: ${data.inquiryType} — ${data.companyName}`,
+        html: `
+          <h1>New Corporate Inquiry</h1>
+          <p><strong>Name:</strong> ${escapeHtml(data.name)}</p>
+          <p><strong>Email:</strong> ${escapeHtml(data.email)}</p>
+          ${data.phone ? `<p><strong>Phone:</strong> ${escapeHtml(data.phone)}</p>` : ""}
+          <p><strong>Company:</strong> ${escapeHtml(data.companyName)}</p>
+          <p><strong>Inquiry Type:</strong> ${escapeHtml(data.inquiryType)}</p>
+          <p><strong>Subsidiary:</strong> ${escapeHtml(data.concern)}</p>
+          <hr />
+          <p><strong>Message:</strong></p>
+          <p>${escapeHtml(data.message)}</p>
+        `,
+      }),
+    });
+
+    if (!res.ok) {
+      const text = await res.text();
+      throw new Error(`Resend error ${res.status}: ${text}`);
+    }
+  } else if (provider === "nodemailer") {
+    // Optional: install `npm install nodemailer @types/nodemailer` and configure SMTP env vars.
+    // const nodemailer = await import("nodemailer");
+    // const transporter = nodemailer.createTransport({
+    //   host: process.env.SMTP_HOST,
+    //   port: Number(process.env.SMTP_PORT ?? "587"),
+    //   secure: process.env.SMTP_SECURE === "true",
+    //   auth: {
+    //     user: process.env.SMTP_USER,
+    //     pass: process.env.SMTP_PASS,
+    //   },
+    // });
+    // await transporter.sendMail({
+    //   from: process.env.EMAIL_FROM ?? "SHATHI Group <noreply@shathigroup.com>",
+    //   to: process.env.EMAIL_TO ?? "info@shathigroup.com",
+    //   replyTo: data.email,
+    //   subject: `New B2B Inquiry: ${data.inquiryType} — ${data.companyName}`,
+    //   text: `...`,
+    // });
+    throw new Error("nodemailer provider selected but package is not installed");
+  } else {
+    console.info("[contact] mock email delivery", {
+      concern: data.concern,
+      inquiryType: data.inquiryType,
+      companyName: data.companyName,
+      name: data.name,
+      email: data.email,
+    });
+  }
+}
+
+function escapeHtml(str: string) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
 
 export async function POST(request: Request) {
@@ -95,6 +183,10 @@ export async function POST(request: Request) {
     const result = validate(body);
 
     if (!result.ok) {
+      console.warn("[contact] validation failed", {
+        errors: result.errors,
+        ip: request.headers.get("x-forwarded-for") ?? "unknown",
+      });
       const response: ContactErrorResponse = {
         success: false,
         message: result.message,
@@ -104,18 +196,21 @@ export async function POST(request: Request) {
     }
 
     const data = result.data;
+    const submissionId = crypto.randomUUID();
 
-    // In production, deliver the email here (e.g. Resend / SMTP / SendGrid).
-    // A delivery failure MUST resolve to 500 so the client can surface it.
+    console.info("[contact] inquiry received", {
+      id: submissionId,
+      concern: data.concern,
+      inquiryType: data.inquiryType,
+      companyName: data.companyName,
+      name: data.name,
+      email: data.email,
+      ip: request.headers.get("x-forwarded-for") ?? "unknown",
+      userAgent: request.headers.get("user-agent") ?? "unknown",
+    });
+
     try {
-      // await sendContactEmail(data);
-      const submissionId = crypto.randomUUID();
-      console.info("[contact] submission queued", {
-        id: submissionId,
-        name: data.name,
-        email: data.email,
-        concern: data.concern,
-      });
+      await sendEmail(data);
     } catch (mailErr) {
       console.error("[/api/contact] email delivery failed", mailErr);
       const response: ContactErrorResponse = {
@@ -128,8 +223,8 @@ export async function POST(request: Request) {
 
     const response: ContactSuccessResponse = {
       success: true,
-      message:
-        "Your message has been sent. We will be in touch within one business day.",
+      message: "Inquiry received. Our team will reach out within one business day.",
+      submissionId,
     };
     return NextResponse.json(response, { status: 200 });
   } catch (err) {
@@ -137,7 +232,7 @@ export async function POST(request: Request) {
     const response: ContactErrorResponse = {
       success: false,
       message:
-        "Something went wrong while submitting your message. Please try again later.",
+        "Something went wrong while submitting your inquiry. Please try again later.",
     };
     return NextResponse.json(response, { status: 500 });
   }
