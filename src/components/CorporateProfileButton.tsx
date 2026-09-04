@@ -37,7 +37,7 @@ export function CorporateProfileButton() {
   }
 
   const baseButton =
-    "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] shadow-corporate transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 disabled:cursor-not-allowed disabled:opacity-70";
+    "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] shadow-corporate transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400 disabled:cursor-not-allowed disabled:opacity-70";
 
   return (
     <div className="flex flex-col items-start gap-2">
@@ -45,12 +45,12 @@ export function CorporateProfileButton() {
         type="button"
         onClick={handleDownload}
         disabled={state === "checking"}
-        className={`${baseButton} bg-gold-500 text-navy-900 hover:bg-gold-400`}
+        className={`${baseButton} bg-neutral-900 text-white hover:bg-neutral-800`}
       >
         {state === "checking" ? (
           <>
             <span
-              className="h-4 w-4 animate-spin rounded-full border-2 border-navy-900 border-t-transparent"
+              className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"
               aria-hidden="true"
             />
             Checking for profile…
@@ -64,11 +64,11 @@ export function CorporateProfileButton() {
       </button>
 
       {state === "missing" ? (
-        <p className="max-w-md font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-600">
+        <p className="max-w-md font-sans text-sm md:text-[15px] font-normal leading-relaxed text-neutral-600">
           The corporate profile PDF is being updated.{" "}
           <a
             href={`mailto:${siteConfig.email}?subject=Corporate Profile Request`}
-            className="font-medium text-navy-800 underline decoration-gold-500 underline-offset-2 decoration-2 hover:text-gold-700"
+            className="font-medium text-neutral-800 underline decoration-neutral-500 underline-offset-2 decoration-2 hover:text-neutral-900"
           >
             Request it via email
           </a>

@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a;
+  --background: #EEF0F2;
+  --foreground: #171717;
 }
 
 html {
@@ -15,7 +15,6 @@ html {
 html,
 body {
   color: var(--foreground);
-  background: var(--background);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -35,16 +34,16 @@ body {
     @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
   }
   .display-serif {
-    @apply font-serif uppercase tracking-[0.12em] font-bold text-slate-900;
+    @apply font-serif uppercase tracking-[0.12em] font-bold text-neutral-900;
   }
   .card-title-serif {
-    @apply font-serif text-2xl md:text-3xl font-bold tracking-[0.14em] uppercase text-slate-900;
+    @apply font-serif text-2xl md:text-3xl font-bold tracking-[0.14em] uppercase text-neutral-900;
   }
   .eyebrow-sans {
-    @apply font-sans text-[11px] md:text-xs font-semibold tracking-[0.2em] uppercase text-slate-500;
+    @apply font-sans text-[11px] md:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-500;
   }
   .body-sans {
-    @apply font-sans text-sm md:text-[15px] font-normal text-slate-600 leading-relaxed;
+    @apply font-sans text-sm md:text-[15px] font-normal text-neutral-600 leading-relaxed;
   }
   .badge-sans {
     @apply font-sans text-[10px] md:text-[11px] font-semibold tracking-[0.16em] uppercase;

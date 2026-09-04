@@ -56,10 +56,10 @@ function validate(values: FormState): FormErrors {
 }
 
 const inputBase =
-  "block w-full rounded-lg border bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 shadow-sm transition focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-offset-white";
+  "block w-full rounded-lg border bg-white px-4 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 shadow-sm transition focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-offset-white";
 
 const inputIdle =
-  "border-slate-300 hover:border-slate-400 focus:border-gold-500 focus:ring-gold-500/40";
+  "border-slate-300 hover:border-slate-400 focus:border-neutral-500 focus:ring-neutral-500/40";
 const inputError =
   "border-rose-400 focus:border-rose-500 focus:ring-rose-500/30";
 
@@ -133,20 +133,20 @@ export function ContactSection() {
     <section
       aria-labelledby="contact-heading"
       id="contact"
-      className="bg-slate-50 py-20 sm:py-24"
+      className="bg-transparent py-20 sm:py-24"
     >
       <div className="container-corporate">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="inline-flex items-center gap-2 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">
+          <p className="inline-flex items-center gap-2 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
             Get in Touch
           </p>
           <h2
             id="contact-heading"
-            className="mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] text-slate-900 sm:text-4xl text-balance"
+            className="mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] text-neutral-900 sm:text-4xl text-balance"
           >
             Let&apos;s start a conversation.
           </h2>
-          <p className="mt-4 font-sans text-sm md:text-[15px] font-normal text-slate-600 leading-relaxed text-balance">
+          <p className="mt-4 font-sans text-sm md:text-[15px] font-normal text-neutral-600 leading-relaxed text-balance">
             Reach out for partnerships, media inquiries, or to learn more about
             any of our businesses. We typically respond within one business day.
           </p>
@@ -154,24 +154,24 @@ export function ContactSection() {
 
         <div className="mt-14 grid gap-8 lg:grid-cols-5">
           <aside className="lg:col-span-2">
-            <div className="rounded-2xl bg-navy-900 p-7 text-white shadow-corporate-lg sm:p-8">
+            <div className="rounded-2xl bg-[#F1F3F5] p-7 text-neutral-900 shadow-corporate-lg sm:p-8 border border-slate-300/80">
               <h3 className="font-serif text-xl font-bold uppercase tracking-[0.14em]">
                 Corporate Office
               </h3>
-              <p className="mt-2 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-300">
+              <p className="mt-2 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-neutral-600">
                 Visit, call, or write to us — our team is here to help.
               </p>
 
               <ul role="list" className="mt-8 space-y-6">
                 <li className="flex items-start gap-4">
-                  <span className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-white/10 text-gold-300">
+                  <span className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-slate-200 text-neutral-600">
                     <MapPin className="h-5 w-5" aria-hidden />
                   </span>
                   <div>
-                    <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-300">
+                    <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
                       Address
                     </p>
-                     <p className="mt-1 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-200">
+                     <p className="mt-1 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-neutral-600">
                       SHATHI Tower, Corporate Park,
                       <br />
                       Main Business District,
@@ -182,16 +182,16 @@ export function ContactSection() {
                 </li>
 
                 <li className="flex items-start gap-4">
-                  <span className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-white/10 text-gold-300">
+                  <span className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-slate-200 text-neutral-600">
                     <Mail className="h-5 w-5" aria-hidden />
                   </span>
                   <div>
-                     <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-300">
+                     <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
                        Email
                      </p>
-                     <a
-                       href="mailto:info@shathigroup.com"
-                       className="mt-1 block font-sans text-sm md:text-[15px] font-normal text-slate-200 transition hover:text-white"
+                      <a
+                        href="mailto:info@shathigroup.com"
+                        className="mt-1 block font-sans text-sm md:text-[15px] font-normal text-neutral-600 transition hover:text-neutral-900"
                      >
                       info@shathigroup.com
                     </a>
@@ -199,16 +199,16 @@ export function ContactSection() {
                 </li>
 
                 <li className="flex items-start gap-4">
-                  <span className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-white/10 text-gold-300">
+                  <span className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-slate-200 text-neutral-600">
                     <Phone className="h-5 w-5" aria-hidden />
                   </span>
                   <div>
-                     <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-300">
+                     <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
                        Phone
                      </p>
-                     <a
-                       href="tel:+910000000000"
-                       className="mt-1 block font-sans text-sm md:text-[15px] font-normal text-slate-200 transition hover:text-white"
+                      <a
+                        href="tel:+910000000000"
+                        className="mt-1 block font-sans text-sm md:text-[15px] font-normal text-neutral-600 transition hover:text-neutral-900"
                      >
                       +91 00000 00000
                     </a>
@@ -216,14 +216,14 @@ export function ContactSection() {
                 </li>
 
                 <li className="flex items-start gap-4">
-                  <span className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-white/10 text-gold-300">
+                  <span className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-slate-200 text-neutral-600">
                     <Clock className="h-5 w-5" aria-hidden />
                   </span>
                   <div>
-                    <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-300">
+                    <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
                       Working Hours
                     </p>
-                     <p className="mt-1 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-200">
+                     <p className="mt-1 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-neutral-600">
                       Mon – Fri: 9:00 AM – 6:00 PM
                       <br />
                       Sat: 10:00 AM – 2:00 PM
@@ -240,14 +240,14 @@ export function ContactSection() {
             <form
               noValidate
               onSubmit={handleSubmit}
-              className="rounded-2xl border border-slate-200/80 bg-white p-7 shadow-corporate sm:p-8"
+              className="rounded-2xl border border-slate-300/80 bg-white/70 backdrop-blur-sm p-7 shadow-corporate sm:p-8"
               aria-label="Contact form"
             >
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
                   <label
                     htmlFor="contact-name"
-                    className="mb-1.5 block font-sans text-sm font-medium text-slate-800"
+                    className="mb-1.5 block font-sans text-sm font-medium text-neutral-800"
                   >
                     Full Name
                   </label>
@@ -276,7 +276,7 @@ export function ContactSection() {
                 <div>
                   <label
                     htmlFor="contact-email"
-                    className="mb-1.5 block font-sans text-sm font-medium text-slate-800"
+                    className="mb-1.5 block font-sans text-sm font-medium text-neutral-800"
                   >
                     Email Address
                   </label>
@@ -305,7 +305,7 @@ export function ContactSection() {
                 <div className="sm:col-span-2">
                   <label
                     htmlFor="contact-concern"
-                    className="mb-1.5 block font-sans text-sm font-medium text-slate-800"
+                    className="mb-1.5 block font-sans text-sm font-medium text-neutral-800"
                   >
                     Select Concern
                   </label>
@@ -319,7 +319,7 @@ export function ContactSection() {
                       errors.concern ? "concern-error" : undefined
                     }
                     className={`${inputBase} ${errors.concern ? inputError : inputIdle} ${
-                      values.concern === "" ? "text-slate-400" : "text-slate-900"
+                      values.concern === "" ? "text-neutral-400" : "text-neutral-900"
                     }`}
                   >
                     <option value="" disabled>
@@ -345,7 +345,7 @@ export function ContactSection() {
                 <div className="sm:col-span-2">
                   <label
                     htmlFor="contact-message"
-                    className="mb-1.5 block font-sans text-sm font-medium text-slate-800"
+                    className="mb-1.5 block font-sans text-sm font-medium text-neutral-800"
                   >
                     Message
                   </label>
@@ -384,7 +384,7 @@ export function ContactSection() {
                       Thanks — your message has been received.
                     </p>
                   ) : (
-                    <p className="text-xs text-slate-500">
+                    <p className="text-xs text-neutral-500">
                       By submitting, you agree to our privacy policy.
                     </p>
                   )}
@@ -398,7 +398,7 @@ export function ContactSection() {
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-navy-800 px-6 py-3 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-white shadow-corporate transition hover:bg-navy-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-neutral-900 px-6 py-3 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-white shadow-corporate transition hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400 disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {status === "submitting" ? (
                     <>

@@ -27,7 +27,7 @@ export function Navbar() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/60 bg-white/70 backdrop-blur-md supports-[backdrop-filter]:bg-white/60">
+    <header className="sticky top-0 z-50 border-b border-slate-300/60 bg-[#EEF0F2]/80 backdrop-blur-md supports-[backdrop-filter]:bg-[#EEF0F2]/60">
       <nav
         className="container-corporate flex h-16 items-center justify-between"
         aria-label="Primary"
@@ -39,7 +39,7 @@ export function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="rounded-md px-3 py-2 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-slate-700 transition hover:bg-slate-100 hover:text-navy-800"
+                className="rounded-md px-3 py-2 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-neutral-700 transition hover:bg-slate-100 hover:text-neutral-900"
               >
                 {link.label}
               </Link>
@@ -51,7 +51,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={openInquiry}
-            className="inline-flex items-center rounded-full bg-navy-800 px-5 py-2 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-white shadow-corporate transition hover:bg-navy-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
+            className="inline-flex items-center rounded-full bg-neutral-900 px-5 py-2 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-white shadow-corporate transition hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400"
           >
             Get in Touch
           </button>
@@ -75,9 +75,9 @@ export function Navbar() {
 
       <div
         id="mobile-menu"
-        className={`md:hidden ${
+        className={        `md:hidden ${
           open ? "block" : "hidden"
-        } border-t border-slate-200/60 bg-white/95 backdrop-blur-md`}
+        } border-t border-slate-300/60 bg-[#EEF0F2]/95 backdrop-blur-md`}
       >
         <div className="container-corporate py-4">
           <ul className="flex flex-col gap-1">
@@ -86,7 +86,7 @@ export function Navbar() {
               <Link
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="block rounded-md px-3 py-3 font-sans text-sm font-medium uppercase tracking-[0.14em] text-slate-800 transition hover:bg-slate-100 hover:text-navy-800"
+                className="block rounded-md px-3 py-3 font-sans text-sm font-medium uppercase tracking-[0.14em] text-neutral-800 transition hover:bg-slate-100 hover:text-neutral-900"
               >
                 {link.label}
               </Link>
@@ -99,7 +99,7 @@ export function Navbar() {
               openInquiry();
               setOpen(false);
             }}
-            className="mt-4 block w-full rounded-full bg-navy-800 px-5 py-3 text-center font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-white shadow-corporate transition hover:bg-navy-700"
+            className="mt-4 block w-full rounded-full bg-neutral-900 px-5 py-3 text-center font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-white shadow-corporate transition hover:bg-neutral-800"
           >
             Get in Touch
           </button>

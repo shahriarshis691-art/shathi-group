@@ -7,7 +7,7 @@ import { ContactSection } from "@/components/ContactSection";
 
 export default function Home() {
   return (
-    <main>
+    <main className="bg-transparent">
       <HeroSection />
       <StatsSection />
       <AboutSection />

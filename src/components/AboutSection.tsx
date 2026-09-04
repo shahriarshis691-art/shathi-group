@@ -27,26 +27,18 @@ export function AboutSection() {
   return (
     <section
       aria-labelledby="about-heading"
-      className="relative overflow-hidden bg-white py-20 sm:py-24"
+      className="relative overflow-hidden bg-transparent py-20 sm:py-24"
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-32 right-0 h-72 w-72 rounded-full bg-gold-100/60 blur-3xl"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-32 left-0 h-72 w-72 rounded-full bg-navy-100/60 blur-3xl"
-      />
 
       <div className="container-corporate relative">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="inline-flex items-center gap-2 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">
+          <p className="inline-flex items-center gap-2 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
             <Sparkles className="h-4 w-4" aria-hidden />
             About SHATHI Group
           </p>
           <h2
             id="about-heading"
-            className="mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] text-slate-900 sm:text-4xl lg:text-5xl text-balance"
+            className="mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] text-neutral-900 sm:text-4xl lg:text-5xl text-balance"
           >
             A diversified group built on trust.
           </h2>
@@ -63,11 +55,11 @@ export function AboutSection() {
         >
           {pillars.map(({ icon: Icon, title, body }) => (
             <li key={title}>
-              <article className="group h-full rounded-2xl border border-slate-200/80 bg-white p-7 shadow-corporate transition-all duration-300 hover:-translate-y-0.5 hover:border-gold-300/70 hover:shadow-corporate-lg">
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-navy-900 text-gold-400 shadow-corporate transition-colors group-hover:bg-navy-800">
+              <article className="group h-full rounded-2xl border border-slate-300/80 bg-white p-7 shadow-corporate transition-all duration-300 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-corporate-lg">
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-neutral-900 text-white shadow-corporate transition-colors group-hover:bg-neutral-800">
                   <Icon className="h-5 w-5" aria-hidden />
                 </span>
-                <h3 className="mt-5 font-serif text-xl font-bold uppercase tracking-[0.14em] text-slate-900">
+                <h3 className="mt-5 font-serif text-xl font-bold uppercase tracking-[0.14em] text-neutral-900">
                   {title}
                 </h3>
                 <p className="mt-3 font-sans text-sm md:text-[15px] font-normal text-slate-600 leading-relaxed">

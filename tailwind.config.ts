@@ -70,12 +70,8 @@ const config: Config = {
         display: ["var(--font-display)", "system-ui", "sans-serif"],
       },
       boxShadow: {
-        corporate: "0 4px 20px -2px rgba(15, 39, 65, 0.15)",
-        "corporate-lg": "0 12px 40px -8px rgba(15, 39, 65, 0.25)",
-      },
-      backgroundImage: {
-        "corporate-gradient":
-          "linear-gradient(135deg, #0a1c2e 0%, #173862 50%, #1f4880 100%)",
+        corporate: "0 4px 20px -2px rgba(0, 0, 0, 0.08)",
+        "corporate-lg": "0 12px 40px -8px rgba(0, 0, 0, 0.12)",
       },
     },
   },

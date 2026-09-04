@@ -81,7 +81,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${jakarta.variable} ${display.variable}`}>
-      <body className="flex min-h-screen flex-col bg-white font-sans text-slate-900 antialiased">
+      <body className="flex min-h-screen flex-col bg-gradient-to-b from-[#EEF0F2] via-[#E6E8EA] to-[#DCE0E4] text-neutral-900 antialiased font-sans">
         <Navbar />
         <div className="flex-1">{children}</div>
         <Footer />

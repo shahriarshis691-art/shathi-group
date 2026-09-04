@@ -8,17 +8,17 @@ export function BusinessGrid() {
     <section
       aria-labelledby="businesses-heading"
       id="businesses"
-      className="bg-white py-20 sm:py-28"
+      className="bg-transparent py-20 sm:py-28"
     >
       <div className="container-corporate">
         <div className="max-w-3xl">
-          <p className="inline-flex items-center gap-2 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">
+          <p className="inline-flex items-center gap-2 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
             <Sparkles className="h-4 w-4" aria-hidden="true" />
             Our Portfolio
           </p>
           <h2
             id="businesses-heading"
-            className="mt-4 font-serif text-3xl font-bold uppercase tracking-[0.12em] text-slate-900 sm:text-4xl lg:text-5xl"
+            className="mt-4 font-serif text-3xl font-bold uppercase tracking-[0.12em] text-neutral-900 sm:text-4xl lg:text-5xl"
           >
             Distinct businesses, one exacting standard.
           </h2>
@@ -48,7 +48,7 @@ function SubsidiaryCard({ company }: { company: Company }) {
     <Link
       href={`/companies/${company.slug}`}
       aria-label={`Explore ${company.name}`}
-      className="group relative flex aspect-[4/5] min-h-[460px] flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-500 sm:p-8"
+      className="group relative flex aspect-[4/5] min-h-[460px] flex-col overflow-hidden rounded-2xl border border-slate-300/80 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-400 sm:p-8"
     >
       <span className="relative mb-6 block h-48 w-full overflow-hidden rounded-xl bg-slate-100">
         {company.slug === "cortex-softsolutions" ? (
@@ -74,21 +74,21 @@ function SubsidiaryCard({ company }: { company: Company }) {
 
       <span className="flex flex-1 flex-col">
         <span className="flex items-start justify-between gap-6">
-          <span className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+          <span className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
             {company.category}
           </span>
           <ArrowUpRight
-            className="h-5 w-5 flex-none text-slate-400 transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-slate-900"
+            className="h-5 w-5 flex-none text-neutral-400 transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-neutral-900"
             aria-hidden="true"
           />
         </span>
 
-        <h3 className="my-auto font-serif text-2xl font-bold uppercase tracking-[0.14em] text-slate-900 md:text-3xl">
+        <h3 className="my-auto font-serif text-2xl font-bold uppercase tracking-[0.14em] text-neutral-900 md:text-3xl">
           {company.name}
         </h3>
 
-        <span className="mt-4 border-t border-slate-200/80 pt-4">
-          <span className="block font-sans text-sm md:text-[15px] font-normal text-slate-600 line-clamp-3 leading-relaxed">
+        <span className="mt-4 border-t border-slate-300/80 pt-4">
+          <span className="block font-sans text-sm md:text-[15px] font-normal text-neutral-600 line-clamp-3 leading-relaxed">
             {company.description}
           </span>
         </span>

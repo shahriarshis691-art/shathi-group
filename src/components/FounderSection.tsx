@@ -16,16 +16,16 @@ export function FounderSection() {
     <section
       aria-labelledby="founder-heading"
       id="founder"
-      className="bg-white py-20 sm:py-28"
+      className="bg-transparent py-20 sm:py-28"
     >
       <div className="container-corporate">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-[11px] font-sans font-semibold tracking-[0.25em] uppercase text-amber-700/80 dark:text-amber-500 mb-2">
+          <p className="text-[11px] font-sans font-semibold tracking-[0.25em] uppercase text-neutral-500 mb-2">
             Leadership &amp; Vision
           </p>
           <h2
             id="founder-heading"
-            className="text-3xl md:text-5xl font-serif font-bold tracking-[0.12em] uppercase text-slate-900 leading-tight"
+            className="text-3xl md:text-5xl font-serif font-bold tracking-[0.12em] uppercase text-neutral-900 leading-tight"
           >
             Founder &amp; Executive Leadership
           </h2>
@@ -38,10 +38,10 @@ export function FounderSection() {
           </p>
         </div>
 
-        <article className="mt-12 mx-auto max-w-5xl rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm sm:p-8 md:p-10">
+          <article className="mt-12 mx-auto max-w-5xl rounded-2xl border border-slate-300/80 bg-white p-6 shadow-sm sm:p-8 md:p-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-5">
-              <div className="relative w-full max-w-sm md:max-w-md aspect-[3/4] overflow-hidden rounded-2xl border border-slate-200 shadow-md mx-auto">
+                <div className="relative w-full max-w-sm md:max-w-md aspect-[3/4] overflow-hidden rounded-2xl border border-slate-300 shadow-md mx-auto">
                 <Image
                   src="/founder-image/founder.png"
                   alt="S M SHAHRIAR WALID - Founder & CEO"
@@ -55,7 +55,7 @@ export function FounderSection() {
 
             <div className="flex flex-col lg:col-span-7">
               <header className="flex items-center justify-between gap-4">
-                <span className="inline-flex items-center px-3 py-1 bg-amber-50 border border-amber-200/60 text-amber-800 text-[10px] font-bold tracking-widest">
+                <span className="inline-flex items-center px-3 py-1 bg-slate-100 border border-slate-300 text-neutral-700 text-[10px] font-bold tracking-widest">
                   01
                 </span>
                 <span className="text-[11px] font-sans font-semibold tracking-[0.2em] uppercase text-slate-500">
@@ -63,7 +63,7 @@ export function FounderSection() {
                 </span>
               </header>
 
-              <h3 className="font-serif text-3xl md:text-4xl font-bold tracking-[0.1em] uppercase text-slate-900 mt-4 mb-1">
+              <h3 className="font-serif text-3xl md:text-4xl font-bold tracking-[0.1em] uppercase text-neutral-900 mt-4 mb-1">
                 S M Shahriar Walid
               </h3>
               <p className="font-sans text-xs md:text-sm font-semibold tracking-[0.18em] uppercase text-slate-500 mb-6">
@@ -91,7 +91,7 @@ export function FounderSection() {
               >
                 {pillars.map((pillar) => (
                   <li key={pillar}>
-                    <span className="inline-block text-[10px] font-semibold tracking-[0.14em] uppercase border border-slate-200 px-3 py-1.5 bg-slate-50 text-slate-700">
+                    <span className="inline-block text-[10px] font-semibold tracking-[0.14em] uppercase border border-slate-300 px-3 py-1.5 bg-[#F1F3F5] text-neutral-700">
                       {pillar}
                     </span>
                   </li>
@@ -111,7 +111,7 @@ export function FounderSection() {
                       category: "Strategic Partnership",
                     })
                   }
-                  className="group inline-flex items-center gap-2 text-[11px] font-sans font-semibold tracking-[0.2em] uppercase text-slate-900 transition hover:text-amber-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500"
+                  className="group inline-flex items-center gap-2 text-[11px] font-sans font-semibold tracking-[0.2em] uppercase text-neutral-900 transition hover:text-neutral-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-400"
                 >
                   Connect Directly
                   <ArrowUpRight
