@@ -9,6 +9,7 @@ import {
   Send,
 } from "lucide-react";
 import { companies } from "@/data/companies";
+import { SlideIn } from "@/components/ui/ScrollReveal";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -136,7 +137,8 @@ export function ContactSection() {
     >
       <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          <aside className="lg:col-span-4">
+          <SlideIn direction="left" className="lg:col-span-4">
+            <aside>
             <div className="border border-slate-200 bg-white p-8 md:p-10 rounded-none shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
               <p className="text-[10px] font-mono tracking-[0.25em] text-neutral-400 uppercase mb-2 block">
                 Communication Desk
@@ -197,9 +199,10 @@ export function ContactSection() {
                 </div>
               </div>
             </div>
-          </aside>
+            </aside>
+          </SlideIn>
 
-          <div className="lg:col-span-8">
+          <SlideIn direction="right" delay={0.12} className="lg:col-span-8">
             <form
               noValidate
               onSubmit={handleSubmit}
@@ -380,7 +383,7 @@ export function ContactSection() {
                 </button>
               </div>
             </form>
-          </div>
+          </SlideIn>
         </div>
       </div>
     </section>

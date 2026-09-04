@@ -7,7 +7,7 @@ import { ContactSection } from "@/components/ContactSection";
 
 export default function Home() {
   return (
-    <main className="bg-transparent">
+    <main className="overflow-x-hidden bg-transparent">
       <HeroSection />
       <StatsSection />
       <AboutSection />

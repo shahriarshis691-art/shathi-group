@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { openInquiry } from "@/components/InquiryProvider";
+import { SlideIn } from "@/components/ui/ScrollReveal";
 
 export function FounderSection() {
   return (
@@ -13,7 +14,7 @@ export function FounderSection() {
     >
       <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          <div className="lg:col-span-5">
+          <SlideIn direction="left" className="lg:col-span-5">
             <div className="relative mx-auto lg:mx-0 w-full max-w-[420px] aspect-[4/5]">
               <div className="absolute -bottom-4 -right-4 w-full h-full border border-neutral-300 pointer-events-none" aria-hidden="true" />
               <div className="relative w-full h-full overflow-hidden bg-neutral-200 shadow-md">
@@ -27,9 +28,9 @@ export function FounderSection() {
                 />
               </div>
             </div>
-          </div>
+          </SlideIn>
 
-          <div className="lg:col-span-7">
+          <SlideIn direction="right" delay={0.12} className="lg:col-span-7">
             <div className="flex items-center gap-3 text-[11px] font-mono tracking-[0.25em] text-neutral-500 uppercase mb-4">
               <span className="w-6 h-[1px] bg-neutral-400" aria-hidden="true" />
               Meet the Founder &amp; CEO
@@ -101,7 +102,7 @@ export function FounderSection() {
                 <ArrowUpRight className="h-4 w-4" aria-hidden />
               </button>
             </div>
-          </div>
+          </SlideIn>
         </div>
       </div>
     </section>

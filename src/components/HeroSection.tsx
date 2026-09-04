@@ -3,6 +3,7 @@
 import { ArrowRight, Building2, Sparkles } from "lucide-react";
 import { CorporateProfileButton } from "./CorporateProfileButton";
 import Image from "next/image";
+import { SlideIn } from "@/components/ui/ScrollReveal";
 
 export function HeroSection() {
   return (
@@ -17,7 +18,7 @@ export function HeroSection() {
 
       <div className="container-corporate relative">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 items-center">
-          <div className="lg:col-span-6">
+          <SlideIn direction="left" className="lg:col-span-6">
             <div className="flex items-center gap-3 text-slate-300">
               <Building2 className="h-8 w-8" aria-hidden />
               <span className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em]">
@@ -57,9 +58,9 @@ export function HeroSection() {
             <div className="mt-10">
               <CorporateProfileButton />
             </div>
-          </div>
+          </SlideIn>
 
-          <div className="lg:col-span-6">
+          <SlideIn direction="right" delay={0.1} className="lg:col-span-6">
             <div className="relative mx-auto max-w-lg lg:max-w-none">
               <div className="absolute -inset-4 -z-10 rounded-[3rem] bg-white/5 blur-2xl" aria-hidden="true" />
               <div className="relative overflow-hidden rounded-[2.5rem] border border-white/20 bg-slate-800 shadow-2xl aspect-[4/3] md:aspect-[5/4]">
@@ -74,7 +75,7 @@ export function HeroSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent" aria-hidden="true" />
               </div>
             </div>
-          </div>
+          </SlideIn>
         </div>
       </div>
     </section>

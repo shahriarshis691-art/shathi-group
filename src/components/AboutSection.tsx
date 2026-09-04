@@ -1,4 +1,5 @@
 import { Compass, Eye, ShieldCheck, Target } from "lucide-react";
+import { SlideIn, type SlideDirection } from "@/components/ui/ScrollReveal";
 
 const pillars = [
   {
@@ -30,20 +31,24 @@ export function AboutSection() {
       className="bg-white py-20 sm:py-24"
     >
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto px-6">
-        {pillars.map(({ icon: Icon, title, body }) => (
-          <article
-            key={title}
-            className="flex flex-col rounded-sm border border-slate-200/80 bg-[#F9F9FA] p-7 md:p-8 shadow-[0_2px_12px_rgba(0,0,0,0.02)] transition-colors duration-300 hover:border-slate-400"
-          >
-            <Icon className="h-6 w-6 mb-5 stroke-[1.5] text-slate-800" aria-hidden />
-            <h3 className="font-serif text-lg md:text-xl font-normal text-slate-900 mb-3 tracking-tight">
-              {title}
-            </h3>
-            <p className="text-xs md:text-[13px] text-slate-500 font-sans leading-relaxed tracking-normal">
-              {body}
-            </p>
-          </article>
-        ))}
+        {pillars.map(({ icon: Icon, title, body }, index) => {
+          const direction: SlideDirection =
+            index === 0 ? "left" : index === 2 ? "right" : "up";
+
+          return (
+            <SlideIn key={title} direction={direction} delay={index * 0.08}>
+              <article className="flex flex-col rounded-sm border border-slate-200/80 bg-[#F9F9FA] p-7 shadow-[0_2px_12px_rgba(0,0,0,0.02)] transition-colors duration-300 hover:border-slate-400 md:p-8">
+                <Icon className="mb-5 h-6 w-6 stroke-[1.5] text-slate-800" aria-hidden />
+                <h3 className="mb-3 font-serif text-lg font-normal tracking-tight text-slate-900 md:text-xl">
+                  {title}
+                </h3>
+                <p className="font-sans text-xs leading-relaxed tracking-normal text-slate-500 md:text-[13px]">
+                  {body}
+                </p>
+              </article>
+            </SlideIn>
+          );
+        })}
       </div>
     </section>
   );

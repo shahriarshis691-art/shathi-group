@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { companies, type Company } from "@/data/companies";
+import { SlideIn } from "@/components/ui/ScrollReveal";
 
 export function BusinessGrid() {
   return (
@@ -12,9 +13,15 @@ export function BusinessGrid() {
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 max-w-7xl mx-auto px-6 py-16">
         {companies.map((company, index) => (
-          <li key={company.id} className="list-none">
-            <SubsidiaryCard company={company} index={index} />
-          </li>
+          <SlideIn
+            key={company.id}
+            direction={index < 2 ? "left" : "right"}
+            delay={[0, 0.1, 0.1, 0.2, 0.2][index] ?? 0.2}
+          >
+            <li className="list-none">
+              <SubsidiaryCard company={company} index={index} />
+            </li>
+          </SlideIn>
         ))}
       </div>
     </section>
