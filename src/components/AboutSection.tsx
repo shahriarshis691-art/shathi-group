@@ -1,5 +1,6 @@
 import { Compass, Eye, ShieldCheck, Target } from "lucide-react";
 import { SlideIn, type SlideDirection } from "@/components/ui/ScrollReveal";
+import { ParallaxContainer } from "@/components/ui/ParallaxContainer";
 
 const pillars = [
   {
@@ -28,24 +29,30 @@ export function AboutSection() {
   return (
     <section
       aria-labelledby="about-heading"
-      className="bg-white py-20 sm:py-24"
+      className="relative overflow-hidden bg-white py-20 sm:py-24"
     >
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto px-6">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-70 [background-image:linear-gradient(rgba(15,23,42,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.05)_1px,transparent_1px)] [background-size:48px_48px]"
+      />
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-6 px-6 md:grid-cols-3 md:gap-8">
         {pillars.map(({ icon: Icon, title, body }, index) => {
           const direction: SlideDirection =
             index === 0 ? "left" : index === 2 ? "right" : "up";
 
           return (
             <SlideIn key={title} direction={direction} delay={index * 0.08}>
-              <article className="flex flex-col rounded-sm border border-slate-200/80 bg-[#F9F9FA] p-7 shadow-[0_2px_12px_rgba(0,0,0,0.02)] transition-colors duration-300 hover:border-slate-400 md:p-8">
-                <Icon className="mb-5 h-6 w-6 stroke-[1.5] text-slate-800" aria-hidden />
-                <h3 className="mb-3 font-serif text-lg font-normal tracking-tight text-slate-900 md:text-xl">
-                  {title}
-                </h3>
-                <p className="font-sans text-xs leading-relaxed tracking-normal text-slate-500 md:text-[13px]">
-                  {body}
-                </p>
-              </article>
+              <ParallaxContainer depth="foreground" yRange={[28, -34]}>
+                <article className="flex flex-col rounded-sm border border-slate-200/80 bg-[#F9F9FA] p-7 shadow-[0_2px_12px_rgba(0,0,0,0.02)] transition-colors duration-300 hover:border-slate-400 md:p-8">
+                  <Icon className="mb-5 h-6 w-6 stroke-[1.5] text-slate-800" aria-hidden />
+                  <h3 className="mb-3 font-serif text-lg font-normal tracking-tight text-slate-900 md:text-xl">
+                    {title}
+                  </h3>
+                  <p className="font-sans text-xs leading-relaxed tracking-normal text-slate-500 md:text-[13px]">
+                    {body}
+                  </p>
+                </article>
+              </ParallaxContainer>
             </SlideIn>
           );
         })}

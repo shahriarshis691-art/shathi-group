@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { PerspectiveCard } from "@/components/ui/PerspectiveCard";
 import { SlideIn } from "@/components/ui/ScrollReveal";
 
-const cortexHref = "/companies/cortex-softsolutions";
+const cortexHref = "/cortex";
 
 export function CortexHeroBanner() {
   return (

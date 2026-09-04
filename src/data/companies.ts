@@ -31,6 +31,40 @@ function logoFor(slug: string) {
 
 export const companies: Company[] = [
   {
+    id: "cortex-softsolutions",
+    name: "CORTEX Soft Solutions",
+    slug: "cortex-softsolutions",
+    category: "Technology & Enterprise Software",
+    tagline: "Scalable Software & Digital Transformation",
+    description:
+      "CORTEX Soft Solutions builds cloud-native enterprise platforms that power digital transformation — from AI-driven workflows to fully custom software that scales with its clients.",
+    features: [
+      "Cloud Systems",
+      "AI Workflows",
+      "Custom Enterprise Platforms",
+    ],
+    logoPlaceholder: logoFor("cortex-softsolutions"),
+    image:
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Minimalist circuit board and server architecture",
+    websiteUrl: "https://cortexsoftsolutions.example.com",
+    storeUrl: "https://cortexsoftsolutions.example.com/contact",
+    brandStory:
+      "CORTEX Soft Solutions builds cloud-native enterprise platforms that power digital transformation. From AI-driven workflows to fully custom software, we deliver scalable systems that grow with our clients.",
+    productVerticals: [
+      "Cloud-Native Platforms",
+      "AI Workflow Automation",
+      "Enterprise Resource Planning",
+      "Custom Integrations",
+    ],
+    flagshipHighlights: [
+      "'CortexOS' unified platform suite",
+      "No-code AI workflow builder",
+      "SOC 2 compliant cloud hosting",
+      "Dedicated customer success team",
+    ],
+  },
+  {
     id: "shis-fashion",
     name: "SHIS Fashion",
     slug: "shis-fashion",

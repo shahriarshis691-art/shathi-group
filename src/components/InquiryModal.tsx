@@ -10,6 +10,7 @@ import {
 import { CheckCircle2, Loader2, Send, X } from "lucide-react";
 
 const subsidiaries = [
+  "CORTEX Soft Solutions",
   "SHIS Fashion",
   "XEROXII Luxury Watches and Jewellery",
   "CE R A VO Building Meterials",
