@@ -25,7 +25,7 @@ const inquiryCategories = [
   "General Inquiry",
 ] as const;
 
-type InquiryCategory = (typeof inquiryCategories)[number];
+export type InquiryCategory = (typeof inquiryCategories)[number];
 type SubmissionStatus = "idle" | "submitting" | "success" | "error";
 
 interface InquiryForm {
@@ -47,12 +47,16 @@ export interface InquiryModalProps {
   isOpen: boolean;
   onClose: () => void;
   defaultSubsidiary?: string;
+  defaultCategory?: InquiryCategory;
 }
 
 const fieldClass =
   "w-full rounded-xl border border-slate-700/80 bg-slate-950/60 px-3.5 py-3 text-sm text-slate-100 outline-none transition placeholder:text-slate-500 hover:border-slate-600 focus:border-gold-400/80 focus:ring-2 focus:ring-gold-400/20 disabled:cursor-not-allowed disabled:opacity-60";
 
-function createInitialForm(defaultSubsidiary?: string): InquiryForm {
+function createInitialForm(
+  defaultSubsidiary?: string,
+  defaultCategory?: InquiryCategory
+): InquiryForm {
   return {
     fullName: "",
     email: "",
@@ -63,7 +67,11 @@ function createInitialForm(defaultSubsidiary?: string): InquiryForm {
     )
       ? defaultSubsidiary ?? ""
       : "",
-    inquiryCategory: "General Inquiry",
+    inquiryCategory: inquiryCategories.includes(
+      defaultCategory as InquiryCategory
+    )
+      ? defaultCategory ?? "General Inquiry"
+      : "General Inquiry",
     message: "",
   };
 }
@@ -73,9 +81,10 @@ export function InquiryModal({
   isOpen,
   onClose,
   defaultSubsidiary,
+  defaultCategory,
 }: InquiryModalProps) {
   const [form, setForm] = useState<InquiryForm>(() =>
-    createInitialForm(defaultSubsidiary)
+    createInitialForm(defaultSubsidiary, defaultCategory)
   );
   const [status, setStatus] = useState<SubmissionStatus>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -87,7 +96,7 @@ export function InquiryModal({
   useEffect(() => {
     if (!isOpen) return;
 
-    setForm(createInitialForm(defaultSubsidiary));
+    setForm(createInitialForm(defaultSubsidiary, defaultCategory));
     setStatus("idle");
     setErrorMessage(null);
     setFieldErrors({});
@@ -105,7 +114,7 @@ export function InquiryModal({
       document.body.style.overflow = previousOverflow;
       document.removeEventListener("keydown", onKeyDown);
     };
-  }, [defaultSubsidiary, isOpen, onClose]);
+  }, [defaultCategory, defaultSubsidiary, isOpen, onClose]);
 
   if (!isOpen) return null;
 
