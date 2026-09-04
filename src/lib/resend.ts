@@ -6,4 +6,12 @@ if (!RESEND_API_KEY) {
   console.error("[Resend] Missing RESEND_API_KEY environment variable.");
 }
 
-export const resend = new Resend(RESEND_API_KEY);
+let resendInstance: Resend | null = null;
+
+try {
+  resendInstance = new Resend(RESEND_API_KEY);
+} catch (error) {
+  console.error("[Resend] Failed to initialize client:", error);
+}
+
+export { resendInstance as resend };

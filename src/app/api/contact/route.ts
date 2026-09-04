@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { resend } from "@/lib/resend";
+import { renderAdminNotification, renderClientConfirmation } from "@/lib/email-renderer";
 
 export interface B2BInquiryPayload {
   fullName: string;
@@ -54,11 +56,51 @@ export async function POST(request: Request) {
     );
   }
 
+  const timestamp = new Date().toISOString();
+
+  if (!process.env.RESEND_API_KEY || !resend) {
+    console.warn("[Email Skipped]: RESEND_API_KEY not configured. Inquiry payload logged:", payload);
+    return NextResponse.json(
+      { success: true, message: "Inquiry processed successfully." },
+      { status: 200 }
+    );
+  }
+
+  const fromEmail = process.env.CONTACT_FROM_EMAIL || "SHATHI Group <onboarding@resend.dev>";
+  const adminTo = process.env.CONTACT_TO_EMAIL || "corporate@shathigroup.com";
+
+  const validatedPayload = payload as B2BInquiryPayload;
+
+  const adminHtml = renderAdminNotification(validatedPayload, timestamp);
+
+  const clientHtml = renderClientConfirmation(
+    validatedPayload.fullName,
+    validatedPayload.email,
+    validatedPayload.targetSubsidiary || "General Inquiry",
+    timestamp
+  );
+
+  try {
+    await Promise.all([
+      resend.emails.send({
+        from: fromEmail,
+        to: adminTo,
+        subject: `New B2B Inquiry - ${payload.fullName}`,
+        html: adminHtml,
+      }),
+      resend.emails.send({
+        from: fromEmail,
+        to: validatedPayload.email,
+        subject: "Inquiry Received - SHATHI Group",
+        html: clientHtml,
+      }),
+    ]);
+  } catch (error) {
+    console.error("[Email Send Failed]:", error);
+  }
+
   return NextResponse.json(
-    {
-      success: true,
-      message: "Inquiry received successfully. Our corporate team will reach out shortly.",
-    },
+    { success: true, message: "Inquiry processed successfully." },
     { status: 200 }
   );
 }
