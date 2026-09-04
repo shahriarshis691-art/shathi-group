@@ -14,12 +14,12 @@ const textVariant: Record<LogoVariant, string> = {
 
 const accentVariant: Record<LogoVariant, string> = {
   default: "text-neutral-500",
-  inverse: "text-neutral-400",
+  inverse: "text-slate-200",
 };
 
 const fallbackVariant: Record<LogoVariant, string> = {
   default: "text-neutral-500",
-  inverse: "text-neutral-400",
+  inverse: "text-slate-200",
 };
 
 export interface LogoProps {

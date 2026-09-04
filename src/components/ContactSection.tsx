@@ -133,11 +133,15 @@ export function ContactSection() {
     <section
       aria-labelledby="contact-heading"
       id="contact"
-      className="bg-transparent py-20 sm:py-24"
+      className="relative py-20 sm:py-24"
     >
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden="true">
+        <div className="absolute bottom-0 left-1/4 h-[400px] w-[400px] translate-y-1/3 rounded-full bg-white/5 blur-3xl" />
+      </div>
+
       <div className="container-corporate">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="inline-flex items-center gap-2 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
+          <p className="inline-flex items-center gap-2 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600">
             Get in Touch
           </p>
           <h2
@@ -154,82 +158,83 @@ export function ContactSection() {
 
         <div className="mt-14 grid gap-8 lg:grid-cols-5">
           <aside className="lg:col-span-2">
-            <div className="rounded-2xl bg-[#F1F3F5] p-7 text-neutral-900 shadow-corporate-lg sm:p-8 border border-slate-300/80">
-              <h3 className="font-serif text-xl font-bold uppercase tracking-[0.14em]">
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/60 bg-white/40 p-7 shadow-[0_20px_50px_rgba(0,0,0,0.08),inset_0_1px_1px_rgba(255,255,255,0.8)] backdrop-blur-2xl sm:p-8">
+              <div className="pointer-events-none absolute inset-0 rounded-[2rem] border border-white/50" aria-hidden="true" />
+              <h3 className="relative font-serif text-xl font-bold uppercase tracking-[0.14em] text-neutral-900">
                 Corporate Office
               </h3>
-              <p className="mt-2 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-neutral-600">
+              <p className="relative mt-2 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-neutral-600">
                 Visit, call, or write to us — our team is here to help.
               </p>
 
-              <ul role="list" className="mt-8 space-y-6">
+              <ul role="list" className="relative mt-8 space-y-6">
                 <li className="flex items-start gap-4">
-                  <span className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-slate-200 text-neutral-600">
+                  <span className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-slate-200/80 text-slate-700 shadow-sm">
                     <MapPin className="h-5 w-5" aria-hidden />
                   </span>
                   <div>
-                    <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
+                    <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600">
                       Address
                     </p>
                      <p className="mt-1 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-neutral-600">
-                      SHATHI Tower, Corporate Park,
-                      <br />
-                      Main Business District,
-                      <br />
-                      India
-                    </p>
+                       SHATHI Tower, Corporate Park,
+                       <br />
+                       Main Business District,
+                       <br />
+                       India
+                     </p>
                   </div>
                 </li>
 
                 <li className="flex items-start gap-4">
-                  <span className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-slate-200 text-neutral-600">
+                  <span className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-slate-200/80 text-slate-700 shadow-sm">
                     <Mail className="h-5 w-5" aria-hidden />
                   </span>
                   <div>
-                     <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
+                     <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600">
                        Email
                      </p>
                       <a
                         href="mailto:info@shathigroup.com"
                         className="mt-1 block font-sans text-sm md:text-[15px] font-normal text-neutral-600 transition hover:text-neutral-900"
                      >
-                      info@shathigroup.com
-                    </a>
+                       info@shathigroup.com
+                     </a>
                   </div>
                 </li>
 
                 <li className="flex items-start gap-4">
-                  <span className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-slate-200 text-neutral-600">
+                  <span className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-slate-200/80 text-slate-700 shadow-sm">
                     <Phone className="h-5 w-5" aria-hidden />
                   </span>
                   <div>
-                     <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
+                     <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600">
                        Phone
                      </p>
                       <a
                         href="tel:+910000000000"
                         className="mt-1 block font-sans text-sm md:text-[15px] font-normal text-neutral-600 transition hover:text-neutral-900"
                      >
-                      +91 00000 00000
-                    </a>
+                       +91 00000 00000
+                     </a>
                   </div>
                 </li>
 
                 <li className="flex items-start gap-4">
-                  <span className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-slate-200 text-neutral-600">
+                  <span className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-slate-200/80 text-slate-700 shadow-sm">
                     <Clock className="h-5 w-5" aria-hidden />
                   </span>
                   <div>
-                    <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
-                      Working Hours
-                    </p>
-                     <p className="mt-1 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-neutral-600">
-                      Mon – Fri: 9:00 AM – 6:00 PM
-                      <br />
-                      Sat: 10:00 AM – 2:00 PM
-                      <br />
-                      Sun: Closed
-                    </p>
+                     <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600">
+                       Working Hours
+                     </p>
+                      <p className="mt-1 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-neutral-600">
+                       Mon – Fri: 9:00 AM – 6:00 PM
+                       <br />
+                       Sat: 10:00 AM – 2:00 PM
+                       <br />
+                       Sun: Closed
+                     </p>
                   </div>
                 </li>
               </ul>
@@ -240,10 +245,11 @@ export function ContactSection() {
             <form
               noValidate
               onSubmit={handleSubmit}
-              className="rounded-2xl border border-slate-300/80 bg-white/70 backdrop-blur-sm p-7 shadow-corporate sm:p-8"
+              className="relative overflow-hidden rounded-[2rem] border border-white/60 bg-white/40 p-7 shadow-[0_20px_50px_rgba(0,0,0,0.08),inset_0_1px_1px_rgba(255,255,255,0.8)] backdrop-blur-2xl sm:p-8"
               aria-label="Contact form"
             >
-              <div className="grid gap-5 sm:grid-cols-2">
+              <div className="pointer-events-none absolute inset-0 rounded-[2rem] border border-white/50" aria-hidden="true" />
+              <div className="relative grid gap-5 sm:grid-cols-2">
                 <div>
                   <label
                     htmlFor="contact-name"
@@ -373,7 +379,7 @@ export function ContactSection() {
                 </div>
               </div>
 
-              <div className="mt-6 flex flex-col-reverse items-stretch gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="relative mt-6 flex flex-col-reverse items-stretch gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <div className="sm:mb-0">
                   {status === "success" ? (
                     <p

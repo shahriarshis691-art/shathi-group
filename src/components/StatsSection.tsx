@@ -31,12 +31,15 @@ export function StatsSection() {
   return (
     <section
       aria-labelledby="stats-heading"
-      className="relative overflow-hidden bg-[#F1F3F5] text-neutral-900"
+      className="relative py-16 sm:py-20"
     >
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden="true">
+        <div className="absolute top-1/2 left-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/5 blur-3xl" />
+      </div>
 
-      <div className="container-corporate relative py-16 sm:py-20">
+      <div className="container-corporate relative">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
+          <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600">
             By the Numbers
           </p>
           <h2
@@ -54,24 +57,21 @@ export function StatsSection() {
           {stats.map(({ icon: Icon, value, label, sub }) => (
             <li
               key={label}
-              className="group relative overflow-hidden rounded-2xl border border-slate-300/80 bg-white/70 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-400 hover:bg-white hover:shadow-corporate-lg"
+              className="group relative flex flex-col overflow-hidden rounded-[2rem] border border-white/60 bg-white/40 p-6 shadow-[0_20px_50px_rgba(0,0,0,0.08),inset_0_1px_1px_rgba(255,255,255,0.8)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1"
             >
-              <div
-                aria-hidden
-                className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-slate-400 to-transparent opacity-60"
-              />
+              <div className="pointer-events-none absolute inset-0 rounded-[2rem] border border-white/50" aria-hidden="true" />
 
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-slate-200 text-neutral-600 transition-colors group-hover:bg-neutral-900 group-hover:text-white">
+              <span className="relative inline-flex h-11 w-11 items-center justify-center rounded-xl bg-slate-200/80 text-slate-700 shadow-sm">
                 <Icon className="h-5 w-5" aria-hidden />
               </span>
 
-                <p className="mt-5 font-serif text-3xl font-bold uppercase tracking-[0.12em] text-neutral-900 sm:text-4xl">
+              <p className="relative mt-5 font-serif text-3xl font-bold uppercase tracking-[0.12em] text-neutral-900 sm:text-4xl">
                 {value}
               </p>
-              <p className="mt-1 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
+              <p className="relative mt-1 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600">
                 {label}
               </p>
-              <p className="mt-2 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-neutral-600">
+              <p className="relative mt-2 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-neutral-600">
                 {sub}
               </p>
             </li>
