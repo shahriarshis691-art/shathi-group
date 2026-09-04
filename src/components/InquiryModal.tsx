@@ -10,11 +10,10 @@ import {
 import { CheckCircle2, Loader2, Send, X } from "lucide-react";
 
 const subsidiaries = [
-  "Shis Fashion",
-  "XeroXii",
-  "Ceravo Tiles & Ceramic",
-  "Cortex SoftSolutions",
-  "Velorix Motors",
+  "SHIS Fashion",
+  "XEROXII Luxury Watches and Jewellery",
+  "CE R A VO Building Meterials",
+  "VELORIX Motors",
 ] as const;
 
 const inquiryCategories = [

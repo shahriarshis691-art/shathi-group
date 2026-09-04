@@ -32,7 +32,7 @@ function logoFor(slug: string) {
 export const companies: Company[] = [
   {
     id: "shis-fashion",
-    name: "Shis Fashion",
+    name: "SHIS Fashion",
     slug: "shis-fashion",
     category: "Apparel & Lifestyle",
     tagline: "Contemporary & Premium Men's Apparel",
@@ -50,7 +50,7 @@ export const companies: Company[] = [
     websiteUrl: "https://shisfashion.example.com",
     storeUrl: "https://shop.shisfashion.example.com",
     brandStory:
-      "Shis Fashion specializes in contemporary, premium menswear — from sharp tailoring to elevated casual staples. Built on premium cotton fabrics and modern urban fits, every piece carries the brand's signature acid-washed graphics and laid-back-luxe attitude.",
+      "SHIS Fashion specializes in contemporary, premium menswear — from sharp tailoring to elevated casual staples. Built on premium cotton fabrics and modern urban fits, every piece carries the brand's signature acid-washed graphics and laid-back-luxe attitude.",
     productVerticals: [
       "Menswear Collections",
       "Bespoke Blazers",
@@ -66,13 +66,13 @@ export const companies: Company[] = [
   },
   {
     id: "xeroxii",
-    name: "XeroXii",
+    name: "XEROXII Luxury Watches and Jewellery",
     slug: "xeroxii",
     category: "Horology & Luxury Timepieces",
     tagline: "Haute Horology & Fine Jewellery Maison",
     subtitle: "Luxury Watches & Fine Jewellery",
     description:
-      "XeroXii is a modern luxury watchmaker where precision engineering meets minimalist design, protected by scratch-resistant sapphire crystal and built to age gracefully.",
+      "XEROXII is a modern luxury watchmaker where precision engineering meets minimalist design, protected by scratch-resistant sapphire crystal and built to age gracefully.",
     features: [
       "Precision Engineering",
       "Sapphire Crystal",
@@ -93,7 +93,7 @@ export const companies: Company[] = [
     websiteUrl: "https://xeroxiiwatches.example.com",
     storeUrl: "https://shop.xeroxiiwatches.example.com",
     brandStory:
-      "XeroXii is a modern luxury watchmaker where precision engineering meets minimalist design. Each timepiece is built around Swiss-grade movements and protected by scratch-resistant sapphire crystal, designed to age gracefully through the decades.",
+      "XEROXII is a modern luxury watchmaker where precision engineering meets minimalist design. Each timepiece is built around Swiss-grade movements and protected by scratch-resistant sapphire crystal, designed to age gracefully through the decades.",
     productVerticals: [
       "Automatic Dress Watches",
       "Sport Chronographs",
@@ -109,12 +109,12 @@ export const companies: Company[] = [
   },
   {
     id: "ceravo-tiles",
-    name: "Ceravo Tiles & Ceramic",
+    name: "CE R A VO Building Meterials",
     slug: "ceravo-tiles",
     category: "Architectural Surfaces & Ceramics",
     tagline: "Architectural Elegance & Surface Innovation",
     description:
-      "Ceravo Tiles & Ceramic engineers premium porcelain and ceramic surfaces for residential and commercial architecture, fusing high durability with architectural finishes.",
+      "CE R A VO engineers premium porcelain and ceramic surfaces for residential and commercial architecture, fusing high durability with architectural finishes.",
     features: [
       "Premium Porcelain",
       "Architectural Finishes",
@@ -127,7 +127,7 @@ export const companies: Company[] = [
     websiteUrl: "https://ceravotiles.example.com",
     storeUrl: "https://dealer.ceravotiles.example.com",
     brandStory:
-      "Ceravo Tiles & Ceramic engineers premium porcelain and ceramic surfaces for residential and commercial architecture. Our collections balance high durability with architectural finishes, delivered through a nationwide dealer network.",
+      "CE R A VO engineers premium porcelain and ceramic surfaces for residential and commercial architecture. Our collections balance high durability with architectural finishes, delivered through a nationwide dealer network.",
     productVerticals: [
       "Large-Format Porcelain Slabs",
       "Ceramic Wall Collections",
@@ -142,46 +142,13 @@ export const companies: Company[] = [
     ],
   },
   {
-    id: "cortex-softsolutions",
-    name: "Cortex SoftSolutions",
-    slug: "cortex-softsolutions",
-    category: "Technology & Enterprise Software",
-    tagline: "Scalable Software & Digital Transformation",
-    description:
-      "Cortex SoftSolutions builds cloud-native enterprise platforms that power digital transformation — from AI-driven workflows to fully custom software that scales with its clients.",
-    features: [
-      "Cloud Systems",
-      "AI Workflows",
-      "Custom Enterprise Platforms",
-    ],
-    logoPlaceholder: logoFor("cortex-softsolutions"),
-    image: "/cortex/hero.png",
-    imageAlt: "Cortex SoftSolutions",
-    websiteUrl: "https://cortexsoftsolutions.example.com",
-    storeUrl: "https://cortexsoftsolutions.example.com/contact",
-    brandStory:
-      "Cortex SoftSolutions builds cloud-native enterprise platforms that power digital transformation. From AI-driven workflows to fully custom software, we deliver scalable systems that grow with our clients.",
-    productVerticals: [
-      "Cloud-Native Platforms",
-      "AI Workflow Automation",
-      "Enterprise Resource Planning",
-      "Custom Integrations",
-    ],
-    flagshipHighlights: [
-      "'CortexOS' unified platform suite",
-      "No-code AI workflow builder",
-      "SOC 2 compliant cloud hosting",
-      "Dedicated customer success team",
-    ],
-  },
-  {
     id: "velorix-motors",
-    name: "Velorix Motors",
+    name: "VELORIX Motors",
     slug: "velorix-motors",
     category: "Mobility & Automotive",
     tagline: "Performance Mobility, Refined for Modern Roads",
     description:
-      "Velorix Motors develops performance-led mobility solutions with sculpted design, connected technology, and a focus on every detail of the driving experience.",
+      "VELORIX Motors develops performance-led mobility solutions with sculpted design, connected technology, and a focus on every detail of the driving experience.",
     features: [
       "Performance Engineering",
       "Connected Mobility",
@@ -193,7 +160,7 @@ export const companies: Company[] = [
     imageAlt: "Performance car in a mountain landscape",
     websiteUrl: "https://velorixmotors.example.com",
     brandStory:
-      "Velorix Motors brings together expressive automotive design and modern engineering. Every vehicle is shaped around responsive performance, thoughtful technology, and a quiet confidence that lasts well beyond the journey.",
+      "VELORIX Motors brings together expressive automotive design and modern engineering. Every vehicle is shaped around responsive performance, thoughtful technology, and a quiet confidence that lasts well beyond the journey.",
     productVerticals: [
       "Performance Grand Tourers",
       "Executive Mobility",
