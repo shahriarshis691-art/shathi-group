@@ -67,6 +67,7 @@ export function ContactSection() {
   const [values, setValues] = useState<FormState>(initial);
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<Status>("idle");
+  const [serverMessage, setServerMessage] = useState<string | null>(null);
 
   function update<K extends keyof FormState>(key: K, value: FormState[K]) {
     setValues((prev) => ({ ...prev, [key]: value }));
@@ -81,6 +82,7 @@ export function ContactSection() {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setServerMessage(null);
     const nextErrors = validate(values);
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) {
@@ -90,10 +92,34 @@ export function ContactSection() {
 
     setStatus("submitting");
     try {
-      await new Promise((resolve) => setTimeout(resolve, 900));
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+
+      const payload: {
+        success: boolean;
+        message: string;
+        errors?: Record<string, string>;
+      } = await res.json().catch(() => ({
+        success: false,
+        message: "Unexpected response from server.",
+      }));
+
+      if (!res.ok || !payload.success) {
+        if (payload.errors) setErrors(payload.errors);
+        setServerMessage(payload.message ?? "Something went wrong.");
+        setStatus("error");
+        return;
+      }
+
       setStatus("success");
       setValues(initial);
     } catch {
+      setServerMessage(
+        "Network error. Please check your connection and try again."
+      );
       setStatus("error");
     }
   }
@@ -343,27 +369,46 @@ export function ContactSection() {
               </div>
 
               <div className="mt-6 flex flex-col-reverse items-stretch gap-4 sm:flex-row sm:items-center sm:justify-between">
-                {status === "success" ? (
-                  <p
-                    role="status"
-                    className="inline-flex items-center gap-2 text-sm font-medium text-emerald-700"
-                  >
-                    <CheckCircle2 className="h-4 w-4" aria-hidden />
-                    Thanks — your message has been received.
-                  </p>
-                ) : (
-                  <p className="text-xs text-slate-500">
-                    By submitting, you agree to our privacy policy.
-                  </p>
-                )}
+                <div className="sm:mb-0">
+                  {status === "success" ? (
+                    <p
+                      role="status"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-emerald-700"
+                    >
+                      <CheckCircle2 className="h-4 w-4" aria-hidden />
+                      Thanks — your message has been received.
+                    </p>
+                  ) : (
+                    <p className="text-xs text-slate-500">
+                      By submitting, you agree to our privacy policy.
+                    </p>
+                  )}
+                  {status === "error" && serverMessage ? (
+                    <p role="alert" className="mt-2 text-sm text-rose-600">
+                      {serverMessage}
+                    </p>
+                  ) : null}
+                </div>
 
                 <button
                   type="submit"
                   disabled={status === "submitting"}
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-navy-800 px-6 py-3 text-sm font-semibold text-white shadow-corporate transition hover:bg-navy-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  {status === "submitting" ? "Sending…" : "Send Message"}
-                  <Send className="h-4 w-4" aria-hidden />
+                  {status === "submitting" ? (
+                    <>
+                      <span
+                        className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"
+                        aria-hidden="true"
+                      />
+                      Sending…
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <Send className="h-4 w-4" aria-hidden />
+                    </>
+                  )}
                 </button>
               </div>
             </form>

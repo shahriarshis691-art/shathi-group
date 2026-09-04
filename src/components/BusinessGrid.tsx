@@ -1,26 +1,36 @@
+"use client";
+
+import { useState } from "react";
 import { ArrowUpRight, Sparkles } from "lucide-react";
-import { companies, type CompanyCategory } from "@/data/companies";
+import {
+  companies,
+  type Company,
+  type CompanyCategory,
+} from "@/data/companies";
 import { CompanyLogo } from "./CompanyLogo";
+import { SubsidiaryModal } from "./SubsidiaryModal";
 
 const categoryBadge: Record<CompanyCategory, string> = {
-  "Fashion & Apparel": "Apparel & Lifestyle",
-  "Luxury & Lifestyle": "Luxury Timepieces",
-  "Building Materials": "Building Materials",
-  "Home & Living": "Home & Living",
+  "Apparel & Lifestyle": "Apparel & Lifestyle",
+  "Horology & Luxury Timepieces": "Luxury Timepieces",
+  "Architectural Surfaces & Ceramics": "Architectural Surfaces",
+  "Technology & Enterprise Software": "Enterprise Software",
 };
 
 const categoryAccent: Record<CompanyCategory, string> = {
-  "Fashion & Apparel":
+  "Apparel & Lifestyle":
     "bg-rose-50 text-rose-700 ring-rose-200/70",
-  "Luxury & Lifestyle":
+  "Horology & Luxury Timepieces":
     "bg-gold-50 text-gold-700 ring-gold-200/70",
-  "Building Materials":
-    "bg-slate-100 text-slate-700 ring-slate-200/70",
-  "Home & Living":
-    "bg-sky-50 text-sky-700 ring-sky-200/70",
+  "Architectural Surfaces & Ceramics":
+    "bg-teal-50 text-teal-700 ring-teal-200/70",
+  "Technology & Enterprise Software":
+    "bg-indigo-50 text-indigo-700 ring-indigo-200/70",
 };
 
 export function BusinessGrid() {
+  const [active, setActive] = useState<Company | null>(null);
+
   return (
     <section
       aria-labelledby="businesses-heading"
@@ -101,10 +111,9 @@ export function BusinessGrid() {
                 </div>
 
                 <div className="mt-auto pt-6">
-                  <a
-                    href={company.websiteUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    type="button"
+                    onClick={() => setActive(company)}
                     className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy-800 transition-colors hover:text-gold-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
                     aria-label={`Explore ${company.name}`}
                   >
@@ -113,13 +122,15 @@ export function BusinessGrid() {
                       className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                       aria-hidden
                     />
-                  </a>
+                  </button>
                 </div>
               </article>
             </li>
           ))}
         </ul>
       </div>
+
+      <SubsidiaryModal company={active} onClose={() => setActive(null)} />
     </section>
   );
 }

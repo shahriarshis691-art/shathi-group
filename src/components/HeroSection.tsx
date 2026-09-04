@@ -1,4 +1,6 @@
 import { ArrowRight, Building2, Sparkles } from "lucide-react";
+import { companies } from "@/data/companies";
+import { CorporateProfileButton } from "./CorporateProfileButton";
 
 export function HeroSection() {
   return (
@@ -35,6 +37,24 @@ export function HeroSection() {
           driven by innovation, and focused on long-term value.
         </p>
 
+        <nav
+          aria-label="Our subsidiaries"
+          className="mt-8 flex flex-wrap items-center gap-2.5"
+        >
+          <span className="text-xs font-semibold uppercase tracking-widest text-gold-300">
+            Our subsidiaries
+          </span>
+          {companies.map((company) => (
+            <a
+              key={company.id}
+              href="#businesses"
+              className="rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm ring-1 ring-white/20 transition hover:bg-white/20 hover:text-gold-300"
+            >
+              {company.name}
+            </a>
+          ))}
+        </nav>
+
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">
           <a
             href="#contact"
@@ -50,6 +70,10 @@ export function HeroSection() {
             Explore Our Brands
             <ArrowRight className="h-4 w-4" aria-hidden />
           </a>
+        </div>
+
+        <div className="mt-10">
+          <CorporateProfileButton />
         </div>
       </div>
     </section>

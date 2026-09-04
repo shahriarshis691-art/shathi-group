@@ -4,7 +4,7 @@
   width="120"
   height="120"
   role="img"
-  aria-label="Bath and Beyond"
+  aria-label="Ceravo Tiles and Ceramic"
 >
   <circle cx="60" cy="60" r="56" fill="#0f2741" stroke="#0d9488" stroke-width="4" />
   <text
@@ -17,6 +17,6 @@
     text-anchor="middle"
     dominant-baseline="central"
   >
-    BB
+    CT
   </text>
 </svg>

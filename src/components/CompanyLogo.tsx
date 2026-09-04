@@ -4,7 +4,13 @@ import { useState } from "react";
 import Image from "next/image";
 import { type Company } from "@/data/companies";
 
-export function CompanyLogo({ company }: { company: Company }) {
+export function CompanyLogo({
+  company,
+  size = 48,
+}: {
+  company: Company;
+  size?: number;
+}) {
   const [errored, setErrored] = useState(false);
 
   const initials = company.name
@@ -16,7 +22,12 @@ export function CompanyLogo({ company }: { company: Company }) {
 
   if (errored) {
     return (
-      <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy-900 text-gold-400 shadow-corporate">
+      <span
+        aria-label={company.name}
+        className="flex items-center justify-center rounded-xl bg-navy-900 text-gold-400 shadow-corporate"
+        style={{ width: size, height: size }}
+        title={company.name}
+      >
         <span className="text-sm font-semibold tracking-tight">{initials}</span>
       </span>
     );
@@ -26,8 +37,8 @@ export function CompanyLogo({ company }: { company: Company }) {
     <Image
       src={company.logoPlaceholder}
       alt={company.name}
-      width={48}
-      height={48}
+      width={size}
+      height={size}
       onError={() => setErrored(true)}
       className="rounded-xl object-contain"
     />

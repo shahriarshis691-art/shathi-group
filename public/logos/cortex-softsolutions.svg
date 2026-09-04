@@ -4,19 +4,19 @@
   width="120"
   height="120"
   role="img"
-  aria-label="Impress Tiles"
+  aria-label="Cortex SoftSolutions"
 >
-  <circle cx="60" cy="60" r="56" fill="#0f2741" stroke="#475569" stroke-width="4" />
+  <circle cx="60" cy="60" r="56" fill="#0f2741" stroke="#4f46e5" stroke-width="4" />
   <text
     x="60"
     y="73"
     font-family="Arial, Helvetica, system-ui, -apple-system, sans-serif"
     font-size="56"
     font-weight="800"
-    fill="#475569"
+    fill="#4f46e5"
     text-anchor="middle"
     dominant-baseline="central"
   >
-    IT
+    CS
   </text>
 </svg>
