@@ -152,13 +152,13 @@ function SpecCard({
           {icon}
         </div>
         <div>
-          <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">
+          <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
             {title}
           </p>
-          <p className="text-lg font-semibold text-navy-900">{value}</p>
+          <p className="font-serif text-lg font-bold uppercase tracking-[0.14em] text-navy-900">{value}</p>
         </div>
       </div>
-      <p className="mt-3 text-sm text-slate-600">{description}</p>
+      <p className="mt-3 font-sans text-sm leading-relaxed text-slate-600 md:text-[15px]">{description}</p>
     </div>
   );
 }
@@ -177,8 +177,8 @@ function StepCard({
       <span className="absolute -top-3 left-6 inline-flex h-8 w-8 items-center justify-center rounded-full bg-navy-800 text-sm font-semibold text-white">
         {number}
       </span>
-      <h3 className="mt-2 text-lg font-semibold text-navy-900">{title}</h3>
-      <p className="mt-2 text-sm text-slate-600">{description}</p>
+      <h3 className="mt-2 font-serif text-lg font-bold uppercase tracking-[0.14em] text-navy-900">{title}</h3>
+      <p className="mt-2 font-sans text-sm leading-relaxed text-slate-600 md:text-[15px]">{description}</p>
     </div>
   );
 }
@@ -208,7 +208,7 @@ function VisualFeatureCard({
       <div className="absolute inset-0 bg-gradient-to-b from-[#121417]/10 via-[#121417]/65 to-[#121417]" />
       <div className="relative flex w-full flex-col">
         <div className="flex items-start justify-between gap-4">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-300">
+          <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
             {eyebrow}
           </p>
           <ArrowUpRight
@@ -216,10 +216,10 @@ function VisualFeatureCard({
             aria-hidden="true"
           />
         </div>
-        <h3 className="my-auto max-w-[16ch] text-2xl font-bold leading-tight tracking-tight">
+        <h3 className="my-auto max-w-[16ch] font-serif text-2xl font-bold uppercase tracking-[0.14em] leading-tight">
           {title}
         </h3>
-        <p className="border-t border-white/20 pt-4 text-sm leading-relaxed text-slate-200 line-clamp-3">
+        <p className="border-t border-white/20 pt-4 font-sans text-sm leading-relaxed text-slate-200 line-clamp-3 md:text-[15px]">
           {description}
         </p>
       </div>
@@ -242,7 +242,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
         <div className="container-corporate">
           <a
             href="/"
-            className="inline-flex items-center gap-2 py-4 text-sm font-medium text-slate-600 transition hover:text-navy-800"
+            className="inline-flex items-center gap-2 py-4 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-slate-600 transition hover:text-navy-800"
           >
             <ArrowLeft className="h-4 w-4" aria-hidden />
             Back to SHATHI Group
@@ -274,19 +274,19 @@ export function CompanyClient({ company }: CompanyClientProps) {
               <CompanyLogo company={company} size={48} />
             </div>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-slate-300">
+              <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
                 {company.category}
               </p>
-              <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl text-balance">
+              <h1 className="font-serif text-3xl font-bold uppercase tracking-[0.12em] sm:text-4xl lg:text-5xl text-balance">
                 {company.name}
               </h1>
             </div>
           </div>
 
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-200 text-balance">
+          <p className="mt-6 max-w-2xl font-serif text-lg italic leading-relaxed text-slate-200 text-balance">
             {company.tagline}
           </p>
-          <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-300 text-balance">
+          <p className="mt-4 max-w-3xl font-sans text-sm leading-relaxed text-slate-300 md:text-[15px] text-balance">
             {company.description}
           </p>
 
@@ -294,7 +294,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
             <button
               type="button"
               onClick={openInquiry}
-              className={`inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold shadow-corporate transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 ${t.ctaClass} ${t.ctaHover}`}
+              className={`inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] shadow-corporate transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 ${t.ctaClass} ${t.ctaHover}`}
             >
               Direct Inquiry / Schedule Meeting
             </button>
@@ -303,7 +303,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
                 href={company.storeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:border-white/40 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-white backdrop-blur-sm transition hover:border-white/40 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
               >
                 Request Catalog
                 <ArrowUpRight className="h-4 w-4" aria-hidden />
@@ -317,13 +317,13 @@ export function CompanyClient({ company }: CompanyClientProps) {
       <section className={`py-16 sm:py-20 ${t.sectionClass}`}>
         <div className="container-corporate">
           <div className="mx-auto max-w-3xl">
-            <p className={`text-xs font-semibold uppercase tracking-widest ${t.ctaText}`}>
+            <p className={`font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] ${t.ctaText}`}>
               Our Story
             </p>
-            <h2 className={`mt-3 text-3xl font-semibold tracking-tight ${t.heading} sm:text-4xl`}>
+            <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
               Crafted with purpose
             </h2>
-            <p className={`mt-6 text-base leading-relaxed ${t.body} text-balance`}>
+            <p className={`mt-6 font-sans text-sm leading-relaxed ${t.body} md:text-[15px] text-balance`}>
               {company.brandStory}
             </p>
           </div>
@@ -335,13 +335,13 @@ export function CompanyClient({ company }: CompanyClientProps) {
         <>
           <section className={`py-16 sm:py-20 ${t.sectionAltClass}`}>
             <div className="container-corporate">
-              <p className={`text-xs font-semibold uppercase tracking-widest ${t.ctaText}`}>
+              <p className={`font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] ${t.ctaText}`}>
                 Fabric Details
               </p>
-              <h2 className={`mt-3 text-3xl font-semibold tracking-tight ${t.heading} sm:text-4xl`}>
+              <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
                 Built on premium materials
               </h2>
-              <p className={`mt-4 max-w-2xl text-base ${t.body}`}>
+              <p className={`mt-4 max-w-2xl font-sans text-sm leading-relaxed ${t.body} md:text-[15px]`}>
                 Every piece is engineered from the ground up with fabric integrity at its core.
               </p>
 
@@ -351,9 +351,9 @@ export function CompanyClient({ company }: CompanyClientProps) {
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold-50 text-gold-600">
                       <Sparkles className="h-5 w-5" aria-hidden />
                     </div>
-                    <h3 className="text-lg font-semibold text-navy-900">Premium Pima Cotton</h3>
+                    <h3 className="font-serif text-lg font-bold uppercase tracking-[0.14em] text-navy-900">Premium Pima Cotton</h3>
                   </div>
-                  <p className="mt-3 text-sm text-slate-600">
+                  <p className="mt-3 font-sans text-sm leading-relaxed text-slate-600 md:text-[15px]">
                     Extra-long staple fibers woven into fabrics with superior softness, strength, and a luxurious hand feel that holds shape season after season.
                   </p>
                 </div>
@@ -363,9 +363,9 @@ export function CompanyClient({ company }: CompanyClientProps) {
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-rose-50 text-rose-600">
                       <Gem className="h-5 w-5" aria-hidden />
                     </div>
-                    <h3 className="text-lg font-semibold text-navy-900">Acid-Wash Graphics</h3>
+                    <h3 className="font-serif text-lg font-bold uppercase tracking-[0.14em] text-navy-900">Acid-Wash Graphics</h3>
                   </div>
-                  <p className="mt-3 text-sm text-slate-600">
+                  <p className="mt-3 font-sans text-sm leading-relaxed text-slate-600 md:text-[15px]">
                     Signature acid-washed treatments applied to denim and jersey bases, creating one-of-a-kind faded textures with a laid-back luxe attitude.
                   </p>
                 </div>
@@ -375,9 +375,9 @@ export function CompanyClient({ company }: CompanyClientProps) {
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-navy-50 text-navy-800">
                       <Factory className="h-5 w-5" aria-hidden />
                     </div>
-                    <h3 className="text-lg font-semibold text-navy-900">Modern Urban Fits</h3>
+                    <h3 className="font-serif text-lg font-bold uppercase tracking-[0.14em] text-navy-900">Modern Urban Fits</h3>
                   </div>
-                  <p className="mt-3 text-sm text-slate-600">
+                  <p className="mt-3 font-sans text-sm leading-relaxed text-slate-600 md:text-[15px]">
                     Tailored silhouettes designed for contemporary wardrobes — structured shoulders, tapered legs, and dropped shoulders that move with the city.
                   </p>
                 </div>
@@ -387,13 +387,13 @@ export function CompanyClient({ company }: CompanyClientProps) {
 
           <section className={`py-16 sm:py-20 ${t.sectionClass}`}>
             <div className="container-corporate">
-              <p className={`text-xs font-semibold uppercase tracking-widest ${t.ctaText}`}>
+              <p className={`font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] ${t.ctaText}`}>
                 Lookbook
               </p>
-              <h2 className={`mt-3 text-3xl font-semibold tracking-tight ${t.heading} sm:text-4xl`}>
+              <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
                 Seasonal edits
               </h2>
-              <p className={`mt-4 max-w-2xl text-base ${t.body}`}>
+              <p className={`mt-4 max-w-2xl font-sans text-sm leading-relaxed ${t.body} md:text-[15px]`}>
                 A curated selection of silhouettes and fabric stories from the latest collection.
               </p>
 
@@ -410,7 +410,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
                     key={item.label}
                     className={`aspect-[3/4] rounded-2xl ${item.gradient} flex items-end p-4 shadow-sm transition hover:scale-[1.02]`}
                   >
-                    <span className="text-sm font-medium text-white/90">{item.label}</span>
+                    <span className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-white/90">{item.label}</span>
                   </div>
                 ))}
               </div>
@@ -420,7 +420,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
                   href={company.storeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold shadow-corporate transition ${t.ctaClass} ${t.ctaHover}`}
+                  className={`inline-flex items-center gap-2 rounded-full px-6 py-3 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] shadow-corporate transition ${t.ctaClass} ${t.ctaHover}`}
                 >
                   Request Catalog
                   <ArrowUpRight className="h-4 w-4" aria-hidden />
@@ -436,13 +436,13 @@ export function CompanyClient({ company }: CompanyClientProps) {
         <>
           <section className={`py-16 sm:py-20 ${t.sectionAltClass}`}>
             <div className="container-corporate">
-              <p className={`text-xs font-semibold uppercase tracking-widest ${t.ctaText}`}>
+              <p className={`font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] ${t.ctaText}`}>
                 Specifications
               </p>
-              <h2 className={`mt-3 text-3xl font-semibold tracking-tight ${t.heading} sm:text-4xl`}>
+              <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
                 Engineered to last decades
               </h2>
-              <p className={`mt-4 max-w-2xl text-base ${t.body}`}>
+              <p className={`mt-4 max-w-2xl font-sans text-sm leading-relaxed ${t.body} md:text-[15px]`}>
                 Every XeroXii timepiece is built around exacting standards — from the movement to the crystal.
               </p>
 
@@ -477,13 +477,13 @@ export function CompanyClient({ company }: CompanyClientProps) {
 
           <section className={`py-16 sm:py-20 ${t.sectionClass}`}>
             <div className="container-corporate">
-              <p className={`text-xs font-semibold uppercase tracking-widest ${t.ctaText}`}>
+              <p className={`font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] ${t.ctaText}`}>
                 Horological Craft
               </p>
-              <h2 className={`mt-3 text-3xl font-semibold tracking-tight ${t.heading} sm:text-4xl`}>
+              <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
                 Hand-finished detail
               </h2>
-              <p className={`mt-4 max-w-2xl text-base ${t.body}`}>
+              <p className={`mt-4 max-w-2xl font-sans text-sm leading-relaxed ${t.body} md:text-[15px]`}>
                 From movement assembly to final polishing, every stage is completed by hand.
               </p>
 
@@ -519,46 +519,46 @@ export function CompanyClient({ company }: CompanyClientProps) {
         <>
           <section className={`py-16 sm:py-20 ${t.sectionAltClass}`}>
             <div className="container-corporate">
-              <p className={`text-xs font-semibold uppercase tracking-widest ${t.ctaText}`}>
+              <p className={`font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] ${t.ctaText}`}>
                 Finish Collection
               </p>
-              <h2 className={`mt-3 text-3xl font-semibold tracking-tight ${t.heading} sm:text-4xl`}>
+              <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
                 Textures and finishes
               </h2>
-              <p className={`mt-4 max-w-2xl text-base ${t.body}`}>
+              <p className={`mt-4 max-w-2xl font-sans text-sm leading-relaxed ${t.body} md:text-[15px]`}>
                 Explore our signature surface treatments, engineered for architectural impact.
               </p>
 
               <div className="mt-10 grid gap-6 sm:grid-cols-3">
                 <div className={`rounded-2xl border ${t.cardBorder} ${t.cardClass} p-6 shadow-sm transition hover:shadow-md`}>
                   <div className="aspect-video rounded-xl bg-gradient-to-br from-stone-200 to-stone-300 mb-4" />
-                  <span className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ring-1 ring-inset ${t.badgeClass}`}>
+                  <span className={`inline-flex items-center rounded-full px-3 py-1 font-sans text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.16em] ring-1 ring-inset ${t.badgeClass}`}>
                     Matte
                   </span>
-                  <h3 className="mt-3 text-lg font-semibold text-navy-900">Matte Finish</h3>
-                  <p className="mt-2 text-sm text-slate-600">
+                  <h3 className="mt-3 font-serif text-lg font-bold uppercase tracking-[0.14em] text-navy-900">Matte Finish</h3>
+                  <p className="mt-2 font-sans text-sm leading-relaxed text-slate-600 md:text-[15px]">
                     Non-reflective surface with a soft-touch feel. Ideal for high-traffic floors and feature walls where glare must be minimized.
                   </p>
                 </div>
 
                 <div className={`rounded-2xl border ${t.cardBorder} ${t.cardClass} p-6 shadow-sm transition hover:shadow-md`}>
                   <div className="aspect-video rounded-xl bg-gradient-to-br from-slate-100 to-white mb-4" />
-                  <span className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ring-1 ring-inset ${t.badgeClass}`}>
+                  <span className={`inline-flex items-center rounded-full px-3 py-1 font-sans text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.16em] ring-1 ring-inset ${t.badgeClass}`}>
                     Polished
                   </span>
-                  <h3 className="mt-3 text-lg font-semibold text-navy-900">Polished Finish</h3>
-                  <p className="mt-2 text-sm text-slate-600">
+                  <h3 className="mt-3 font-serif text-lg font-bold uppercase tracking-[0.14em] text-navy-900">Polished Finish</h3>
+                  <p className="mt-2 font-sans text-sm leading-relaxed text-slate-600 md:text-[15px]">
                     High-gloss reflective surface that amplifies natural and artificial light. Perfect for lobby spaces and contemporary interiors.
                   </p>
                 </div>
 
                 <div className={`rounded-2xl border ${t.cardBorder} ${t.cardClass} p-6 shadow-sm transition hover:shadow-md`}>
                   <div className="aspect-video rounded-xl bg-gradient-to-br from-orange-100 to-orange-200 mb-4" />
-                  <span className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ring-1 ring-inset ${t.badgeClass}`}>
+                  <span className={`inline-flex items-center rounded-full px-3 py-1 font-sans text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.16em] ring-1 ring-inset ${t.badgeClass}`}>
                     Porcelain
                   </span>
-                  <h3 className="mt-3 text-lg font-semibold text-navy-900">Porcelain Grade</h3>
-                  <p className="mt-2 text-sm text-slate-600">
+                  <h3 className="mt-3 font-serif text-lg font-bold uppercase tracking-[0.14em] text-navy-900">Porcelain Grade</h3>
+                  <p className="mt-2 font-sans text-sm leading-relaxed text-slate-600 md:text-[15px]">
                     Dense, vitrified body with PEI IV wear rating. Engineered for commercial load and extreme temperature variation.
                   </p>
                 </div>
@@ -568,13 +568,13 @@ export function CompanyClient({ company }: CompanyClientProps) {
 
           <section className={`py-16 sm:py-20 ${t.sectionClass}`}>
             <div className="container-corporate">
-              <p className={`text-xs font-semibold uppercase tracking-widest ${t.ctaText}`}>
+              <p className={`font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] ${t.ctaText}`}>
                 Project Gallery
               </p>
-              <h2 className={`mt-3 text-3xl font-semibold tracking-tight ${t.heading} sm:text-4xl`}>
+              <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
                 Architectural projects
               </h2>
-              <p className={`mt-4 max-w-2xl text-base ${t.body}`}>
+              <p className={`mt-4 max-w-2xl font-sans text-sm leading-relaxed ${t.body} md:text-[15px]`}>
                 A selection of residential and commercial spaces specified with Ceravo surfaces.
               </p>
 
@@ -590,13 +590,13 @@ export function CompanyClient({ company }: CompanyClientProps) {
                     className={`group overflow-hidden rounded-2xl border ${t.cardBorder} ${t.cardClass} shadow-sm transition hover:shadow-md`}
                   >
                     <div className={`aspect-[4/3] ${project.gradient} flex items-center justify-center`}>
-                      <span className="text-xs font-semibold uppercase tracking-widest text-slate-500">
+                      <span className="font-sans text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
                         {project.location}
                       </span>
                     </div>
                     <div className="p-4">
-                      <h3 className="text-sm font-semibold text-navy-900">{project.label}</h3>
-                      <p className="text-xs text-slate-500">{project.location}</p>
+                      <h3 className="font-serif text-sm font-bold uppercase tracking-[0.14em] text-navy-900">{project.label}</h3>
+                      <p className="font-sans text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">{project.location}</p>
                     </div>
                   </div>
                 ))}
@@ -611,13 +611,13 @@ export function CompanyClient({ company }: CompanyClientProps) {
         <>
           <section className={`py-16 sm:py-20 ${t.sectionAltClass}`}>
             <div className="container-corporate">
-              <p className={`text-xs font-semibold uppercase tracking-widest ${t.ctaText}`}>
+              <p className={`font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] ${t.ctaText}`}>
                 Core Competencies
               </p>
-              <h2 className={`mt-3 text-3xl font-semibold tracking-tight ${t.heading} sm:text-4xl`}>
+              <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
                 Enterprise-grade capabilities
               </h2>
-              <p className={`mt-4 max-w-2xl text-base ${t.body}`}>
+              <p className={`mt-4 max-w-2xl font-sans text-sm leading-relaxed ${t.body} md:text-[15px]`}>
                 We design, build, and operate platforms that scale with the businesses they serve.
               </p>
 
@@ -627,9 +627,9 @@ export function CompanyClient({ company }: CompanyClientProps) {
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500/20 text-indigo-400">
                       <Factory className="h-5 w-5" aria-hidden />
                     </div>
-                    <h3 className="text-lg font-semibold text-white">Enterprise Software</h3>
+                    <h3 className="font-serif text-lg font-bold uppercase tracking-[0.14em] text-white">Enterprise Software</h3>
                   </div>
-                  <p className="mt-3 text-sm text-slate-400">
+                  <p className="mt-3 font-sans text-sm leading-relaxed text-slate-400 md:text-[15px]">
                     Custom platforms built for scale — ERP, CRM, and workflow automation tailored to operational realities.
                   </p>
                 </div>
@@ -639,9 +639,9 @@ export function CompanyClient({ company }: CompanyClientProps) {
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500/20 text-indigo-400">
                       <Wrench className="h-5 w-5" aria-hidden />
                     </div>
-                    <h3 className="text-lg font-semibold text-white">Cloud Systems</h3>
+                    <h3 className="font-serif text-lg font-bold uppercase tracking-[0.14em] text-white">Cloud Systems</h3>
                   </div>
-                  <p className="mt-3 text-sm text-slate-400">
+                  <p className="mt-3 font-sans text-sm leading-relaxed text-slate-400 md:text-[15px]">
                     Cloud-native architecture on AWS and Azure with auto-scaling, CI/CD pipelines, and 99.99% availability targets.
                   </p>
                 </div>
@@ -651,9 +651,9 @@ export function CompanyClient({ company }: CompanyClientProps) {
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500/20 text-indigo-400">
                       <Sparkles className="h-5 w-5" aria-hidden />
                     </div>
-                    <h3 className="text-lg font-semibold text-white">AI Systems</h3>
+                    <h3 className="font-serif text-lg font-bold uppercase tracking-[0.14em] text-white">AI Systems</h3>
                   </div>
-                  <p className="mt-3 text-sm text-slate-400">
+                  <p className="mt-3 font-sans text-sm leading-relaxed text-slate-400 md:text-[15px]">
                     Predictive analytics, NLP pipelines, and computer vision models integrated directly into enterprise workflows.
                   </p>
                 </div>
@@ -663,13 +663,13 @@ export function CompanyClient({ company }: CompanyClientProps) {
 
           <section className={`py-16 sm:py-20 ${t.sectionClass}`}>
             <div className="container-corporate">
-              <p className={`text-xs font-semibold uppercase tracking-widest ${t.ctaText}`}>
+              <p className={`font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] ${t.ctaText}`}>
                 Technology Stack
               </p>
-              <h2 className={`mt-3 text-3xl font-semibold tracking-tight ${t.heading} sm:text-4xl`}>
+              <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
                 What we build with
               </h2>
-              <p className={`mt-4 max-w-2xl text-base ${t.body}`}>
+              <p className={`mt-4 max-w-2xl font-sans text-sm leading-relaxed ${t.body} md:text-[15px]`}>
                 Modern, battle-tested tooling chosen for performance and developer experience.
               </p>
 
@@ -694,7 +694,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
                 ].map((tech) => (
                   <span
                     key={tech}
-                    className={`inline-flex items-center rounded-full px-4 py-2 text-sm font-medium ring-1 ring-inset ${t.badgeClass}`}
+                    className={`inline-flex items-center rounded-full px-4 py-2 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] ring-1 ring-inset ${t.badgeClass}`}
                   >
                     {tech}
                   </span>
@@ -705,13 +705,13 @@ export function CompanyClient({ company }: CompanyClientProps) {
 
           <section className={`py-16 sm:py-20 ${t.sectionAltClass}`}>
             <div className="container-corporate">
-              <p className={`text-xs font-semibold uppercase tracking-widest ${t.ctaText}`}>
+              <p className={`font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] ${t.ctaText}`}>
                 Case Studies
               </p>
-              <h2 className={`mt-3 text-3xl font-semibold tracking-tight ${t.heading} sm:text-4xl`}>
+              <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
                 Impact in production
               </h2>
-              <p className={`mt-4 max-w-2xl text-base ${t.body}`}>
+              <p className={`mt-4 max-w-2xl font-sans text-sm leading-relaxed ${t.body} md:text-[15px]`}>
                 Selected outcomes from enterprise engagements across industries.
               </p>
 
@@ -747,13 +747,13 @@ export function CompanyClient({ company }: CompanyClientProps) {
       {company.slug === "velorix-motors" && (
         <section className={`py-16 sm:py-20 ${t.sectionAltClass}`}>
           <div className="container-corporate">
-            <p className={`text-xs font-semibold uppercase tracking-widest ${t.ctaText}`}>
+            <p className={`font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] ${t.ctaText}`}>
               Engineering Focus
             </p>
-            <h2 className={`mt-3 text-3xl font-semibold tracking-tight ${t.heading} sm:text-4xl`}>
+            <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
               Performance with a quieter kind of confidence.
             </h2>
-            <p className={`mt-4 max-w-2xl text-base ${t.body}`}>
+            <p className={`mt-4 max-w-2xl font-sans text-sm leading-relaxed ${t.body} md:text-[15px]`}>
               Velorix combines responsive dynamics, thoughtful technology, and
               tailored ownership programs for modern mobility.
             </p>
@@ -791,27 +791,27 @@ export function CompanyClient({ company }: CompanyClientProps) {
           <h2 className={`text-3xl font-semibold tracking-tight ${t.heading} sm:text-4xl`}>
             Ready to explore {company.name}?
           </h2>
-          <p className={`mt-4 text-base ${t.body}`}>
-            Get in touch to schedule a meeting or request more information.
-          </p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <button
-              type="button"
-              onClick={openInquiry}
-              className={`inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold shadow-corporate transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 ${t.ctaClass} ${t.ctaHover}`}
-            >
-              Direct Inquiry / Schedule Meeting
-            </button>
-            <a
-              href={company.websiteUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-8 py-3.5 text-sm font-semibold text-navy-800 transition hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
-            >
-              Visit Website
-              <ExternalLink className="h-4 w-4" aria-hidden />
-            </a>
-          </div>
+<p className={`mt-4 font-sans text-sm leading-relaxed ${t.body} md:text-[15px]`}>
+                Get in touch to schedule a meeting or request more information.
+              </p>
+              <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                <button
+                  type="button"
+                  onClick={openInquiry}
+                  className={`inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] shadow-corporate transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 ${t.ctaClass} ${t.ctaHover}`}
+                >
+                  Direct Inquiry / Schedule Meeting
+                </button>
+                <a
+                  href={company.websiteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-8 py-3.5 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-navy-800 transition hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
+                >
+                  Visit Website
+                  <ExternalLink className="h-4 w-4" aria-hidden />
+                </a>
+              </div>
         </div>
       </section>
     </>

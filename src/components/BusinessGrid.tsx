@@ -12,17 +12,17 @@ export function BusinessGrid() {
     >
       <div className="container-corporate">
         <div className="max-w-3xl">
-          <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-gold-600">
+          <p className="inline-flex items-center gap-2 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">
             <Sparkles className="h-4 w-4" aria-hidden="true" />
             Our Portfolio
           </p>
           <h2
             id="businesses-heading"
-            className="mt-4 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl lg:text-5xl"
+            className="mt-4 font-serif text-3xl font-bold uppercase tracking-[0.12em] text-slate-900 sm:text-4xl lg:text-5xl"
           >
             Distinct businesses, one exacting standard.
           </h2>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-600">
+          <p className="mt-5 max-w-2xl font-sans text-sm leading-relaxed text-slate-600 md:text-[15px]">
             Explore the specialist companies that make up SHATHI Group — each
             designed to lead its field with clarity, craft, and long-term focus.
           </p>
@@ -62,7 +62,7 @@ function SubsidiaryCard({ company }: { company: Company }) {
 
       <span className="flex flex-1 flex-col">
         <span className="flex items-start justify-between gap-6">
-          <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+          <span className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
             {company.category}
           </span>
           <ArrowUpRight
@@ -71,12 +71,12 @@ function SubsidiaryCard({ company }: { company: Company }) {
           />
         </span>
 
-        <h3 className="my-auto text-2xl font-bold leading-snug tracking-tight text-slate-900 md:text-3xl">
+        <h3 className="my-auto font-serif text-2xl font-bold uppercase tracking-[0.14em] text-slate-900 md:text-3xl">
           {company.name}
         </h3>
 
         <span className="mt-4 border-t border-slate-200/80 pt-4">
-          <span className="block text-sm leading-relaxed text-slate-600 line-clamp-3">
+          <span className="block font-sans text-sm leading-relaxed text-slate-600 line-clamp-3 md:text-[15px]">
             {company.description}
           </span>
         </span>

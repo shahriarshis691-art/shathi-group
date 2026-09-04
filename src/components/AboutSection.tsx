@@ -40,17 +40,17 @@ export function AboutSection() {
 
       <div className="container-corporate relative">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gold-600">
+          <p className="inline-flex items-center gap-2 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">
             <Sparkles className="h-4 w-4" aria-hidden />
             About SHATHI Group
           </p>
           <h2
             id="about-heading"
-            className="mt-3 text-3xl font-semibold tracking-tight text-navy-900 sm:text-4xl lg:text-5xl text-balance"
+            className="mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] text-slate-900 sm:text-4xl lg:text-5xl text-balance"
           >
             A diversified group built on trust.
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-slate-600 sm:text-lg text-balance">
+          <p className="mt-5 font-sans text-sm leading-relaxed text-slate-600 sm:text-[15px] text-balance">
             SHATHI Group of Companies is a house of brands — uniting
             industry-leading businesses under a single standard of excellence,
             governance, and customer commitment.
@@ -67,10 +67,10 @@ export function AboutSection() {
                 <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-navy-900 text-gold-400 shadow-corporate transition-colors group-hover:bg-navy-800">
                   <Icon className="h-5 w-5" aria-hidden />
                 </span>
-                <h3 className="mt-5 text-xl font-semibold tracking-tight text-navy-900">
+                <h3 className="mt-5 font-serif text-xl font-bold uppercase tracking-[0.14em] text-slate-900">
                   {title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
+                <p className="mt-3 font-sans text-sm leading-relaxed text-slate-600 sm:text-[15px]">
                   {body}
                 </p>
               </article>

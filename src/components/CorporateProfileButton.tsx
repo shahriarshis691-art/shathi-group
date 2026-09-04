@@ -37,7 +37,7 @@ export function CorporateProfileButton() {
   }
 
   const baseButton =
-    "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold shadow-corporate transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 disabled:cursor-not-allowed disabled:opacity-70";
+    "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] shadow-corporate transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 disabled:cursor-not-allowed disabled:opacity-70";
 
   return (
     <div className="flex flex-col items-start gap-2">
@@ -64,7 +64,7 @@ export function CorporateProfileButton() {
       </button>
 
       {state === "missing" ? (
-        <p className="max-w-md text-sm text-slate-600">
+        <p className="max-w-md font-sans text-sm leading-relaxed text-slate-600 md:text-[15px]">
           The corporate profile PDF is being updated.{" "}
           <a
             href={`mailto:${siteConfig.email}?subject=Corporate Profile Request`}

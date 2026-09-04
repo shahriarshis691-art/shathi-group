@@ -40,12 +40,12 @@ export function StatsSection() {
 
       <div className="container-corporate relative py-16 sm:py-20">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-widest text-gold-300">
+          <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-300">
             By the Numbers
           </p>
           <h2
             id="stats-heading"
-            className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl text-balance"
+            className="mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] text-white sm:text-4xl text-balance"
           >
             Built on measurable commitment.
           </h2>
@@ -69,13 +69,15 @@ export function StatsSection() {
                 <Icon className="h-5 w-5" aria-hidden />
               </span>
 
-              <p className="mt-5 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              <p className="mt-5 font-serif text-3xl font-bold uppercase tracking-[0.12em] text-white sm:text-4xl">
                 {value}
               </p>
-              <p className="mt-1 text-sm font-semibold uppercase tracking-widest text-gold-300">
+              <p className="mt-1 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-300">
                 {label}
               </p>
-              <p className="mt-2 text-xs text-slate-300">{sub}</p>
+              <p className="mt-2 font-sans text-sm leading-relaxed text-slate-300">
+                {sub}
+              </p>
             </li>
           ))}
         </ul>

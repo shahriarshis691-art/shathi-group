@@ -53,7 +53,7 @@ export function Logo({ className, variant = "default", priority = false }: LogoP
           className="h-8 w-8 object-contain"
         />
       )}
-      <span className="text-lg font-semibold tracking-tight">
+      <span className="font-serif text-lg font-bold uppercase tracking-[0.12em]">
         SHATHI<span className={accentVariant[variant]}> Group</span>
       </span>
     </Link>

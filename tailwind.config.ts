@@ -65,8 +65,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
-        mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
+        serif: ["var(--font-serif)", "ui-serif", "Georgia", "serif"],
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
       boxShadow: {
         corporate: "0 4px 20px -2px rgba(15, 39, 65, 0.15)",

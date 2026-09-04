@@ -132,10 +132,10 @@ export function ContactModal({ company, onClose }: ContactModalProps) {
       >
         <div className="flex items-start justify-between px-6 py-5 border-b border-slate-100">
           <div>
-            <h2 className="text-xl font-semibold tracking-tight text-navy-900">
+            <h2 className="font-serif text-xl font-bold uppercase tracking-[0.14em] text-slate-900">
               Direct Inquiry
             </h2>
-            <p className="text-sm text-slate-600">
+            <p className="font-sans text-sm leading-relaxed text-slate-600">
               Schedule a meeting with {company.name}
             </p>
           </div>
@@ -153,7 +153,7 @@ export function ContactModal({ company, onClose }: ContactModalProps) {
           <div>
             <label
               htmlFor="cm-name"
-              className="mb-1.5 block text-sm font-medium text-slate-800"
+              className="mb-1.5 block font-sans text-sm font-medium text-slate-800"
             >
               Full Name
             </label>
@@ -182,7 +182,7 @@ export function ContactModal({ company, onClose }: ContactModalProps) {
           <div>
             <label
               htmlFor="cm-email"
-              className="mb-1.5 block text-sm font-medium text-slate-800"
+              className="mb-1.5 block font-sans text-sm font-medium text-slate-800"
             >
               Email Address
             </label>
@@ -211,7 +211,7 @@ export function ContactModal({ company, onClose }: ContactModalProps) {
           <div>
             <label
               htmlFor="cm-message"
-              className="mb-1.5 block text-sm font-medium text-slate-800"
+              className="mb-1.5 block font-sans text-sm font-medium text-slate-800"
             >
               Message
             </label>
@@ -256,11 +256,11 @@ export function ContactModal({ company, onClose }: ContactModalProps) {
             </p>
           )}
 
-          <button
-            type="submit"
-            disabled={status === "submitting"}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-navy-800 px-6 py-3 text-sm font-semibold text-white shadow-corporate transition hover:bg-navy-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 disabled:cursor-not-allowed disabled:opacity-60"
-          >
+<button
+          type="submit"
+          disabled={status === "submitting"}
+          className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-navy-800 px-6 py-3 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-white shadow-corporate transition hover:bg-navy-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 disabled:cursor-not-allowed disabled:opacity-60"
+        >
             {status === "submitting" ? (
               <>
                 <span

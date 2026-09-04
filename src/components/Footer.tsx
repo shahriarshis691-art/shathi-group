@@ -41,7 +41,7 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Logo variant="inverse" />
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-slate-300">
+            <p className="mt-4 max-w-sm font-sans text-sm leading-relaxed text-slate-300">
               SHATHI Group of Companies is a diversified corporate portfolio
               spanning fashion, luxury, building materials, and home living —
               united by integrity, craftsmanship, and long-term value.
@@ -50,7 +50,7 @@ export function Footer() {
             <button
               type="button"
               onClick={openInquiry}
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-gold-500 px-5 py-2.5 text-sm font-semibold text-navy-900 shadow-corporate transition hover:bg-gold-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-gold-500 px-5 py-2.5 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-navy-900 shadow-corporate transition hover:bg-gold-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               Corporate Inquiry
             </button>
@@ -72,7 +72,7 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <h3 className="text-sm font-semibold uppercase tracking-widest text-gold-400">
+            <h3 className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-400">
               Quick Links
             </h3>
             <ul className="mt-4 space-y-3">
@@ -80,7 +80,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-slate-300 transition hover:text-white"
+                    className="font-sans text-sm text-slate-300 transition hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -90,7 +90,7 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-5">
-            <h3 className="text-sm font-semibold uppercase tracking-widest text-gold-400">
+            <h3 className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-400">
               Sister Concerns
             </h3>
             <ul className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -104,10 +104,10 @@ export function Footer() {
                   >
                     <span className="mt-1 inline-block h-2 w-2 flex-none rounded-full bg-gold-400" />
                     <span>
-                      <span className="block text-sm font-medium text-white">
+                      <span className="block font-serif text-sm font-bold uppercase tracking-[0.14em] text-white">
                         {company.name}
                       </span>
-                      <span className="block text-xs text-slate-400">
+                      <span className="block font-sans text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
                         {company.category}
                       </span>
                     </span>
@@ -124,10 +124,10 @@ export function Footer() {
               <MapPin className="h-4 w-4" aria-hidden />
             </span>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-gold-400">
+              <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-400">
                 Corporate Office
               </p>
-              <p className="mt-1 text-sm text-slate-300">
+              <p className="mt-1 font-sans text-sm text-slate-300">
                 SHATHI Tower, Corporate Park,
                 <br />
                 Main Business District, India
@@ -140,12 +140,12 @@ export function Footer() {
               <Phone className="h-4 w-4" aria-hidden />
             </span>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-gold-400">
+              <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-400">
                 Phone
               </p>
               <a
                 href="tel:+910000000000"
-                className="mt-1 block text-sm text-slate-300 transition hover:text-white"
+                className="mt-1 block font-sans text-sm text-slate-300 transition hover:text-white"
               >
                 +91 00000 00000
               </a>
@@ -157,12 +157,12 @@ export function Footer() {
               <Mail className="h-4 w-4" aria-hidden />
             </span>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-gold-400">
+              <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-400">
                 Email
               </p>
               <a
                 href="mailto:info@shathigroup.com"
-                className="mt-1 block text-sm text-slate-300 transition hover:text-white"
+                className="mt-1 block font-sans text-sm text-slate-300 transition hover:text-white"
               >
                 info@shathigroup.com
               </a>
@@ -172,7 +172,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container-corporate flex flex-col items-center justify-between gap-3 py-5 text-xs text-slate-400 sm:flex-row">
+        <div className="container-corporate flex flex-col items-center justify-between gap-3 py-5 font-sans text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400 sm:flex-row">
           <p>
             &copy; {year} SHATHI Group of Companies. All rights reserved.
           </p>

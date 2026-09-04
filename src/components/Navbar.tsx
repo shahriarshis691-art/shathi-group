@@ -39,7 +39,7 @@ export function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="rounded-md px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-navy-800"
+                className="rounded-md px-3 py-2 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-slate-700 transition hover:bg-slate-100 hover:text-navy-800"
               >
                 {link.label}
               </Link>
@@ -51,7 +51,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={openInquiry}
-            className="inline-flex items-center rounded-full bg-navy-800 px-5 py-2 text-sm font-semibold text-white shadow-corporate transition hover:bg-navy-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
+            className="inline-flex items-center rounded-full bg-navy-800 px-5 py-2 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-white shadow-corporate transition hover:bg-navy-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
           >
             Get in Touch
           </button>
@@ -81,17 +81,17 @@ export function Navbar() {
       >
         <div className="container-corporate py-4">
           <ul className="flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="block rounded-md px-3 py-3 text-base font-medium text-slate-800 transition hover:bg-slate-100 hover:text-navy-800"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+{navLinks.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="block rounded-md px-3 py-3 font-sans text-sm font-medium uppercase tracking-[0.14em] text-slate-800 transition hover:bg-slate-100 hover:text-navy-800"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
           </ul>
           <button
             type="button"
@@ -99,7 +99,7 @@ export function Navbar() {
               openInquiry();
               setOpen(false);
             }}
-            className="mt-4 block w-full rounded-full bg-navy-800 px-5 py-3 text-center text-sm font-semibold text-white shadow-corporate transition hover:bg-navy-700"
+            className="mt-4 block w-full rounded-full bg-navy-800 px-5 py-3 text-center font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-white shadow-corporate transition hover:bg-navy-700"
           >
             Get in Touch
           </button>

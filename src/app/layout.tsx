@@ -1,20 +1,23 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { InquiryProvider } from "@/components/InquiryProvider";
 import { siteConfig } from "@/data/site";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["600", "700", "900"],
+  variable: "--font-serif",
+  display: "swap",
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-sans",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -70,10 +73,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col antialiased`}
-      >
+    <html lang="en" className={`${playfair.variable} ${jakarta.variable}`}>
+      <body className="flex min-h-screen flex-col bg-white font-sans text-slate-900 antialiased">
         <Navbar />
         <div className="flex-1">{children}</div>
         <Footer />

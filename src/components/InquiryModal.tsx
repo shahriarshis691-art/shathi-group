@@ -219,17 +219,17 @@ export function InquiryModal({
             </span>
             <h2
               id="inquiry-modal-title"
-              className="mt-6 text-2xl font-semibold tracking-tight text-white"
+              className="mt-6 font-serif text-2xl font-bold uppercase tracking-[0.14em] text-white"
             >
               Inquiry received
             </h2>
-            <p className="mt-3 max-w-md text-sm leading-6 text-slate-300">
+            <p className="mt-3 max-w-md font-sans text-sm leading-6 text-slate-300">
               Our corporate team will reach out shortly to discuss your requirements.
             </p>
             <button
               type="button"
               onClick={onClose}
-              className="mt-8 rounded-xl bg-gold-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-gold-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300"
+              className="mt-8 rounded-xl bg-gold-400 px-5 py-3 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-slate-950 transition hover:bg-gold-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300"
             >
               Close
             </button>
@@ -237,16 +237,16 @@ export function InquiryModal({
         ) : (
           <>
             <header className="border-b border-slate-700/60 px-6 py-6 pr-16 sm:px-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-400">
+              <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-400">
                 SHATHI Group
               </p>
               <h2
                 id="inquiry-modal-title"
-                className="mt-2 text-2xl font-semibold tracking-tight text-white"
+                className="mt-2 font-serif text-2xl font-bold uppercase tracking-[0.14em] text-white"
               >
                 Corporate Inquiry
               </h2>
-              <p className="mt-2 text-sm text-slate-400">
+              <p className="mt-2 font-sans text-sm leading-relaxed text-slate-400">
                 Tell us how our group can support your next business opportunity.
               </p>
             </header>
@@ -391,11 +391,11 @@ export function InquiryModal({
                 />
               </Field>
 
-              <button
-                type="submit"
-                disabled={status === "submitting"}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gold-400 px-5 py-3.5 text-sm font-semibold text-slate-950 transition hover:bg-gold-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300 disabled:cursor-not-allowed disabled:opacity-60"
-              >
+<button
+              type="submit"
+              disabled={status === "submitting"}
+              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gold-400 px-5 py-3.5 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-slate-950 transition hover:bg-gold-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300 disabled:cursor-not-allowed disabled:opacity-60"
+            >
                 {status === "submitting" ? (
                   <>
                     <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
@@ -433,7 +433,7 @@ function Field({
 
   return (
     <div>
-      <label htmlFor={htmlFor} className="mb-2 block text-sm font-medium text-slate-200">
+      <label htmlFor={htmlFor} className="mb-2 block font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-slate-200">
         {label}
         {required && <span className="ml-1 text-gold-400">*</span>}
       </label>

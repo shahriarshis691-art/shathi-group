@@ -137,16 +137,16 @@ export function ContactSection() {
     >
       <div className="container-corporate">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gold-600">
+          <p className="inline-flex items-center gap-2 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">
             Get in Touch
           </p>
           <h2
             id="contact-heading"
-            className="mt-3 text-3xl font-semibold tracking-tight text-navy-900 sm:text-4xl text-balance"
+            className="mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] text-slate-900 sm:text-4xl text-balance"
           >
             Let&apos;s start a conversation.
           </h2>
-          <p className="mt-4 text-base text-slate-600 text-balance">
+          <p className="mt-4 font-sans text-sm leading-relaxed text-slate-600 md:text-[15px] text-balance">
             Reach out for partnerships, media inquiries, or to learn more about
             any of our businesses. We typically respond within one business day.
           </p>
@@ -155,10 +155,10 @@ export function ContactSection() {
         <div className="mt-14 grid gap-8 lg:grid-cols-5">
           <aside className="lg:col-span-2">
             <div className="rounded-2xl bg-navy-900 p-7 text-white shadow-corporate-lg sm:p-8">
-              <h3 className="text-xl font-semibold tracking-tight">
+              <h3 className="font-serif text-xl font-bold uppercase tracking-[0.14em]">
                 Corporate Office
               </h3>
-              <p className="mt-2 text-sm text-slate-300">
+              <p className="mt-2 font-sans text-sm leading-relaxed text-slate-300">
                 Visit, call, or write to us — our team is here to help.
               </p>
 
@@ -168,10 +168,10 @@ export function ContactSection() {
                     <MapPin className="h-5 w-5" aria-hidden />
                   </span>
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-widest text-gold-300">
+                    <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-300">
                       Address
                     </p>
-                    <p className="mt-1 text-sm leading-relaxed text-slate-200">
+                    <p className="mt-1 font-sans text-sm leading-relaxed text-slate-200">
                       SHATHI Tower, Corporate Park,
                       <br />
                       Main Business District,
@@ -186,12 +186,12 @@ export function ContactSection() {
                     <Mail className="h-5 w-5" aria-hidden />
                   </span>
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-widest text-gold-300">
+                    <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-300">
                       Email
                     </p>
                     <a
                       href="mailto:info@shathigroup.com"
-                      className="mt-1 block text-sm text-slate-200 transition hover:text-white"
+                      className="mt-1 block font-sans text-sm text-slate-200 transition hover:text-white"
                     >
                       info@shathigroup.com
                     </a>
@@ -203,12 +203,12 @@ export function ContactSection() {
                     <Phone className="h-5 w-5" aria-hidden />
                   </span>
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-widest text-gold-300">
+                    <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-300">
                       Phone
                     </p>
                     <a
                       href="tel:+910000000000"
-                      className="mt-1 block text-sm text-slate-200 transition hover:text-white"
+                      className="mt-1 block font-sans text-sm text-slate-200 transition hover:text-white"
                     >
                       +91 00000 00000
                     </a>
@@ -220,10 +220,10 @@ export function ContactSection() {
                     <Clock className="h-5 w-5" aria-hidden />
                   </span>
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-widest text-gold-300">
+                    <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-300">
                       Working Hours
                     </p>
-                    <p className="mt-1 text-sm leading-relaxed text-slate-200">
+                    <p className="mt-1 font-sans text-sm leading-relaxed text-slate-200">
                       Mon – Fri: 9:00 AM – 6:00 PM
                       <br />
                       Sat: 10:00 AM – 2:00 PM
@@ -247,7 +247,7 @@ export function ContactSection() {
                 <div>
                   <label
                     htmlFor="contact-name"
-                    className="mb-1.5 block text-sm font-medium text-slate-800"
+                    className="mb-1.5 block font-sans text-sm font-medium text-slate-800"
                   >
                     Full Name
                   </label>
@@ -276,7 +276,7 @@ export function ContactSection() {
                 <div>
                   <label
                     htmlFor="contact-email"
-                    className="mb-1.5 block text-sm font-medium text-slate-800"
+                    className="mb-1.5 block font-sans text-sm font-medium text-slate-800"
                   >
                     Email Address
                   </label>
@@ -305,7 +305,7 @@ export function ContactSection() {
                 <div className="sm:col-span-2">
                   <label
                     htmlFor="contact-concern"
-                    className="mb-1.5 block text-sm font-medium text-slate-800"
+                    className="mb-1.5 block font-sans text-sm font-medium text-slate-800"
                   >
                     Select Concern
                   </label>
@@ -345,7 +345,7 @@ export function ContactSection() {
                 <div className="sm:col-span-2">
                   <label
                     htmlFor="contact-message"
-                    className="mb-1.5 block text-sm font-medium text-slate-800"
+                    className="mb-1.5 block font-sans text-sm font-medium text-slate-800"
                   >
                     Message
                   </label>
@@ -398,7 +398,7 @@ export function ContactSection() {
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-navy-800 px-6 py-3 text-sm font-semibold text-white shadow-corporate transition hover:bg-navy-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-navy-800 px-6 py-3 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-white shadow-corporate transition hover:bg-navy-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {status === "submitting" ? (
                     <>

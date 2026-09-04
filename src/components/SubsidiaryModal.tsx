@@ -52,18 +52,18 @@ export function SubsidiaryModal({ company, onClose }: SubsidiaryModalProps) {
               <CompanyLogo company={company} size={56} />
             </div>
             <div>
-              <h2
-                id={titleId}
-                className="text-2xl font-semibold tracking-tight text-navy-900"
-              >
-                {company.name}
-              </h2>
-              <p className="text-sm font-medium italic text-gold-600">
-                {company.tagline}
-              </p>
-              <span className="mt-1 inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium uppercase tracking-widest text-slate-600 ring-1 ring-inset ring-slate-200/70">
-                {company.category}
-              </span>
+<h2
+              id={titleId}
+              className="font-serif text-2xl font-bold uppercase tracking-[0.14em] text-slate-900 md:text-3xl"
+            >
+              {company.name}
+            </h2>
+            <p className="font-sans text-sm font-medium italic text-gold-600">
+              {company.tagline}
+            </p>
+            <span className="mt-1 inline-flex items-center rounded-full px-2.5 py-0.5 font-sans text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-600 ring-1 ring-inset ring-slate-200/70">
+              {company.category}
+            </span>
             </div>
           </div>
 
@@ -79,7 +79,7 @@ export function SubsidiaryModal({ company, onClose }: SubsidiaryModalProps) {
 
         <div
           id={descId}
-          className="px-6 pb-6 space-y-5 text-sm text-slate-600"
+          className="space-y-5 px-6 pb-6 font-sans text-sm leading-relaxed text-slate-600 md:text-[15px]"
         >
           {company.brandStory ? (
             <p className="leading-relaxed text-slate-700">{company.brandStory}</p>
@@ -87,7 +87,7 @@ export function SubsidiaryModal({ company, onClose }: SubsidiaryModalProps) {
 
           {company.productVerticals && company.productVerticals.length > 0 ? (
             <div>
-              <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-500">
+              <h3 className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
                 Key Product Verticals
               </h3>
               <ul className="mt-2 grid gap-1.5 sm:grid-cols-2">
@@ -110,7 +110,7 @@ export function SubsidiaryModal({ company, onClose }: SubsidiaryModalProps) {
           {company.flagshipHighlights &&
           company.flagshipHighlights.length > 0 ? (
             <div>
-              <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-500">
+              <h3 className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
                 Flagship Highlights
               </h3>
               <ul className="mt-2 list-disc list-inside space-y-1 text-slate-700 marker:text-gold-500">
@@ -123,7 +123,7 @@ export function SubsidiaryModal({ company, onClose }: SubsidiaryModalProps) {
 
           {company.features && company.features.length > 0 ? (
             <div>
-              <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-500">
+              <h3 className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
                 Services & Features
               </h3>
               <ul className="mt-2 list-disc list-inside space-y-1 text-slate-700 marker:text-gold-500">
@@ -141,7 +141,7 @@ export function SubsidiaryModal({ company, onClose }: SubsidiaryModalProps) {
               href={company.websiteUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-navy-800 px-5 py-3 text-sm font-semibold text-white shadow-corporate transition hover:bg-navy-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-navy-800 px-5 py-3 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-white shadow-corporate transition hover:bg-navy-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
             >
               <ExternalLink className="h-4 w-4" aria-hidden />
               Visit {company.name} Website
@@ -151,7 +151,7 @@ export function SubsidiaryModal({ company, onClose }: SubsidiaryModalProps) {
                 href={company.storeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-navy-800 px-5 py-3 text-sm font-semibold text-navy-800 transition hover:bg-navy-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-navy-800 px-5 py-3 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-navy-800 transition hover:bg-navy-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
               >
                 <ExternalLink className="h-4 w-4" aria-hidden />
                 Shop Online
