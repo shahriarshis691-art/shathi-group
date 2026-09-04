@@ -3,7 +3,6 @@
 import { useState, type FormEvent } from "react";
 import {
   CheckCircle2,
-  Clock,
   Mail,
   MapPin,
   Phone,
@@ -56,12 +55,12 @@ function validate(values: FormState): FormErrors {
 }
 
 const inputBase =
-  "block w-full rounded-lg border bg-white px-4 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 shadow-sm transition focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-offset-white";
+  "w-full bg-[#FAFBFB] border border-slate-200 px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 focus:bg-white focus:border-neutral-900 focus:outline-none transition-all duration-200 rounded-none";
 
 const inputIdle =
-  "border-slate-300 hover:border-slate-400 focus:border-neutral-500 focus:ring-neutral-500/40";
+  "border-slate-200 hover:border-neutral-900 focus:border-neutral-900";
 const inputError =
-  "border-rose-400 focus:border-rose-500 focus:ring-rose-500/30";
+  "border-rose-400 focus:border-rose-500";
 
 export function ContactSection() {
   const [values, setValues] = useState<FormState>(initial);
@@ -133,127 +132,85 @@ export function ContactSection() {
     <section
       aria-labelledby="contact-heading"
       id="contact"
-      className="relative py-20 sm:py-24"
+      className="bg-[#F4F5F7]"
     >
-      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden="true">
-        <div className="absolute bottom-0 left-1/4 h-[400px] w-[400px] translate-y-1/3 rounded-full bg-white/5 blur-3xl" />
-      </div>
-
-      <div className="container-corporate">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="inline-flex items-center gap-2 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600">
-            Get in Touch
-          </p>
-          <h2
-            id="contact-heading"
-            className="mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] text-neutral-900 sm:text-4xl text-balance"
-          >
-            Let&apos;s start a conversation.
-          </h2>
-          <p className="mt-4 font-sans text-sm md:text-[15px] font-normal text-neutral-600 leading-relaxed text-balance">
-            Reach out for partnerships, media inquiries, or to learn more about
-            any of our businesses. We typically respond within one business day.
-          </p>
-        </div>
-
-        <div className="mt-14 grid gap-8 lg:grid-cols-5">
-          <aside className="lg:col-span-2">
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/60 bg-white/40 p-7 shadow-[0_20px_50px_rgba(0,0,0,0.08),inset_0_1px_1px_rgba(255,255,255,0.8)] backdrop-blur-2xl sm:p-8">
-              <div className="pointer-events-none absolute inset-0 rounded-[2rem] border border-white/50" aria-hidden="true" />
-              <h3 className="relative font-serif text-xl font-bold uppercase tracking-[0.14em] text-neutral-900">
-                Corporate Office
-              </h3>
-              <p className="relative mt-2 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-neutral-600">
-                Visit, call, or write to us — our team is here to help.
+      <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          <aside className="lg:col-span-4">
+            <div className="border border-slate-200 bg-white p-8 md:p-10 rounded-none shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
+              <p className="text-[10px] font-mono tracking-[0.25em] text-neutral-400 uppercase mb-2 block">
+                Communication Desk
+              </p>
+              <h2 className="font-serif text-2xl md:text-3xl text-neutral-900 tracking-tight font-normal mb-4">
+                Let&apos;s start a conversation.
+              </h2>
+              <p className="text-xs md:text-sm text-neutral-500 font-sans leading-relaxed mb-8">
+                Reach out for partnerships, media inquiries, or to learn more about
+                any of our businesses. We typically respond within one business day.
               </p>
 
-              <ul role="list" className="relative mt-8 space-y-6">
-                <li className="flex items-start gap-4">
-                  <span className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-slate-200/80 text-slate-700 shadow-sm">
-                    <MapPin className="h-5 w-5" aria-hidden />
-                  </span>
+              <div className="space-y-6 pt-6 border-t border-neutral-100">
+                <div className="flex items-start gap-3">
+                  <MapPin className="h-4 w-4 text-neutral-900 mt-0.5 shrink-0" aria-hidden />
                   <div>
-                    <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600">
+                    <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-1">
                       Address
                     </p>
-                     <p className="mt-1 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-neutral-600">
-                       SHATHI Tower, Corporate Park,
-                       <br />
-                       Main Business District,
-                       <br />
-                       India
-                     </p>
+                    <p className="text-sm font-medium text-neutral-900 leading-snug">
+                      SHATHI Tower, Corporate Park,
+                      <br />
+                      Main Business District,
+                      <br />
+                      India
+                    </p>
                   </div>
-                </li>
+                </div>
 
-                <li className="flex items-start gap-4">
-                  <span className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-slate-200/80 text-slate-700 shadow-sm">
-                    <Mail className="h-5 w-5" aria-hidden />
-                  </span>
+                <div className="flex items-start gap-3">
+                  <Mail className="h-4 w-4 text-neutral-900 mt-0.5 shrink-0" aria-hidden />
                   <div>
-                     <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600">
-                       Email
-                     </p>
-                      <a
-                        href="mailto:info@shathigroup.com"
-                        className="mt-1 block font-sans text-sm md:text-[15px] font-normal text-neutral-600 transition hover:text-neutral-900"
-                     >
-                       info@shathigroup.com
-                     </a>
+                    <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-1">
+                      Inquiries
+                    </p>
+                    <a
+                      href="mailto:info@shathigroup.com"
+                      className="text-sm font-medium text-neutral-900 leading-snug hover:text-neutral-600 transition-colors"
+                    >
+                      info@shathigroup.com
+                    </a>
                   </div>
-                </li>
+                </div>
 
-                <li className="flex items-start gap-4">
-                  <span className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-slate-200/80 text-slate-700 shadow-sm">
-                    <Phone className="h-5 w-5" aria-hidden />
-                  </span>
+                <div className="flex items-start gap-3">
+                  <Phone className="h-4 w-4 text-neutral-900 mt-0.5 shrink-0" aria-hidden />
                   <div>
-                     <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600">
-                       Phone
-                     </p>
-                      <a
-                        href="tel:+910000000000"
-                        className="mt-1 block font-sans text-sm md:text-[15px] font-normal text-neutral-600 transition hover:text-neutral-900"
-                     >
-                       +91 00000 00000
-                     </a>
+                    <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-1">
+                      Direct Line
+                    </p>
+                    <a
+                      href="tel:+910000000000"
+                      className="text-sm font-medium text-neutral-900 leading-snug hover:text-neutral-600 transition-colors"
+                    >
+                      +91 00000 00000
+                    </a>
                   </div>
-                </li>
-
-                <li className="flex items-start gap-4">
-                  <span className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-slate-200/80 text-slate-700 shadow-sm">
-                    <Clock className="h-5 w-5" aria-hidden />
-                  </span>
-                  <div>
-                     <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600">
-                       Working Hours
-                     </p>
-                      <p className="mt-1 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-neutral-600">
-                       Mon – Fri: 9:00 AM – 6:00 PM
-                       <br />
-                       Sat: 10:00 AM – 2:00 PM
-                       <br />
-                       Sun: Closed
-                     </p>
-                  </div>
-                </li>
-              </ul>
+                </div>
+              </div>
             </div>
           </aside>
 
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-8">
             <form
               noValidate
               onSubmit={handleSubmit}
-              className="relative overflow-hidden rounded-[2rem] border border-white/60 bg-white/40 p-7 shadow-[0_20px_50px_rgba(0,0,0,0.08),inset_0_1px_1px_rgba(255,255,255,0.8)] backdrop-blur-2xl sm:p-8"
+              className="border border-slate-200 bg-white p-8 md:p-10 rounded-none shadow-[0_2px_10px_rgba(0,0,0,0.02)]"
               aria-label="Contact form"
             >
-              <div className="pointer-events-none absolute inset-0 rounded-[2rem] border border-white/50" aria-hidden="true" />
-              <div className="relative grid gap-5 sm:grid-cols-2">
+              <div className="grid gap-5 sm:grid-cols-2">
                 <div>
                   <label
                     htmlFor="contact-name"
-                    className="mb-1.5 block font-sans text-sm font-medium text-neutral-800"
+                    className="text-[11px] font-mono tracking-[0.15em] text-neutral-500 uppercase mb-2 block"
                   >
                     Full Name
                   </label>
@@ -282,7 +239,7 @@ export function ContactSection() {
                 <div>
                   <label
                     htmlFor="contact-email"
-                    className="mb-1.5 block font-sans text-sm font-medium text-neutral-800"
+                    className="text-[11px] font-mono tracking-[0.15em] text-neutral-500 uppercase mb-2 block"
                   >
                     Email Address
                   </label>
@@ -311,7 +268,7 @@ export function ContactSection() {
                 <div className="sm:col-span-2">
                   <label
                     htmlFor="contact-concern"
-                    className="mb-1.5 block font-sans text-sm font-medium text-neutral-800"
+                    className="text-[11px] font-mono tracking-[0.15em] text-neutral-500 uppercase mb-2 block"
                   >
                     Select Concern
                   </label>
@@ -351,7 +308,7 @@ export function ContactSection() {
                 <div className="sm:col-span-2">
                   <label
                     htmlFor="contact-message"
-                    className="mb-1.5 block font-sans text-sm font-medium text-neutral-800"
+                    className="text-[11px] font-mono tracking-[0.15em] text-neutral-500 uppercase mb-2 block"
                   >
                     Message
                   </label>
@@ -379,7 +336,7 @@ export function ContactSection() {
                 </div>
               </div>
 
-              <div className="relative mt-6 flex flex-col-reverse items-stretch gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="mt-6 flex flex-col-reverse items-stretch gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <div className="sm:mb-0">
                   {status === "success" ? (
                     <p
@@ -404,7 +361,7 @@ export function ContactSection() {
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-neutral-900 px-6 py-3 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-white shadow-corporate transition hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 bg-neutral-900 text-white text-xs font-mono tracking-[0.2em] uppercase hover:bg-neutral-800 transition-colors duration-200 rounded-none mt-2 disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {status === "submitting" ? (
                     <>
@@ -416,7 +373,7 @@ export function ContactSection() {
                     </>
                   ) : (
                     <>
-                      Send Message
+                      Send Transmission
                       <Send className="h-4 w-4" aria-hidden />
                     </>
                   )}
