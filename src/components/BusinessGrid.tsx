@@ -10,7 +10,7 @@ export function BusinessGrid() {
     <section
       aria-labelledby="businesses-heading"
       id="businesses"
-      className="bg-transparent"
+      className="bg-[#0B0C0E]"
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8 max-w-[90rem] mx-auto px-6 py-16">
         {companies.map((company, index) => (
@@ -23,9 +23,7 @@ export function BusinessGrid() {
               depth="foreground"
               yRange={index % 2 === 0 ? [36, -42] : [18, -24]}
             >
-              <li className="list-none">
-                <SubsidiaryCard company={company} index={index} />
-              </li>
+              <SubsidiaryCard company={company} index={index} />
             </ParallaxContainer>
           </SlideIn>
         ))}
@@ -48,7 +46,7 @@ function SubsidiaryCard({ company, index }: { company: Company; index: number })
         aria-label={`Explore ${company.name}`}
         className="group block"
       >
-        <div className="relative aspect-[3/4] w-full overflow-hidden rounded-sm bg-neutral-200">
+        <div className="relative aspect-[3/4] w-full overflow-hidden rounded-sm bg-neutral-900">
           <ParallaxContainer
             depth="midground"
             yRange={[-18, 18]}
@@ -69,7 +67,7 @@ function SubsidiaryCard({ company, index }: { company: Company; index: number })
       </Link>
 
       <div className="mt-4">
-        <p className="text-[10px] font-mono tracking-[0.25em] text-neutral-400 block mb-1">
+        <p className="text-[10px] font-mono tracking-[0.25em] text-neutral-500 block mb-1">
           {numeral}
         </p>
         <Link
@@ -77,14 +75,14 @@ function SubsidiaryCard({ company, index }: { company: Company; index: number })
           aria-label={`Explore ${company.name}`}
           className="group block"
         >
-          <p className="text-sm md:text-base font-bold tracking-[0.15em] text-neutral-900 uppercase font-sans">
+          <p className="text-sm md:text-base font-bold tracking-[0.15em] text-neutral-100 uppercase font-sans">
             {displayName}
           </p>
         </Link>
         <Link
           href={cardHref}
           aria-label={`Explore ${company.name}`}
-          className="inline-flex items-center gap-1 text-[11px] font-mono text-neutral-500 uppercase tracking-widest mt-1 hover:text-black transition-colors"
+          className="inline-flex items-center gap-1 text-[11px] font-mono text-neutral-500 uppercase tracking-widest mt-1 hover:text-white transition-colors"
         >
           {actionLabel}
           <ArrowUpRight className="h-3 w-3" aria-hidden />

@@ -8,18 +8,18 @@ import { Building2 } from "lucide-react";
 export type LogoVariant = "default" | "inverse";
 
 const textVariant: Record<LogoVariant, string> = {
-  default: "text-neutral-900",
+  default: "text-neutral-100",
   inverse: "text-white",
 };
 
 const accentVariant: Record<LogoVariant, string> = {
   default: "text-neutral-500",
-  inverse: "text-slate-200",
+  inverse: "text-neutral-400",
 };
 
 const fallbackVariant: Record<LogoVariant, string> = {
   default: "text-neutral-500",
-  inverse: "text-slate-200",
+  inverse: "text-neutral-400",
 };
 
 export interface LogoProps {

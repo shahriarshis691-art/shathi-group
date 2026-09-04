@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { PerspectiveCard } from "@/components/ui/PerspectiveCard";
 
-const cortexHref = "/companies/cortex-softsolutions";
+const cortexHref = "/cortex";
 const dismissedKey = "cortex-entry-initiative-dismissed";
 
 export function CortexEntryModal() {
@@ -39,7 +39,7 @@ export function CortexEntryModal() {
     <AnimatePresence>
       {isOpen ? (
         <motion.div
-          className="fixed inset-0 z-[70] flex items-center justify-center bg-slate-950/30 px-4 backdrop-blur-[2px]"
+          className="fixed inset-0 z-[70] flex items-center justify-center bg-black/80 px-4 backdrop-blur-[2px]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -57,7 +57,7 @@ export function CortexEntryModal() {
                 aria-labelledby="cortex-entry-heading"
                 aria-modal="true"
                 role="dialog"
-                className="relative overflow-hidden border border-neutral-300 bg-[#FAFBFB] p-8 shadow-2xl dark:border-neutral-800 dark:bg-neutral-950"
+                className="relative overflow-hidden border border-neutral-800 bg-[#111215] p-8 shadow-2xl"
               >
                 <Link
                   href={cortexHref}
@@ -70,30 +70,30 @@ export function CortexEntryModal() {
                 <button
                   type="button"
                   onClick={dismiss}
-                  className="relative z-20 ml-auto block font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-500 transition hover:text-neutral-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-600 dark:text-neutral-400 dark:hover:text-white"
+                  className="relative z-20 ml-auto block font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-500 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-600"
                   aria-label="Close Cortex founder initiative spotlight"
                 >
                   [ESC / CLOSE ×]
                 </button>
 
                 <div className="relative z-0 mt-8 pointer-events-none">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-emerald-600 dark:text-emerald-400">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-emerald-500">
                     Exclusive Initiative // Cortex Soft Solutions
                   </p>
-                  <p className="mt-5 inline-flex border border-emerald-500/30 bg-emerald-500/5 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-emerald-700 dark:text-emerald-300">
+                  <p className="mt-5 inline-flex border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-emerald-400">
                     Strict limit: 10 applicants only
                   </p>
                   <h2
                     id="cortex-entry-heading"
-                    className="mt-5 font-serif text-2xl tracking-tight text-neutral-900 dark:text-white"
+                    className="mt-5 font-serif text-2xl tracking-tight text-neutral-100"
                   >
                     Zero recurring tech overhead for the founders building what&apos;s next.
                   </h2>
-                  <p className="mt-4 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
+                  <p className="mt-4 text-sm leading-relaxed text-neutral-400">
                     Claim lifetime ownership, zero monthly platform charges, and
                     a 70% launch concession for your next digital product.
                   </p>
-                  <span className="mt-7 inline-flex items-center gap-2 border border-neutral-900 bg-neutral-900 px-5 py-3 font-mono text-[10px] uppercase tracking-[0.17em] text-white dark:border-white dark:bg-white dark:text-neutral-950">
+                  <span className="mt-7 inline-flex items-center gap-2 border border-neutral-700 bg-neutral-900 px-5 py-3 font-mono text-[10px] uppercase tracking-[0.17em] text-white">
                     Claim Founder Privilege
                     <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
                   </span>

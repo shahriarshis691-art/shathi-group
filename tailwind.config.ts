@@ -70,8 +70,8 @@ const config: Config = {
         display: ["var(--font-display)", "system-ui", "sans-serif"],
       },
       boxShadow: {
-        corporate: "0 4px 20px -2px rgba(0, 0, 0, 0.08)",
-        "corporate-lg": "0 12px 40px -8px rgba(0, 0, 0, 0.12)",
+        corporate: "0 4px 20px -2px rgba(0, 0, 0, 0.45)",
+        "corporate-lg": "0 12px 40px -8px rgba(0, 0, 0, 0.55)",
       },
     },
   },

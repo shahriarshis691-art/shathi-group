@@ -14,7 +14,7 @@ export function HeroSection() {
     <section
       ref={heroRef}
       aria-labelledby="hero-heading"
-      className="relative overflow-hidden bg-transparent pt-28 pb-20 sm:pt-32 sm:pb-28 lg:pt-36 lg:pb-36"
+      className="relative overflow-hidden bg-[#0B0C0E] pt-28 pb-20 sm:pt-32 sm:pb-28 lg:pt-36 lg:pb-36"
     >
       <ParallaxContainer
         target={heroRef}
@@ -23,9 +23,9 @@ export function HeroSection() {
         planeClassName="h-full"
         contentClassName="relative h-full"
       >
-        <div className="absolute -top-40 -right-40 h-[600px] w-[600px] rounded-full bg-white/5 blur-3xl" />
-        <div className="absolute top-1/2 -left-32 h-[400px] w-[400px] rounded-full bg-white/5 blur-3xl" />
-        <p className="absolute -right-8 bottom-0 font-serif text-[9rem] font-bold tracking-[0.2em] text-white/[0.025] sm:text-[13rem]" aria-hidden="true">
+        <div className="absolute -top-40 -right-40 h-[600px] w-[600px] rounded-full bg-white/[0.03] blur-3xl" />
+        <div className="absolute top-1/2 -left-32 h-[400px] w-[400px] rounded-full bg-white/[0.03] blur-3xl" />
+        <p className="absolute -right-8 bottom-0 font-serif text-[9rem] font-bold tracking-[0.2em] text-white/[0.03] sm:text-[13rem]" aria-hidden="true">
           SHATHI
         </p>
       </ParallaxContainer>
@@ -34,7 +34,7 @@ export function HeroSection() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 items-center">
           <SlideIn direction="left" className="lg:col-span-6">
             <ParallaxContainer target={heroRef} depth="foreground" yRange={[-18, 32]}>
-              <div className="flex items-center gap-3 text-slate-300">
+              <div className="flex items-center gap-3 text-neutral-400">
                 <Building2 className="h-8 w-8" aria-hidden />
                 <span className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em]">
                   SHATHI Group
@@ -48,7 +48,7 @@ export function HeroSection() {
                 SHATHI Group of Companies
               </h1>
 
-              <p className="mt-6 max-w-2xl font-sans text-base leading-relaxed text-slate-300 sm:text-lg text-balance">
+              <p className="mt-6 max-w-2xl font-sans text-base leading-relaxed text-neutral-400 sm:text-lg text-balance">
                 A diversified portfolio of trusted businesses — built on integrity,
                 driven by innovation, and focused on long-term value.
               </p>
@@ -56,7 +56,7 @@ export function HeroSection() {
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                 <a
                   href="#contact"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-3.5 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-wider text-slate-950 shadow-lg transition hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-3.5 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-wider text-black transition hover:bg-neutral-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
                   <Sparkles className="h-4 w-4" aria-hidden />
                   Partner With Us
@@ -85,8 +85,8 @@ export function HeroSection() {
               interactive
             >
               <div className="relative mx-auto max-w-lg lg:max-w-none">
-                <div className="absolute -inset-4 -z-10 rounded-[3rem] bg-white/5 blur-2xl" aria-hidden="true" />
-                <div className="relative overflow-hidden rounded-[2.5rem] border border-white/20 bg-slate-800 shadow-2xl aspect-[4/3] md:aspect-[5/4]">
+                <div className="absolute -inset-4 -z-10 rounded-[3rem] bg-white/[0.03] blur-2xl" aria-hidden="true" />
+                <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-neutral-900 shadow-2xl aspect-[4/3] md:aspect-[5/4]">
                   <Image
                     src="/founder-image/founder.png"
                     alt="SHATHI Group executive leadership"
@@ -95,7 +95,7 @@ export function HeroSection() {
                     className="object-cover"
                     sizes="(min-width: 1024px) 50vw, 100vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent" aria-hidden="true" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" aria-hidden="true" />
                 </div>
               </div>
             </ParallaxContainer>
