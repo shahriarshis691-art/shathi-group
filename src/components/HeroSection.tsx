@@ -1,6 +1,7 @@
 import { ArrowRight, Building2, Sparkles } from "lucide-react";
 import { companies } from "@/data/companies";
 import { CorporateProfileButton } from "./CorporateProfileButton";
+import { PerspectiveCard } from "@/components/ui/PerspectiveCard";
 
 export function HeroSection() {
   return (
@@ -37,13 +38,14 @@ export function HeroSection() {
             Our subsidiaries
           </span>
           {companies.map((company) => (
-            <a
-              key={company.id}
-              href="#businesses"
-              className="rounded-full bg-white/70 px-4 py-2 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-neutral-700 border border-slate-300/80 backdrop-blur-sm transition hover:bg-white hover:border-slate-400 hover:text-neutral-900"
-            >
-              {company.name}
-            </a>
+            <PerspectiveCard key={company.id}>
+              <a
+                href="#businesses"
+                className="rounded-full bg-white/70 px-4 py-2 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-neutral-700 border border-slate-300/80 backdrop-blur-sm transition hover:bg-white hover:border-slate-400 hover:text-neutral-900"
+              >
+                {company.name}
+              </a>
+            </PerspectiveCard>
           ))}
         </nav>
 

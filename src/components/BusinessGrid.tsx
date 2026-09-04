@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Sparkles } from "lucide-react";
 import { companies, type Company } from "@/data/companies";
+import { PerspectiveCard } from "@/components/ui/PerspectiveCard";
 
 export function BusinessGrid() {
   return (
@@ -45,11 +46,12 @@ export function BusinessGrid() {
 
 function SubsidiaryCard({ company }: { company: Company }) {
   return (
-    <Link
-      href={`/companies/${company.slug}`}
-      aria-label={`Explore ${company.name}`}
-      className="group relative flex aspect-[4/5] min-h-[460px] flex-col overflow-hidden rounded-2xl border border-slate-300/80 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-400 sm:p-8"
-    >
+    <PerspectiveCard>
+      <Link
+        href={`/companies/${company.slug}`}
+        aria-label={`Explore ${company.name}`}
+        className="group relative flex aspect-[4/5] min-h-[460px] flex-col overflow-hidden rounded-2xl border border-slate-300/80 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-400 sm:p-8"
+      >
       <span className="relative mb-6 block h-48 w-full overflow-hidden rounded-xl bg-slate-100">
         {company.slug === "cortex-softsolutions" ? (
           <div className="flex h-full w-full items-center justify-center bg-slate-50 p-6">
@@ -93,6 +95,7 @@ function SubsidiaryCard({ company }: { company: Company }) {
           </span>
         </span>
       </span>
-    </Link>
+      </Link>
+    </PerspectiveCard>
   );
 }
