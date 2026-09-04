@@ -51,13 +51,25 @@ function SubsidiaryCard({ company }: { company: Company }) {
       className="group relative flex aspect-[4/5] min-h-[460px] flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-500 sm:p-8"
     >
       <span className="relative mb-6 block h-48 w-full overflow-hidden rounded-xl bg-slate-100">
-        <Image
-          src={company.image}
-          alt={company.imageAlt}
-          fill
-          sizes="(min-width: 1280px) 30vw, (min-width: 768px) 45vw, 100vw"
-          className="object-cover transition duration-700 group-hover:scale-[1.03]"
-        />
+        {company.slug === "cortex-softsolutions" ? (
+          <div className="flex h-full w-full items-center justify-center bg-slate-50 p-6">
+            <Image
+              alt="Cortex SoftSolutions Logo"
+              className="object-contain"
+              height="225"
+              src={company.image}
+              width="400"
+            />
+          </div>
+        ) : (
+          <Image
+            alt={company.imageAlt}
+            className="object-cover transition duration-700 group-hover:scale-[1.03]"
+            fill
+            sizes="(min-width: 1280px) 30vw, (min-width: 768px) 45vw, 100vw"
+            src={company.image}
+          />
+        )}
       </span>
 
       <span className="flex flex-1 flex-col">
