@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { ArrowLeft, ArrowUpRight, CheckCircle2, ExternalLink, Factory, Gauge, Gem, Shield, Sparkles, Wrench } from "lucide-react";
 import { type Company } from "@/data/companies";
 import { CompanyLogo } from "@/components/CompanyLogo";
@@ -48,7 +49,7 @@ const companyThemes: Record<Slug, {
     inputText: "text-slate-900",
   },
   "xeroxii": {
-    heroClass: "bg-slate-50 text-navy-900",
+    heroClass: "bg-slate-950 text-white",
     heroPattern: "[background-image:radial-gradient(circle_at_50%_50%,rgba(15,39,65,0.06),transparent_70%)]",
     backNavClass: "border-slate-200 bg-slate-50",
     sectionClass: "bg-white text-slate-900",
@@ -68,7 +69,7 @@ const companyThemes: Record<Slug, {
     inputText: "text-slate-900",
   },
   "ceravo-tiles": {
-    heroClass: "bg-white text-navy-900",
+    heroClass: "bg-slate-950 text-white",
     heroPattern: "[background-image:linear-gradient(rgba(148,163,184,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.12)_1px,transparent_1px)] [background-size:40px_40px]",
     backNavClass: "border-slate-200 bg-white",
     sectionClass: "bg-white text-slate-900",
@@ -106,6 +107,26 @@ const companyThemes: Record<Slug, {
     inputBg: "bg-slate-800",
     inputBorder: "border-slate-600",
     inputText: "text-slate-100",
+  },
+  "velorix-motors": {
+    heroClass: "bg-[#121417] text-white",
+    heroPattern: "[background-image:radial-gradient(circle_at_80%_20%,rgba(210,168,78,0.18),transparent_45%),radial-gradient(circle_at_20%_85%,rgba(255,255,255,0.08),transparent_45%)]",
+    backNavClass: "border-neutral-800 bg-[#121417]",
+    sectionClass: "bg-white text-slate-900",
+    sectionAltClass: "bg-slate-100 text-slate-900",
+    cardClass: "bg-[#121417]",
+    cardBorder: "border-neutral-800",
+    badgeClass: "bg-gold-500/15 text-gold-700 ring-gold-500/30",
+    badgeText: "text-gold-600",
+    ctaClass: "bg-gold-500 text-slate-950",
+    ctaHover: "hover:bg-gold-400",
+    ctaText: "text-gold-600",
+    heading: "text-slate-900",
+    body: "text-slate-600",
+    subtle: "text-slate-400",
+    inputBg: "bg-white",
+    inputBorder: "border-slate-300",
+    inputText: "text-slate-900",
   },
 };
 
@@ -162,6 +183,50 @@ function StepCard({
   );
 }
 
+function VisualFeatureCard({
+  eyebrow,
+  title,
+  description,
+  image,
+  imageAlt,
+}: {
+  eyebrow: string;
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+}) {
+  return (
+    <article className="group relative flex min-h-[320px] overflow-hidden rounded-2xl border border-white/10 bg-[#121417] p-7 text-white shadow-sm transition duration-500 hover:-translate-y-1 hover:shadow-2xl">
+      <Image
+        src={image}
+        alt={imageAlt}
+        fill
+        sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
+        className="object-cover opacity-35 transition duration-700 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#121417]/10 via-[#121417]/65 to-[#121417]" />
+      <div className="relative flex w-full flex-col">
+        <div className="flex items-start justify-between gap-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-300">
+            {eyebrow}
+          </p>
+          <ArrowUpRight
+            className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+            aria-hidden="true"
+          />
+        </div>
+        <h3 className="my-auto max-w-[16ch] text-2xl font-bold leading-tight tracking-tight">
+          {title}
+        </h3>
+        <p className="border-t border-white/20 pt-4 text-sm leading-relaxed text-slate-200 line-clamp-3">
+          {description}
+        </p>
+      </div>
+    </article>
+  );
+}
+
 interface CompanyClientProps {
   company: Company;
 }
@@ -187,9 +252,21 @@ export function CompanyClient({ company }: CompanyClientProps) {
 
       {/* Hero */}
       <section className={`relative overflow-hidden ${t.heroClass}`}>
+        <Image
+          src={company.image}
+          alt={company.imageAlt}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-75"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/35"
+        />
         <div
           aria-hidden
-          className={`pointer-events-none absolute inset-0 opacity-100 ${t.heroPattern}`}
+          className={`pointer-events-none absolute inset-0 opacity-70 ${t.heroPattern}`}
         />
         <div className="container-corporate relative py-16 sm:py-24 lg:py-32">
           <div className="flex items-center gap-4">
@@ -197,7 +274,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
               <CompanyLogo company={company} size={48} />
             </div>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">
+              <p className="text-xs font-semibold uppercase tracking-widest text-slate-300">
                 {company.category}
               </p>
               <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl text-balance">
@@ -206,10 +283,10 @@ export function CompanyClient({ company }: CompanyClientProps) {
             </div>
           </div>
 
-          <p className={`mt-6 max-w-2xl text-lg leading-relaxed ${t.body === "text-slate-400" ? "text-slate-300" : "text-slate-600"} text-balance`}>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-200 text-balance">
             {company.tagline}
           </p>
-          <p className={`mt-4 max-w-3xl text-base leading-relaxed ${t.body === "text-slate-400" ? "text-slate-400" : "text-slate-600"} text-balance`}>
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-300 text-balance">
             {company.description}
           </p>
 
@@ -639,45 +716,73 @@ export function CompanyClient({ company }: CompanyClientProps) {
               </p>
 
               <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                <div className={`rounded-2xl border ${t.cardBorder} ${t.cardClass} p-6 shadow-sm transition hover:shadow-md`}>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-indigo-400">FinTech Platform</p>
-                  <h3 className="mt-2 text-lg font-semibold text-white">Real-time payment orchestration</h3>
-                  <p className="mt-2 text-sm text-slate-400">
-                    Built a settlement layer processing 2M+ daily transactions with 99.98% uptime.
-                  </p>
-                  <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-indigo-400">
-                    <span>View case study</span>
-                    <ArrowUpRight className="h-4 w-4" aria-hidden />
-                  </div>
-                </div>
-
-                <div className={`rounded-2xl border ${t.cardBorder} ${t.cardClass} p-6 shadow-sm transition hover:shadow-md`}>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-indigo-400">Healthcare AI</p>
-                  <h3 className="mt-2 text-lg font-semibold text-white">Diagnostic workflow automation</h3>
-                  <p className="mt-2 text-sm text-slate-400">
-                    Reduced report turnaround by 40% using NLP triage and intelligent routing.
-                  </p>
-                  <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-indigo-400">
-                    <span>View case study</span>
-                    <ArrowUpRight className="h-4 w-4" aria-hidden />
-                  </div>
-                </div>
-
-                <div className={`rounded-2xl border ${t.cardBorder} ${t.cardClass} p-6 shadow-sm transition hover:shadow-md`}>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-indigo-400">Retail Cloud</p>
-                  <h3 className="mt-2 text-lg font-semibold text-white">Omnichannel inventory sync</h3>
-                  <p className="mt-2 text-sm text-slate-400">
-                    Unified 3x throughput across 1,200+ SKUs with real-time stock visibility.
-                  </p>
-                  <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-indigo-400">
-                    <span>View case study</span>
-                    <ArrowUpRight className="h-4 w-4" aria-hidden />
-                  </div>
-                </div>
+                <VisualFeatureCard
+                  eyebrow="FinTech Platform"
+                  title="Real-time payment orchestration"
+                  description="A settlement layer processing 2M+ daily transactions with 99.98% uptime."
+                  image={company.image}
+                  imageAlt={company.imageAlt}
+                />
+                <VisualFeatureCard
+                  eyebrow="Healthcare AI"
+                  title="Diagnostic workflow automation"
+                  description="NLP triage and intelligent routing that reduced report turnaround by 40%."
+                  image={company.image}
+                  imageAlt={company.imageAlt}
+                />
+                <VisualFeatureCard
+                  eyebrow="Retail Cloud"
+                  title="Omnichannel inventory sync"
+                  description="Real-time stock visibility unified across 1,200+ SKUs and tripled throughput."
+                  image={company.image}
+                  imageAlt={company.imageAlt}
+                />
               </div>
             </div>
           </section>
         </>
+      )}
+
+      {/* VELORIX MOTORS */}
+      {company.slug === "velorix-motors" && (
+        <section className={`py-16 sm:py-20 ${t.sectionAltClass}`}>
+          <div className="container-corporate">
+            <p className={`text-xs font-semibold uppercase tracking-widest ${t.ctaText}`}>
+              Engineering Focus
+            </p>
+            <h2 className={`mt-3 text-3xl font-semibold tracking-tight ${t.heading} sm:text-4xl`}>
+              Performance with a quieter kind of confidence.
+            </h2>
+            <p className={`mt-4 max-w-2xl text-base ${t.body}`}>
+              Velorix combines responsive dynamics, thoughtful technology, and
+              tailored ownership programs for modern mobility.
+            </p>
+
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <VisualFeatureCard
+                eyebrow="Dynamics"
+                title="Driver-focused performance"
+                description="A balanced chassis and responsive powertrain engineered to make every journey feel composed and connected."
+                image={company.image}
+                imageAlt={company.imageAlt}
+              />
+              <VisualFeatureCard
+                eyebrow="Connected cockpit"
+                title="Technology that stays intuitive"
+                description="A calm, connected interior experience that keeps navigation, communication, and vehicle data close at hand."
+                image={company.image}
+                imageAlt={company.imageAlt}
+              />
+              <VisualFeatureCard
+                eyebrow="Fleet programs"
+                title="Mobility tailored to business"
+                description="Flexible corporate fleet programs and ownership support designed around the needs of ambitious teams."
+                image={company.image}
+                imageAlt={company.imageAlt}
+              />
+            </div>
+          </div>
+        </section>
       )}
 
       {/* Bottom CTA */}

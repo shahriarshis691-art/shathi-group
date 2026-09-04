@@ -1,136 +1,152 @@
-"use client";
-
-import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight, Sparkles } from "lucide-react";
-import {
-  companies,
-  type Company,
-  type CompanyCategory,
-} from "@/data/companies";
-import { CompanyLogo } from "./CompanyLogo";
-import { SubsidiaryModal } from "./SubsidiaryModal";
+import { companies, type Company } from "@/data/companies";
 
-const categoryBadge: Record<CompanyCategory, string> = {
-  "Apparel & Lifestyle": "Apparel & Lifestyle",
-  "Horology & Luxury Timepieces": "Luxury Timepieces",
-  "Architectural Surfaces & Ceramics": "Architectural Surfaces",
-  "Technology & Enterprise Software": "Enterprise Software",
+interface CardTheme {
+  card: string;
+  image: string;
+  imageOverlay: string;
+  eyebrow: string;
+  divider: string;
+  description: string;
+}
+
+const cardThemes: Record<string, CardTheme> = {
+  "ceravo-tiles": {
+    card: "bg-[#f8fafc] text-slate-900 border border-slate-200/80",
+    image: "opacity-25 mix-blend-multiply",
+    imageOverlay: "bg-gradient-to-b from-white/20 via-[#f8fafc]/45 to-[#f8fafc]",
+    eyebrow: "text-slate-500",
+    divider: "border-slate-300/80",
+    description: "text-slate-600",
+  },
+  "shis-fashion": {
+    card: "bg-[#1e3a3a] text-white border border-[#2d5656]",
+    image: "opacity-35",
+    imageOverlay: "bg-gradient-to-b from-[#1e3a3a]/25 via-[#1e3a3a]/70 to-[#1e3a3a]",
+    eyebrow: "text-emerald-100/75",
+    divider: "border-white/20",
+    description: "text-slate-200",
+  },
+  "cortex-softsolutions": {
+    card: "bg-[#121417] text-white border border-neutral-800",
+    image: "opacity-30",
+    imageOverlay: "bg-gradient-to-b from-[#121417]/20 via-[#121417]/70 to-[#121417]",
+    eyebrow: "text-slate-400",
+    divider: "border-white/15",
+    description: "text-slate-300",
+  },
+  xeroxii: {
+    card: "bg-[#eef4ef] text-slate-900 border border-slate-300/80",
+    image: "opacity-20 mix-blend-multiply",
+    imageOverlay: "bg-gradient-to-b from-[#eef4ef]/15 via-[#eef4ef]/55 to-[#eef4ef]",
+    eyebrow: "text-slate-500",
+    divider: "border-slate-300",
+    description: "text-slate-600",
+  },
+  "velorix-motors": {
+    card: "bg-[#121417] text-white border border-neutral-800",
+    image: "opacity-40",
+    imageOverlay: "bg-gradient-to-b from-[#121417]/15 via-[#121417]/65 to-[#121417]",
+    eyebrow: "text-slate-400",
+    divider: "border-white/15",
+    description: "text-slate-300",
+  },
 };
 
-const categoryAccent: Record<CompanyCategory, string> = {
-  "Apparel & Lifestyle":
-    "bg-rose-50 text-rose-700 ring-rose-200/70",
-  "Horology & Luxury Timepieces":
-    "bg-gold-50 text-gold-700 ring-gold-200/70",
-  "Architectural Surfaces & Ceramics":
-    "bg-teal-50 text-teal-700 ring-teal-200/70",
-  "Technology & Enterprise Software":
-    "bg-indigo-50 text-indigo-700 ring-indigo-200/70",
-};
+const showcaseOrder = [
+  "ceravo-tiles",
+  "shis-fashion",
+  "cortex-softsolutions",
+  "xeroxii",
+  "velorix-motors",
+];
+
+const showcaseCompanies = showcaseOrder.flatMap((id) => {
+  const company = companies.find((item) => item.id === id);
+  return company ? [company] : [];
+});
 
 export function BusinessGrid() {
-  const [active, setActive] = useState<Company | null>(null);
-
   return (
     <section
       aria-labelledby="businesses-heading"
       id="businesses"
-      className="bg-slate-50 py-16 sm:py-20"
+      className="bg-white py-20 sm:py-28"
     >
       <div className="container-corporate">
-        <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
-          <div>
-            <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gold-600">
-              <Sparkles className="h-4 w-4" aria-hidden />
-              Our Portfolio
-            </p>
-            <h2
-              id="businesses-heading"
-              className="mt-2 text-3xl font-semibold tracking-tight text-navy-900 sm:text-4xl"
-            >
-              Brands under SHATHI Group
-            </h2>
-            <p className="mt-3 max-w-2xl text-sm text-slate-600 sm:text-base">
-              A curated portfolio of companies united by craftsmanship,
-              integrity, and a commitment to long-term value.
-            </p>
-          </div>
+        <div className="max-w-3xl">
+          <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-gold-600">
+            <Sparkles className="h-4 w-4" aria-hidden="true" />
+            Our Portfolio
+          </p>
+          <h2
+            id="businesses-heading"
+            className="mt-4 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl lg:text-5xl"
+          >
+            Distinct businesses, one exacting standard.
+          </h2>
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-600">
+            Explore the specialist companies that make up SHATHI Group — each
+            designed to lead its field with clarity, craft, and long-term focus.
+          </p>
         </div>
 
         <ul
           role="list"
-          className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3"
         >
-          {companies.map((company) => (
-            <li key={company.id} className="group">
-              <article className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-6 shadow-corporate transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:border-gold-300/70 hover:shadow-corporate-lg">
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-gold-400/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                />
-
-                <div className="flex items-start justify-between">
-                  <span
-                    className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ring-1 ring-inset ${categoryAccent[company.category]}`}
-                  >
-                    {categoryBadge[company.category]}
-                  </span>
-                  <span className="flex h-12 w-12 flex-none items-center justify-center rounded-xl">
-                    <CompanyLogo company={company} />
-                  </span>
-                </div>
-
-                <h3 className="mt-5 text-xl font-semibold tracking-tight text-navy-900">
-                  {company.name}
-                </h3>
-                <p className="mt-1 text-sm font-medium italic text-gold-600">
-                  {company.tagline}
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                  {company.description}
-                </p>
-
-                <div className="mt-5 border-t border-slate-100 pt-4">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">
-                    Key Highlights
-                  </p>
-                  <ul role="list" className="mt-3 space-y-2">
-                    {company.features.slice(0, 3).map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-start gap-2 text-sm text-slate-700"
-                      >
-                        <span
-                          aria-hidden
-                          className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded-full bg-gold-500"
-                        />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="mt-auto pt-6">
-                  <button
-                    type="button"
-                    onClick={() => setActive(company)}
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy-800 transition-colors hover:text-gold-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
-                    aria-label={`Explore ${company.name}`}
-                  >
-                    Explore Brand
-                    <ArrowUpRight
-                      className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                      aria-hidden
-                    />
-                  </button>
-                </div>
-              </article>
+          {showcaseCompanies.map((company) => (
+            <li key={company.id}>
+              <SubsidiaryCard company={company} />
             </li>
           ))}
         </ul>
       </div>
-
-      <SubsidiaryModal company={active} onClose={() => setActive(null)} />
     </section>
+  );
+}
+
+function SubsidiaryCard({ company }: { company: Company }) {
+  const theme = cardThemes[company.id] ?? cardThemes["cortex-softsolutions"];
+
+  return (
+    <Link
+      href={`/companies/${company.slug}`}
+      aria-label={`Explore ${company.name}`}
+      className={`group relative flex aspect-[4/5] min-h-[380px] overflow-hidden rounded-[1.6rem] p-8 shadow-sm transition duration-500 hover:-translate-y-1 hover:shadow-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-500 sm:p-10 ${theme.card}`}
+    >
+      <Image
+        src={company.image}
+        alt=""
+        fill
+        sizes="(min-width: 1280px) 30vw, (min-width: 768px) 45vw, 100vw"
+        className={`object-cover transition duration-700 group-hover:scale-105 ${theme.image}`}
+      />
+      <span aria-hidden="true" className={`absolute inset-0 ${theme.imageOverlay}`} />
+
+      <span className="relative flex w-full flex-col">
+        <span className="flex items-start justify-between gap-6">
+          <span className={`text-xs font-semibold uppercase tracking-[0.16em] ${theme.eyebrow}`}>
+            {company.category}
+          </span>
+          <ArrowUpRight
+            className="h-5 w-5 flex-none transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+            aria-hidden="true"
+          />
+        </span>
+
+        <h3 className="my-auto max-w-[13ch] text-2xl font-bold leading-tight tracking-tight md:text-3xl">
+          {company.name}
+        </h3>
+
+        <span className={`border-t pt-5 ${theme.divider}`}>
+          <span className={`block text-sm font-normal leading-relaxed line-clamp-3 ${theme.description}`}>
+            {company.description}
+          </span>
+        </span>
+      </span>
+    </Link>
   );
 }

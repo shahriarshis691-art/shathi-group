@@ -2,7 +2,8 @@ export type CompanyCategory =
   | "Apparel & Lifestyle"
   | "Horology & Luxury Timepieces"
   | "Architectural Surfaces & Ceramics"
-  | "Technology & Enterprise Software";
+  | "Technology & Enterprise Software"
+  | "Mobility & Automotive";
 
 export interface Company {
   id: string;
@@ -14,6 +15,8 @@ export interface Company {
   description: string;
   features: string[];
   logoPlaceholder: string;
+  image: string;
+  imageAlt: string;
   websiteUrl: string;
   storeUrl?: string;
   brandStory?: string;
@@ -41,6 +44,9 @@ export const companies: Company[] = [
       "Acid-Washed Graphics",
     ],
     logoPlaceholder: logoFor("shis-fashion"),
+    image:
+      "https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Menswear tailoring on a model",
     websiteUrl: "https://shisfashion.example.com",
     storeUrl: "https://shop.shisfashion.example.com",
     brandStory:
@@ -81,6 +87,9 @@ export const companies: Company[] = [
       "Germany",
     ],
     logoPlaceholder: logoFor("xeroxii"),
+    image:
+      "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Luxury wristwatch detail",
     websiteUrl: "https://xeroxiiwatches.example.com",
     storeUrl: "https://shop.xeroxiiwatches.example.com",
     brandStory:
@@ -112,6 +121,9 @@ export const companies: Company[] = [
       "High Durability",
     ],
     logoPlaceholder: logoFor("ceravo-tiles"),
+    image:
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Contemporary architecture with refined surfaces",
     websiteUrl: "https://ceravotiles.example.com",
     storeUrl: "https://dealer.ceravotiles.example.com",
     brandStory:
@@ -143,6 +155,9 @@ export const companies: Company[] = [
       "Custom Enterprise Platforms",
     ],
     logoPlaceholder: logoFor("cortex-softsolutions"),
+    image:
+      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Abstract code and enterprise technology interface",
     websiteUrl: "https://cortexsoftsolutions.example.com",
     storeUrl: "https://cortexsoftsolutions.example.com/contact",
     brandStory:
@@ -158,6 +173,39 @@ export const companies: Company[] = [
       "No-code AI workflow builder",
       "SOC 2 compliant cloud hosting",
       "Dedicated customer success team",
+    ],
+  },
+  {
+    id: "velorix-motors",
+    name: "Velorix Motors",
+    slug: "velorix-motors",
+    category: "Mobility & Automotive",
+    tagline: "Performance Mobility, Refined for Modern Roads",
+    description:
+      "Velorix Motors develops performance-led mobility solutions with sculpted design, connected technology, and a focus on every detail of the driving experience.",
+    features: [
+      "Performance Engineering",
+      "Connected Mobility",
+      "Precision Craftsmanship",
+    ],
+    logoPlaceholder: logoFor("velorix-motors"),
+    image:
+      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Performance car in a mountain landscape",
+    websiteUrl: "https://velorixmotors.example.com",
+    brandStory:
+      "Velorix Motors brings together expressive automotive design and modern engineering. Every vehicle is shaped around responsive performance, thoughtful technology, and a quiet confidence that lasts well beyond the journey.",
+    productVerticals: [
+      "Performance Grand Tourers",
+      "Executive Mobility",
+      "Connected Vehicle Services",
+      "Bespoke Fleet Programs",
+    ],
+    flagshipHighlights: [
+      "Driver-focused performance architecture",
+      "Connected cockpit experience",
+      "Tailored corporate fleet solutions",
+      "Dedicated ownership concierge",
     ],
   },
 ];
