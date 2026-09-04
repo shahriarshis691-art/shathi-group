@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import {
   Facebook,
@@ -31,7 +33,7 @@ const socialLinks = [
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const inquiryRef = useInquiryButton();
+  const openInquiry = useInquiryButton();
 
   return (
     <footer className="bg-navy-900 text-slate-200">
@@ -46,8 +48,8 @@ export function Footer() {
             </p>
 
             <button
-              ref={inquiryRef}
               type="button"
+              onClick={openInquiry}
               className="mt-6 inline-flex items-center gap-2 rounded-full bg-gold-500 px-5 py-2.5 text-sm font-semibold text-navy-900 shadow-corporate transition hover:bg-gold-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               Corporate Inquiry

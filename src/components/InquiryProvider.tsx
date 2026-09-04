@@ -1,36 +1,52 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { InquiryModal } from "@/components/InquiryModal";
 
-type InquiryListener = (data: { company?: { id: string; name: string } | null }) => void;
+export interface InquiryTarget {
+  id: string;
+  name: string;
+}
+
+type InquiryListener = (target?: InquiryTarget | null) => void;
 
 const listeners = new Set<InquiryListener>();
 
-export function openInquiry(company?: { id: string; name: string } | null) {
-  listeners.forEach((fn) => fn({ company }));
+/** Opens the site-wide B2B inquiry dialog, optionally preselecting a subsidiary. */
+export function openInquiry(target?: InquiryTarget | null) {
+  listeners.forEach((listener) => listener(target));
 }
 
 export function closeInquiry() {
-  listeners.forEach((fn) => fn({ company: null }));
+  listeners.forEach((listener) => listener(null));
 }
 
-export function useInquiryState() {
+/** Mount once in the application shell to service inquiry calls from any CTA. */
+export function InquiryProvider() {
   const [isOpen, setIsOpen] = useState(false);
-  const [preselectedCompany, setPreselectedCompany] = useState<{ id: string; name: string } | null>(null);
+  const [defaultSubsidiary, setDefaultSubsidiary] = useState<string>();
 
   useEffect(() => {
-    const handler: InquiryListener = ({ company }) => {
-      setPreselectedCompany(company ?? null);
-      setIsOpen(Boolean(company));
+    const handleInquiry: InquiryListener = (target) => {
+      setDefaultSubsidiary(target?.name);
+      setIsOpen(target !== null);
     };
 
-    listeners.add(handler);
+    listeners.add(handleInquiry);
     return () => {
-      listeners.delete(handler);
+      listeners.delete(handleInquiry);
     };
   }, []);
 
-  return { isOpen, preselectedCompany };
-}
+  const handleClose = useCallback(() => {
+    setIsOpen(false);
+  }, []);
 
-export { useInquiryButton } from "@/hooks/useInquiryButton";
+  return (
+    <InquiryModal
+      isOpen={isOpen}
+      onClose={handleClose}
+      defaultSubsidiary={defaultSubsidiary}
+    />
+  );
+}

@@ -95,7 +95,12 @@ export function ContactSection() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify({
+          fullName: values.name.trim(),
+          email: values.email.trim(),
+          targetSubsidiary: values.concern,
+          message: values.message.trim(),
+        }),
       });
 
       const payload: {

@@ -86,9 +86,9 @@ export function ContactModal({ company, onClose }: ContactModalProps) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: name.trim(),
+          fullName: name.trim(),
           email: email.trim(),
-          concern: companyId,
+          targetSubsidiary: companyId,
           message: message.trim(),
         }),
       });

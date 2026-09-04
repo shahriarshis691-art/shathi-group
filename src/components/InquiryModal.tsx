@@ -1,147 +1,148 @@
 "use client";
 
-import { useEffect, useState, type FormEvent } from "react";
-import { CheckCircle2, Loader2, Send, X, Building2 } from "lucide-react";
-import { companies } from "@/data/companies";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type FormEvent,
+  type ReactNode,
+} from "react";
+import { CheckCircle2, Loader2, Send, X } from "lucide-react";
 
-const inputBase =
-  "block w-full rounded-lg border bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 shadow-sm transition focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-offset-white border-slate-300 hover:border-slate-400 focus:border-gold-500 focus:ring-gold-500/40";
+const subsidiaries = [
+  "Shis Fashion",
+  "XeroXii",
+  "Ceravo Tiles & Ceramic",
+  "Cortex SoftSolutions",
+  "Velorix Motors",
+] as const;
 
-const inputError =
-  "border-rose-400 focus:border-rose-500 focus:ring-rose-500/30";
+const inquiryCategories = [
+  "Bulk / Wholesale Order",
+  "Strategic Partnership",
+  "Dealership / Distribution",
+  "Corporate Procurement",
+  "General Inquiry",
+] as const;
 
-const selectBase =
-  "block w-full rounded-lg border bg-white px-4 py-2.5 text-sm text-slate-900 shadow-sm transition focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-offset-white border-slate-300 hover:border-slate-400 focus:border-gold-500 focus:ring-gold-500/40";
+type InquiryCategory = (typeof inquiryCategories)[number];
+type SubmissionStatus = "idle" | "submitting" | "success" | "error";
 
-type InquiryType = "Bulk Order" | "Partnership" | "General";
-
-interface FormState {
-  name: string;
+interface InquiryForm {
+  fullName: string;
   email: string;
   phone: string;
   companyName: string;
+  targetSubsidiary: string;
+  inquiryCategory: InquiryCategory;
   message: string;
-  inquiryType: InquiryType;
-  concern: string;
 }
 
-const initialState: FormState = {
-  name: "",
-  email: "",
-  phone: "",
-  companyName: "",
-  message: "",
-  inquiryType: "General",
-  concern: "shathi-group",
-};
-
-type InquiryListener = (data: { company?: { id: string; name: string } | null }) => void;
-
-const listeners = new Set<InquiryListener>();
-
-export function openInquiry(company?: { id: string; name: string } | null) {
-  listeners.forEach((fn) => fn({ company }));
+interface SubmissionResponse {
+  success: boolean;
+  message: string;
 }
 
-export function closeInquiry() {
-  listeners.forEach((fn) => fn({ company: null }));
+export interface InquiryModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  defaultSubsidiary?: string;
 }
 
-export function InquiryModal() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [preselectedCompany, setPreselectedCompany] = useState<{ id: string; name: string } | null>(null);
-  const [values, setValues] = useState<FormState>(initialState);
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const [serverMessage, setServerMessage] = useState<string | null>(null);
+const fieldClass =
+  "w-full rounded-xl border border-slate-700/80 bg-slate-950/60 px-3.5 py-3 text-sm text-slate-100 outline-none transition placeholder:text-slate-500 hover:border-slate-600 focus:border-gold-400/80 focus:ring-2 focus:ring-gold-400/20 disabled:cursor-not-allowed disabled:opacity-60";
 
-  useEffect(() => {
-    const handler: InquiryListener = ({ company }) => {
-      if (company) {
-        setPreselectedCompany(company);
-        setValues((prev) => ({ ...prev, concern: company.id }));
-      } else {
-        setPreselectedCompany(null);
-        setValues((prev) => ({ ...prev, concern: "shathi-group" }));
-      }
-      setIsOpen(true);
-    };
+function createInitialForm(defaultSubsidiary?: string): InquiryForm {
+  return {
+    fullName: "",
+    email: "",
+    phone: "",
+    companyName: "",
+    targetSubsidiary: subsidiaries.includes(
+      defaultSubsidiary as (typeof subsidiaries)[number]
+    )
+      ? defaultSubsidiary ?? ""
+      : "",
+    inquiryCategory: "General Inquiry",
+    message: "",
+  };
+}
 
-    listeners.add(handler);
-    return () => {
-      listeners.delete(handler);
-    };
-  }, []);
+/** A reusable B2B inquiry dialog for SHATHI Group and its subsidiaries. */
+export function InquiryModal({
+  isOpen,
+  onClose,
+  defaultSubsidiary,
+}: InquiryModalProps) {
+  const [form, setForm] = useState<InquiryForm>(() =>
+    createInitialForm(defaultSubsidiary)
+  );
+  const [status, setStatus] = useState<SubmissionStatus>("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<
+    Partial<Record<keyof InquiryForm, string>>
+  >({});
+  const fullNameInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (!isOpen) return;
 
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsOpen(false);
-        setPreselectedCompany(null);
-      }
+    setForm(createInitialForm(defaultSubsidiary));
+    setStatus("idle");
+    setErrorMessage(null);
+    setFieldErrors({});
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
     };
-    document.addEventListener("keydown", onKey);
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", onKeyDown);
+    requestAnimationFrame(() => fullNameInputRef.current?.focus());
 
     return () => {
-      document.removeEventListener("keydown", onKey);
       document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKeyDown);
     };
-  }, [isOpen]);
+  }, [defaultSubsidiary, isOpen, onClose]);
 
   if (!isOpen) return null;
 
-  function update<K extends keyof FormState>(key: K, value: FormState[K]) {
-    setValues((prev) => ({ ...prev, [key]: value }));
-    if (errors[key]) {
-      setErrors((prev) => {
-        const next = { ...prev };
-        delete next[key];
-        return next;
-      });
+  function updateField<K extends keyof InquiryForm>(
+    key: K,
+    value: InquiryForm[K]
+  ) {
+    setForm((current) => ({ ...current, [key]: value }));
+    if (fieldErrors[key]) {
+      setFieldErrors((current) => ({ ...current, [key]: undefined }));
     }
+    if (status === "error") setStatus("idle");
   }
 
-  function validate(): Record<string, string> {
-    const next: Record<string, string> = {};
+  function validate(): Partial<Record<keyof InquiryForm, string>> {
+    const errors: Partial<Record<keyof InquiryForm, string>> = {};
 
-    if (!values.name.trim()) {
-      next.name = "Please enter your full name.";
-    } else if (values.name.trim().length < 2) {
-      next.name = "Name must be at least 2 characters.";
+    if (!form.fullName.trim()) errors.fullName = "Please enter your full name.";
+    if (!form.email.trim()) {
+      errors.email = "Please enter your corporate email.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+      errors.email = "Please enter a valid email address.";
+    }
+    if (!form.message.trim()) {
+      errors.message = "Please describe your requirements or specifications.";
     }
 
-    if (!values.email.trim()) {
-      next.email = "Please enter your corporate email.";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) {
-      next.email = "Please enter a valid email address.";
-    }
-
-    if (!values.companyName.trim()) {
-      next.companyName = "Please enter your company name.";
-    }
-
-    if (!values.message.trim()) {
-      next.message = "Please add a brief message about your inquiry.";
-    } else if (values.message.trim().length < 10) {
-      next.message = "Message must be at least 10 characters.";
-    }
-
-    return next;
+    return errors;
   }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setServerMessage(null);
+    const errors = validate();
+    setFieldErrors(errors);
+    setErrorMessage(null);
 
-    const nextErrors = validate();
-    setErrors(nextErrors);
-
-    if (Object.keys(nextErrors).length > 0) {
+    if (Object.keys(errors).length > 0) {
       setStatus("error");
       return;
     }
@@ -149,326 +150,299 @@ export function InquiryModal() {
     setStatus("submitting");
 
     try {
-      const res = await fetch("/api/contact", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: values.name.trim(),
-          email: values.email.trim(),
-          phone: values.phone.trim(),
-          companyName: values.companyName.trim(),
-          message: values.message.trim(),
-          inquiryType: values.inquiryType,
-          concern: values.concern,
+          fullName: form.fullName.trim(),
+          email: form.email.trim(),
+          phone: form.phone.trim(),
+          companyName: form.companyName.trim(),
+          targetSubsidiary: form.targetSubsidiary,
+          inquiryCategory: form.inquiryCategory,
+          message: form.message.trim(),
         }),
       });
+      const payload: SubmissionResponse = await response.json().catch(() => ({
+        success: false,
+        message: "We could not process the server response. Please try again.",
+      }));
 
-      const payload: { success: boolean; message: string } = await res
-        .json()
-        .catch(() => ({
-          success: false,
-          message: "Unexpected response from server.",
-        }));
-
-      if (!res.ok || !payload.success) {
-        setServerMessage(payload.message ?? "Something went wrong.");
+      if (!response.ok || !payload.success) {
+        setErrorMessage(
+          payload.message || "Your inquiry could not be sent. Please try again."
+        );
         setStatus("error");
         return;
       }
 
       setStatus("success");
-      setValues(initialState);
     } catch {
-      setServerMessage(
-        "Network error. Please check your connection and try again."
+      setErrorMessage(
+        "We could not reach our server. Please check your connection and try again."
       );
       setStatus("error");
     }
   }
 
-  const selectedLabel = preselectedCompany
-    ? preselectedCompany.name
-    : companies.find((c) => c.id === values.concern)?.name ?? "SHATHI Group";
+  const inputErrorClass = (field: keyof InquiryForm) =>
+    fieldErrors[field]
+      ? "border-rose-400 focus:border-rose-400 focus:ring-rose-400/20"
+      : "";
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-end justify-center bg-black/60 p-4 backdrop-blur-sm"
-      onClick={() => {
-        setIsOpen(false);
-        setPreselectedCompany(null);
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/70 p-4 backdrop-blur-md"
+      onMouseDown={(event) => {
+        if (event.target === event.currentTarget) onClose();
       }}
     >
-      <aside
+      <section
         role="dialog"
         aria-modal="true"
-        className="relative mb-4 w-full max-w-lg overflow-y-auto rounded-t-2xl bg-white shadow-2xl"
-        onClick={(event) => event.stopPropagation()}
+        aria-labelledby="inquiry-modal-title"
+        className="relative max-h-[calc(100vh-2rem)] w-full max-w-2xl overflow-y-auto rounded-2xl border border-slate-700/60 bg-slate-900/95 shadow-2xl shadow-black/40"
       >
-        <div className="flex items-start justify-between px-6 py-5 border-b border-slate-100">
-          <div>
-            <h2 className="text-xl font-semibold tracking-tight text-navy-900">
-              Corporate Inquiry
-            </h2>
-            <p className="text-sm text-slate-600">
-              {preselectedCompany
-                ? `Direct line to ${selectedLabel}`
-                : `Submit a B2B inquiry to ${selectedLabel}`}
-            </p>
-          </div>
-          <button
-            type="button"
-            onClick={() => {
-              setIsOpen(false);
-              setPreselectedCompany(null);
-            }}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-slate-600 transition hover:bg-slate-100 hover:text-navy-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
-            aria-label="Close inquiry form"
-          >
-            <X className="h-5 w-5" aria-hidden />
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={onClose}
+          className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full text-slate-400 transition hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-400"
+          aria-label="Close inquiry form"
+        >
+          <X className="h-5 w-5" aria-hidden="true" />
+        </button>
 
-        <form onSubmit={handleSubmit} className="px-6 py-6 space-y-4" noValidate>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div>
-              <label
-                htmlFor="inq-name"
-                className="mb-1.5 block text-sm font-medium text-slate-800"
-              >
-                Full Name <span className="text-rose-500">*</span>
-              </label>
-              <input
-                id="inq-name"
-                name="name"
-                type="text"
-                autoComplete="name"
-                value={values.name}
-                onChange={(e) => update("name", e.target.value)}
-                aria-invalid={Boolean(errors.name)}
-                aria-describedby={errors.name ? "inq-name-error" : undefined}
-                className={`${inputBase} ${errors.name ? inputError : ""}`}
-                placeholder="Jane Doe"
-              />
-              {errors.name && (
-                <p
-                  id="inq-name-error"
-                  className="mt-1.5 text-xs font-medium text-rose-600"
-                >
-                  {errors.name}
-                </p>
-              )}
-            </div>
-
-            <div>
-              <label
-                htmlFor="inq-company"
-                className="mb-1.5 block text-sm font-medium text-slate-800"
-              >
-                Company Name <span className="text-rose-500">*</span>
-              </label>
-              <input
-                id="inq-company"
-                name="companyName"
-                type="text"
-                autoComplete="organization"
-                value={values.companyName}
-                onChange={(e) => update("companyName", e.target.value)}
-                aria-invalid={Boolean(errors.companyName)}
-                aria-describedby={
-                  errors.companyName ? "inq-company-error" : undefined
-                }
-                className={`${inputBase} ${errors.companyName ? inputError : ""}`}
-                placeholder="Acme Corp"
-              />
-              {errors.companyName && (
-                <p
-                  id="inq-company-error"
-                  className="mt-1.5 text-xs font-medium text-rose-600"
-                >
-                  {errors.companyName}
-                </p>
-              )}
-            </div>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div>
-              <label
-                htmlFor="inq-email"
-                className="mb-1.5 block text-sm font-medium text-slate-800"
-              >
-                Corporate Email <span className="text-rose-500">*</span>
-              </label>
-              <input
-                id="inq-email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                value={values.email}
-                onChange={(e) => update("email", e.target.value)}
-                aria-invalid={Boolean(errors.email)}
-                aria-describedby={errors.email ? "inq-email-error" : undefined}
-                className={`${inputBase} ${errors.email ? inputError : ""}`}
-                placeholder="jane@acme.com"
-              />
-              {errors.email && (
-                <p
-                  id="inq-email-error"
-                  className="mt-1.5 text-xs font-medium text-rose-600"
-                >
-                  {errors.email}
-                </p>
-              )}
-            </div>
-
-            <div>
-              <label
-                htmlFor="inq-phone"
-                className="mb-1.5 block text-sm font-medium text-slate-800"
-              >
-                Phone / WhatsApp
-              </label>
-              <input
-                id="inq-phone"
-                name="phone"
-                type="tel"
-                autoComplete="tel"
-                value={values.phone}
-                onChange={(e) => update("phone", e.target.value)}
-                className={`${inputBase}`}
-                placeholder="+91 00000 00000"
-              />
-            </div>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div>
-              <label
-                htmlFor="inq-subsidiary"
-                className="mb-1.5 block text-sm font-medium text-slate-800"
-              >
-                Selected Subsidiary
-              </label>
-              <div className="relative">
-                <select
-                  id="inq-subsidiary"
-                  name="concern"
-                  value={values.concern}
-                  onChange={(e) => update("concern", e.target.value)}
-                  className={`${selectBase} pr-10 appearance-none`}
-                >
-                  <option value="shathi-group">SHATHI Group (Corporate)</option>
-                  {companies.map((company) => (
-                    <option key={company.id} value={company.id}>
-                      {company.name}
-                    </option>
-                  ))}
-                </select>
-                <Building2
-                  className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
-                  aria-hidden
-                />
-              </div>
-            </div>
-
-            <div>
-              <label
-                htmlFor="inq-type"
-                className="mb-1.5 block text-sm font-medium text-slate-800"
-              >
-                Inquiry Type
-              </label>
-              <div className="relative">
-                <select
-                  id="inq-type"
-                  name="inquiryType"
-                  value={values.inquiryType}
-                  onChange={(e) =>
-                    update("inquiryType", e.target.value as InquiryType)
-                  }
-                  className={`${selectBase} pr-10 appearance-none`}
-                >
-                  <option value="General">General</option>
-                  <option value="Bulk Order">Bulk Order</option>
-                  <option value="Partnership">Partnership</option>
-                </select>
-                <Building2
-                  className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
-                  aria-hidden
-                />
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <label
-              htmlFor="inq-message"
-              className="mb-1.5 block text-sm font-medium text-slate-800"
+        {status === "success" ? (
+          <div className="flex min-h-[27rem] flex-col items-center justify-center px-6 py-12 text-center sm:px-12">
+            <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-emerald-400/15 text-emerald-300 ring-1 ring-emerald-300/30">
+              <CheckCircle2 className="h-9 w-9" aria-hidden="true" />
+            </span>
+            <h2
+              id="inquiry-modal-title"
+              className="mt-6 text-2xl font-semibold tracking-tight text-white"
             >
-              Message <span className="text-rose-500">*</span>
-            </label>
-            <textarea
-              id="inq-message"
-              name="message"
-              rows={4}
-              value={values.message}
-              onChange={(e) => update("message", e.target.value)}
-              aria-invalid={Boolean(errors.message)}
-              aria-describedby={
-                errors.message ? "inq-message-error" : undefined
-              }
-              className={`${inputBase} resize-y ${
-                errors.message ? inputError : ""
-              }`}
-              placeholder="Tell us about your requirements, timeline, and volumes…"
-            />
-            {errors.message && (
-              <p
-                id="inq-message-error"
-                className="mt-1.5 text-xs font-medium text-rose-600"
-              >
-                {errors.message}
-              </p>
-            )}
-          </div>
-
-          {status === "success" && (
-            <div className="rounded-lg bg-emerald-50 p-4">
-              <p
-                role="status"
-                className="inline-flex items-center gap-2 text-sm font-medium text-emerald-700"
-              >
-                <CheckCircle2 className="h-4 w-4" aria-hidden />
-                Inquiry received. Our team will reach out within one business day.
-              </p>
-            </div>
-          )}
-
-          {status === "error" && serverMessage && (
-            <p role="alert" className="text-sm text-rose-600">
-              {serverMessage}
+              Inquiry received
+            </h2>
+            <p className="mt-3 max-w-md text-sm leading-6 text-slate-300">
+              Our corporate team will reach out shortly to discuss your requirements.
             </p>
-          )}
+            <button
+              type="button"
+              onClick={onClose}
+              className="mt-8 rounded-xl bg-gold-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-gold-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300"
+            >
+              Close
+            </button>
+          </div>
+        ) : (
+          <>
+            <header className="border-b border-slate-700/60 px-6 py-6 pr-16 sm:px-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-400">
+                SHATHI Group
+              </p>
+              <h2
+                id="inquiry-modal-title"
+                className="mt-2 text-2xl font-semibold tracking-tight text-white"
+              >
+                Corporate Inquiry
+              </h2>
+              <p className="mt-2 text-sm text-slate-400">
+                Tell us how our group can support your next business opportunity.
+              </p>
+            </header>
 
-          <button
-            type="submit"
-            disabled={status === "submitting"}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-navy-800 px-6 py-3 text-sm font-semibold text-white shadow-corporate transition hover:bg-navy-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 disabled:cursor-not-allowed disabled:opacity-60"
-          >
-            {status === "submitting" ? (
-              <>
-                <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
-                Submitting…
-              </>
-            ) : (
-              <>
-                Send Inquiry
-                <Send className="h-4 w-4" aria-hidden />
-              </>
-            )}
-          </button>
-        </form>
-      </aside>
+            <form
+              className="space-y-5 px-6 py-6 sm:px-8 sm:py-8"
+              onSubmit={handleSubmit}
+              noValidate
+            >
+              {errorMessage && (
+                <p
+                  role="alert"
+                  className="rounded-xl border border-rose-400/30 bg-rose-400/10 px-4 py-3 text-sm text-rose-100"
+                >
+                  {errorMessage}
+                </p>
+              )}
+
+              <div className="grid gap-5 sm:grid-cols-2">
+                <Field
+                  label="Full Name"
+                  required
+                  error={fieldErrors.fullName}
+                  htmlFor="inquiry-full-name"
+                >
+                  <input
+                    ref={fullNameInputRef}
+                    id="inquiry-full-name"
+                    name="fullName"
+                    type="text"
+                    autoComplete="name"
+                    value={form.fullName}
+                    onChange={(event) => updateField("fullName", event.target.value)}
+                    className={`${fieldClass} ${inputErrorClass("fullName")}`}
+                    aria-invalid={Boolean(fieldErrors.fullName)}
+                    aria-describedby={
+                      fieldErrors.fullName ? "inquiry-full-name-error" : undefined
+                    }
+                  />
+                </Field>
+                <Field
+                  label="Corporate Email"
+                  required
+                  error={fieldErrors.email}
+                  htmlFor="inquiry-email"
+                >
+                  <input
+                    id="inquiry-email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    value={form.email}
+                    onChange={(event) => updateField("email", event.target.value)}
+                    className={`${fieldClass} ${inputErrorClass("email")}`}
+                    aria-invalid={Boolean(fieldErrors.email)}
+                    aria-describedby={fieldErrors.email ? "inquiry-email-error" : undefined}
+                  />
+                </Field>
+                <Field label="Phone / WhatsApp" htmlFor="inquiry-phone">
+                  <input
+                    id="inquiry-phone"
+                    name="phone"
+                    type="tel"
+                    autoComplete="tel"
+                    value={form.phone}
+                    onChange={(event) => updateField("phone", event.target.value)}
+                    className={fieldClass}
+                    placeholder="+880 …"
+                  />
+                </Field>
+                <Field label="Company Name" htmlFor="inquiry-company">
+                  <input
+                    id="inquiry-company"
+                    name="companyName"
+                    type="text"
+                    autoComplete="organization"
+                    value={form.companyName}
+                    onChange={(event) => updateField("companyName", event.target.value)}
+                    className={fieldClass}
+                  />
+                </Field>
+                <Field label="Target Subsidiary" htmlFor="inquiry-subsidiary">
+                  <select
+                    id="inquiry-subsidiary"
+                    name="targetSubsidiary"
+                    value={form.targetSubsidiary}
+                    onChange={(event) =>
+                      updateField("targetSubsidiary", event.target.value)
+                    }
+                    className={fieldClass}
+                  >
+                    <option value="">Select a subsidiary</option>
+                    {subsidiaries.map((subsidiary) => (
+                      <option key={subsidiary} value={subsidiary}>
+                        {subsidiary}
+                      </option>
+                    ))}
+                  </select>
+                </Field>
+                <Field label="Inquiry Category" htmlFor="inquiry-category">
+                  <select
+                    id="inquiry-category"
+                    name="inquiryCategory"
+                    value={form.inquiryCategory}
+                    onChange={(event) =>
+                      updateField(
+                        "inquiryCategory",
+                        event.target.value as InquiryCategory
+                      )
+                    }
+                    className={fieldClass}
+                  >
+                    {inquiryCategories.map((category) => (
+                      <option key={category} value={category}>
+                        {category}
+                      </option>
+                    ))}
+                  </select>
+                </Field>
+              </div>
+
+              <Field
+                label="Message / Specifications"
+                required
+                error={fieldErrors.message}
+                htmlFor="inquiry-message"
+              >
+                <textarea
+                  id="inquiry-message"
+                  name="message"
+                  rows={5}
+                  value={form.message}
+                  onChange={(event) => updateField("message", event.target.value)}
+                  className={`${fieldClass} min-h-32 resize-y ${inputErrorClass(
+                    "message"
+                  )}`}
+                  aria-invalid={Boolean(fieldErrors.message)}
+                  aria-describedby={
+                    fieldErrors.message ? "inquiry-message-error" : undefined
+                  }
+                  placeholder="Please include quantities, timelines, specifications, or other relevant details."
+                />
+              </Field>
+
+              <button
+                type="submit"
+                disabled={status === "submitting"}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gold-400 px-5 py-3.5 text-sm font-semibold text-slate-950 transition hover:bg-gold-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300 disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {status === "submitting" ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+                    Sending inquiry…
+                  </>
+                ) : (
+                  <>
+                    <Send className="h-4 w-4" aria-hidden="true" />
+                    Send corporate inquiry
+                  </>
+                )}
+              </button>
+            </form>
+          </>
+        )}
+      </section>
+    </div>
+  );
+}
+
+function Field({
+  children,
+  error,
+  htmlFor,
+  label,
+  required = false,
+}: {
+  children: ReactNode;
+  error?: string;
+  htmlFor: string;
+  label: string;
+  required?: boolean;
+}) {
+  const errorId = `${htmlFor}-error`;
+
+  return (
+    <div>
+      <label htmlFor={htmlFor} className="mb-2 block text-sm font-medium text-slate-200">
+        {label}
+        {required && <span className="ml-1 text-gold-400">*</span>}
+      </label>
+      {children}
+      {error && (
+        <p id={errorId} className="mt-2 text-xs font-medium text-rose-300">
+          {error}
+        </p>
+      )}
     </div>
   );
 }
