@@ -7,8 +7,8 @@ import { openInquiry } from "@/components/InquiryProvider";
 const pillars = [
   "Strategic Vision",
   "Multi-Sector Governance",
-  "Innovation & Design",
   "Global Expansion",
+  "Enterprise Innovation",
 ];
 
 export function FounderSection() {
@@ -39,49 +39,49 @@ export function FounderSection() {
         </div>
 
         <article className="mt-12 mx-auto max-w-5xl rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm sm:p-8 md:p-10">
-          <div className="grid gap-8 md:grid-cols-[auto_1fr] md:gap-10">
-            <div className="md:w-80">
-              <div className="relative aspect-[4/5] w-full md:w-80 overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-5">
+              <div className="relative w-full max-w-sm md:max-w-md aspect-[3/4] overflow-hidden rounded-2xl border border-slate-200 shadow-md mx-auto">
                 <Image
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80"
-                  alt="Editorial portrait of the Founder & Managing Director of SHATHI Group"
-                  fill
-                  sizes="(min-width: 768px) 320px, 100vw"
-                  className="object-cover grayscale"
-                  priority={false}
+                  src="/founder-image/founder.png"
+                  alt="S M SHAHRIAR WALID - Founder & CEO"
+                  width={600}
+                  height={800}
+                  priority
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col lg:col-span-7">
               <header className="flex items-center justify-between gap-4">
                 <span className="inline-flex items-center px-3 py-1 bg-amber-50 border border-amber-200/60 text-amber-800 text-[10px] font-bold tracking-widest">
                   01
                 </span>
                 <span className="text-[11px] font-sans font-semibold tracking-[0.2em] uppercase text-slate-500">
-                  Founder &amp; Managing Director
+                  Executive Directorate
                 </span>
               </header>
 
               <h3 className="font-serif text-3xl md:text-4xl font-bold tracking-[0.1em] uppercase text-slate-900 mt-4 mb-1">
-                Shahin Ahmed
+                S M Shahriar Walid
               </h3>
-              <p className="font-sans text-xs md:text-sm font-semibold tracking-[0.16em] uppercase text-slate-500 mb-6">
-                Founder &amp; Managing Director · Executive Board
+              <p className="font-sans text-xs md:text-sm font-semibold tracking-[0.18em] uppercase text-slate-500 mb-6">
+                Founder &amp; Chief Executive Officer
               </p>
 
               <div className="border-t border-slate-200/80 my-4" aria-hidden="true" />
 
               <p className="font-sans text-slate-600 text-sm md:text-[15px] leading-relaxed">
-                Shahin Ahmed founded SHATHI Group with a singular conviction:
-                that vertically integrated excellence across lifestyle, horology,
-                architecture, technology, and mobility can redefine how modern
-                enterprises are built. Under his direction, the group has
-                assembled specialist houses — each governed independently, yet
-                united by a shared discipline of design, engineering, and
-                long-term stewardship. His mandate to every subsidiary is the
-                same: lead the category with clarity, craft, and an uncompromising
-                standard for the customer.
+                S M Shahriar Walid is the founder and visionary driving the
+                strategic expansion of SHATHI Group. Spearheading a multifaceted
+                portfolio spanning high-end contemporary apparel, precision
+                horology, architectural ceramics, enterprise software, and
+                automotive mobility, he champions a corporate philosophy rooted
+                in vertical integration, modern design discipline, and long-term
+                value creation. Under his executive direction, SHATHI Group
+                continues to bridge industrial reliability with refined consumer
+                and enterprise experiences across global markets.
               </p>
 
               <ul
@@ -91,7 +91,7 @@ export function FounderSection() {
               >
                 {pillars.map((pillar) => (
                   <li key={pillar}>
-                    <span className="inline-block text-[10px] font-semibold tracking-[0.15em] uppercase border border-slate-200 px-3 py-1.5 rounded-none bg-slate-50 text-slate-700">
+                    <span className="inline-block text-[10px] font-semibold tracking-[0.14em] uppercase border border-slate-200 px-3 py-1.5 bg-slate-50 text-slate-700">
                       {pillar}
                     </span>
                   </li>
@@ -100,7 +100,7 @@ export function FounderSection() {
 
               <div className="mt-8 flex items-center justify-between gap-4 border-t border-slate-200/80 pt-4">
                 <span className="text-[10px] tracking-[0.2em] font-semibold uppercase text-slate-400">
-                  Founder Desk · Directorate
+                  Founder Desk
                 </span>
                 <button
                   type="button"
@@ -108,12 +108,12 @@ export function FounderSection() {
                     openInquiry({
                       id: "founder-desk",
                       name: "SHATHI Group — Founder Desk",
-                      category: "Corporate Procurement",
+                      category: "Strategic Partnership",
                     })
                   }
                   className="group inline-flex items-center gap-2 text-[11px] font-sans font-semibold tracking-[0.2em] uppercase text-slate-900 transition hover:text-amber-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500"
                 >
-                  Connect / Direct Inquiry
+                  Connect Directly
                   <ArrowUpRight
                     className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                     aria-hidden="true"
