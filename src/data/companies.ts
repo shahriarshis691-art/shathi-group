@@ -155,8 +155,8 @@ export const companies: Company[] = [
       "Custom Enterprise Platforms",
     ],
     logoPlaceholder: logoFor("cortex-softsolutions"),
-    image: "/cortex-main-logo.png",
-    imageAlt: "Cortex SoftSolutions Logo",
+    image: "/cortex/hero.png",
+    imageAlt: "Cortex SoftSolutions",
     websiteUrl: "https://cortexsoftsolutions.example.com",
     storeUrl: "https://cortexsoftsolutions.example.com/contact",
     brandStory:

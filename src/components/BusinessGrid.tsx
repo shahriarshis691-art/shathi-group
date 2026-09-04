@@ -57,7 +57,7 @@ function SubsidiaryCard({ company }: { company: Company }) {
               alt="Cortex SoftSolutions Logo"
               className="object-contain"
               height="225"
-              src={company.image}
+              src="/cortex-main-logo.png"
               width="400"
             />
           </div>

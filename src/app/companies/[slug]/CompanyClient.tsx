@@ -251,25 +251,17 @@ export function CompanyClient({ company }: CompanyClientProps) {
       </nav>
 
       {/* Hero */}
-      <section className={`relative overflow-hidden ${t.heroClass}`}>
-        <Image
-          src={company.image}
-          alt={company.imageAlt}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover opacity-75"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/35"
-        />
-        <div
-          aria-hidden
-          className={`pointer-events-none absolute inset-0 opacity-70 ${t.heroPattern}`}
-        />
-        <div className="container-corporate relative py-16 sm:py-24 lg:py-32">
-          {company.slug === "cortex-softsolutions" ? (
+      {company.slug === "cortex-softsolutions" ? (
+        <div className="relative w-full h-[480px] md:h-[600px] overflow-hidden rounded-2xl md:rounded-3xl border border-slate-200/80 shadow-md">
+          <Image
+            alt="Cortex SoftSolutions"
+            className="object-cover object-center animate-[kenburns_20s_ease-in-out_infinite_alternate]"
+            fill
+            priority
+            src="/cortex/hero.png"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20" />
+          <div className="relative z-10 flex flex-col justify-end h-full p-8 md:p-12">
             <div className="flex flex-col gap-2">
               <Image
                 alt="CORTEX SoftSolutions Logo"
@@ -288,7 +280,44 @@ export function CompanyClient({ company }: CompanyClientProps) {
                 </h1>
               </div>
             </div>
-          ) : (
+
+            <p className="mt-6 max-w-2xl font-serif text-lg italic leading-relaxed text-slate-200 text-balance">
+              {company.tagline}
+            </p>
+            <p className="mt-4 max-w-3xl font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-300 md:text-[15px] text-balance">
+              {company.description}
+            </p>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <button
+                type="button"
+                onClick={openInquiry}
+                className={`inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] shadow-corporate transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 ${t.ctaClass} ${t.ctaHover}`}
+              >
+                Direct Inquiry / Schedule Meeting
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <section className={`relative overflow-hidden ${t.heroClass}`}>
+          <Image
+            src={company.image}
+            alt={company.imageAlt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-75"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/35"
+          />
+          <div
+            aria-hidden
+            className={`pointer-events-none absolute inset-0 opacity-70 ${t.heroPattern}`}
+          />
+          <div className="container-corporate relative py-16 sm:py-24 lg:py-32">
             <div className="flex items-center gap-4">
               <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 backdrop-blur-sm ring-1 ring-white/20">
                 <CompanyLogo company={company} size={48} />
@@ -302,37 +331,37 @@ export function CompanyClient({ company }: CompanyClientProps) {
                 </h1>
               </div>
             </div>
-          )}
 
-          <p className="mt-6 max-w-2xl font-serif text-lg italic leading-relaxed text-slate-200 text-balance">
-            {company.tagline}
-          </p>
-          <p className="mt-4 max-w-3xl font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-300 md:text-[15px] text-balance">
-            {company.description}
-          </p>
+            <p className="mt-6 max-w-2xl font-serif text-lg italic leading-relaxed text-slate-200 text-balance">
+              {company.tagline}
+            </p>
+            <p className="mt-4 max-w-3xl font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-300 md:text-[15px] text-balance">
+              {company.description}
+            </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <button
-              type="button"
-              onClick={openInquiry}
-              className={`inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] shadow-corporate transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 ${t.ctaClass} ${t.ctaHover}`}
-            >
-              Direct Inquiry / Schedule Meeting
-            </button>
-            {company.storeUrl && company.slug === "shis-fashion" && (
-              <a
-                href={company.storeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-white backdrop-blur-sm transition hover:border-white/40 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <button
+                type="button"
+                onClick={openInquiry}
+                className={`inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] shadow-corporate transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 ${t.ctaClass} ${t.ctaHover}`}
               >
-                Request Catalog
-                <ArrowUpRight className="h-4 w-4" aria-hidden />
-              </a>
-            )}
+                Direct Inquiry / Schedule Meeting
+              </button>
+              {company.storeUrl && company.slug === "shis-fashion" && (
+                <a
+                  href={company.storeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-white backdrop-blur-sm transition hover:border-white/40 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
+                >
+                  Request Catalog
+                  <ArrowUpRight className="h-4 w-4" aria-hidden />
+                </a>
+              )}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Brand Story */}
       <section className={`py-16 sm:py-20 ${t.sectionClass}`}>
