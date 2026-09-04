@@ -269,19 +269,40 @@ export function CompanyClient({ company }: CompanyClientProps) {
           className={`pointer-events-none absolute inset-0 opacity-70 ${t.heroPattern}`}
         />
         <div className="container-corporate relative py-16 sm:py-24 lg:py-32">
-          <div className="flex items-center gap-4">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 backdrop-blur-sm ring-1 ring-white/20">
-              <CompanyLogo company={company} size={48} />
+          {company.slug === "cortex-softsolutions" ? (
+            <div className="flex flex-col gap-2">
+              <Image
+                alt="CORTEX SoftSolutions Logo"
+                className="h-16 md:h-20 w-auto object-contain"
+                height="90"
+                priority
+                src="/cortex-main-logo.png"
+                width="280"
+              />
+              <div>
+                <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
+                  {company.category}
+                </p>
+                <h1 className="font-serif text-3xl font-bold uppercase tracking-[0.12em] sm:text-4xl lg:text-5xl text-balance">
+                  {company.name}
+                </h1>
+              </div>
             </div>
-            <div>
-              <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
-                {company.category}
-              </p>
-              <h1 className="font-serif text-3xl font-bold uppercase tracking-[0.12em] sm:text-4xl lg:text-5xl text-balance">
-                {company.name}
-              </h1>
+          ) : (
+            <div className="flex items-center gap-4">
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 backdrop-blur-sm ring-1 ring-white/20">
+                <CompanyLogo company={company} size={48} />
+              </div>
+              <div>
+                <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
+                  {company.category}
+                </p>
+                <h1 className="font-serif text-3xl font-bold uppercase tracking-[0.12em] sm:text-4xl lg:text-5xl text-balance">
+                  {company.name}
+                </h1>
+              </div>
             </div>
-          </div>
+          )}
 
           <p className="mt-6 max-w-2xl font-serif text-lg italic leading-relaxed text-slate-200 text-balance">
             {company.tagline}
