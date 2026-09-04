@@ -79,7 +79,7 @@ export function SubsidiaryModal({ company, onClose }: SubsidiaryModalProps) {
 
         <div
           id={descId}
-          className="space-y-5 px-6 pb-6 font-sans text-sm leading-relaxed text-slate-600 md:text-[15px]"
+          className="space-y-5 px-6 pb-6 font-sans text-sm md:text-[15px] font-normal text-slate-600 leading-relaxed"
         >
           {company.brandStory ? (
             <p className="leading-relaxed text-slate-700">{company.brandStory}</p>

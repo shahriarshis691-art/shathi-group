@@ -50,7 +50,7 @@ export function AboutSection() {
           >
             A diversified group built on trust.
           </h2>
-          <p className="mt-5 font-sans text-sm leading-relaxed text-slate-600 sm:text-[15px] text-balance">
+          <p className="mt-5 font-sans text-sm md:text-[15px] font-normal text-slate-600 leading-relaxed text-balance">
             SHATHI Group of Companies is a house of brands — uniting
             industry-leading businesses under a single standard of excellence,
             governance, and customer commitment.
@@ -70,7 +70,7 @@ export function AboutSection() {
                 <h3 className="mt-5 font-serif text-xl font-bold uppercase tracking-[0.14em] text-slate-900">
                   {title}
                 </h3>
-                <p className="mt-3 font-sans text-sm leading-relaxed text-slate-600 sm:text-[15px]">
+                <p className="mt-3 font-sans text-sm md:text-[15px] font-normal text-slate-600 leading-relaxed">
                   {body}
                 </p>
               </article>

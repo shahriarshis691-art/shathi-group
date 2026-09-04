@@ -155,10 +155,10 @@ function SpecCard({
           <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
             {title}
           </p>
-          <p className="font-serif text-lg font-bold uppercase tracking-[0.14em] text-navy-900">{value}</p>
+          <p className="font-serif text-2xl font-bold uppercase tracking-[0.14em] text-navy-900 md:text-3xl">{value}</p>
         </div>
       </div>
-      <p className="mt-3 font-sans text-sm leading-relaxed text-slate-600 md:text-[15px]">{description}</p>
+      <p className="mt-3 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-600 md:text-[15px]">{description}</p>
     </div>
   );
 }
@@ -177,8 +177,8 @@ function StepCard({
       <span className="absolute -top-3 left-6 inline-flex h-8 w-8 items-center justify-center rounded-full bg-navy-800 text-sm font-semibold text-white">
         {number}
       </span>
-      <h3 className="mt-2 font-serif text-lg font-bold uppercase tracking-[0.14em] text-navy-900">{title}</h3>
-      <p className="mt-2 font-sans text-sm leading-relaxed text-slate-600 md:text-[15px]">{description}</p>
+      <h3 className="mt-2 font-serif text-2xl font-bold uppercase tracking-[0.14em] text-navy-900 md:text-3xl">{title}</h3>
+      <p className="mt-2 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-600 md:text-[15px]">{description}</p>
     </div>
   );
 }
@@ -219,7 +219,7 @@ function VisualFeatureCard({
         <h3 className="my-auto max-w-[16ch] font-serif text-2xl font-bold uppercase tracking-[0.14em] leading-tight">
           {title}
         </h3>
-        <p className="border-t border-white/20 pt-4 font-sans text-sm leading-relaxed text-slate-200 line-clamp-3 md:text-[15px]">
+        <p className="border-t border-white/20 pt-4 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-200 line-clamp-3 md:text-[15px]">
           {description}
         </p>
       </div>
@@ -286,7 +286,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
           <p className="mt-6 max-w-2xl font-serif text-lg italic leading-relaxed text-slate-200 text-balance">
             {company.tagline}
           </p>
-          <p className="mt-4 max-w-3xl font-sans text-sm leading-relaxed text-slate-300 md:text-[15px] text-balance">
+          <p className="mt-4 max-w-3xl font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-300 md:text-[15px] text-balance">
             {company.description}
           </p>
 
@@ -323,7 +323,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
             <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
               Crafted with purpose
             </h2>
-            <p className={`mt-6 font-sans text-sm leading-relaxed ${t.body} md:text-[15px] text-balance`}>
+            <p className={`mt-6 font-sans text-sm md:text-[15px] font-normal leading-relaxed ${t.body} md:text-[15px] text-balance`}>
               {company.brandStory}
             </p>
           </div>
@@ -341,7 +341,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
               <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
                 Built on premium materials
               </h2>
-              <p className={`mt-4 max-w-2xl font-sans text-sm leading-relaxed ${t.body} md:text-[15px]`}>
+              <p className={`mt-4 max-w-2xl font-sans text-sm md:text-[15px] font-normal leading-relaxed ${t.body} md:text-[15px]`}>
                 Every piece is engineered from the ground up with fabric integrity at its core.
               </p>
 
@@ -351,9 +351,9 @@ export function CompanyClient({ company }: CompanyClientProps) {
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold-50 text-gold-600">
                       <Sparkles className="h-5 w-5" aria-hidden />
                     </div>
-                    <h3 className="font-serif text-lg font-bold uppercase tracking-[0.14em] text-navy-900">Premium Pima Cotton</h3>
+                    <h3 className="font-serif text-2xl font-bold uppercase tracking-[0.14em] text-navy-900 md:text-3xl">Premium Pima Cotton</h3>
                   </div>
-                  <p className="mt-3 font-sans text-sm leading-relaxed text-slate-600 md:text-[15px]">
+                  <p className="mt-3 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-600 md:text-[15px]">
                     Extra-long staple fibers woven into fabrics with superior softness, strength, and a luxurious hand feel that holds shape season after season.
                   </p>
                 </div>
@@ -363,9 +363,9 @@ export function CompanyClient({ company }: CompanyClientProps) {
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-rose-50 text-rose-600">
                       <Gem className="h-5 w-5" aria-hidden />
                     </div>
-                    <h3 className="font-serif text-lg font-bold uppercase tracking-[0.14em] text-navy-900">Acid-Wash Graphics</h3>
+                    <h3 className="font-serif text-2xl font-bold uppercase tracking-[0.14em] text-navy-900 md:text-3xl">Acid-Wash Graphics</h3>
                   </div>
-                  <p className="mt-3 font-sans text-sm leading-relaxed text-slate-600 md:text-[15px]">
+                  <p className="mt-3 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-600 md:text-[15px]">
                     Signature acid-washed treatments applied to denim and jersey bases, creating one-of-a-kind faded textures with a laid-back luxe attitude.
                   </p>
                 </div>
@@ -375,9 +375,9 @@ export function CompanyClient({ company }: CompanyClientProps) {
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-navy-50 text-navy-800">
                       <Factory className="h-5 w-5" aria-hidden />
                     </div>
-                    <h3 className="font-serif text-lg font-bold uppercase tracking-[0.14em] text-navy-900">Modern Urban Fits</h3>
+                    <h3 className="font-serif text-2xl font-bold uppercase tracking-[0.14em] text-navy-900 md:text-3xl">Modern Urban Fits</h3>
                   </div>
-                  <p className="mt-3 font-sans text-sm leading-relaxed text-slate-600 md:text-[15px]">
+                  <p className="mt-3 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-600 md:text-[15px]">
                     Tailored silhouettes designed for contemporary wardrobes — structured shoulders, tapered legs, and dropped shoulders that move with the city.
                   </p>
                 </div>
@@ -393,7 +393,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
               <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
                 Seasonal edits
               </h2>
-              <p className={`mt-4 max-w-2xl font-sans text-sm leading-relaxed ${t.body} md:text-[15px]`}>
+              <p className={`mt-4 max-w-2xl font-sans text-sm md:text-[15px] font-normal leading-relaxed ${t.body} md:text-[15px]`}>
                 A curated selection of silhouettes and fabric stories from the latest collection.
               </p>
 
@@ -442,7 +442,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
               <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
                 Engineered to last decades
               </h2>
-              <p className={`mt-4 max-w-2xl font-sans text-sm leading-relaxed ${t.body} md:text-[15px]`}>
+              <p className={`mt-4 max-w-2xl font-sans text-sm md:text-[15px] font-normal leading-relaxed ${t.body} md:text-[15px]`}>
                 Every XeroXii timepiece is built around exacting standards — from the movement to the crystal.
               </p>
 
@@ -483,7 +483,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
               <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
                 Hand-finished detail
               </h2>
-              <p className={`mt-4 max-w-2xl font-sans text-sm leading-relaxed ${t.body} md:text-[15px]`}>
+              <p className={`mt-4 max-w-2xl font-sans text-sm md:text-[15px] font-normal leading-relaxed ${t.body} md:text-[15px]`}>
                 From movement assembly to final polishing, every stage is completed by hand.
               </p>
 
@@ -525,7 +525,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
               <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
                 Textures and finishes
               </h2>
-              <p className={`mt-4 max-w-2xl font-sans text-sm leading-relaxed ${t.body} md:text-[15px]`}>
+              <p className={`mt-4 max-w-2xl font-sans text-sm md:text-[15px] font-normal leading-relaxed ${t.body} md:text-[15px]`}>
                 Explore our signature surface treatments, engineered for architectural impact.
               </p>
 
@@ -536,7 +536,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
                     Matte
                   </span>
                   <h3 className="mt-3 font-serif text-lg font-bold uppercase tracking-[0.14em] text-navy-900">Matte Finish</h3>
-                  <p className="mt-2 font-sans text-sm leading-relaxed text-slate-600 md:text-[15px]">
+                  <p className="mt-2 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-600 md:text-[15px]">
                     Non-reflective surface with a soft-touch feel. Ideal for high-traffic floors and feature walls where glare must be minimized.
                   </p>
                 </div>
@@ -547,7 +547,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
                     Polished
                   </span>
                   <h3 className="mt-3 font-serif text-lg font-bold uppercase tracking-[0.14em] text-navy-900">Polished Finish</h3>
-                  <p className="mt-2 font-sans text-sm leading-relaxed text-slate-600 md:text-[15px]">
+                  <p className="mt-2 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-600 md:text-[15px]">
                     High-gloss reflective surface that amplifies natural and artificial light. Perfect for lobby spaces and contemporary interiors.
                   </p>
                 </div>
@@ -558,7 +558,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
                     Porcelain
                   </span>
                   <h3 className="mt-3 font-serif text-lg font-bold uppercase tracking-[0.14em] text-navy-900">Porcelain Grade</h3>
-                  <p className="mt-2 font-sans text-sm leading-relaxed text-slate-600 md:text-[15px]">
+                  <p className="mt-2 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-600 md:text-[15px]">
                     Dense, vitrified body with PEI IV wear rating. Engineered for commercial load and extreme temperature variation.
                   </p>
                 </div>
@@ -574,7 +574,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
               <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
                 Architectural projects
               </h2>
-              <p className={`mt-4 max-w-2xl font-sans text-sm leading-relaxed ${t.body} md:text-[15px]`}>
+              <p className={`mt-4 max-w-2xl font-sans text-sm md:text-[15px] font-normal leading-relaxed ${t.body} md:text-[15px]`}>
                 A selection of residential and commercial spaces specified with Ceravo surfaces.
               </p>
 
@@ -595,7 +595,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
                       </span>
                     </div>
                     <div className="p-4">
-                      <h3 className="font-serif text-sm font-bold uppercase tracking-[0.14em] text-navy-900">{project.label}</h3>
+                      <h3 className="font-serif text-lg font-bold uppercase tracking-[0.14em] text-navy-900">{project.label}</h3>
                       <p className="font-sans text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">{project.location}</p>
                     </div>
                   </div>
@@ -617,7 +617,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
               <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
                 Enterprise-grade capabilities
               </h2>
-              <p className={`mt-4 max-w-2xl font-sans text-sm leading-relaxed ${t.body} md:text-[15px]`}>
+              <p className={`mt-4 max-w-2xl font-sans text-sm md:text-[15px] font-normal leading-relaxed ${t.body} md:text-[15px]`}>
                 We design, build, and operate platforms that scale with the businesses they serve.
               </p>
 
@@ -629,7 +629,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
                     </div>
                     <h3 className="font-serif text-lg font-bold uppercase tracking-[0.14em] text-white">Enterprise Software</h3>
                   </div>
-                  <p className="mt-3 font-sans text-sm leading-relaxed text-slate-400 md:text-[15px]">
+                  <p className="mt-3 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-400 md:text-[15px]">
                     Custom platforms built for scale — ERP, CRM, and workflow automation tailored to operational realities.
                   </p>
                 </div>
@@ -641,7 +641,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
                     </div>
                     <h3 className="font-serif text-lg font-bold uppercase tracking-[0.14em] text-white">Cloud Systems</h3>
                   </div>
-                  <p className="mt-3 font-sans text-sm leading-relaxed text-slate-400 md:text-[15px]">
+                  <p className="mt-3 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-400 md:text-[15px]">
                     Cloud-native architecture on AWS and Azure with auto-scaling, CI/CD pipelines, and 99.99% availability targets.
                   </p>
                 </div>
@@ -653,7 +653,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
                     </div>
                     <h3 className="font-serif text-lg font-bold uppercase tracking-[0.14em] text-white">AI Systems</h3>
                   </div>
-                  <p className="mt-3 font-sans text-sm leading-relaxed text-slate-400 md:text-[15px]">
+                  <p className="mt-3 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-400 md:text-[15px]">
                     Predictive analytics, NLP pipelines, and computer vision models integrated directly into enterprise workflows.
                   </p>
                 </div>
@@ -669,7 +669,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
               <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
                 What we build with
               </h2>
-              <p className={`mt-4 max-w-2xl font-sans text-sm leading-relaxed ${t.body} md:text-[15px]`}>
+              <p className={`mt-4 max-w-2xl font-sans text-sm md:text-[15px] font-normal leading-relaxed ${t.body} md:text-[15px]`}>
                 Modern, battle-tested tooling chosen for performance and developer experience.
               </p>
 
@@ -711,7 +711,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
               <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
                 Impact in production
               </h2>
-              <p className={`mt-4 max-w-2xl font-sans text-sm leading-relaxed ${t.body} md:text-[15px]`}>
+              <p className={`mt-4 max-w-2xl font-sans text-sm md:text-[15px] font-normal leading-relaxed ${t.body} md:text-[15px]`}>
                 Selected outcomes from enterprise engagements across industries.
               </p>
 
@@ -753,7 +753,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
             <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
               Performance with a quieter kind of confidence.
             </h2>
-            <p className={`mt-4 max-w-2xl font-sans text-sm leading-relaxed ${t.body} md:text-[15px]`}>
+            <p className={`mt-4 max-w-2xl font-sans text-sm md:text-[15px] font-normal leading-relaxed ${t.body} md:text-[15px]`}>
               Velorix combines responsive dynamics, thoughtful technology, and
               tailored ownership programs for modern mobility.
             </p>
@@ -788,10 +788,10 @@ export function CompanyClient({ company }: CompanyClientProps) {
       {/* Bottom CTA */}
       <section className={`py-16 sm:py-20 ${t.sectionAltClass}`}>
         <div className="container-corporate text-center">
-          <h2 className={`text-3xl font-semibold tracking-tight ${t.heading} sm:text-4xl`}>
+          <h2 className={`font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
             Ready to explore {company.name}?
           </h2>
-<p className={`mt-4 font-sans text-sm leading-relaxed ${t.body} md:text-[15px]`}>
+<p className={`mt-4 font-sans text-sm md:text-[15px] font-normal leading-relaxed ${t.body} md:text-[15px]`}>
                 Get in touch to schedule a meeting or request more information.
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">

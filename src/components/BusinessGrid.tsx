@@ -22,7 +22,7 @@ export function BusinessGrid() {
           >
             Distinct businesses, one exacting standard.
           </h2>
-          <p className="mt-5 max-w-2xl font-sans text-sm leading-relaxed text-slate-600 md:text-[15px]">
+          <p className="mt-5 max-w-2xl font-sans text-sm md:text-[15px] font-normal text-slate-600 leading-relaxed">
             Explore the specialist companies that make up SHATHI Group — each
             designed to lead its field with clarity, craft, and long-term focus.
           </p>
@@ -76,7 +76,7 @@ function SubsidiaryCard({ company }: { company: Company }) {
         </h3>
 
         <span className="mt-4 border-t border-slate-200/80 pt-4">
-          <span className="block font-sans text-sm leading-relaxed text-slate-600 line-clamp-3 md:text-[15px]">
+          <span className="block font-sans text-sm md:text-[15px] font-normal text-slate-600 line-clamp-3 leading-relaxed">
             {company.description}
           </span>
         </span>

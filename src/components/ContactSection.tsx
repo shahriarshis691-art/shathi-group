@@ -146,7 +146,7 @@ export function ContactSection() {
           >
             Let&apos;s start a conversation.
           </h2>
-          <p className="mt-4 font-sans text-sm leading-relaxed text-slate-600 md:text-[15px] text-balance">
+          <p className="mt-4 font-sans text-sm md:text-[15px] font-normal text-slate-600 leading-relaxed text-balance">
             Reach out for partnerships, media inquiries, or to learn more about
             any of our businesses. We typically respond within one business day.
           </p>
@@ -158,7 +158,7 @@ export function ContactSection() {
               <h3 className="font-serif text-xl font-bold uppercase tracking-[0.14em]">
                 Corporate Office
               </h3>
-              <p className="mt-2 font-sans text-sm leading-relaxed text-slate-300">
+              <p className="mt-2 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-300">
                 Visit, call, or write to us — our team is here to help.
               </p>
 
@@ -171,7 +171,7 @@ export function ContactSection() {
                     <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-300">
                       Address
                     </p>
-                    <p className="mt-1 font-sans text-sm leading-relaxed text-slate-200">
+                     <p className="mt-1 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-200">
                       SHATHI Tower, Corporate Park,
                       <br />
                       Main Business District,
@@ -186,13 +186,13 @@ export function ContactSection() {
                     <Mail className="h-5 w-5" aria-hidden />
                   </span>
                   <div>
-                    <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-300">
-                      Email
-                    </p>
-                    <a
-                      href="mailto:info@shathigroup.com"
-                      className="mt-1 block font-sans text-sm text-slate-200 transition hover:text-white"
-                    >
+                     <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-300">
+                       Email
+                     </p>
+                     <a
+                       href="mailto:info@shathigroup.com"
+                       className="mt-1 block font-sans text-sm md:text-[15px] font-normal text-slate-200 transition hover:text-white"
+                     >
                       info@shathigroup.com
                     </a>
                   </div>
@@ -203,13 +203,13 @@ export function ContactSection() {
                     <Phone className="h-5 w-5" aria-hidden />
                   </span>
                   <div>
-                    <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-300">
-                      Phone
-                    </p>
-                    <a
-                      href="tel:+910000000000"
-                      className="mt-1 block font-sans text-sm text-slate-200 transition hover:text-white"
-                    >
+                     <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-300">
+                       Phone
+                     </p>
+                     <a
+                       href="tel:+910000000000"
+                       className="mt-1 block font-sans text-sm md:text-[15px] font-normal text-slate-200 transition hover:text-white"
+                     >
                       +91 00000 00000
                     </a>
                   </div>
@@ -223,7 +223,7 @@ export function ContactSection() {
                     <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-300">
                       Working Hours
                     </p>
-                    <p className="mt-1 font-sans text-sm leading-relaxed text-slate-200">
+                     <p className="mt-1 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-200">
                       Mon – Fri: 9:00 AM – 6:00 PM
                       <br />
                       Sat: 10:00 AM – 2:00 PM

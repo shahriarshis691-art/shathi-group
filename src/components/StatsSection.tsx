@@ -75,7 +75,7 @@ export function StatsSection() {
               <p className="mt-1 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-300">
                 {label}
               </p>
-              <p className="mt-2 font-sans text-sm leading-relaxed text-slate-300">
+              <p className="mt-2 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-300">
                 {sub}
               </p>
             </li>

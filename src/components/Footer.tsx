@@ -41,7 +41,7 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Logo variant="inverse" />
-            <p className="mt-4 max-w-sm font-sans text-sm leading-relaxed text-slate-300">
+            <p className="mt-4 max-w-sm font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-300">
               SHATHI Group of Companies is a diversified corporate portfolio
               spanning fashion, luxury, building materials, and home living —
               united by integrity, craftsmanship, and long-term value.
@@ -80,7 +80,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="font-sans text-sm text-slate-300 transition hover:text-white"
+                     className="font-sans text-sm md:text-[15px] font-normal text-slate-300 transition hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -127,7 +127,7 @@ export function Footer() {
               <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-gold-400">
                 Corporate Office
               </p>
-              <p className="mt-1 font-sans text-sm text-slate-300">
+               <p className="mt-1 font-sans text-sm md:text-[15px] font-normal text-slate-300">
                 SHATHI Tower, Corporate Park,
                 <br />
                 Main Business District, India
@@ -145,7 +145,7 @@ export function Footer() {
               </p>
               <a
                 href="tel:+910000000000"
-                className="mt-1 block font-sans text-sm text-slate-300 transition hover:text-white"
+                 className="mt-1 block font-sans text-sm md:text-[15px] font-normal text-slate-300 transition hover:text-white"
               >
                 +91 00000 00000
               </a>
@@ -162,7 +162,7 @@ export function Footer() {
               </p>
               <a
                 href="mailto:info@shathigroup.com"
-                className="mt-1 block font-sans text-sm text-slate-300 transition hover:text-white"
+                 className="mt-1 block font-sans text-sm md:text-[15px] font-normal text-slate-300 transition hover:text-white"
               >
                 info@shathigroup.com
               </a>

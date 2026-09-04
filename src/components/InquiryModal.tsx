@@ -223,7 +223,7 @@ export function InquiryModal({
             >
               Inquiry received
             </h2>
-            <p className="mt-3 max-w-md font-sans text-sm leading-6 text-slate-300">
+            <p className="mt-3 max-w-md font-sans text-sm md:text-[15px] font-normal leading-6 text-slate-300">
               Our corporate team will reach out shortly to discuss your requirements.
             </p>
             <button
@@ -246,7 +246,7 @@ export function InquiryModal({
               >
                 Corporate Inquiry
               </h2>
-              <p className="mt-2 font-sans text-sm leading-relaxed text-slate-400">
+              <p className="mt-2 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-400">
                 Tell us how our group can support your next business opportunity.
               </p>
             </header>

@@ -135,7 +135,7 @@ export function ContactModal({ company, onClose }: ContactModalProps) {
             <h2 className="font-serif text-xl font-bold uppercase tracking-[0.14em] text-slate-900">
               Direct Inquiry
             </h2>
-            <p className="font-sans text-sm leading-relaxed text-slate-600">
+            <p className="font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-600">
               Schedule a meeting with {company.name}
             </p>
           </div>

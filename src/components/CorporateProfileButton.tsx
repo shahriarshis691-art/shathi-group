@@ -64,7 +64,7 @@ export function CorporateProfileButton() {
       </button>
 
       {state === "missing" ? (
-        <p className="max-w-md font-sans text-sm leading-relaxed text-slate-600 md:text-[15px]">
+        <p className="max-w-md font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-600">
           The corporate profile PDF is being updated.{" "}
           <a
             href={`mailto:${siteConfig.email}?subject=Corporate Profile Request`}
