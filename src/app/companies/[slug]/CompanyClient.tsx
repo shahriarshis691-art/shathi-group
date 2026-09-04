@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ArrowLeft, ArrowUpRight, CheckCircle2, ExternalLink, Factory, Gauge, Gem, Shield, Sparkles, Wrench } from "lucide-react";
 import { type Company } from "@/data/companies";
 import { CompanyLogo } from "@/components/CompanyLogo";
+import { EngineeringGovernance } from "@/components/EngineeringGovernance";
 import { useInquiryButton } from "@/hooks/useInquiryButton";
 
 type Slug = Company["slug"];
@@ -752,6 +753,8 @@ export function CompanyClient({ company }: CompanyClientProps) {
               </div>
             </div>
           </section>
+
+          <EngineeringGovernance />
 
           <section className={`py-16 sm:py-20 ${t.sectionAltClass}`}>
             <div className="container-corporate">
