@@ -4,130 +4,105 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { openInquiry } from "@/components/InquiryProvider";
 
-const pillars = [
-  "Strategic Vision",
-  "Multi-Sector Governance",
-  "Global Expansion",
-  "Enterprise Innovation",
-];
-
 export function FounderSection() {
   return (
     <section
       aria-labelledby="founder-heading"
       id="founder"
-      className="relative py-20 sm:py-28"
+      className="bg-[#F9F7F4]"
     >
-      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden="true">
-        <div className="absolute top-1/4 right-0 h-[400px] w-[400px] translate-x-1/3 rounded-full bg-white/5 blur-3xl" />
-      </div>
-
-      <div className="container-corporate">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-[11px] font-sans font-semibold tracking-[0.25em] uppercase text-neutral-600 mb-2">
-            Leadership &amp; Vision
-          </p>
-          <h2
-            id="founder-heading"
-            className="text-3xl md:text-5xl font-serif font-bold tracking-[0.12em] uppercase text-neutral-900 leading-tight"
-          >
-            Founder &amp; Executive Leadership
-          </h2>
-          <div className="w-16 h-[1.5px] bg-slate-300 mx-auto my-4" aria-hidden="true" />
-          <p className="font-sans text-neutral-600 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-            Meet the strategic leadership steering SHATHI Group&apos;s diversified
-            multi-industry ecosystem — a singular vision unifying lifestyle,
-            horology, architecture, technology, and mobility under one exacting
-            standard of craft.
-          </p>
-        </div>
-
-        <article className="relative mt-12 mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/60 bg-white/40 p-6 shadow-[0_20px_50px_rgba(0,0,0,0.08),inset_0_1px_1px_rgba(255,255,255,0.8)] backdrop-blur-2xl sm:p-8 md:p-10">
-          <div className="pointer-events-none absolute inset-0 rounded-[2rem] border border-white/50" aria-hidden="true" />
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-5">
-              <div className="relative w-full max-w-sm md:max-w-md aspect-[3/4] overflow-hidden rounded-2xl border border-slate-300 shadow-md mx-auto">
+      <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div className="lg:col-span-5">
+            <div className="relative mx-auto lg:mx-0 w-full max-w-[420px] aspect-[4/5]">
+              <div className="absolute -bottom-4 -right-4 w-full h-full border border-neutral-300 pointer-events-none" aria-hidden="true" />
+              <div className="relative w-full h-full overflow-hidden bg-neutral-200 shadow-md">
                 <Image
                   src="/founder-image/founder.png"
                   alt="S M SHAHRIAR WALID - Founder & CEO"
-                  width={600}
-                  height={800}
+                  fill
                   priority
-                  className="w-full h-full object-cover"
+                  className="object-cover object-top"
+                  sizes="(min-width: 1024px) 420px, 100vw"
                 />
               </div>
             </div>
+          </div>
 
-            <div className="flex flex-col lg:col-span-7">
-              <header className="flex items-center justify-between gap-4">
-                <span className="inline-flex items-center px-3 py-1 bg-slate-200/80 border border-white/60 text-slate-700 text-[10px] font-bold tracking-widest">
-                  01
-                </span>
-                <span className="text-[11px] font-sans font-semibold tracking-[0.2em] uppercase text-neutral-600">
-                  Executive Directorate
-                </span>
-              </header>
+          <div className="lg:col-span-7">
+            <div className="flex items-center gap-3 text-[11px] font-mono tracking-[0.25em] text-neutral-500 uppercase mb-4">
+              <span className="w-6 h-[1px] bg-neutral-400" aria-hidden="true" />
+              Meet the Founder &amp; CEO
+            </div>
 
-              <h3 className="font-serif text-3xl md:text-4xl font-bold tracking-[0.1em] uppercase text-neutral-900 mt-4 mb-1">
-                S M Shahriar Walid
-              </h3>
-              <p className="font-sans text-xs md:text-sm font-semibold tracking-[0.18em] uppercase text-neutral-600 mb-6">
-                Founder &amp; Chief Executive Officer
-              </p>
+            <h2
+              id="founder-heading"
+              className="text-3xl sm:text-4xl md:text-5xl font-serif text-neutral-900 leading-[1.15] tracking-tight font-normal mb-6"
+            >
+              A visionary approach to building enduring enterprises and modern experiences.
+            </h2>
 
-              <div className="border-t border-slate-300/80 my-4" aria-hidden="true" />
+            <p className="text-neutral-600 text-sm md:text-base leading-relaxed mb-10 max-w-xl font-sans">
+              S M Shahriar Walid is the founder and visionary steering SHATHI Group&apos;s
+              diversified portfolio across software engineering, luxury fashion, precision
+              horology, architectural ceramics, and automotive mobility. His leadership
+              philosophy centers on stewardship, long-term value creation, and earning
+              client trust through operational excellence and disciplined innovation.
+            </p>
 
-              <p className="font-sans text-neutral-600 text-sm md:text-[15px] leading-relaxed">
-                S M Shahriar Walid is the founder and visionary driving the
-                strategic expansion of SHATHI Group. Spearheading a multifaceted
-                portfolio spanning high-end contemporary apparel, precision
-                horology, architectural ceramics, enterprise software, and
-                automotive mobility, he champions a corporate philosophy rooted
-                in vertical integration, modern design discipline, and long-term
-                value creation. Under his executive direction, SHATHI Group
-                continues to bridge industrial reliability with refined consumer
-                and enterprise experiences across global markets.
-              </p>
-
-              <ul
-                role="list"
-                className="mt-6 flex flex-wrap gap-2"
-                aria-label="Core leadership pillars"
-              >
-                {pillars.map((pillar) => (
-                  <li key={pillar}>
-                    <span className="inline-block text-[10px] font-semibold tracking-[0.14em] uppercase border border-white/60 bg-white/50 px-3 py-1.5 text-neutral-700">
-                      {pillar}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-8 flex items-center justify-between gap-4 border-t border-slate-300/80 pt-4">
-                <span className="text-[10px] tracking-[0.2em] font-semibold uppercase text-neutral-500">
-                  Founder Desk
-                </span>
-                <button
-                  type="button"
-                  onClick={() =>
-                    openInquiry({
-                      id: "founder-desk",
-                      name: "SHATHI Group — Founder Desk",
-                      category: "Strategic Partnership",
-                    })
-                  }
-                  className="group inline-flex items-center gap-2 text-[11px] font-sans font-semibold tracking-[0.2em] uppercase text-neutral-900 transition hover:text-neutral-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-400"
-                >
-                  Connect Directly
-                  <ArrowUpRight
-                    className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    aria-hidden="true"
-                  />
-                </button>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 border-t border-neutral-300/70 pt-8">
+              <div>
+                <p className="text-3xl md:text-4xl font-serif text-neutral-900 font-normal tracking-tight">
+                  $10M+
+                </p>
+                <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-500 mt-1 block">
+                  Enterprise Volume
+                </p>
+              </div>
+              <div>
+                <p className="text-3xl md:text-4xl font-serif text-neutral-900 font-normal tracking-tight">
+                  4+
+                </p>
+                <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-500 mt-1 block">
+                  Diversified Brands
+                </p>
+              </div>
+              <div>
+                <p className="text-3xl md:text-4xl font-serif text-neutral-900 font-normal tracking-tight">
+                  100+
+                </p>
+                <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-500 mt-1 block">
+                  Clients &amp; Partners
+                </p>
               </div>
             </div>
+
+            <a
+              href="#founder-story"
+              className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-neutral-900 hover:text-neutral-600 border-b border-neutral-900 pb-1 mt-6 transition-colors"
+            >
+              Read Full Leadership Story
+              <ArrowUpRight className="h-4 w-4" aria-hidden />
+            </a>
+
+            <div className="mt-8">
+              <button
+                type="button"
+                onClick={() =>
+                  openInquiry({
+                    id: "founder-desk",
+                    name: "SHATHI Group — Founder Desk",
+                    category: "Strategic Partnership",
+                  })
+                }
+                className="inline-flex items-center gap-2 rounded-full bg-neutral-900 px-6 py-3 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-white shadow-corporate transition hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400"
+              >
+                Connect Directly
+                <ArrowUpRight className="h-4 w-4" aria-hidden />
+              </button>
+            </div>
           </div>
-        </article>
+        </div>
       </div>
     </section>
   );
