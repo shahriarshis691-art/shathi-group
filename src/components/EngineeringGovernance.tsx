@@ -172,7 +172,7 @@ export function EngineeringGovernance() {
           </p>
           <h2
             id="engineering-governance-heading"
-            className="mt-4 font-serif text-3xl font-bold uppercase tracking-[0.12em] text-white sm:text-4xl lg:text-5xl"
+            className="mt-4 font-display text-3xl font-bold uppercase tracking-[0.12em] text-white sm:text-4xl lg:text-5xl"
           >
             Engineering disciplines &amp; leadership
           </h2>
@@ -214,7 +214,7 @@ export function EngineeringGovernance() {
                       <p className="text-[10px] tracking-[0.28em] uppercase text-neutral-400 font-mono">
                         {discipline.id} / {categoryLabel}
                       </p>
-                      <h3 className="font-serif text-xl tracking-[0.08em] uppercase font-bold text-center mt-2 mb-6">
+                      <h3 className="font-display text-xl tracking-[0.08em] uppercase font-bold text-center mt-2 mb-6">
                         {discipline.role}
                       </h3>
                       <p className="font-sans text-xs leading-relaxed text-neutral-600 max-w-xs mx-auto">
@@ -248,7 +248,7 @@ export function EngineeringGovernance() {
                       <p className="text-[10px] tracking-[0.28em] uppercase text-neutral-400 font-mono">
                         {discipline.id} / {categoryLabel}
                       </p>
-                      <h3 className="font-serif text-xl tracking-[0.08em] uppercase font-bold text-center mt-2 mb-6">
+                      <h3 className="font-display text-xl tracking-[0.08em] uppercase font-bold text-center mt-2 mb-6">
                         {discipline.role}
                       </h3>
                       <div className="font-sans text-xs leading-relaxed text-neutral-400 max-w-xs mx-auto space-y-2">
@@ -279,7 +279,7 @@ export function EngineeringGovernance() {
                   <div className="flex items-center justify-between">
                     <span
                       className={`
-                        text-[11px] font-bold tracking-[0.25em] uppercase font-serif
+                        text-[11px] font-bold tracking-[0.25em] uppercase font-display
                         ${isIvory ? "text-neutral-900" : "text-neutral-100"}
                       `}
                     >

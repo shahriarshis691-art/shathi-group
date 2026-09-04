@@ -253,53 +253,43 @@ export function CompanyClient({ company }: CompanyClientProps) {
 
       {/* Hero */}
       {company.slug === "cortex-softsolutions" ? (
-        <div className="relative w-full h-[480px] md:h-[600px] overflow-hidden rounded-2xl md:rounded-3xl border border-slate-200/80 shadow-md">
-          <Image
-            alt="Cortex SoftSolutions"
-            className="object-cover object-center animate-[kenburns_20s_ease-in-out_infinite_alternate]"
-            fill
-            priority
-            src="/cortex/hero.png"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20" />
-          <div className="relative z-10 flex flex-col justify-end h-full p-8 md:p-12">
-            <div className="flex flex-col gap-2">
-              <Image
-                alt="CORTEX SoftSolutions Logo"
-                className="h-16 md:h-20 w-auto object-contain"
-                height="90"
-                priority
-                src="/cortex-main-logo.png"
-                width="280"
-              />
-              <div>
-                <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
-                  {company.category}
-                </p>
-                <h1 className="font-serif text-3xl font-bold uppercase tracking-[0.12em] sm:text-4xl lg:text-5xl text-balance">
-                  {company.name}
-                </h1>
-              </div>
+        <section className="bg-[#111215] text-white min-h-[75vh] flex flex-col justify-between p-6 md:p-12 relative overflow-hidden">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-6">
+            <div className="flex flex-col gap-1">
+              <p className="text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-neutral-400 font-mono">
+                Technology &amp; Platforms
+              </p>
+              <p className="text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-neutral-400 font-mono">
+                Software Engineering
+              </p>
             </div>
-
-            <p className="mt-6 max-w-2xl font-serif text-lg italic leading-relaxed text-slate-200 text-balance">
-              {company.tagline}
-            </p>
-            <p className="mt-4 max-w-3xl font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-300 md:text-[15px] text-balance">
-              {company.description}
-            </p>
-
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <button
-                type="button"
-                onClick={openInquiry}
-                className={`inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] shadow-corporate transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 ${t.ctaClass} ${t.ctaHover}`}
-              >
-                Direct Inquiry / Schedule Meeting
-              </button>
+            <div className="hidden md:block">
+              <p className="text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-neutral-400 font-mono">
+                Cortex.Engineering
+              </p>
+            </div>
+            <div className="text-left md:text-right">
+              <p className="text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-neutral-400 font-mono">
+                Shathi Group &bull; Est. 2026
+              </p>
             </div>
           </div>
-        </div>
+
+          <div className="my-auto text-center flex items-center justify-center">
+            <h1 className="text-6xl sm:text-7xl md:text-9xl font-black tracking-[0.22em] text-white uppercase select-none flex items-baseline font-display">
+              CORTEX<span className="text-xl sm:text-2xl md:text-3xl font-normal text-neutral-400 ml-2">&copy;</span>
+            </h1>
+          </div>
+
+          <div className="border-t border-neutral-800/80 pt-4">
+            <div className="flex flex-wrap justify-between items-center gap-x-4 gap-y-2 text-[10px] md:text-xs tracking-[0.25em] uppercase text-neutral-400 font-mono w-full">
+              <span>[ Architecture ]</span>
+              <span>[ Distributed Systems ]</span>
+              <span>[ Cloud Resilience ]</span>
+              <span>[ User Interaction ]</span>
+            </div>
+          </div>
+        </section>
       ) : (
         <section className={`relative overflow-hidden ${t.heroClass}`}>
           <Image
@@ -665,7 +655,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
               <p className={`font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] ${t.ctaText}`}>
                 Core Competencies
               </p>
-              <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
+              <h2 className={`mt-3 font-display text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
                 Enterprise-grade capabilities
               </h2>
               <p className={`mt-4 max-w-2xl font-sans text-sm md:text-[15px] font-normal leading-relaxed ${t.body} md:text-[15px]`}>
@@ -678,7 +668,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500/20 text-indigo-400">
                       <Factory className="h-5 w-5" aria-hidden />
                     </div>
-                    <h3 className="font-serif text-lg font-bold uppercase tracking-[0.14em] text-white">Enterprise Software</h3>
+                    <h3 className="font-display text-lg font-bold uppercase tracking-[0.14em] text-white">Enterprise Software</h3>
                   </div>
                   <p className="mt-3 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-400 md:text-[15px]">
                     Custom platforms built for scale — ERP, CRM, and workflow automation tailored to operational realities.
@@ -690,7 +680,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500/20 text-indigo-400">
                       <Wrench className="h-5 w-5" aria-hidden />
                     </div>
-                    <h3 className="font-serif text-lg font-bold uppercase tracking-[0.14em] text-white">Cloud Systems</h3>
+                    <h3 className="font-display text-lg font-bold uppercase tracking-[0.14em] text-white">Cloud Systems</h3>
                   </div>
                   <p className="mt-3 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-400 md:text-[15px]">
                     Cloud-native architecture on AWS and Azure with auto-scaling, CI/CD pipelines, and 99.99% availability targets.
@@ -702,7 +692,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500/20 text-indigo-400">
                       <Sparkles className="h-5 w-5" aria-hidden />
                     </div>
-                    <h3 className="font-serif text-lg font-bold uppercase tracking-[0.14em] text-white">AI Systems</h3>
+                    <h3 className="font-display text-lg font-bold uppercase tracking-[0.14em] text-white">AI Systems</h3>
                   </div>
                   <p className="mt-3 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-400 md:text-[15px]">
                     Predictive analytics, NLP pipelines, and computer vision models integrated directly into enterprise workflows.
@@ -717,7 +707,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
               <p className={`font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] ${t.ctaText}`}>
                 Technology Stack
               </p>
-              <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
+              <h2 className={`mt-3 font-display text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
                 What we build with
               </h2>
               <p className={`mt-4 max-w-2xl font-sans text-sm md:text-[15px] font-normal leading-relaxed ${t.body} md:text-[15px]`}>
@@ -761,7 +751,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
               <p className={`font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] ${t.ctaText}`}>
                 Case Studies
               </p>
-              <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
+              <h2 className={`mt-3 font-display text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
                 Impact in production
               </h2>
               <p className={`mt-4 max-w-2xl font-sans text-sm md:text-[15px] font-normal leading-relaxed ${t.body} md:text-[15px]`}>

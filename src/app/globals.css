@@ -49,6 +49,9 @@ body {
   .badge-sans {
     @apply font-sans text-[10px] md:text-[11px] font-semibold tracking-[0.16em] uppercase;
   }
+  .font-display {
+    font-family: var(--font-display), system-ui, sans-serif;
+  }
 }
 
 @layer utilities {
