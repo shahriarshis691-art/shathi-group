@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useInquiryButton } from "@/hooks/useInquiryButton";
 
 interface Discipline {
@@ -20,11 +20,11 @@ const disciplines: Discipline[] = [
   {
     id: "01",
     category: "Design system & UX",
-    role: "Head of Design / Lead UI/UX Designer",
+    role: "Lead UI/UX Designer",
     headCount: "1 Lead",
     teamSize: "2–4 Designers",
     image:
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80",
     responsibilities:
       "Directs end-to-end design systems, user behavior research, accessibility compliance (WCAG 2.1 AA), and interactive micro-animations.",
     techStack: [
@@ -40,11 +40,11 @@ const disciplines: Discipline[] = [
   {
     id: "02",
     category: "Client architecture",
-    role: "Lead Frontend Architect / Frontend Lead",
+    role: "Lead Frontend Architect",
     headCount: "1 Lead",
     teamSize: "3–6 Engineers",
     image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&q=80",
     responsibilities:
       "Architects ultra low-latency web interfaces, server-side rendering (SSR), core web vitals optimization, and state workflows.",
     techStack: [
@@ -60,11 +60,11 @@ const disciplines: Discipline[] = [
   {
     id: "03",
     category: "Enterprise backend",
-    role: "Lead Backend Engineer / System Architect",
+    role: "Lead Systems Architect",
     headCount: "1 Lead",
     teamSize: "3–6 Engineers",
     image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=80",
     responsibilities:
       "Builds robust microservices, optimizes relational database schemas, implements high-throughput distributed caching, and secures APIs.",
     techStack: [
@@ -81,11 +81,11 @@ const disciplines: Discipline[] = [
   {
     id: "04",
     category: "Cloud infrastructure & SRE",
-    role: "DevOps Lead / Cloud Solutions Architect",
+    role: "DevOps Lead",
     headCount: "1 Lead",
     teamSize: "1–3 Engineers",
     image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=80",
     responsibilities:
       "Automates zero-downtime CI/CD delivery pipelines, manages edge infrastructure, cloud cost containment, and real-time observability.",
     techStack: [
@@ -103,11 +103,11 @@ const disciplines: Discipline[] = [
   {
     id: "05",
     category: "Quality & compliance",
-    role: "QA Lead / Test Automation Manager",
+    role: "QA Automation Lead",
     headCount: "1 Lead",
     teamSize: "2–4 Specialists",
     image:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=1200&q=80",
     responsibilities:
       "Maintains automated end-to-end regression suites, load testing thresholds, API contract validation, and vulnerability sweeps.",
     techStack: [
@@ -123,11 +123,11 @@ const disciplines: Discipline[] = [
   {
     id: "06",
     category: "Agile delivery",
-    role: "Principal Product Manager / Agile Coach",
+    role: "Principal Product Manager",
     headCount: "1 Lead",
     teamSize: "1–2 Coordinators",
     image:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=1200&q=80",
     responsibilities:
       "Translates enterprise business goals into structured sprints, manages sprint velocity, transparent stakeholder reporting, and scope clarity.",
     techStack: [
@@ -141,6 +141,18 @@ const disciplines: Discipline[] = [
       "Transparent bi-weekly sprint deliverables, guaranteed release timelines, and zero scope drift.",
   },
 ];
+
+const categoryShortLabel = (category: string) => {
+  const map: Record<string, string> = {
+    "Design system & UX": "UX",
+    "Client architecture": "FE",
+    "Enterprise backend": "BE",
+    "Cloud infrastructure & SRE": "SRE",
+    "Quality & compliance": "QA",
+    "Agile delivery": "PM",
+  };
+  return map[category] || category.split(" ")[0];
+};
 
 export function EngineeringGovernance() {
   const openInquiry = useInquiryButton({
@@ -175,79 +187,112 @@ export function EngineeringGovernance() {
 
         <ul
           role="list"
-          className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8"
+          className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4"
         >
-          {disciplines.map((discipline) => (
+          {disciplines.map((discipline, index) => {
+            const isIvory = index % 2 === 0;
+            const isOptionA = index % 2 === 0;
+
+            const shortLabel = categoryShortLabel(discipline.category);
+            const categoryLabel = discipline.category.toUpperCase();
+
+            return (
               <li
                 key={discipline.id}
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-700 bg-slate-800 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-indigo-400/50 hover:shadow-xl hover:shadow-indigo-950/30"
+                className={`
+                  group min-h-[620px] rounded-none md:rounded-sm overflow-hidden flex flex-col justify-between
+                  border transition duration-500 hover:-translate-y-1
+                  ${isIvory
+                    ? "bg-[#F7F5F0] text-neutral-900 border-neutral-200"
+                    : "bg-[#121417] text-neutral-100 border-neutral-800"
+                  }
+                `}
               >
-                <div className="flex flex-1 flex-col p-6 sm:p-7">
-                  <div className="flex items-center justify-between gap-3 border-b border-slate-700 pb-4">
-                    <span className="font-mono text-[10px] font-semibold tracking-[0.2em] text-slate-500">
-                      {discipline.id} / SECTOR
-                    </span>
-                    <span className="rounded-full border border-indigo-400/25 bg-indigo-500/10 px-2.5 py-1 text-right font-sans text-[9px] font-semibold uppercase tracking-[0.12em] text-indigo-300">
-                      {discipline.category}
-                    </span>
-                  </div>
+                {isOptionA ? (
+                  <>
+                    <div className="flex h-full flex-col justify-center p-6 sm:p-7 text-center">
+                      <p className="text-[10px] tracking-[0.28em] uppercase text-neutral-400 font-mono">
+                        {discipline.id} / {categoryLabel}
+                      </p>
+                      <h3 className="font-serif text-xl tracking-[0.08em] uppercase font-bold text-center mt-2 mb-6">
+                        {discipline.role}
+                      </h3>
+                      <p className="font-sans text-xs leading-relaxed text-neutral-600 max-w-xs mx-auto">
+                        {discipline.responsibilities}
+                      </p>
+                    </div>
 
-                  <div className="mt-5 flex items-center gap-4">
-                    <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl border border-slate-700/80 shadow-md shadow-slate-950/40">
+                    <div className="flex-1 relative w-full overflow-hidden">
                       <Image
                         alt={discipline.role}
-                        className="object-cover object-center"
+                        className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                         fill
-                        sizes="56px"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                         src={discipline.image}
                       />
                     </div>
-                    <div>
-                      <h3 className="font-serif text-base font-bold leading-snug tracking-wide text-white md:text-lg">
+                  </>
+                ) : (
+                  <>
+                    <div className="flex-1 relative w-full overflow-hidden">
+                      <Image
+                        alt={discipline.role}
+                        className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                        src={discipline.image}
+                      />
+                    </div>
+
+                    <div className="flex h-full flex-col justify-center p-6 sm:p-7 text-center">
+                      <p className="text-[10px] tracking-[0.28em] uppercase text-neutral-400 font-mono">
+                        {discipline.id} / {categoryLabel}
+                      </p>
+                      <h3 className="font-serif text-xl tracking-[0.08em] uppercase font-bold text-center mt-2 mb-6">
                         {discipline.role}
                       </h3>
-                      <p className="mt-0.5 font-sans text-xs font-medium text-slate-400">
-                        {discipline.headCount}
-                        <span className="mx-2 text-slate-600">|</span>
-                        Squad: {discipline.teamSize}
-                      </p>
+                      <div className="font-sans text-xs leading-relaxed text-neutral-400 max-w-xs mx-auto space-y-2">
+                        <p>
+                          <span className="font-semibold text-neutral-300">
+                            Squad:
+                          </span>{" "}
+                          {discipline.headCount} · {discipline.teamSize}
+                        </p>
+                        <p>
+                          <span className="font-semibold text-neutral-300">
+                            Stack:
+                          </span>{" "}
+                          {discipline.techStack.slice(0, 3).join(", ")}
+                        </p>
+                        <p className="italic">{discipline.commitment}</p>
+                      </div>
                     </div>
-                  </div>
+                  </>
+                )}
 
-                  <p className="mt-5 font-sans text-sm leading-relaxed text-slate-400">
-                    {discipline.responsibilities}
-                  </p>
-
-                  <div className="mt-6">
-                    <p className="mb-2 font-sans text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-500">
-                      Core stack &amp; infrastructure
-                    </p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {discipline.techStack.map((technology) => (
-                        <span
-                          key={technology}
-                          className="rounded-md border border-slate-700 bg-slate-900 px-2.5 py-1 font-sans text-[10px] font-medium text-slate-300"
-                        >
-                          {technology}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="border-t border-slate-700 bg-slate-900/70 p-5 sm:p-6">
-                  <div className="flex items-start gap-2.5">
-                    <CheckCircle2
-                      className="mt-0.5 h-4 w-4 flex-none text-emerald-400"
-                      aria-hidden="true"
-                    />
-                    <p className="font-sans text-[11px] italic leading-relaxed text-slate-400">
-                      &ldquo;{discipline.commitment}&rdquo;
-                    </p>
+                <div
+                  className={`
+                    border-t p-4 sm:p-5
+                    ${isIvory ? "border-neutral-200" : "border-neutral-800"}
+                  `}
+                >
+                  <div className="flex items-center justify-between">
+                    <span
+                      className={`
+                        text-[11px] font-bold tracking-[0.25em] uppercase font-serif
+                        ${isIvory ? "text-neutral-900" : "text-neutral-100"}
+                      `}
+                    >
+                      CORTEX
+                    </span>
+                    <span className="text-[10px] tracking-[0.2em] uppercase text-neutral-400 font-mono">
+                      {discipline.id} / {shortLabel}
+                    </span>
                   </div>
                 </div>
               </li>
-          ))}
+            );
+          })}
         </ul>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-6 rounded-2xl border border-indigo-400/20 bg-indigo-500/10 p-6 shadow-xl shadow-indigo-950/20 md:flex-row md:p-8">
