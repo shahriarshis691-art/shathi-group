@@ -1,16 +1,7 @@
 "use client";
 
-import {
-  ArrowRight,
-  CheckCircle2,
-  Cloud,
-  Database,
-  Kanban,
-  Layout,
-  Palette,
-  ShieldCheck,
-  type LucideIcon,
-} from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { useInquiryButton } from "@/hooks/useInquiryButton";
 
 interface Discipline {
@@ -19,7 +10,7 @@ interface Discipline {
   role: string;
   headCount: string;
   teamSize: string;
-  icon: LucideIcon;
+  image: string;
   responsibilities: string;
   techStack: string[];
   commitment: string;
@@ -32,7 +23,8 @@ const disciplines: Discipline[] = [
     role: "Head of Design / Lead UI/UX Designer",
     headCount: "1 Lead",
     teamSize: "2–4 Designers",
-    icon: Palette,
+    image:
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
     responsibilities:
       "Directs end-to-end design systems, user behavior research, accessibility compliance (WCAG 2.1 AA), and interactive micro-animations.",
     techStack: [
@@ -51,7 +43,8 @@ const disciplines: Discipline[] = [
     role: "Lead Frontend Architect / Frontend Lead",
     headCount: "1 Lead",
     teamSize: "3–6 Engineers",
-    icon: Layout,
+    image:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
     responsibilities:
       "Architects ultra low-latency web interfaces, server-side rendering (SSR), core web vitals optimization, and state workflows.",
     techStack: [
@@ -70,7 +63,8 @@ const disciplines: Discipline[] = [
     role: "Lead Backend Engineer / System Architect",
     headCount: "1 Lead",
     teamSize: "3–6 Engineers",
-    icon: Database,
+    image:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
     responsibilities:
       "Builds robust microservices, optimizes relational database schemas, implements high-throughput distributed caching, and secures APIs.",
     techStack: [
@@ -90,7 +84,8 @@ const disciplines: Discipline[] = [
     role: "DevOps Lead / Cloud Solutions Architect",
     headCount: "1 Lead",
     teamSize: "1–3 Engineers",
-    icon: Cloud,
+    image:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
     responsibilities:
       "Automates zero-downtime CI/CD delivery pipelines, manages edge infrastructure, cloud cost containment, and real-time observability.",
     techStack: [
@@ -111,7 +106,8 @@ const disciplines: Discipline[] = [
     role: "QA Lead / Test Automation Manager",
     headCount: "1 Lead",
     teamSize: "2–4 Specialists",
-    icon: ShieldCheck,
+    image:
+      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80",
     responsibilities:
       "Maintains automated end-to-end regression suites, load testing thresholds, API contract validation, and vulnerability sweeps.",
     techStack: [
@@ -130,7 +126,8 @@ const disciplines: Discipline[] = [
     role: "Principal Product Manager / Agile Coach",
     headCount: "1 Lead",
     teamSize: "1–2 Coordinators",
-    icon: Kanban,
+    image:
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80",
     responsibilities:
       "Translates enterprise business goals into structured sprints, manages sprint velocity, transparent stakeholder reporting, and scope clarity.",
     techStack: [
@@ -180,10 +177,7 @@ export function EngineeringGovernance() {
           role="list"
           className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8"
         >
-          {disciplines.map((discipline) => {
-            const Icon = discipline.icon;
-
-            return (
+          {disciplines.map((discipline) => (
               <li
                 key={discipline.id}
                 className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-700 bg-slate-800 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-indigo-400/50 hover:shadow-xl hover:shadow-indigo-950/30"
@@ -198,15 +192,21 @@ export function EngineeringGovernance() {
                     </span>
                   </div>
 
-                  <div className="mt-5 flex items-start gap-4">
-                    <span className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-indigo-500/15 text-indigo-300 transition group-hover:bg-indigo-500 group-hover:text-white">
-                      <Icon className="h-5 w-5" aria-hidden="true" />
-                    </span>
+                  <div className="mt-5 flex items-center gap-4">
+                    <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl border border-slate-700/80 shadow-md shadow-slate-950/40">
+                      <Image
+                        alt={discipline.role}
+                        className="object-cover object-center"
+                        fill
+                        sizes="56px"
+                        src={discipline.image}
+                      />
+                    </div>
                     <div>
-                      <h3 className="font-serif text-lg font-bold leading-snug tracking-wide text-white">
+                      <h3 className="font-serif text-base font-bold leading-snug tracking-wide text-white md:text-lg">
                         {discipline.role}
                       </h3>
-                      <p className="mt-1 font-sans text-xs font-medium text-slate-400">
+                      <p className="mt-0.5 font-sans text-xs font-medium text-slate-400">
                         {discipline.headCount}
                         <span className="mx-2 text-slate-600">|</span>
                         Squad: {discipline.teamSize}
@@ -247,8 +247,7 @@ export function EngineeringGovernance() {
                   </div>
                 </div>
               </li>
-            );
-          })}
+          ))}
         </ul>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-6 rounded-2xl border border-indigo-400/20 bg-indigo-500/10 p-6 shadow-xl shadow-indigo-950/20 md:flex-row md:p-8">
