@@ -1,12 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowLeft, ArrowUpRight, CheckCircle2, ExternalLink, Factory, Gauge, Gem, Shield, Sparkles, Wrench } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, CheckCircle2, ExternalLink, Factory, Gauge, Gem, Shield, Sparkles } from "lucide-react";
 import { type Company } from "@/data/companies";
 import { CompanyLogo } from "@/components/CompanyLogo";
-import { EngineeringGovernance } from "@/components/EngineeringGovernance";
 import { useInquiryButton } from "@/hooks/useInquiryButton";
 import { CortexHero } from "@/components/cortex/CortexHero";
+import { CortexAbout } from "@/components/cortex/CortexAbout";
+import { CortexGallery } from "@/components/cortex/CortexGallery";
+import { CortexSlider } from "@/components/cortex/CortexSlider";
 
 type Slug = Company["slug"];
 
@@ -322,24 +324,34 @@ export function CompanyClient({ company }: CompanyClientProps) {
       )}
 
       {/* Brand Story */}
-      <section
-        id={company.slug === "cortex-softsolutions" ? "capabilities" : undefined}
-        className={`py-16 sm:py-20 ${t.sectionClass}`}
-      >
-        <div className="container-corporate">
-          <div className="mx-auto max-w-3xl">
-            <p className={`font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] ${t.ctaText}`}>
-              Our Story
-            </p>
-            <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
-              Crafted with purpose
-            </h2>
-            <p className={`mt-6 font-sans text-sm md:text-[15px] font-normal leading-relaxed ${t.body} md:text-[15px] text-balance`}>
-              {company.brandStory}
-            </p>
+      {company.slug !== "cortex-softsolutions" && (
+        <section
+          id={company.slug === "cortex-softsolutions" ? "capabilities" : undefined}
+          className={`py-16 sm:py-20 ${t.sectionClass}`}
+        >
+          <div className="container-corporate">
+            <div className="mx-auto max-w-3xl">
+              <p className={`font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] ${t.ctaText}`}>
+                Our Story
+              </p>
+              <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
+                Crafted with purpose
+              </h2>
+              <p className={`mt-6 font-sans text-sm md:text-[15px] font-normal leading-relaxed ${t.body} md:text-[15px] text-balance`}>
+                {company.brandStory}
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
+      {company.slug === "cortex-softsolutions" && (
+        <>
+          <CortexAbout />
+          <CortexGallery />
+          <CortexSlider />
+        </>
+      )}
 
       {/* SHIS FASHION */}
       {company.slug === "shis-fashion" && (
@@ -617,144 +629,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
         </>
       )}
 
-      {/* CORTEX */}
-      {company.slug === "cortex-softsolutions" && (
-        <>
-          <section className={`py-16 sm:py-20 ${t.sectionAltClass}`}>
-            <div className="container-corporate">
-              <p className={`font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] ${t.ctaText}`}>
-                Core Competencies
-              </p>
-              <h2 className={`mt-3 font-display text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
-                Enterprise-grade capabilities
-              </h2>
-              <p className={`mt-4 max-w-2xl font-sans text-sm md:text-[15px] font-normal leading-relaxed ${t.body} md:text-[15px]`}>
-                We design, build, and operate platforms that scale with the businesses they serve.
-              </p>
-
-              <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                <div className={`rounded-2xl border ${t.cardBorder} ${t.cardClass} p-6 shadow-sm transition hover:shadow-md`}>
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500/20 text-indigo-400">
-                      <Factory className="h-5 w-5" aria-hidden />
-                    </div>
-                    <h3 className="font-display text-lg font-bold uppercase tracking-[0.14em] text-white">Enterprise Software</h3>
-                  </div>
-                  <p className="mt-3 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-400 md:text-[15px]">
-                    Custom platforms built for scale — ERP, CRM, and workflow automation tailored to operational realities.
-                  </p>
-                </div>
-
-                <div className={`rounded-2xl border ${t.cardBorder} ${t.cardClass} p-6 shadow-sm transition hover:shadow-md`}>
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500/20 text-indigo-400">
-                      <Wrench className="h-5 w-5" aria-hidden />
-                    </div>
-                    <h3 className="font-display text-lg font-bold uppercase tracking-[0.14em] text-white">Cloud Systems</h3>
-                  </div>
-                  <p className="mt-3 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-400 md:text-[15px]">
-                    Cloud-native architecture on AWS and Azure with auto-scaling, CI/CD pipelines, and 99.99% availability targets.
-                  </p>
-                </div>
-
-                <div className={`rounded-2xl border ${t.cardBorder} ${t.cardClass} p-6 shadow-sm transition hover:shadow-md`}>
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500/20 text-indigo-400">
-                      <Sparkles className="h-5 w-5" aria-hidden />
-                    </div>
-                    <h3 className="font-display text-lg font-bold uppercase tracking-[0.14em] text-white">AI Systems</h3>
-                  </div>
-                  <p className="mt-3 font-sans text-sm md:text-[15px] font-normal leading-relaxed text-slate-400 md:text-[15px]">
-                    Predictive analytics, NLP pipelines, and computer vision models integrated directly into enterprise workflows.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section className={`py-16 sm:py-20 ${t.sectionClass}`}>
-            <div className="container-corporate">
-              <p className={`font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] ${t.ctaText}`}>
-                Technology Stack
-              </p>
-              <h2 className={`mt-3 font-display text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
-                What we build with
-              </h2>
-              <p className={`mt-4 max-w-2xl font-sans text-sm md:text-[15px] font-normal leading-relaxed ${t.body} md:text-[15px]`}>
-                Modern, battle-tested tooling chosen for performance and developer experience.
-              </p>
-
-              <div className="mt-10 flex flex-wrap gap-2">
-                {[
-                  "Next.js",
-                  "React",
-                  "TypeScript",
-                  "Node.js",
-                  "Python",
-                  "TensorFlow",
-                  "AWS",
-                  "Azure",
-                  "Docker",
-                  "Kubernetes",
-                  "PostgreSQL",
-                  "Redis",
-                  "GraphQL",
-                  "Terraform",
-                  "Kafka",
-                  "OpenAI",
-                ].map((tech) => (
-                  <span
-                    key={tech}
-                    className={`inline-flex items-center rounded-full px-4 py-2 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] ring-1 ring-inset ${t.badgeClass}`}
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <EngineeringGovernance />
-
-          <section className={`py-16 sm:py-20 ${t.sectionAltClass}`}>
-            <div className="container-corporate">
-              <p className={`font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] ${t.ctaText}`}>
-                Case Studies
-              </p>
-              <h2 className={`mt-3 font-display text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
-                Impact in production
-              </h2>
-              <p className={`mt-4 max-w-2xl font-sans text-sm md:text-[15px] font-normal leading-relaxed ${t.body} md:text-[15px]`}>
-                Selected outcomes from enterprise engagements across industries.
-              </p>
-
-              <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                <VisualFeatureCard
-                  eyebrow="FinTech Platform"
-                  title="Real-time payment orchestration"
-                  description="A settlement layer processing 2M+ daily transactions with 99.98% uptime."
-                  image={company.image}
-                  imageAlt={company.imageAlt}
-                />
-                <VisualFeatureCard
-                  eyebrow="Healthcare AI"
-                  title="Diagnostic workflow automation"
-                  description="NLP triage and intelligent routing that reduced report turnaround by 40%."
-                  image={company.image}
-                  imageAlt={company.imageAlt}
-                />
-                <VisualFeatureCard
-                  eyebrow="Retail Cloud"
-                  title="Omnichannel inventory sync"
-                  description="Real-time stock visibility unified across 1,200+ SKUs and tripled throughput."
-                  image={company.image}
-                  imageAlt={company.imageAlt}
-                />
-              </div>
-            </div>
-          </section>
-        </>
-      )}
+      {/* VELORIX MOTORS */}
 
       {/* VELORIX MOTORS */}
       {company.slug === "velorix-motors" && (
