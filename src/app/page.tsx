@@ -7,6 +7,7 @@ import { ContactSection } from "@/components/ContactSection";
 import { CortexEntryModal } from "@/components/CortexEntryModal";
 import { CortexShowcase } from "@/components/CortexShowcase";
 import { ShisFashionShowcase } from "@/components/ShisFashionShowcase";
+import { XeroxiiShowcase } from "@/components/XeroxiiShowcase";
 import { VelorixShowcase } from "@/components/VelorixShowcase";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <HeroSection />
       <CortexShowcase />
       <ShisFashionShowcase />
+      <XeroxiiShowcase />
       <StatsSection />
       <AboutSection />
       <BusinessGrid />
