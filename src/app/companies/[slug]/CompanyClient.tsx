@@ -6,7 +6,6 @@ import { ArrowLeft, ArrowUpRight, CheckCircle2, ExternalLink, Factory, Gauge, Ge
 import { type Company } from "@/data/companies";
 import { CompanyLogo } from "@/components/CompanyLogo";
 import { useInquiryButton } from "@/hooks/useInquiryButton";
-import { CortexHero } from "@/components/cortex/CortexHero";
 import { CortexShowcaseBanner } from "@/components/cortex/CortexShowcaseBanner";
 import { CeravoDetailPage } from "@/components/ceravo/CeravoDetailPage";
 import { CortexAbout } from "@/components/cortex/CortexAbout";
@@ -271,10 +270,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
       </nav>
       )}
 
-      {/* Hero */}
-      {company.slug === "cortex-softsolutions" ? (
-        <CortexHero onInquiry={openInquiry} />
-      ) : (
+      {company.slug !== "cortex-softsolutions" && (
         <section className={`relative overflow-hidden ${t.heroClass}`}>
           <Image
             src={company.image}
@@ -362,7 +358,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
 
       {company.slug === "cortex-softsolutions" && (
         <>
-          <CortexShowcaseBanner />
+          <CortexShowcaseBanner className="pt-28" />
           <CortexAbout />
           <CortexProjectSlider />
           <CortexGallery />

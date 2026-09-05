@@ -3,11 +3,11 @@
 import Image from "next/image";
 
 /** Editorial product statement shown immediately after the CORTEXIO hero. */
-export function CortexShowcaseBanner() {
+export function CortexShowcaseBanner({ className }: { className?: string }) {
   return (
     <section
       aria-labelledby="build-your-website"
-      className="relative flex min-h-[720px] items-center justify-center overflow-hidden bg-white px-6 py-16 text-neutral-900 sm:px-12 lg:min-h-[860px]"
+      className={`relative flex min-h-[720px] items-center justify-center overflow-hidden bg-white px-6 py-16 text-neutral-900 sm:px-12 lg:min-h-[860px] ${className ?? ""}`}
     >
       <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[58%] md:block">
         <Image
