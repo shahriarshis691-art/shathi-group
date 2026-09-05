@@ -6,6 +6,7 @@ import { type Company } from "@/data/companies";
 import { CompanyLogo } from "@/components/CompanyLogo";
 import { useInquiryButton } from "@/hooks/useInquiryButton";
 import { CortexHero } from "@/components/cortex/CortexHero";
+import { CeravoDetailPage } from "@/components/ceravo/CeravoDetailPage";
 import { CortexAbout } from "@/components/cortex/CortexAbout";
 import { CortexGallery } from "@/components/cortex/CortexGallery";
 import { CortexSlider } from "@/components/cortex/CortexSlider";
@@ -238,6 +239,10 @@ interface CompanyClientProps {
 export function CompanyClient({ company }: CompanyClientProps) {
   const openInquiry = useInquiryButton(company);
   const t = companyThemes[company.slug];
+
+  if (company.slug === "ceravo-tiles") {
+    return <CeravoDetailPage />;
+  }
 
   return (
     <>
