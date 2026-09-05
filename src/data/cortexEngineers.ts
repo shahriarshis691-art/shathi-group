@@ -54,7 +54,8 @@ export const cortexEngineers: CortexEngineer[] = [
     projects: [
       { title: "Enterprise Dashboard Suite", category: "SaaS Design System", description: "A dark-mode-first analytics dashboard with real-time telemetry.", metrics: ["42% faster task completion"], image: "/cortex/engineers/navid.jpg", demoUrl: "/cortex" },
     ],
-  },  {
+  },
+  {
     slug: "sofia-lin",
     name: "Sofia Lin",
     role: "VP, Cloud Engineering & Infrastructure",

@@ -22,19 +22,6 @@ export function ShisFashionShowcase() {
           SHIS FASHION
         </h2>
 
-        <div className="mt-6 flex items-end gap-5">
-          <span className="text-2xl font-bold text-neutral-900">৳ 2,490</span>
-          <span className="pb-1 font-mono text-xs tracking-[0.22em] text-neutral-400">
-            S / M / L / XL
-          </span>
-        </div>
-
-        <p className="mt-4 max-w-sm text-xs leading-relaxed text-neutral-600">
-          Cut from heavyweight combed cotton and finished with acid-washed
-          texture, this oversized layer is built for everyday movement and
-          confident, lived-in character.
-        </p>
-
         <a
           href={shisUrl}
           target="_blank"
