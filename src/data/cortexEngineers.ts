@@ -28,6 +28,7 @@ export interface CortexEngineer {
   titleTag: string;
   avatar: string;
   bio: string;
+  clientMessage?: string;
   stack: string[];
   education: CortexEducation[];
   experience: CortexExperience[];
@@ -35,29 +36,25 @@ export interface CortexEngineer {
 }
 
 export const cortexEngineers: CortexEngineer[] = [
-  {
-    slug: "ryan-vance",
-    name: "Dr. Ryan Vance",
-    role: "Principal Distributed Systems Architect",
-    titleTag: "[ ARCHITECTURE // CORE ]",
-    avatar: "/cortex/engineers/ryan-vance.png",
-    bio: "Ryan designs the durable computational foundations behind CORTEXIO Softsolutions engagements. His work turns fragmented enterprise operations into observable, fault-tolerant platforms where data, events, and teams can move independently without losing control.",
-    stack: ["Kubernetes", "Kafka", "Go", "PostgreSQL", "OpenTelemetry"],
+ {
+    slug: "navid-islam",
+    name: "Navid Islam",
+    role: "Lead UI/UX Architect",
+    titleTag: "01 // PRODUCT DESIGN & INTERACTION",
+    avatar: "/cortex/engineers/navid.jpg",
+    bio: "Navid Islam is a lead UI/UX architect specializing in enterprise design systems and high-conversion SaaS digital products.",
+    clientMessage: "We craft seamless digital interfaces where architectural precision meets intuitive human behavior.",
+    stack: ["Figma", "Tailwind CSS", "Design Tokens", "React", "Next.js"],
     education: [
-      { degree: "PhD, Computer Science", institution: "University of Cambridge", year: "2013", focus: "Distributed consensus and replicated state machines" },
-      { degree: "MEng, Information Engineering", institution: "University of Cambridge", year: "2009", focus: "Systems architecture" },
+      { degree: "B.Sc. in Computer Science & Human-Computer Interaction", institution: "BRAC University", year: "2019", focus: "Interaction design and ergonomic user workflows." },
     ],
     experience: [
-      { role: "Principal Distributed Systems Architect", company: "CORTEXIO Softsolutions", period: "2022 — Present", highlights: ["Leads sovereign platform architecture for multi-entity enterprises", "Establishes reliability and data-governance operating models"] },
-      { role: "Senior Principal Engineer", company: "AWS", period: "2015 — 2022", highlights: ["Designed event-processing patterns for globally distributed workloads", "Advised enterprise teams on resilience and migration strategy"] },
-      { role: "Systems Research Fellow", company: "Cambridge Systems Lab", period: "2010 — 2015", highlights: ["Published research on state replication and recovery protocols"] },
+      { role: "Lead UI/UX Architect", company: "Cortex Soft Solutions", period: "2023 â€” Present", highlights: ["Builds token-based design systems and high-conversion SaaS interfaces."] },
     ],
     projects: [
-      { title: "Atlas Operations Mesh", category: "Enterprise ERP", description: "A modular operating backbone that joined finance, logistics, and customer events across a regional group of companies.", metrics: ["42 services", "99.99% target availability", "18 country operations"], image: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?auto=format&fit=crop&w=1400&q=80", demoUrl: "/cortex" },
-      { title: "Signal Ledger", category: "Real-time data platform", description: "An auditable event ledger for high-volume operational decisions, designed for independent domain ownership.", metrics: ["8.4M events / day", "<120ms median latency", "Full lineage"], image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80", demoUrl: "/cortex" },
+      { title: "Enterprise Dashboard Suite", category: "SaaS Design System", description: "A dark-mode-first analytics dashboard with real-time telemetry.", metrics: ["42% faster task completion"], image: "/cortex/engineers/navid.jpg", demoUrl: "/cortex" },
     ],
-  },
-  {
+  },  {
     slug: "sofia-lin",
     name: "Sofia Lin",
     role: "VP, Cloud Engineering & Infrastructure",
