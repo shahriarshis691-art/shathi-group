@@ -23,18 +23,27 @@ export function HeroSection() {
         planeClassName="h-full"
         contentClassName="relative h-full"
       >
-        <div className="absolute inset-0 z-0 overflow-hidden bg-neutral-950">
-          <Image
-            alt="Shathi Group Architectural Perspective"
-            className="object-cover object-top sm:object-[center_25%] brightness-[0.88] contrast-[1.05]"
-            fill
-            priority
-            sizes="100vw"
-            src="/hero-image/hero.png"
+        <div className="absolute inset-0 z-0 overflow-hidden bg-neutral-950 flex items-center justify-center">
+          {/* Ambient background glow to eliminate hard borders */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center blur-2xl opacity-40 scale-110"
+            style={{ backgroundImage: `url('/hero-image/hero.png')` }}
           />
-          {/* Vignette & gradient scrim to anchor typography and avoid flat blow-up */}
-          <div className="absolute inset-0 bg-gradient-to-r from-neutral-950/75 via-neutral-950/40 to-transparent" />
-          <div className="absolute inset-0 bg-neutral-950/25" />
+
+          {/* Full original image rendered without cropping */}
+          <div className="relative w-full h-full max-w-7xl mx-auto flex items-center justify-end md:justify-center">
+            <Image
+              alt="Shathi Group Architectural Perspective"
+              className="object-contain object-right md:object-center drop-shadow-2xl"
+              fill
+              priority
+              sizes="100vw"
+              src="/hero-image/hero.png"
+            />
+          </div>
+
+          {/* Editorial dark overlay for typography contrast */}
+          <div className="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-950/70 to-neutral-950/40" />
         </div>
       </ParallaxContainer>
 
