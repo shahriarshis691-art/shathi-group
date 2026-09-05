@@ -16,7 +16,7 @@ export function CortexPageClient() {
   return (
     <main className="min-h-screen bg-[#F7F8FA] text-[#0A0A0A]">
       <CortexHero onInquiry={openInquiry} />
-      <CortexShowcaseBanner onInquiry={openInquiry} />
+      <CortexShowcaseBanner />
       <CortexAbout />
       <CortexGallery />
       <CortexSlider />

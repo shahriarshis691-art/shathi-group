@@ -2,70 +2,63 @@
 
 import Image from "next/image";
 
-interface CortexShowcaseBannerProps {
-  onInquiry: () => void;
-}
-
-const metrics = [
-  { value: "120+", label: "Completed Deployments" },
-  { value: "99.99%", label: "Uptime Guarantee" },
-  { value: "98%", label: "Client Retention" },
-];
-
-export function CortexShowcaseBanner({ onInquiry }: CortexShowcaseBannerProps) {
+/** Editorial product statement shown immediately after the CORTEXIO hero. */
+export function CortexShowcaseBanner() {
   return (
     <section
-      aria-labelledby="build-your-digital-edge"
-      className="border-y border-neutral-200 bg-neutral-50 px-6 py-16 text-neutral-900 sm:px-10 sm:py-20 lg:px-16 lg:py-24"
+      aria-labelledby="build-your-website"
+      className="relative flex min-h-[720px] items-center justify-center overflow-hidden bg-white px-6 py-16 text-neutral-900 sm:px-12 lg:min-h-[860px]"
     >
-      <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-16">
-        <div className="max-w-2xl">
-          <p className="font-mono text-xs uppercase tracking-widest text-neutral-500">
-            02 // Bespoke Digital Engineering
+      <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[58%] md:block">
+        <Image
+          src="/cortex/build-your-vision.png"
+          alt="CORTEXIO engineer using a laptop with a live product interface"
+          fill
+          sizes="(max-width: 1024px) 58vw, 50vw"
+          className="object-cover object-center [mask-image:linear-gradient(to_right,transparent_0%,black_18%,black_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_18%,black_100%)]"
+        />
+      </div>
+
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col justify-center">
+        <div className="max-w-[620px] md:max-w-[58%]">
+          <p className="font-sans text-3xl font-light leading-none tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
+            Build Your
           </p>
           <h2
-            id="build-your-digital-edge"
-            className="mt-5 font-serif text-5xl font-normal leading-[0.94] tracking-tight text-neutral-900 sm:text-6xl lg:text-7xl"
+            id="build-your-website"
+            className="mt-1 font-sans text-6xl font-bold leading-none tracking-tighter text-neutral-900 sm:mt-2 sm:text-7xl md:text-9xl"
           >
-            Build Your Digital Edge.
+            Website
           </h2>
-          <p className="mt-7 max-w-xl text-sm leading-relaxed text-neutral-600 sm:text-base">
-            We engineer scalable digital ecosystems, high-performance web platforms, and
-            ergonomic user interfaces that convert vision into enterprise value.
-          </p>
 
-          <dl className="mt-10 grid grid-cols-1 gap-5 border-y border-neutral-200 py-6 sm:grid-cols-3 sm:gap-6">
-            {metrics.map((metric) => (
-              <div key={metric.label}>
-                <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-500">
-                  {metric.label}
-                </dt>
-                <dd className="mt-1 text-2xl font-semibold tracking-tight text-neutral-900 sm:text-3xl">
-                  {metric.value}
-                </dd>
-              </div>
-            ))}
-          </dl>
-
-          <button
-            type="button"
-            onClick={onInquiry}
-            className="mt-9 inline-flex min-h-11 items-center justify-center rounded-full bg-neutral-950 px-7 py-3.5 font-mono text-xs uppercase tracking-[0.18em] text-white shadow-lg transition-colors duration-300 hover:bg-neutral-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-950"
-          >
-            Start a consultation →
-          </button>
+          <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-4 sm:mt-9">
+            <span
+              aria-hidden="true"
+              className="inline-block h-8 w-16 border-l border-t border-neutral-300/80"
+            />
+            <p className="max-w-[280px] font-sans text-xs font-medium leading-relaxed text-neutral-600 sm:text-sm">
+              We create professional websites that grow your brand.
+            </p>
+          </div>
         </div>
 
-        <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-200 shadow-[0_20px_55px_rgba(15,23,42,0.14)]">
+        <div className="relative mt-12 h-[390px] w-full md:hidden sm:h-[480px]">
           <Image
             src="/cortex/build-your-vision.png"
-            alt="CORTEXIO engineer building a digital product on a laptop"
+            alt="CORTEXIO engineer working on a laptop with a live product interface"
             fill
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover"
+            sizes="(max-width: 640px) calc(100vw - 3rem), 672px"
+            className="object-contain object-center"
           />
         </div>
       </div>
+
+      <a
+        href="tel:+8801335550675"
+        className="absolute bottom-7 left-6 z-20 bg-white/85 px-2 py-1 font-mono text-xs font-semibold tracking-wider text-neutral-700 backdrop-blur-sm transition-colors hover:text-neutral-950 sm:left-12 sm:text-sm md:bg-transparent md:p-0 md:backdrop-blur-none"
+      >
+        +880 1335550675
+      </a>
     </section>
   );
 }
