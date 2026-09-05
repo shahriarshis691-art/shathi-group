@@ -8,9 +8,9 @@ import { Logo } from "./Logo";
 import { useInquiryButton } from "@/hooks/useInquiryButton";
 
 const navLinks = [
-  { label: "About Us", href: "/#about" },
+  { label: "About Us", href: "/about" },
   { label: "Our Businesses", href: "/#businesses" },
-  { label: "Leadership", href: "/#founder" },
+  { label: "Leadership", href: "/leadership" },
   { label: "Contact", href: "/#contact" },
 ];
 

@@ -16,10 +16,11 @@ import { Logo } from "./Logo";
 import { useInquiryButton } from "@/hooks/useInquiryButton";
 
 const quickLinks = [
-  { label: "About Us", href: "/#about" },
+  { label: "About Us", href: "/about" },
   { label: "Our Businesses", href: "/#businesses" },
-  { label: "Leadership", href: "/#founder" },
-  { label: "Careers", href: "/#contact" },
+  { label: "Leadership", href: "/leadership" },
+  { label: "ESG & CSR", href: "/esg" },
+  { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/#contact" },
 ];
 

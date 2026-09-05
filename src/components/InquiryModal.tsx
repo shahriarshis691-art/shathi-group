@@ -10,6 +10,7 @@ import {
 import { CheckCircle2, Loader2, Send, X } from "lucide-react";
 
 const subsidiaries = [
+  "SHATHI Group — Corporate",
   "CORTEXIO Softsolutions",
   "SHIS Fashion",
   "XEROXII Luxury Watches and Jewellery",
@@ -22,6 +23,7 @@ const inquiryCategories = [
   "Strategic Partnership",
   "Dealership / Distribution",
   "Corporate Procurement",
+  "Careers / Talent Acquisition",
   "General Inquiry",
 ] as const;
 

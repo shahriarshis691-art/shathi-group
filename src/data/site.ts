@@ -5,9 +5,11 @@ export interface NavItem {
 
 export const navItems: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/#about" },
+  { label: "About", href: "/about" },
   { label: "Businesses", href: "/#businesses" },
-  { label: "Leadership", href: "/#founder" },
+  { label: "Leadership", href: "/leadership" },
+  { label: "ESG & CSR", href: "/esg" },
+  { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/#contact" },
 ];
 

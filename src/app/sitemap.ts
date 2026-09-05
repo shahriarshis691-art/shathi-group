@@ -18,6 +18,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     route("/", 1, "yearly"),
+    route("/about", 0.7, "yearly"),
+    route("/leadership", 0.7, "yearly"),
+    route("/esg", 0.6, "yearly"),
+    route("/careers", 0.6, "monthly"),
     route("/ceravo", 0.8, "monthly"),
     route("/velorix", 0.8, "monthly"),
     ...companies.map((company) =>
