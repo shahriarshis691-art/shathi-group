@@ -56,11 +56,6 @@ export function HeroSection() {
                 SHATHI Group of Companies
               </h1>
 
-              <p className="mt-6 max-w-2xl font-sans text-base leading-relaxed text-neutral-200 sm:text-lg text-balance">
-                A diversified portfolio of trusted businesses — built on integrity,
-                driven by innovation, and focused on long-term value.
-              </p>
-
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                 <a
                   href="#contact"
