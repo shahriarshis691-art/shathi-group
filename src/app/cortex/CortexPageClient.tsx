@@ -6,6 +6,7 @@ import { CortexShowcaseBanner } from "@/components/cortex/CortexShowcaseBanner";
 import { CortexAbout } from "@/components/cortex/CortexAbout";
 import { CortexGallery } from "@/components/cortex/CortexGallery";
 import { CortexSlider } from "@/components/cortex/CortexSlider";
+import { CortexProjectSlider } from "@/components/cortex/CortexProjectSlider";
 
 export function CortexPageClient() {
   const openInquiry = useInquiryButton({
@@ -18,6 +19,7 @@ export function CortexPageClient() {
       <CortexHero onInquiry={openInquiry} />
       <CortexShowcaseBanner />
       <CortexAbout />
+      <CortexProjectSlider />
       <CortexGallery />
       <CortexSlider />
     </main>
