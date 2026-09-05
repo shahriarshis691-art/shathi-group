@@ -6,6 +6,7 @@ import { type Company } from "@/data/companies";
 import { CompanyLogo } from "@/components/CompanyLogo";
 import { EngineeringGovernance } from "@/components/EngineeringGovernance";
 import { useInquiryButton } from "@/hooks/useInquiryButton";
+import { CortexHero } from "@/components/cortex/CortexHero";
 
 type Slug = Company["slug"];
 
@@ -239,6 +240,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
   return (
     <>
       {/* Back navigation */}
+      {company.slug !== "cortex-softsolutions" && (
       <nav className={`border-b ${t.backNavClass}`} aria-label="Breadcrumb">
         <div className="container-corporate">
           <a
@@ -250,46 +252,11 @@ export function CompanyClient({ company }: CompanyClientProps) {
           </a>
         </div>
       </nav>
+      )}
 
       {/* Hero */}
       {company.slug === "cortex-softsolutions" ? (
-        <section className="bg-[#111215] text-white min-h-[75vh] flex flex-col justify-between p-6 md:p-12 relative overflow-hidden">
-          <div className="flex flex-col md:flex-row justify-between items-start gap-6">
-            <div className="flex flex-col gap-1">
-              <p className="text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-neutral-400 font-mono">
-                Technology &amp; Platforms
-              </p>
-              <p className="text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-neutral-400 font-mono">
-                Software Engineering
-              </p>
-            </div>
-            <div className="hidden md:block">
-              <p className="text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-neutral-400 font-mono">
-                Cortex.Engineering
-              </p>
-            </div>
-            <div className="text-left md:text-right">
-              <p className="text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-neutral-400 font-mono">
-                Shathi Group &bull; Est. 2026
-              </p>
-            </div>
-          </div>
-
-          <div className="my-auto text-center flex items-center justify-center">
-            <h1 className="text-6xl sm:text-7xl md:text-9xl font-black tracking-[0.22em] text-white uppercase select-none flex items-baseline font-display">
-              CORTEX<span className="text-xl sm:text-2xl md:text-3xl font-normal text-neutral-400 ml-2">&copy;</span>
-            </h1>
-          </div>
-
-          <div className="border-t border-neutral-800/80 pt-4">
-            <div className="flex flex-wrap justify-between items-center gap-x-4 gap-y-2 text-[10px] md:text-xs tracking-[0.25em] uppercase text-neutral-400 font-mono w-full">
-              <span>[ Architecture ]</span>
-              <span>[ Distributed Systems ]</span>
-              <span>[ Cloud Resilience ]</span>
-              <span>[ User Interaction ]</span>
-            </div>
-          </div>
-        </section>
+        <CortexHero onInquiry={openInquiry} />
       ) : (
         <section className={`relative overflow-hidden ${t.heroClass}`}>
           <Image
@@ -355,7 +322,10 @@ export function CompanyClient({ company }: CompanyClientProps) {
       )}
 
       {/* Brand Story */}
-      <section className={`py-16 sm:py-20 ${t.sectionClass}`}>
+      <section
+        id={company.slug === "cortex-softsolutions" ? "capabilities" : undefined}
+        className={`py-16 sm:py-20 ${t.sectionClass}`}
+      >
         <div className="container-corporate">
           <div className="mx-auto max-w-3xl">
             <p className={`font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] ${t.ctaText}`}>
