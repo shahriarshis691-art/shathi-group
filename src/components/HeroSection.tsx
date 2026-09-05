@@ -24,16 +24,15 @@ export function HeroSection() {
         contentClassName="relative h-full"
       >
         <Image
-          src="/download (70).jpg"
-          alt="Shathi Group Corporate Architecture"
+          src="/cortex/hero.png"
+          alt="Shathi Group Corporate Overview"
           fill
           priority
-          className="object-cover object-center"
+          className="object-cover object-center brightness-[0.90]"
           sizes="100vw"
         />
+        <div aria-hidden="true" className="absolute inset-0 bg-neutral-950/50" />
       </ParallaxContainer>
-
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-10 bg-black/40" />
 
       <div className="relative z-20 w-full">
         <div className="container-corporate">
