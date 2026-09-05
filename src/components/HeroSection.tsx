@@ -23,17 +23,18 @@ export function HeroSection() {
         planeClassName="h-full"
         contentClassName="relative h-full"
       >
-        <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute inset-0 z-0 overflow-hidden bg-neutral-950">
           <Image
-            alt="Shathi Group Corporate Architecture"
-            className="object-cover object-center"
+            alt="Shathi Group Architectural Perspective"
+            className="object-cover object-top sm:object-[center_25%] brightness-[0.88] contrast-[1.05]"
             fill
             priority
             sizes="100vw"
             src="/hero-image/hero.png"
           />
-          {/* Balanced dark overlay to guarantee headline and button legibility */}
-          <div className="absolute inset-0 bg-neutral-950/50 backdrop-brightness-95" />
+          {/* Vignette & gradient scrim to anchor typography and avoid flat blow-up */}
+          <div className="absolute inset-0 bg-gradient-to-r from-neutral-950/75 via-neutral-950/40 to-transparent" />
+          <div className="absolute inset-0 bg-neutral-950/25" />
         </div>
       </ParallaxContainer>
 
