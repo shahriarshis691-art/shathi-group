@@ -5,14 +5,14 @@ import { BusinessGrid } from "@/components/BusinessGrid";
 import { FounderSection } from "@/components/FounderSection";
 import { ContactSection } from "@/components/ContactSection";
 import { CortexEntryModal } from "@/components/CortexEntryModal";
-import { CortexHeroBanner } from "@/components/CortexHeroBanner";
+import { CortexShowcase } from "@/components/CortexShowcase";
 import { VelorixShowcase } from "@/components/VelorixShowcase";
 
 export default function Home() {
   return (
     <main className="overflow-x-hidden bg-transparent">
       <HeroSection />
-      <CortexHeroBanner />
+      <CortexShowcase />
       <StatsSection />
       <AboutSection />
       <BusinessGrid />
