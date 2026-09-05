@@ -1,10 +1,10 @@
 import Image from "next/image";
 
 const architectureSpecs = [
-  "Enterprise Cloud Core",
-  "Zero Recurring Overhead",
-  "Next.js & Node Architecture",
-  "Distributed Systems",
+  "01 / 10 EXCLUSIVE SLOTS",
+  "LIFETIME FREE DEVELOPMENT",
+  "BESPOKE E-COMMERCE & APPS",
+  "ENTERPRISE NODE ARCHITECTURE",
 ];
 
 export function CortexShowcase() {
@@ -18,7 +18,7 @@ export function CortexShowcase() {
           CORTEX
         </div>
 
-        <nav aria-label="Cortex architecture">
+        <nav aria-label="Cortex initiative specs">
           <ul className="grid grid-cols-2 gap-x-5 gap-y-4 text-[11px] font-mono uppercase tracking-widest text-neutral-500 lg:block lg:space-y-4">
             {architectureSpecs.map((item) => (
               <li key={item}>{item}</li>
@@ -35,25 +35,27 @@ export function CortexShowcase() {
       </aside>
 
       <div className="flex w-full flex-col justify-center p-8 sm:p-12 lg:basis-[38%] lg:p-16">
-        <p className="mb-3 text-[10px] font-mono uppercase tracking-[0.35em] text-neutral-400">
-          Enterprise Software Systems // Cortex
+        <p className="font-mono text-[10px] tracking-[0.35em] text-neutral-400 uppercase mb-3">
+          LIMITED INITIATIVE // 10 FOUNDING PARTNERS
         </p>
         <h2
           id="cortex-showcase-heading"
-          className="text-3xl font-extrabold leading-tight tracking-tight text-neutral-950 uppercase md:text-5xl"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-sans font-extrabold uppercase tracking-tight text-neutral-950 leading-[1.02]"
         >
-          Architecting Sovereign Digital Infrastructure
+          BESPOKE SOFTWARE & APPS — LIFETIME FREE FOR 10 ENTERPRISES
         </h2>
-        <p className="mt-4 max-w-md text-xs leading-relaxed text-neutral-600 md:text-sm">
-          We eliminate recurring cloud dependencies through bespoke microservices,
-          enterprise-grade architecture, and lifetime infrastructure ownership —
-          giving organizations true operational autonomy.
+        <p className="text-neutral-600 font-sans text-xs sm:text-sm leading-relaxed mt-5 max-w-lg">
+          Cortex Soft Solutions is selecting 10 ambitious businesses to receive
+          custom enterprise software, bespoke e-commerce systems, and
+          high-performance apps completely free for life. From tailored
+          architecture to full deployment—accelerate your operational scale with
+          zero development costs.
         </p>
         <a
-          href="/cortex"
+          href="/contact?subject=Cortex%20Lifetime%20Free%20Initiative"
           className="mt-8 inline-flex items-center justify-center border border-neutral-950 px-8 py-3.5 font-mono text-xs uppercase tracking-[0.2em] text-neutral-950 transition-all duration-300 hover:bg-neutral-950 hover:text-white w-fit"
         >
-          Connect with Cortex →
+          CLAIM YOUR FREE ACCESS [10 SPOTS] →
         </a>
       </div>
 
