@@ -6,6 +6,7 @@ import { type Company } from "@/data/companies";
 import { CompanyLogo } from "@/components/CompanyLogo";
 import { useInquiryButton } from "@/hooks/useInquiryButton";
 import { CortexHero } from "@/components/cortex/CortexHero";
+import { CortexShowcaseBanner } from "@/components/cortex/CortexShowcaseBanner";
 import { CeravoDetailPage } from "@/components/ceravo/CeravoDetailPage";
 import { CortexAbout } from "@/components/cortex/CortexAbout";
 import { CortexGallery } from "@/components/cortex/CortexGallery";
@@ -352,6 +353,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
 
       {company.slug === "cortex-softsolutions" && (
         <>
+          <CortexShowcaseBanner onInquiry={openInquiry} />
           <CortexAbout />
           <CortexGallery />
           <CortexSlider />
