@@ -1,21 +1,13 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Plus } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
-import { ParallaxContainer } from "@/components/ui/ParallaxContainer";
 
 const cortexHref = "/cortex";
 
 export function CortexShowcase() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const shouldReduceMotion = useReducedMotion();
-
   return (
     <section
-      ref={sectionRef}
       aria-labelledby="cortex-showcase-heading"
       className="relative w-full min-h-screen bg-[#F8F9FA] flex flex-col lg:flex-row items-stretch overflow-hidden text-neutral-900"
     >
@@ -41,44 +33,6 @@ export function CortexShowcase() {
               <span>Next.js 15 &amp; Node Stack</span>
               <span>Distributed Systems</span>
             </div>
-          </div>
-
-          <div className="mt-10">
-            <ParallaxContainer
-              target={sectionRef}
-              depth="foreground"
-              yRange={[18, -24]}
-            >
-              <motion.div
-                className="relative flex h-48 w-48 items-center justify-center rounded-full border border-neutral-200 bg-white shadow-xl sm:h-56 sm:w-56 lg:h-64 lg:w-64"
-                animate={
-                  shouldReduceMotion
-                    ? { y: 0, rotateX: 0, rotateY: 0 }
-                    : { y: [-8, 8, -8], rotateX: [0, 4, 0], rotateY: [-5, 5, -5] }
-                }
-                transition={{ duration: 6, ease: "easeInOut", repeat: Infinity }}
-                whileHover={shouldReduceMotion ? undefined : { scale: 1.05, rotateZ: 2 }}
-                style={{ transformPerspective: 1000, willChange: "transform" }}
-              >
-                <Image
-                  src="/cortex-main-logo.png"
-                  alt="Cortex Soft Solutions"
-                  width={320}
-                  height={320}
-                  priority
-                  className="h-3/4 w-3/4 object-contain drop-shadow-xl"
-                />
-                <Link
-                  href={cortexHref}
-                  className="absolute -right-4 -top-4 flex items-center gap-3 rounded-full border border-neutral-200 bg-white/90 px-5 py-2.5 font-mono text-xs font-bold uppercase tracking-widest text-neutral-950 shadow-xl backdrop-blur-md transition-transform duration-300 hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-900 md:-right-8 md:top-6"
-                >
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-neutral-900 text-white">
-                    <Plus className="h-3.5 w-3.5" aria-hidden="true" />
-                  </span>
-                  Connect with Cortex
-                </Link>
-              </motion.div>
-            </ParallaxContainer>
           </div>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
