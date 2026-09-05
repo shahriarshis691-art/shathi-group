@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const architectureSpecs = [
   "01 / 10 EXCLUSIVE SLOTS",
@@ -51,12 +52,12 @@ export function CortexShowcase() {
           architecture to full deployment—accelerate your operational scale with
           zero development costs.
         </p>
-        <a
-          href="/contact?subject=Cortex%20Lifetime%20Free%20Initiative"
+        <Link
+          href="/companies/cortex-softsolutions"
           className="mt-8 inline-flex items-center justify-center border border-neutral-950 px-8 py-3.5 font-mono text-xs uppercase tracking-[0.2em] text-neutral-950 transition-all duration-300 hover:bg-neutral-950 hover:text-white w-fit"
         >
           CLAIM YOUR FREE ACCESS [10 SPOTS] →
-        </a>
+        </Link>
       </div>
 
       <div className="relative h-[400px] w-full overflow-hidden lg:h-auto lg:flex-1">
