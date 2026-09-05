@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { ArrowLeft, ArrowUpRight, CheckCircle2, ExternalLink, Factory, Gauge, Gem, Shield, Sparkles } from "lucide-react";
 import { type Company } from "@/data/companies";
 import { CompanyLogo } from "@/components/CompanyLogo";
@@ -11,6 +12,13 @@ import { CeravoDetailPage } from "@/components/ceravo/CeravoDetailPage";
 import { CortexAbout } from "@/components/cortex/CortexAbout";
 import { CortexGallery } from "@/components/cortex/CortexGallery";
 import { CortexSlider } from "@/components/cortex/CortexSlider";
+
+const ShisLookbook = dynamic(
+  () =>
+    import("@/components/shis/ShisLookbook").then(
+      (module) => module.ShisLookbook
+    )
+);
 
 type Slug = Company["slug"];
 
@@ -363,6 +371,8 @@ export function CompanyClient({ company }: CompanyClientProps) {
       {/* SHIS FASHION */}
       {company.slug === "shis-fashion" && (
         <>
+          <ShisLookbook />
+
           <section className={`py-16 sm:py-20 ${t.sectionAltClass}`}>
             <div className="container-corporate">
               <p className={`font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] ${t.ctaText}`}>
@@ -415,49 +425,6 @@ export function CompanyClient({ company }: CompanyClientProps) {
             </div>
           </section>
 
-          <section className={`py-16 sm:py-20 ${t.sectionClass}`}>
-            <div className="container-corporate">
-              <p className={`font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] ${t.ctaText}`}>
-                Lookbook
-              </p>
-              <h2 className={`mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] ${t.heading} sm:text-4xl`}>
-                Seasonal edits
-              </h2>
-              <p className={`mt-4 max-w-2xl font-sans text-sm md:text-[15px] font-normal leading-relaxed ${t.body} md:text-[15px]`}>
-                A curated selection of silhouettes and fabric stories from the latest collection.
-              </p>
-
-              <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3">
-                {[
-                  { label: "Urban Casual", gradient: "bg-gradient-to-br from-slate-800 to-slate-900" },
-                  { label: "Evening Blazer", gradient: "bg-gradient-to-br from-navy-800 to-navy-900" },
-                  { label: "Acid-Wash Tee", gradient: "bg-gradient-to-br from-rose-900 to-slate-900" },
-                  { label: "Tailored Chinos", gradient: "bg-gradient-to-br from-slate-700 to-slate-800" },
-                  { label: "Outerwear Layer", gradient: "bg-gradient-to-br from-neutral-800 to-slate-900" },
-                  { label: "Capsule Core", gradient: "bg-gradient-to-br from-gold-900 to-slate-900" },
-                ].map((item) => (
-                  <div
-                    key={item.label}
-                    className={`aspect-[3/4] rounded-2xl ${item.gradient} flex items-end p-4 shadow-sm transition hover:scale-[1.02]`}
-                  >
-                    <span className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-white/90">{item.label}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-10">
-                <a
-                  href={company.storeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-2 rounded-full px-6 py-3 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] shadow-corporate transition ${t.ctaClass} ${t.ctaHover}`}
-                >
-                  Request Catalog
-                  <ArrowUpRight className="h-4 w-4" aria-hidden />
-                </a>
-              </div>
-            </div>
-          </section>
         </>
       )}
 
