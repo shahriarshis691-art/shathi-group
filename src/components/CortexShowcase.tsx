@@ -51,13 +51,13 @@ export function CortexShowcase() {
         </div>
       </div>
 
-      <div className="pointer-events-none absolute left-5 top-[22%] z-10 md:left-[8%] md:top-[19%]">
-        <p className="font-display text-7xl font-black leading-none tracking-tight text-white drop-shadow-sm mix-blend-difference md:text-[140px]">
+      <div className="pointer-events-none absolute left-5 top-24 z-10 sm:top-[16%] md:left-[8%] md:top-[19%]">
+        <p className="font-display text-6xl font-black leading-none tracking-tight text-neutral-950 sm:text-7xl md:text-[140px]">
           Cortex
         </p>
         <h2
           id="cortex-showcase-heading"
-          className="font-display text-7xl font-black leading-none tracking-tight text-white drop-shadow-sm mix-blend-difference md:text-[140px]"
+          className="font-display text-6xl font-black leading-none tracking-tight text-neutral-950 sm:text-7xl md:text-[140px]"
         >
           Solutions
         </h2>
@@ -69,49 +69,52 @@ export function CortexShowcase() {
         yRange={[-28, 28]}
         scaleRange={[1, 1.04]}
         interactive
-        className="absolute left-1/2 top-[45%] z-20 h-[290px] w-[290px] -translate-x-1/2 -translate-y-1/2 sm:h-[380px] sm:w-[380px] md:h-[470px] md:w-[470px]"
+        className="absolute left-1/2 top-[59%] z-20 h-64 w-64 -translate-x-1/2 -translate-y-1/2 sm:h-80 sm:w-80 md:top-[45%] md:h-96 md:w-96"
         planeClassName="h-full"
         contentClassName="h-full"
       >
         <motion.div
-          className="relative h-full w-full overflow-hidden rounded-full border border-white/80 bg-white shadow-[0_30px_80px_rgba(15,23,42,0.16)]"
-          animate={shouldReduceMotion ? undefined : { y: [-6, 6, -6] }}
+          className="relative flex h-full w-full transform-gpu items-center justify-center rounded-full border border-neutral-200/80 bg-white p-8 shadow-2xl [transform-style:preserve-3d]"
+          animate={
+            shouldReduceMotion
+              ? { y: 0, rotateX: 0, rotateY: 0 }
+              : { y: [-8, 8, -8], rotateX: [0, 4, 0], rotateY: [-5, 5, -5] }
+          }
           transition={{ duration: 6, ease: "easeInOut", repeat: Infinity }}
+          whileHover={shouldReduceMotion ? undefined : { scale: 1.05, rotateZ: 2 }}
+          style={{ transformPerspective: 1000, willChange: "transform" }}
         >
           <Image
             src="/cortex-main-logo.png"
             alt="Cortex Soft Solutions"
-            fill
-            sizes="(min-width: 768px) 470px, 290px"
-            className="object-cover"
+            width={320}
+            height={320}
+            priority
+            className="h-3/4 w-3/4 object-contain drop-shadow-xl"
           />
-          <div className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-inset ring-neutral-900/5" />
+          <Link
+            href={cortexHref}
+            className="absolute -right-4 -top-4 z-20 flex items-center gap-3 rounded-full border border-neutral-200 bg-white/90 px-5 py-2.5 font-mono text-xs font-bold uppercase tracking-widest text-neutral-950 shadow-xl backdrop-blur-md transition-transform duration-300 hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-900 md:-right-8 md:top-6"
+          >
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-neutral-900 text-white">
+              <Plus className="h-3.5 w-3.5" aria-hidden="true" />
+            </span>
+            Connect with Cortex
+          </Link>
         </motion.div>
       </ParallaxContainer>
 
       <div className="absolute bottom-28 left-6 z-30 max-w-[19rem] md:bottom-32 md:left-[8%]">
-        <p className="mb-2 font-mono text-xs uppercase tracking-widest text-neutral-500">
+        <p className="mb-2 font-mono text-xs font-bold uppercase tracking-widest text-neutral-900">
           Architecture Features
         </p>
-        <div className="grid grid-cols-2 gap-x-6 gap-y-1 font-mono text-[11px] text-neutral-600">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-1 font-mono text-xs font-medium text-neutral-800">
           <span>Enterprise Cloud Core</span>
           <span>Zero Recurring Overhead</span>
           <span>Next.js 15 &amp; Node Stack</span>
           <span>Distributed Systems</span>
         </div>
       </div>
-
-      <Link
-        href={cortexHref}
-        className="absolute right-5 top-[59%] z-30 flex cursor-pointer items-center gap-4 rounded-full border border-white/80 bg-white/70 px-6 py-3.5 shadow-2xl backdrop-blur-md transition-transform duration-300 hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-900 md:right-[12%] md:top-1/2"
-      >
-        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-neutral-900 text-sm font-bold text-white">
-          <Plus className="h-4 w-4" aria-hidden="true" />
-        </span>
-        <span className="font-mono text-xs font-bold uppercase tracking-widest text-neutral-900">
-          Connect with Cortex
-        </span>
-      </Link>
 
       <footer className="absolute inset-x-0 bottom-0 z-20 flex w-full items-center justify-between gap-5 border-t border-neutral-200/80 bg-white/80 px-5 py-4 backdrop-blur-lg sm:px-8">
         <div className="flex min-w-0 items-center gap-4 overflow-x-auto sm:gap-8">
