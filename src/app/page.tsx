@@ -6,6 +6,7 @@ import { FounderSection } from "@/components/FounderSection";
 import { ContactSection } from "@/components/ContactSection";
 import { CortexEntryModal } from "@/components/CortexEntryModal";
 import { CortexHeroBanner } from "@/components/CortexHeroBanner";
+import { VelorixShowcase } from "@/components/VelorixShowcase";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <StatsSection />
       <AboutSection />
       <BusinessGrid />
+      <VelorixShowcase />
       <FounderSection />
       <ContactSection />
       <CortexEntryModal />
