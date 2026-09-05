@@ -24,26 +24,17 @@ export function HeroSection() {
         contentClassName="relative h-full"
       >
         <div className="absolute inset-0 z-0 overflow-hidden bg-neutral-950">
-          {/* Ambient background glow to eliminate hard borders */}
-          <div
-            className="absolute inset-0 bg-cover bg-center blur-2xl opacity-40 scale-110"
-            style={{ backgroundImage: `url('/hero-image/hero.png')` }}
+          <Image
+            alt="Shathi Group Corporate Overview"
+            className="object-cover object-center scale-100"
+            fill
+            priority
+            sizes="100vw"
+            src="/hero-image/hero.2.jpg"
           />
 
-          <div className="relative w-full h-full 2xl:max-w-[1440px] 2xl:mx-auto">
-            <Image
-              alt="Shathi Group Architectural Perspective"
-              className="object-cover object-top sm:object-[center_25%] brightness-[0.88] contrast-[1.05]"
-              fill
-              priority
-              sizes="100vw"
-              src="/hero-image/hero.png"
-            />
-          </div>
-
-          {/* Vignette & gradient scrim to anchor typography and avoid flat blow-up */}
-          <div className="absolute inset-0 bg-gradient-to-r from-neutral-950/75 via-neutral-950/40 to-transparent" />
-          <div className="absolute inset-0 bg-neutral-950/25" />
+          {/* Balanced corporate scrim for high text contrast */}
+          <div className="absolute inset-0 bg-neutral-950/50 backdrop-brightness-90" />
         </div>
       </ParallaxContainer>
 
