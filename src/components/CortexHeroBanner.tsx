@@ -5,7 +5,7 @@ import { ArrowUpRight, Check } from "lucide-react";
 import { PerspectiveCard } from "@/components/ui/PerspectiveCard";
 import { SlideIn } from "@/components/ui/ScrollReveal";
 
-const cortexHref = "/cortex";
+const cortexHref = "/companies/cortex-softsolutions";
 
 export function CortexHeroBanner() {
   return (

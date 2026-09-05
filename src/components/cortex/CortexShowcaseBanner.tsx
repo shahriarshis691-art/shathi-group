@@ -50,7 +50,7 @@ export function CortexShowcaseBanner({ onInquiry }: CortexShowcaseBannerProps) {
           <button
             type="button"
             onClick={onInquiry}
-            className="mt-9 inline-flex items-center justify-center rounded-full bg-neutral-950 px-7 py-3.5 font-mono text-xs uppercase tracking-[0.18em] text-white shadow-lg transition-colors duration-300 hover:bg-neutral-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-950"
+            className="mt-9 inline-flex min-h-11 items-center justify-center rounded-full bg-neutral-950 px-7 py-3.5 font-mono text-xs uppercase tracking-[0.18em] text-white shadow-lg transition-colors duration-300 hover:bg-neutral-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-950"
           >
             Start a consultation →
           </button>
@@ -61,7 +61,6 @@ export function CortexShowcaseBanner({ onInquiry }: CortexShowcaseBannerProps) {
             src="/cortex/build-your-vision.png"
             alt="CORTEXIO engineer building a digital product on a laptop"
             fill
-            priority
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
           />

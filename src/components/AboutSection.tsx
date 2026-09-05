@@ -29,6 +29,7 @@ export function AboutSection() {
   return (
     <section
       aria-labelledby="about-heading"
+      id="about"
       className="relative overflow-hidden bg-white py-20 sm:py-24"
     >
       <div

@@ -36,7 +36,7 @@ function SubsidiaryCard({ company, index }: { company: Company; index: number })
   const isCortex = company.slug === "cortex-softsolutions";
   const numeral = isCortex ? "01" : String(index + 1).padStart(2, "0");
   const displayName = isCortex ? "CORTEXIO SOFTSOLUTIONS" : company.name;
-  const cardHref = isCortex ? "/cortex" : `/companies/${company.slug}`;
+  const cardHref = isCortex ? "/companies/cortex-softsolutions" : `/companies/${company.slug}`;
   const actionLabel = isCortex ? "EXPLORE PLATFORM" : "Explore Collection";
 
   return (

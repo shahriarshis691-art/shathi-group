@@ -47,8 +47,7 @@ export const companies: Company[] = [
     image:
       "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
     imageAlt: "Minimalist circuit board and server architecture",
-    websiteUrl: "https://cortexio-softsolutions.example.com",
-    storeUrl: "https://cortexio-softsolutions.example.com/contact",
+    websiteUrl: "/companies/cortex-softsolutions",
     brandStory:
       "CORTEXIO Softsolutions builds cloud-native enterprise platforms that power digital transformation. From AI-driven workflows to fully custom software, we deliver scalable systems that grow with our clients.",
     productVerticals: [
@@ -81,8 +80,8 @@ export const companies: Company[] = [
     image:
       "https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=1200&q=80",
     imageAlt: "Menswear tailoring on a model",
-    websiteUrl: "https://shisfashion.example.com",
-    storeUrl: "https://shop.shisfashion.example.com",
+    websiteUrl: "https://www.shisfashion.com",
+    storeUrl: "https://www.shisfashion.com",
     brandStory:
       "SHIS Fashion specializes in contemporary, premium menswear — from sharp tailoring to elevated casual staples. Built on premium cotton fabrics and modern urban fits, every piece carries the brand's signature acid-washed graphics and laid-back-luxe attitude.",
     productVerticals: [
@@ -124,8 +123,8 @@ export const companies: Company[] = [
     image:
       "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1200&q=80",
     imageAlt: "Luxury wristwatch detail",
-    websiteUrl: "https://xeroxiiwatches.example.com",
-    storeUrl: "https://shop.xeroxiiwatches.example.com",
+    websiteUrl: "https://www.xeroxii.com",
+    storeUrl: "https://www.xeroxii.com",
     brandStory:
       "XEROXII is a modern luxury watchmaker where precision engineering meets minimalist design. Each timepiece is built around Swiss-grade movements and protected by scratch-resistant sapphire crystal, designed to age gracefully through the decades.",
     productVerticals: [
@@ -143,7 +142,7 @@ export const companies: Company[] = [
   },
   {
     id: "ceravo-tiles",
-    name: "CE R A VO Building Meterials",
+    name: "CE R A VO Building Materials",
     slug: "ceravo-tiles",
     category: "Architectural Surfaces & Ceramics",
     tagline: "Architectural Elegance & Surface Innovation",
@@ -158,8 +157,8 @@ export const companies: Company[] = [
     image:
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
     imageAlt: "Contemporary architecture with refined surfaces",
-    websiteUrl: "https://ceravotiles.example.com",
-    storeUrl: "https://dealer.ceravotiles.example.com",
+    websiteUrl: "https://www.ceravo.online",
+    storeUrl: "https://www.ceravo.online",
     brandStory:
       "CE R A VO engineers premium porcelain and ceramic surfaces for residential and commercial architecture. Our collections balance high durability with architectural finishes, delivered through a nationwide dealer network.",
     productVerticals: [
@@ -192,7 +191,7 @@ export const companies: Company[] = [
     image:
       "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80",
     imageAlt: "Performance car in a mountain landscape",
-    websiteUrl: "https://velorixmotors.example.com",
+    websiteUrl: "https://www.velorixmotors.com",
     brandStory:
       "VELORIX Motors brings together expressive automotive design and modern engineering. Every vehicle is shaped around responsive performance, thoughtful technology, and a quiet confidence that lasts well beyond the journey.",
     productVerticals: [

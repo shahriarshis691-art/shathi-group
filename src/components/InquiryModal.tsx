@@ -13,7 +13,7 @@ const subsidiaries = [
   "CORTEXIO Softsolutions",
   "SHIS Fashion",
   "XEROXII Luxury Watches and Jewellery",
-  "CE R A VO Building Meterials",
+  "CE R A VO Building Materials",
   "VELORIX Motors",
 ] as const;
 
@@ -215,7 +215,7 @@ export function InquiryModal({
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full text-slate-400 transition hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-400"
+          className="absolute right-4 top-4 inline-flex h-11 w-11 items-center justify-center rounded-full text-slate-400 transition hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-400"
           aria-label="Close inquiry form"
         >
           <X className="h-5 w-5" aria-hidden="true" />

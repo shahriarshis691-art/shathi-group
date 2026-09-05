@@ -16,11 +16,11 @@ import { Logo } from "./Logo";
 import { useInquiryButton } from "@/hooks/useInquiryButton";
 
 const quickLinks = [
-  { label: "About Us", href: "/about" },
-  { label: "Our Businesses", href: "/businesses" },
-  { label: "Leadership", href: "/leadership" },
-  { label: "Careers", href: "/careers" },
-  { label: "Contact", href: "/contact" },
+  { label: "About Us", href: "/#about" },
+  { label: "Our Businesses", href: "/#businesses" },
+  { label: "Leadership", href: "/#founder" },
+  { label: "Careers", href: "/#contact" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const socialLinks = [
@@ -50,7 +50,7 @@ export function Footer() {
             <button
               type="button"
               onClick={openInquiry}
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-neutral-950 px-5 py-2.5 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-white shadow-corporate transition hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400 border border-neutral-900"
+              className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-full border border-neutral-900 bg-neutral-950 px-5 py-2.5 font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-white shadow-corporate transition hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400 md:text-xs"
             >
               Corporate Inquiry
             </button>
@@ -63,7 +63,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-600 transition hover:border-neutral-950 hover:bg-neutral-950 hover:text-white"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-600 transition hover:border-neutral-950 hover:bg-neutral-950 hover:text-white sm:h-9 sm:w-9"
                 >
                   <Icon className="h-4 w-4" aria-hidden />
                 </a>

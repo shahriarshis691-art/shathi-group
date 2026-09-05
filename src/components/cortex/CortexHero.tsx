@@ -54,7 +54,7 @@ export function CortexHero({ onInquiry }: CortexHeroProps) {
         <button
           type="button"
           onClick={onInquiry}
-          className="rounded-full border border-neutral-300 bg-white/80 px-4 py-2 font-mono text-[10px] tracking-wider text-neutral-950 shadow-sm transition-all duration-300 hover:bg-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-500 sm:px-5 sm:text-xs"
+          className="min-h-11 rounded-full border border-neutral-300 bg-white/80 px-4 py-2 font-mono text-[10px] tracking-wider text-neutral-950 shadow-sm transition-all duration-300 hover:bg-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-500 sm:px-5 sm:text-xs"
         >
           Initialize Project
         </button>

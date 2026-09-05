@@ -33,7 +33,6 @@ export function VelorixShowcase() {
             src="/velorix/black-coupe.png"
             alt="Velorix Motors High Performance Coupe"
             fill
-            priority
             sizes="(min-width: 1024px) 62vw, 100vw"
             className="object-contain drop-shadow-[0_25px_30px_rgba(0,0,0,0.22)]"
           />
@@ -41,7 +40,7 @@ export function VelorixShowcase() {
 
         <Link
           href="/velorix"
-          className="relative z-10 mx-auto inline-flex items-center justify-center rounded-full border border-neutral-900 px-10 py-3 font-mono text-xs uppercase tracking-[0.25em] text-neutral-900 transition-all duration-300 hover:bg-neutral-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-900"
+          className="relative z-10 mx-auto inline-flex min-h-11 items-center justify-center rounded-full border border-neutral-900 px-10 py-3 font-mono text-xs uppercase tracking-[0.25em] text-neutral-900 transition-all duration-300 hover:bg-neutral-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-900"
         >
           Explore Velorix →
         </Link>
@@ -83,10 +82,10 @@ export function VelorixShowcase() {
           <div className="flex items-center justify-between border-t border-neutral-800/80 pt-8 font-mono text-xs text-neutral-400">
             <span>01 / 05</span>
             <div className="flex items-center gap-3">
-              <button type="button" aria-label="Previous Velorix showcase" className="transition-colors hover:text-white">
+              <button type="button" aria-label="Previous Velorix showcase" className="inline-flex h-11 w-11 items-center justify-center transition-colors hover:text-white">
                 ‹
               </button>
-              <button type="button" aria-label="Next Velorix showcase" className="transition-colors hover:text-white">
+              <button type="button" aria-label="Next Velorix showcase" className="inline-flex h-11 w-11 items-center justify-center transition-colors hover:text-white">
                 ›
               </button>
             </div>

@@ -8,7 +8,7 @@ export function CeravoTopBar() {
       <div className="container-corporate flex h-14 items-center justify-between">
         <Link
           href="/ceravo"
-          className="font-mono text-xs font-bold tracking-[0.3em] uppercase text-neutral-900"
+          className="inline-flex min-h-11 min-w-0 max-w-[220px] items-center truncate font-mono text-xs font-bold uppercase tracking-[0.3em] text-neutral-900 sm:max-w-none"
           aria-current="page"
         >
           CE R A VO // TILES &amp; CERAMICS
@@ -30,9 +30,10 @@ export function CeravoTopBar() {
 
         <Link
           href="/"
-          className="font-mono text-xs uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:text-neutral-950"
+          className="inline-flex min-h-11 items-center font-mono text-xs uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:text-neutral-950"
         >
-          ← RETURN TO HOME
+          <span className="sm:hidden">← HOME</span>
+          <span className="hidden sm:inline">← RETURN TO HOME</span>
         </Link>
       </div>
     </header>

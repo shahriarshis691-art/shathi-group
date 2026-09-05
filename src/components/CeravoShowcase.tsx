@@ -74,7 +74,6 @@ export function CeravoShowcase() {
           src="/ceravo/real-estate-ceramics.png"
           alt="CE R A VO Luxury Ceramic Surfaces and Architectural Materials"
           fill
-          priority
           sizes="(max-width: 1024px) 100vw, 50vw"
           className="object-cover object-center contrast-105 transition-transform duration-700 hover:scale-105"
         />

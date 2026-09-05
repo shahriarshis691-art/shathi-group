@@ -55,8 +55,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
+        width: 735,
+        height: 381,
         alt: `${siteConfig.name} — ${siteConfig.shortName} corporate mark`,
         type: "image/jpeg",
       },
@@ -75,6 +75,21 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: siteConfig.name,
+  alternateName: siteConfig.shortName,
+  url: siteConfig.url,
+  description: siteConfig.description,
+  email: siteConfig.email,
+  telephone: siteConfig.phone,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: siteConfig.address,
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -83,6 +98,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${jakarta.variable} ${display.variable}`}>
       <body className="flex min-h-screen flex-col bg-white text-neutral-950 antialiased font-sans relative overflow-x-hidden">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <SmoothScrollProvider>
           <Navbar />
           <div className="flex-1">{children}</div>

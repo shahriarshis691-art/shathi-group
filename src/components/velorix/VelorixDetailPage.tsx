@@ -107,7 +107,7 @@ export function VelorixDetailPage() {
           <div className="flex items-center gap-4">
             <Link
               href="/"
-              className="font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-500 transition-colors hover:text-white"
+              className="inline-flex min-h-11 items-center font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-500 transition-colors hover:text-white"
             >
               ← Return to home
             </Link>
@@ -123,7 +123,7 @@ export function VelorixDetailPage() {
             href="https://www.velorixmotors.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-xs text-neutral-400 transition-colors hover:text-white"
+            className="inline-flex min-h-11 items-center font-mono text-xs text-neutral-400 transition-colors hover:text-white"
           >
             Visit external site ↗
           </a>
@@ -158,7 +158,7 @@ export function VelorixDetailPage() {
               type="button"
               aria-pressed={wireframeActive}
               onClick={() => setWireframeActive((active) => !active)}
-              className="absolute bottom-6 right-0 z-20 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-[#0A0D14]/80 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-cyan-200 backdrop-blur-md transition hover:border-cyan-300 hover:bg-cyan-400/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400 sm:right-4"
+              className="absolute bottom-6 right-0 z-20 inline-flex min-h-11 items-center gap-2 rounded-full border border-cyan-400/30 bg-[#0A0D14]/80 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-cyan-200 backdrop-blur-md transition hover:border-cyan-300 hover:bg-cyan-400/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400 sm:right-4"
             >
               <span className={`h-1.5 w-1.5 rounded-full ${wireframeActive ? "bg-cyan-300 shadow-[0_0_8px_rgba(103,232,249,1)]" : "bg-neutral-600"}`} />
               Chassis wireframe {wireframeActive ? "on" : "off"}
@@ -180,7 +180,7 @@ export function VelorixDetailPage() {
             <div className="flex flex-col gap-3 sm:flex-row">
               <a
                 href="#telemetry"
-                className="inline-flex items-center justify-center rounded-full bg-cyan-400 px-6 py-3 font-mono text-xs uppercase tracking-[0.18em] text-[#0A0D14] transition hover:bg-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400"
+                className="inline-flex min-h-11 items-center justify-center rounded-full bg-cyan-400 px-6 py-3 font-mono text-xs uppercase tracking-[0.18em] text-[#0A0D14] transition hover:bg-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400"
               >
                 Explore platform →
               </a>
@@ -188,7 +188,7 @@ export function VelorixDetailPage() {
                 href="https://www.velorixmotors.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full border border-neutral-700 px-6 py-3 font-mono text-xs uppercase tracking-[0.18em] text-neutral-200 transition hover:border-cyan-400/60 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400"
+                className="inline-flex min-h-11 items-center justify-center rounded-full border border-neutral-700 px-6 py-3 font-mono text-xs uppercase tracking-[0.18em] text-neutral-200 transition hover:border-cyan-400/60 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400"
               >
                 Request dossier ↗
               </a>

@@ -21,8 +21,15 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${company.name} | SHATHI Group`,
+    title: company.name,
     description: company.description,
+    alternates: { canonical: `/companies/${company.slug}` },
+    openGraph: {
+      title: company.name,
+      description: company.description,
+      url: `/companies/${company.slug}`,
+      images: [{ url: company.image, alt: company.imageAlt }],
+    },
   };
 }
 

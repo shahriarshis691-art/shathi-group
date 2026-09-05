@@ -1,33 +1,34 @@
 import { type MetadataRoute } from "next";
+import { companies } from "@/data/companies";
+import { cortexEngineers } from "@/data/cortexEngineers";
 import { siteConfig } from "@/data/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  const lastModified = new Date();
+  const route = (
+    path: string,
+    priority: number,
+    changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]
+  ): MetadataRoute.Sitemap[number] => ({
+    url: new URL(path, siteConfig.url).href,
+    lastModified,
+    changeFrequency,
+    priority,
+  });
 
   return [
-    {
-      url: new URL("/", siteConfig.url).href,
-      lastModified: now,
-      changeFrequency: "yearly",
-      priority: 1.0,
-    },
-    {
-      url: new URL("/about", siteConfig.url).href,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: new URL("/businesses", siteConfig.url).href,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: new URL("/contact", siteConfig.url).href,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
+    route("/", 1, "yearly"),
+    route("/ceravo", 0.8, "monthly"),
+    route("/velorix", 0.8, "monthly"),
+    ...companies.map((company) =>
+      route(`/companies/${company.slug}`, 0.8, "monthly")
+    ),
+    ...cortexEngineers.map((engineer) =>
+      route(
+        `/companies/cortex-softsolutions/engineers/${engineer.slug}`,
+        0.6,
+        "monthly"
+      )
+    ),
   ];
 }

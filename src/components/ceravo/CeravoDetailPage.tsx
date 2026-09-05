@@ -73,9 +73,9 @@ export function CeravoDetailPage() {
     <main className="min-h-screen bg-[#d6d4ce] text-[#242421] selection:bg-[#9d9a91]/40">
       <header className="border-b border-[#aaa8a0] px-5 sm:px-8 lg:px-12">
         <div className="mx-auto flex max-w-[1440px] items-center justify-between py-5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#5f5d57]">
-          <Link href="/" className="transition-colors hover:text-[#242421]">← Shathi Group</Link>
+          <Link href="/" className="inline-flex min-h-11 items-center transition-colors hover:text-[#242421]">← Shathi Group</Link>
           <p className="hidden md:block">Premium tiles & ceramic systems</p>
-          <a href="https://www.ceravo.online" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-[#242421]">
+          <a href="https://www.ceravo.online" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center transition-colors hover:text-[#242421]">
             Ceravo.online ↗
           </a>
         </div>

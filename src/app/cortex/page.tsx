@@ -1,25 +1,14 @@
-"use client";
+import type { Metadata } from "next";
+import { CortexPageClient } from "./CortexPageClient";
 
-import { useInquiryButton } from "@/hooks/useInquiryButton";
-import { CortexHero } from "@/components/cortex/CortexHero";
-import { CortexShowcaseBanner } from "@/components/cortex/CortexShowcaseBanner";
-import { CortexAbout } from "@/components/cortex/CortexAbout";
-import { CortexGallery } from "@/components/cortex/CortexGallery";
-import { CortexSlider } from "@/components/cortex/CortexSlider";
+export const metadata: Metadata = {
+  title: "CORTEXIO Softsolutions",
+  description:
+    "CORTEXIO Softsolutions engineers sovereign enterprise platforms, scalable digital systems, and high-performance product experiences.",
+  alternates: { canonical: "/companies/cortex-softsolutions" },
+  robots: { index: false, follow: true },
+};
 
 export default function CortexPage() {
-  const openInquiry = useInquiryButton({
-    id: "cortex-softsolutions",
-    name: "CORTEXIO Softsolutions",
-  });
-
-  return (
-    <main className="min-h-screen bg-[#F7F8FA] text-[#0A0A0A]">
-      <CortexHero onInquiry={openInquiry} />
-      <CortexShowcaseBanner onInquiry={openInquiry} />
-      <CortexAbout />
-      <CortexGallery />
-      <CortexSlider />
-    </main>
-  );
+  return <CortexPageClient />;
 }

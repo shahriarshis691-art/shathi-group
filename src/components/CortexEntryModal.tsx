@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { PerspectiveCard } from "@/components/ui/PerspectiveCard";
 
-const cortexHref = "/cortex";
+const cortexHref = "/companies/cortex-softsolutions";
 const dismissedKey = "cortex-entry-initiative-dismissed";
 
 export function CortexEntryModal() {
@@ -33,6 +33,16 @@ export function CortexEntryModal() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
   }, [isOpen]);
 
   return (
@@ -70,7 +80,7 @@ export function CortexEntryModal() {
                 <button
                   type="button"
                   onClick={dismiss}
-                  className="relative z-20 ml-auto block font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-500 transition hover:text-neutral-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-400"
+                  className="relative z-20 ml-auto block min-h-11 min-w-11 font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-500 transition hover:text-neutral-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-400"
                   aria-label="Close CORTEXIO founder initiative spotlight"
                 >
                   [ESC / CLOSE ×]

@@ -32,7 +32,6 @@ export function FounderSection() {
                     src="/founder-image/founder.png"
                     alt="S M SHAHRIAR WALID - Founder & CEO"
                     fill
-                    priority
                     className="object-cover object-top"
                     sizes="(min-width: 1024px) 420px, 100vw"
                   />

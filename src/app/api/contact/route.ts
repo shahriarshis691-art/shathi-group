@@ -40,8 +40,6 @@ export async function POST(request: Request) {
   }
 
   const payload = body as Partial<B2BInquiryPayload>;
-  console.log("[B2B Inquiry Received]:", payload);
-
   const missingFields = (["fullName", "email", "message"] as const).filter(
     (field) => !readText(payload, field)
   );
@@ -56,13 +54,22 @@ export async function POST(request: Request) {
     );
   }
 
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(readText(payload, "email"))) {
+    return NextResponse.json(
+      { success: false, message: "Please provide a valid email address." },
+      { status: 400 }
+    );
+  }
+
   const timestamp = new Date().toISOString();
 
   if (!process.env.RESEND_API_KEY || !resend) {
-    console.warn("[Email Skipped]: RESEND_API_KEY not configured. Inquiry payload logged:", payload);
     return NextResponse.json(
-      { success: true, message: "Inquiry processed successfully." },
-      { status: 200 }
+      {
+        success: false,
+        message: "Inquiry delivery is temporarily unavailable. Please email info@shathigroup.com directly.",
+      },
+      { status: 503 }
     );
   }
 
@@ -95,8 +102,15 @@ export async function POST(request: Request) {
         html: clientHtml,
       }),
     ]);
-  } catch (error) {
-    console.error("[Email Send Failed]:", error);
+  } catch {
+    console.error("[Email Send Failed]");
+    return NextResponse.json(
+      {
+        success: false,
+        message: "We could not deliver your inquiry. Please try again or email us directly.",
+      },
+      { status: 502 }
+    );
   }
 
   return NextResponse.json(

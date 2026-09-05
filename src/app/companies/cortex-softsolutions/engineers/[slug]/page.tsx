@@ -13,8 +13,22 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const engineer = getCortexEngineer(slug);
 
   return engineer
-    ? { title: `${engineer.name} | CORTEXIO Softsolutions` }
-    : { title: "Engineer Not Found | CORTEXIO Softsolutions" };
+    ? {
+        title: engineer.name,
+        description: engineer.bio,
+        alternates: {
+          canonical: `/companies/cortex-softsolutions/engineers/${engineer.slug}`,
+        },
+        openGraph: {
+          title: `${engineer.name} | CORTEXIO Softsolutions`,
+          description: engineer.bio,
+          images: [{
+            url: engineer.avatar,
+            alt: `${engineer.name}, ${engineer.role}`,
+          }],
+        },
+      }
+    : { title: "Engineer Not Found" };
 }
 
 export default async function CortexEngineerPage({ params }: { params: Promise<{ slug: string }> }) {

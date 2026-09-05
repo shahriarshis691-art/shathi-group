@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue, useReducedMotion, useSpring } from "framer-motion";
 
 type PerspectiveCardProps = {
   children: React.ReactNode;
@@ -17,10 +17,12 @@ export function PerspectiveCard({
 
   const springX = useSpring(rotateX, { damping: 20, stiffness: 200 });
   const springY = useSpring(rotateY, { damping: 20, stiffness: 200 });
+  const shouldReduceMotion = useReducedMotion();
 
   const [pointer, setPointer] = useState({ x: 50, y: 50 });
 
   function handlePointerMove(e: React.PointerEvent<HTMLDivElement>) {
+    if (shouldReduceMotion || e.pointerType !== "mouse") return;
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;

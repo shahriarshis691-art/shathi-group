@@ -36,7 +36,6 @@ export function XeroxiiShowcase() {
               src={watchImage}
               alt="XEROXII Luxury Timepiece"
               fill
-              priority
               className="object-contain drop-shadow-2xl"
               sizes="(min-width: 768px) 420px, (min-width: 640px) 340px, 260px"
             />

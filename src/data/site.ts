@@ -5,10 +5,10 @@ export interface NavItem {
 
 export const navItems: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Businesses", href: "/businesses" },
-  { label: "Leadership", href: "/leadership" },
-  { label: "Contact", href: "/contact" },
+  { label: "About", href: "/#about" },
+  { label: "Businesses", href: "/#businesses" },
+  { label: "Leadership", href: "/#founder" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export const siteConfig = {
@@ -37,7 +37,7 @@ export const siteConfig = {
     "India",
     "trusted brands",
   ],
-  ogImage: "/og-image.jpg",
+  ogImage: "/hero-image/hero.2.jpg",
   language: "en",
   locale: "en_IN",
   email: "info@shathigroup.com",

@@ -2,20 +2,29 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
 import { useInquiryButton } from "@/hooks/useInquiryButton";
 
 const navLinks = [
-  { label: "About Us", href: "/about" },
-  { label: "Our Businesses", href: "/businesses" },
-  { label: "Leadership", href: "/leadership" },
-  { label: "Contact", href: "/contact" },
+  { label: "About Us", href: "/#about" },
+  { label: "Our Businesses", href: "/#businesses" },
+  { label: "Leadership", href: "/#founder" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
   const openInquiry = useInquiryButton();
+  const usesDedicatedBrandHeader =
+    pathname === "/cortex" ||
+    pathname === "/ceravo" ||
+    pathname === "/velorix" ||
+    pathname === "/companies/ceravo-tiles" ||
+    pathname === "/companies/cortex-softsolutions" ||
+    pathname.startsWith("/companies/cortex-softsolutions/engineers/");
 
   useEffect(() => {
     if (!open) return;
@@ -25,6 +34,8 @@ export function Navbar() {
       document.body.style.overflow = original;
     };
   }, [open]);
+
+  if (usesDedicatedBrandHeader) return null;
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-neutral-200 bg-white/80 backdrop-blur-md supports-[backdrop-filter]:bg-white/60">
@@ -60,7 +71,7 @@ export function Navbar() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-md text-neutral-600 transition hover:bg-neutral-100 hover:text-neutral-950 md:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-md text-neutral-600 transition hover:bg-neutral-100 hover:text-neutral-950 md:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="mobile-menu"

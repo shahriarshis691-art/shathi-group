@@ -65,7 +65,6 @@ export function CortexShowcase() {
           alt="CORTEXIO Softsolutions leadership"
           className="object-cover object-top filter grayscale contrast-105 transition-transform duration-700 hover:scale-105"
           fill
-          priority
           sizes="(min-width: 1024px) 47vw, 100vw"
           src="/cortex/image-Picsart-AiImageEnhancer.png"
         />

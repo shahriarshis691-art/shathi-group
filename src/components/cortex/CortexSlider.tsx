@@ -148,7 +148,7 @@ export function CortexSlider() {
                 key={mod.title}
                 type="button"
                 onClick={() => handleManualChange(idx)}
-                className={`transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                className={`inline-flex h-11 w-11 items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] md:h-auto md:w-auto ${
                   idx === active
                     ? "font-bold text-neutral-950 scale-110"
                     : "text-neutral-400 hover:text-neutral-600"
@@ -160,16 +160,10 @@ export function CortexSlider() {
             ))}
           </div>
 
-          <div className="flex items-center gap-4 font-mono text-xs text-neutral-500">
-            <a href="#" className="hover:text-black transition-colors">
-              TW
-            </a>
-            <a href="#" className="hover:text-black transition-colors">
-              IN
-            </a>
-            <a href="#" className="hover:text-black transition-colors">
-              FB
-            </a>
+          <div className="flex items-center gap-4 font-mono text-xs text-neutral-500" aria-label="CORTEXIO social channels coming soon">
+            <span>TW</span>
+            <span>IN</span>
+            <span>FB</span>
           </div>
         </div>
       </div>

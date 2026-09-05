@@ -26,7 +26,7 @@ export function ShisFashionShowcase() {
           href={shisUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-6 inline-block rounded-sm bg-[#FF1818] px-8 py-3.5 font-mono text-xs font-bold uppercase tracking-widest text-white shadow-lg transition-all duration-300 hover:bg-[#D90F0F] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FF1818]"
+          className="mt-6 inline-flex min-h-11 items-center rounded-sm bg-[#FF1818] px-8 py-3.5 font-mono text-xs font-bold uppercase tracking-widest text-white shadow-lg transition-all duration-300 hover:bg-[#D90F0F] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FF1818]"
         >
           Visit Store →
         </a>
@@ -37,7 +37,6 @@ export function ShisFashionShowcase() {
           src="/shis/shis-editorial-model.png"
           alt="SHIS Fashion oversized streetwear editorial"
           fill
-          priority
           sizes="(min-width: 1024px) 58vw, 100vw"
           className="object-contain object-right-bottom"
         />
@@ -56,7 +55,7 @@ export function ShisFashionShowcase() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Explore SHIS jacket details"
-        className="absolute right-[25%] top-[43%] z-20 flex h-9 w-9 items-center justify-center rounded-full border border-white/80 bg-white/35 text-lg text-neutral-900 shadow-sm backdrop-blur-md transition hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-900"
+        className="absolute right-[25%] top-[43%] z-20 flex h-11 w-11 items-center justify-center rounded-full border border-white/80 bg-white/35 text-lg text-neutral-900 shadow-sm backdrop-blur-md transition hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-900"
       >
         <span className="absolute h-full w-full animate-ping rounded-full border border-white/70" aria-hidden="true" />
         <span className="relative">+</span>
@@ -66,7 +65,7 @@ export function ShisFashionShowcase() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Explore SHIS hood details"
-        className="absolute right-[12%] top-[32%] z-20 flex h-8 w-8 items-center justify-center rounded-full border border-white/80 bg-white/35 text-base text-neutral-900 shadow-sm backdrop-blur-md transition hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-900"
+        className="absolute right-[12%] top-[32%] z-20 flex h-11 w-11 items-center justify-center rounded-full border border-white/80 bg-white/35 text-base text-neutral-900 shadow-sm backdrop-blur-md transition hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-900"
       >
         <span className="absolute h-full w-full animate-pulse rounded-full border border-white/70" aria-hidden="true" />
         <span className="relative">+</span>
