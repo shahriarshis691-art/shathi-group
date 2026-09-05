@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const materialSystems = [
   "Porcelain tiles",
@@ -50,14 +51,22 @@ export function CeravoShowcase() {
           finishes, and precision building surfaces crafted for structural longevity and
           luxury interior design.
         </p>
-        <a
-          href="https://www.ceravo.online"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-8 inline-flex w-fit items-center justify-center border border-neutral-950 px-8 py-3.5 font-mono text-xs uppercase tracking-[0.2em] text-neutral-950 transition-all duration-300 hover:bg-neutral-950 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-950"
-        >
-          Visit ceravo.online ↗
-        </a>
+        <div className="mt-8 flex flex-wrap items-center gap-4">
+          <Link
+            href="/ceravo"
+            className="inline-flex items-center justify-center px-8 py-3.5 bg-neutral-950 text-white font-mono text-xs tracking-[0.2em] uppercase hover:bg-neutral-800 transition-all duration-300 shadow-xl"
+          >
+            VIEW DETAILS &amp; COLLECTION →
+          </Link>
+          <a
+            href="https://www.ceravo.online"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-8 py-3.5 border border-neutral-950 text-neutral-950 font-mono text-xs tracking-[0.2em] uppercase hover:bg-neutral-950 hover:text-white transition-all duration-300"
+          >
+            VISIT CERAVO.ONLINE ↗
+          </a>
+        </div>
       </div>
 
       <div className="relative h-full min-h-[450px] w-full overflow-hidden bg-neutral-100 lg:min-h-full lg:basis-[47%]">
