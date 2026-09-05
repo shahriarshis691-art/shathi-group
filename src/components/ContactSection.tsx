@@ -56,10 +56,10 @@ function validate(values: FormState): FormErrors {
 }
 
 const inputBase =
-  "w-full bg-[#0E0F12] border border-neutral-800 px-4 py-3 text-sm text-white placeholder:text-neutral-600 focus:bg-[#15161A] focus:border-white focus:outline-none transition-all duration-200 rounded-none";
+  "w-full bg-[#FAFAFA] border border-neutral-200 px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 focus:bg-white focus:border-neutral-950 focus:outline-none transition-all duration-200 rounded-none";
 
 const inputIdle =
-  "border-neutral-800 hover:border-neutral-600 focus:border-white";
+  "border-neutral-200 hover:border-neutral-400 focus:border-neutral-950";
 const inputError =
   "border-rose-500 focus:border-rose-400";
 
@@ -133,32 +133,32 @@ export function ContactSection() {
     <section
       aria-labelledby="contact-heading"
       id="contact"
-      className="bg-[#0B0C0E]"
+      className="bg-white"
     >
       <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <SlideIn direction="left" className="lg:col-span-4">
             <aside>
-            <div className="border border-neutral-800 bg-[#111215] p-8 md:p-10 rounded-none shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
+            <div className="border border-neutral-200 bg-white p-8 md:p-10 rounded-none">
               <p className="text-[10px] font-mono tracking-[0.25em] text-neutral-500 uppercase mb-2 block">
                 Communication Desk
               </p>
-              <h2 className="font-serif text-2xl md:text-3xl text-neutral-100 tracking-tight font-normal mb-4">
+              <h2 className="font-serif text-2xl md:text-3xl text-neutral-950 tracking-tight font-normal mb-4">
                 Let&apos;s start a conversation.
               </h2>
-              <p className="text-xs md:text-sm text-neutral-400 font-sans leading-relaxed mb-8">
+              <p className="text-xs md:text-sm text-neutral-600 font-sans leading-relaxed mb-8">
                 Reach out for partnerships, media inquiries, or to learn more about
                 any of our businesses. We typically respond within one business day.
               </p>
 
-              <div className="space-y-6 pt-6 border-t border-neutral-800">
+              <div className="space-y-6 pt-6 border-t border-neutral-200">
                 <div className="flex items-start gap-3">
-                  <MapPin className="h-4 w-4 text-neutral-200 mt-0.5 shrink-0" aria-hidden />
+                  <MapPin className="h-4 w-4 text-neutral-900 mt-0.5 shrink-0" aria-hidden />
                   <div>
                     <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-500 block mb-1">
                       Address
                     </p>
-                    <p className="text-sm font-medium text-neutral-100 leading-snug">
+                    <p className="text-sm font-medium text-neutral-950 leading-snug">
                       SHATHI Tower, Corporate Park,
                       <br />
                       Main Business District,
@@ -169,14 +169,14 @@ export function ContactSection() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Mail className="h-4 w-4 text-neutral-200 mt-0.5 shrink-0" aria-hidden />
+                  <Mail className="h-4 w-4 text-neutral-900 mt-0.5 shrink-0" aria-hidden />
                   <div>
                     <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-500 block mb-1">
                       Inquiries
                     </p>
                     <a
                       href="mailto:info@shathigroup.com"
-                      className="text-sm font-medium text-neutral-100 leading-snug hover:text-white transition-colors"
+                      className="text-sm font-medium text-neutral-950 leading-snug hover:text-neutral-600 transition-colors"
                     >
                       info@shathigroup.com
                     </a>
@@ -184,14 +184,14 @@ export function ContactSection() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Phone className="h-4 w-4 text-neutral-200 mt-0.5 shrink-0" aria-hidden />
+                  <Phone className="h-4 w-4 text-neutral-900 mt-0.5 shrink-0" aria-hidden />
                   <div>
                     <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-500 block mb-1">
                       Direct Line
                     </p>
                     <a
                       href="tel:+910000000000"
-                      className="text-sm font-medium text-neutral-100 leading-snug hover:text-white transition-colors"
+                      className="text-sm font-medium text-neutral-950 leading-snug hover:text-neutral-600 transition-colors"
                     >
                       +91 00000 00000
                     </a>
@@ -206,7 +206,7 @@ export function ContactSection() {
             <form
               noValidate
               onSubmit={handleSubmit}
-              className="border border-neutral-800 bg-[#111215] p-8 md:p-10 rounded-none shadow-[0_2px_10px_rgba(0,0,0,0.02)]"
+              className="border border-neutral-200 bg-white p-8 md:p-10 rounded-none"
               aria-label="Contact form"
             >
               <div className="grid gap-5 sm:grid-cols-2">
@@ -232,7 +232,7 @@ export function ContactSection() {
                   {errors.name && (
                     <p
                       id="name-error"
-                      className="mt-1.5 text-xs font-medium text-rose-500"
+                      className="mt-1.5 text-xs font-medium text-rose-600"
                     >
                       {errors.name}
                     </p>
@@ -261,7 +261,7 @@ export function ContactSection() {
                   {errors.email && (
                     <p
                       id="email-error"
-                      className="mt-1.5 text-xs font-medium text-rose-500"
+                      className="mt-1.5 text-xs font-medium text-rose-600"
                     >
                       {errors.email}
                     </p>
@@ -285,7 +285,7 @@ export function ContactSection() {
                       errors.concern ? "concern-error" : undefined
                     }
                     className={`${inputBase} ${errors.concern ? inputError : inputIdle} ${
-                      values.concern === "" ? "text-neutral-600" : "text-white"
+                      values.concern === "" ? "text-neutral-400" : "text-neutral-900"
                     }`}
                   >
                     <option value="" disabled>
@@ -301,7 +301,7 @@ export function ContactSection() {
                   {errors.concern && (
                     <p
                       id="concern-error"
-                      className="mt-1.5 text-xs font-medium text-rose-500"
+                      className="mt-1.5 text-xs font-medium text-rose-600"
                     >
                       {errors.concern}
                     </p>
@@ -331,7 +331,7 @@ export function ContactSection() {
                   {errors.message && (
                     <p
                       id="message-error"
-                      className="mt-1.5 text-xs font-medium text-rose-500"
+                      className="mt-1.5 text-xs font-medium text-rose-600"
                     >
                       {errors.message}
                     </p>
@@ -344,7 +344,7 @@ export function ContactSection() {
                   {status === "success" ? (
                     <p
                       role="status"
-                      className="inline-flex items-center gap-2 text-sm font-medium text-emerald-500"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-emerald-700"
                     >
                       <CheckCircle2 className="h-4 w-4" aria-hidden />
                       Thanks — your message has been received.
@@ -355,7 +355,7 @@ export function ContactSection() {
                     </p>
                   )}
                   {status === "error" && serverMessage ? (
-                    <p role="alert" className="mt-2 text-sm text-rose-500">
+                    <p role="alert" className="mt-2 text-sm text-rose-600">
                       {serverMessage}
                     </p>
                   ) : null}
@@ -364,12 +364,12 @@ export function ContactSection() {
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 bg-white text-black text-xs font-mono tracking-[0.2em] uppercase hover:bg-neutral-200 transition-colors duration-200 rounded-none mt-2 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 bg-neutral-950 text-white text-xs font-mono tracking-[0.2em] uppercase hover:bg-neutral-800 transition-colors duration-200 rounded-none mt-2 disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {status === "submitting" ? (
                     <>
                       <span
-                        className="h-4 w-4 animate-spin rounded-full border-2 border-black border-t-transparent"
+                        className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"
                         aria-hidden="true"
                       />
                       Sending…

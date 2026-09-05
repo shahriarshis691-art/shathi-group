@@ -82,12 +82,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${jakarta.variable} ${display.variable}`}>
-      <body className="flex min-h-screen flex-col bg-[#080808] text-neutral-100 antialiased font-sans relative overflow-x-hidden">
-        <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-          <div className="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-white/[0.02] blur-3xl" />
-          <div className="absolute top-1/3 -right-40 h-[600px] w-[600px] rounded-full bg-white/[0.02] blur-3xl" />
-          <div className="absolute -bottom-40 left-1/3 h-[500px] w-[500px] rounded-full bg-white/[0.02] blur-3xl" />
-        </div>
+      <body className="flex min-h-screen flex-col bg-white text-neutral-950 antialiased font-sans relative overflow-x-hidden">
         <SmoothScrollProvider>
           <Navbar />
           <div className="flex-1">{children}</div>

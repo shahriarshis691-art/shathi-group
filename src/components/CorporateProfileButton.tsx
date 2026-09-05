@@ -45,7 +45,7 @@ export function CorporateProfileButton() {
         type="button"
         onClick={handleDownload}
         disabled={state === "checking"}
-        className={`${baseButton} bg-neutral-900 text-white hover:bg-neutral-800 border border-neutral-800`}
+        className={`${baseButton} bg-neutral-950 text-white hover:bg-neutral-800 border border-neutral-900`}
       >
         {state === "checking" ? (
           <>
@@ -64,11 +64,11 @@ export function CorporateProfileButton() {
       </button>
 
       {state === "missing" ? (
-        <p className="max-w-md font-sans text-sm md:text-[15px] font-normal leading-relaxed text-neutral-400">
+        <p className="max-w-md font-sans text-sm md:text-[15px] font-normal leading-relaxed text-neutral-600">
           The corporate profile PDF is being updated.{" "}
           <a
             href={`mailto:${siteConfig.email}?subject=Corporate Profile Request`}
-            className="font-medium text-neutral-200 underline decoration-neutral-700 underline-offset-2 decoration-2 hover:text-white"
+            className="font-medium text-neutral-950 underline decoration-neutral-300 underline-offset-2 decoration-2 hover:text-neutral-700"
           >
             Request it via email
           </a>
