@@ -8,6 +8,7 @@ import { CortexEntryModal } from "@/components/CortexEntryModal";
 import { CortexShowcase } from "@/components/CortexShowcase";
 import { ShisFashionShowcase } from "@/components/ShisFashionShowcase";
 import { XeroxiiShowcase } from "@/components/XeroxiiShowcase";
+import { CeravoShowcase } from "@/components/CeravoShowcase";
 import { VelorixShowcase } from "@/components/VelorixShowcase";
 
 export default function Home() {
@@ -15,9 +16,10 @@ export default function Home() {
     <main className="overflow-x-hidden bg-transparent">
       <HeroSection />
       <CortexShowcase />
-      <ShisFashionShowcase />
-      <XeroxiiShowcase />
-      <StatsSection />
+        <ShisFashionShowcase />
+        <XeroxiiShowcase />
+        <CeravoShowcase />
+        <StatsSection />
       <AboutSection />
       <BusinessGrid />
       <VelorixShowcase />
