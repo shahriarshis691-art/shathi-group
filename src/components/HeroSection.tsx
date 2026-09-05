@@ -24,7 +24,7 @@ export function HeroSection() {
         contentClassName="relative h-full"
       >
         <Image
-          src="/cortex/hero.png"
+          src="/hero-image/shathi-group-homepage-hero-image.png.jpg"
           alt="Shathi Group Corporate Overview"
           fill
           priority
