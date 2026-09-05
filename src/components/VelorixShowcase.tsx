@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 const performanceSpecs = [
   { label: "ACCELERATION", value: "1.9s", sub: "0-100 km/h" },
@@ -15,18 +16,21 @@ export function VelorixShowcase() {
       aria-labelledby="velorix-showcase-heading"
       className="relative flex min-h-screen w-full flex-col justify-between overflow-hidden bg-gradient-to-b from-[#F2F4F7] via-[#E8ECF2] to-[#DDE2EA] px-6 py-12 text-neutral-950 select-none sm:px-12 lg:px-20 border-b border-neutral-300"
     >
+      <h2 id="velorix-showcase-heading" className="sr-only">
+        Velorix Motors — Autonomous Mobility Architecture
+      </h2>
       <div
         className="pointer-events-none absolute inset-0 z-0 opacity-75"
         style={{
           background:
-            "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.9) 0%, rgba(220,225,235,0.4) 70%)",
+            "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.95) 0%, rgba(220,225,235,0.4) 70%)",
         }}
         aria-hidden="true"
       />
 
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center font-display text-7xl font-black tracking-tight text-neutral-300/70 sm:text-9xl md:text-[160px]"
+        className="pointer-events-none absolute left-1/2 top-1/2 z-0 -translate-x-1/2 -translate-y-1/2 select-none font-display text-7xl font-black tracking-tight text-neutral-300/80 sm:text-9xl md:text-[160px]"
       >
         VELORIX
       </span>
@@ -34,7 +38,7 @@ export function VelorixShowcase() {
       <header className="relative z-10 flex items-center justify-between">
         <span className="flex items-center gap-2 font-mono text-[11px] tracking-[0.3em] uppercase text-neutral-500">
           <span
-            className="h-2 w-2 rounded-full bg-cyan-500 animate-pulse"
+            className="h-2 w-2 rounded-full bg-cyan-500 shadow-[0_0_12px_rgba(6,182,212,0.8)] animate-pulse"
             aria-label="active"
           />
           <span>{"// AUTONOMOUS MOBILITY ARCHITECTURE"}</span>
@@ -90,12 +94,22 @@ export function VelorixShowcase() {
           ))}
         </div>
 
-        <a
-          href="#contact"
-          className="inline-flex items-center justify-center gap-3 rounded-full bg-neutral-950 px-8 py-3.5 text-white shadow-xl font-mono text-xs tracking-[0.2em] uppercase hover:bg-neutral-800 transition-all duration-300"
-        >
-          EXPLORE SPECS →
-        </a>
+        <div className="flex flex-col items-center gap-3 sm:flex-row">
+          <Link
+            href="/velorix"
+            className="inline-flex items-center justify-center rounded-full bg-neutral-950 px-8 py-3.5 font-mono text-xs uppercase tracking-[0.2em] text-white shadow-xl transition-all hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-950"
+          >
+            Explore vehicle →
+          </Link>
+          <a
+            href="https://www.velorixmotors.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-full border border-neutral-400 bg-white/80 px-8 py-3.5 font-mono text-xs uppercase tracking-[0.2em] text-neutral-950 backdrop-blur-md transition-all hover:bg-neutral-950 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-950"
+          >
+            Visit website ↗
+          </a>
+        </div>
       </footer>
     </section>
   );
