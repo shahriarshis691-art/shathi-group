@@ -14,27 +14,32 @@ export function HeroSection() {
     <section
       ref={heroRef}
       aria-labelledby="hero-heading"
-      className="relative overflow-hidden bg-[#0B0C0E] pt-28 pb-20 sm:pt-32 sm:pb-28 lg:pt-36 lg:pb-36"
+      className="relative w-full min-h-screen overflow-hidden flex items-center"
     >
       <ParallaxContainer
         target={heroRef}
         depth="background"
-        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+        className="pointer-events-none absolute inset-0 -z-10"
         planeClassName="h-full"
         contentClassName="relative h-full"
       >
-        <div className="absolute -top-40 -right-40 h-[600px] w-[600px] rounded-full bg-white/[0.03] blur-3xl" />
-        <div className="absolute top-1/2 -left-32 h-[400px] w-[400px] rounded-full bg-white/[0.03] blur-3xl" />
-        <p className="absolute -right-8 bottom-0 font-serif text-[9rem] font-bold tracking-[0.2em] text-white/[0.03] sm:text-[13rem]" aria-hidden="true">
-          SHATHI
-        </p>
+        <Image
+          src="/download (70).jpg"
+          alt="Shathi Group Corporate Architecture"
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
       </ParallaxContainer>
 
-      <div className="container-corporate relative">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 items-center">
-          <SlideIn direction="left" className="lg:col-span-6">
+      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/55 to-[#080808] z-10" />
+
+      <div className="relative z-20 w-full">
+        <div className="container-corporate">
+          <SlideIn direction="left" className="max-w-3xl">
             <ParallaxContainer target={heroRef} depth="foreground" yRange={[-18, 32]}>
-              <div className="flex items-center gap-3 text-neutral-400">
+              <div className="flex items-center gap-3 text-neutral-300">
                 <Building2 className="h-8 w-8" aria-hidden />
                 <span className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em]">
                   SHATHI Group
@@ -48,7 +53,7 @@ export function HeroSection() {
                 SHATHI Group of Companies
               </h1>
 
-              <p className="mt-6 max-w-2xl font-sans text-base leading-relaxed text-neutral-400 sm:text-lg text-balance">
+              <p className="mt-6 max-w-2xl font-sans text-base leading-relaxed text-neutral-300 sm:text-lg text-balance">
                 A diversified portfolio of trusted businesses — built on integrity,
                 driven by innovation, and focused on long-term value.
               </p>
@@ -72,31 +77,6 @@ export function HeroSection() {
 
               <div className="mt-10">
                 <CorporateProfileButton />
-              </div>
-            </ParallaxContainer>
-          </SlideIn>
-
-          <SlideIn direction="right" delay={0.1} className="lg:col-span-6">
-            <ParallaxContainer
-              target={heroRef}
-              depth="midground"
-              yRange={[-28, 28]}
-              scaleRange={[1, 1.08]}
-              interactive
-            >
-              <div className="relative mx-auto max-w-lg lg:max-w-none">
-                <div className="absolute -inset-4 -z-10 rounded-[3rem] bg-white/[0.03] blur-2xl" aria-hidden="true" />
-                <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-neutral-900 shadow-2xl aspect-[4/3] md:aspect-[5/4]">
-                  <Image
-                    src="/founder-image/founder.png"
-                    alt="SHATHI Group executive leadership"
-                    fill
-                    priority
-                    className="object-cover"
-                    sizes="(min-width: 1024px) 50vw, 100vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" aria-hidden="true" />
-                </div>
               </div>
             </ParallaxContainer>
           </SlideIn>
