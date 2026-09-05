@@ -1,5 +1,4 @@
 import { Award, Building2, HeartHandshake, MapPin } from "lucide-react";
-import Image from "next/image";
 import { SlideIn, type SlideDirection } from "@/components/ui/ScrollReveal";
 import { ParallaxContainer } from "@/components/ui/ParallaxContainer";
 
@@ -66,20 +65,6 @@ export function StatsSection() {
             </SlideIn>
           );
         })}
-      </div>
-
-      <div className="relative mx-auto mt-12 max-w-7xl px-6">
-        <SlideIn direction="up" delay={0.2}>
-          <div className="overflow-hidden rounded-sm border border-neutral-200">
-            <Image
-              src="/Headquarters of Fran Silvestre Arquitectos.jpg"
-              alt="Engineering & Architectural Standards"
-              width={800}
-              height={600}
-              className="w-full h-auto object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-700"
-            />
-          </div>
-        </SlideIn>
       </div>
     </section>
   );
