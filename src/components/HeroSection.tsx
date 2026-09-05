@@ -23,18 +23,17 @@ export function HeroSection() {
         planeClassName="h-full"
         contentClassName="relative h-full"
       >
-        <div className="absolute inset-0 z-0 overflow-hidden bg-neutral-950 flex items-center justify-center">
+        <div className="absolute inset-0 z-0 overflow-hidden bg-neutral-950">
           {/* Ambient background glow to eliminate hard borders */}
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center blur-2xl opacity-40 scale-110"
             style={{ backgroundImage: `url('/hero-image/hero.png')` }}
           />
 
-          {/* Full original image rendered without cropping */}
-          <div className="relative w-full h-full max-w-7xl mx-auto flex items-center justify-end md:justify-center">
+          <div className="relative w-full h-full 2xl:max-w-[1440px] 2xl:mx-auto">
             <Image
               alt="Shathi Group Architectural Perspective"
-              className="object-contain object-right md:object-center drop-shadow-2xl"
+              className="object-cover object-top sm:object-[center_25%] brightness-[0.88] contrast-[1.05]"
               fill
               priority
               sizes="100vw"
@@ -42,8 +41,9 @@ export function HeroSection() {
             />
           </div>
 
-          {/* Editorial dark overlay for typography contrast */}
-          <div className="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-950/70 to-neutral-950/40" />
+          {/* Vignette & gradient scrim to anchor typography and avoid flat blow-up */}
+          <div className="absolute inset-0 bg-gradient-to-r from-neutral-950/75 via-neutral-950/40 to-transparent" />
+          <div className="absolute inset-0 bg-neutral-950/25" />
         </div>
       </ParallaxContainer>
 
@@ -51,7 +51,7 @@ export function HeroSection() {
         <div className="container-corporate">
           <SlideIn direction="left" className="max-w-3xl">
             <ParallaxContainer target={heroRef} depth="foreground" yRange={[-18, 32]}>
-              <div className="flex items-center gap-3 text-neutral-600">
+              <div className="flex items-center gap-3 text-neutral-300">
                 <Building2 className="h-8 w-8" aria-hidden />
                 <span className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em]">
                   SHATHI Group
@@ -60,12 +60,12 @@ export function HeroSection() {
 
               <h1
                 id="hero-heading"
-                className="mt-6 font-serif text-4xl font-bold tracking-tight text-neutral-950 sm:text-5xl lg:text-6xl text-balance"
+                className="mt-6 font-serif text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl text-balance"
               >
                 SHATHI Group of Companies
               </h1>
 
-              <p className="mt-6 max-w-2xl font-sans text-base leading-relaxed text-neutral-600 sm:text-lg text-balance">
+              <p className="mt-6 max-w-2xl font-sans text-base leading-relaxed text-neutral-200 sm:text-lg text-balance">
                 A diversified portfolio of trusted businesses — built on integrity,
                 driven by innovation, and focused on long-term value.
               </p>
