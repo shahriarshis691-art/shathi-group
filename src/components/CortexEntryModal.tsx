@@ -61,24 +61,24 @@ export function CortexEntryModal() {
               >
                 <Link
                   href={cortexHref}
-                  aria-label="Explore the Cortex Soft Solutions founder initiative"
+                  aria-label="Explore the CORTEXIO Softsolutions founder initiative"
                   onClick={dismiss}
                   className="absolute inset-0 z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-neutral-400"
                 >
-                  <span className="sr-only">Explore the Cortex founder initiative</span>
+                  <span className="sr-only">Explore the CORTEXIO founder initiative</span>
                 </Link>
                 <button
                   type="button"
                   onClick={dismiss}
                   className="relative z-20 ml-auto block font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-500 transition hover:text-neutral-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-400"
-                  aria-label="Close Cortex founder initiative spotlight"
+                  aria-label="Close CORTEXIO founder initiative spotlight"
                 >
                   [ESC / CLOSE ×]
                 </button>
 
                 <div className="relative z-0 mt-8 pointer-events-none">
                   <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-neutral-500">
-                    Exclusive Initiative // Cortex Soft Solutions
+                    Exclusive Initiative // CORTEXIO Softsolutions
                   </p>
                   <p className="mt-5 inline-flex border border-neutral-200 bg-neutral-50 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-700">
                     Strict limit: 10 applicants only

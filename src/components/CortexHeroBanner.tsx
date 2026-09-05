@@ -9,7 +9,7 @@ const cortexHref = "/cortex";
 
 export function CortexHeroBanner() {
   return (
-    <section aria-label="Cortex Soft Solutions founder initiative" className="bg-white">
+    <section aria-label="CORTEXIO Softsolutions founder initiative" className="bg-white">
       <div className="mx-auto max-w-7xl px-6 py-8">
         <SlideIn direction="up" distance={48}>
           <PerspectiveCard>
@@ -17,7 +17,7 @@ export function CortexHeroBanner() {
               <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
                 <div>
                   <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-neutral-500">
-                    Exclusive Initiative // Cortex Soft Solutions
+                    Exclusive Initiative // CORTEXIO Softsolutions
                   </p>
                   <h2 className="mt-3 max-w-3xl font-serif text-2xl tracking-tight text-neutral-950 md:text-3xl">
                     Empowering Tomorrow&apos;s Founders: Zero Recurring Tech

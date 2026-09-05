@@ -1,44 +1,37 @@
-export interface Education {
+export interface CortexEducation {
   degree: string;
   institution: string;
   year: string;
-  details: string;
+  focus: string;
 }
 
-export interface Experience {
+export interface CortexExperience {
   role: string;
   company: string;
   period: string;
   highlights: string[];
 }
 
-export interface Project {
+export interface CortexProject {
   title: string;
-  type: string;
+  category: string;
   description: string;
-  metrics: string;
+  metrics: string[];
   image: string;
-  tags: string[];
-}
-
-export interface AccordionItem {
-  title: string;
-  content: string;
+  demoUrl: string;
 }
 
 export interface CortexEngineer {
   slug: string;
   name: string;
   role: string;
-  tag: string;
-  badge: string;
-  clientMessage: string;
+  titleTag: string;
+  avatar: string;
   bio: string;
-  image: string;
-  education: Education[];
-  experience: Experience[];
-  projects: Project[];
-  accordionItems: AccordionItem[];
+  stack: string[];
+  education: CortexEducation[];
+  experience: CortexExperience[];
+  projects: CortexProject[];
 }
 
 export const cortexEngineers: CortexEngineer[] = [
@@ -46,401 +39,92 @@ export const cortexEngineers: CortexEngineer[] = [
     slug: "ryan-vance",
     name: "Dr. Ryan Vance",
     role: "Principal Distributed Systems Architect",
-    tag: "DISTRIBUTED SYSTEMS",
-    badge: "01 // CLOUD ARCHITECTURE",
-    clientMessage:
-      "We architect software that guarantees 99.99% uptime while eliminating unnecessary licensing overhead.",
-    image: "/cortex/engineers/ryan-vance.png",
-    bio: "Dr. Ryan Vance is a principal distributed systems architect with over fourteen years of experience designing fault-tolerant cloud infrastructure at planetary scale. After completing his PhD at Cambridge on consensus algorithms for geo-replicated data stores, he joined AWS where he led the architecture of several foundational services used by millions of developers worldwide. At CORTEX, Ryan translates that pedigree into bespoke distributed platforms that keep mission-critical enterprise systems running with uncompromising consistency and sub-millisecond latency.",
-    accordionItems: [
-      {
-        title: "Technical Core",
-        content:
-          "Consensus algorithms, CRDTs, distributed event mesh design, fault-tolerant control planes, and formal verification with TLA+.",
-      },
-      {
-        title: "Past Engagements",
-        content:
-          "AWS Step Functions and EventBridge, Microsoft Research Azure Cosmos DB, and 200+ enterprise client architectures at CORTEX.",
-      },
-      {
-        title: "Direct Portfolio Route",
-        content: "/companies/cortex-softsolutions/engineers/ryan-vance",
-      },
-    ],
+    titleTag: "[ ARCHITECTURE // CORE ]",
+    avatar: "/cortex/engineers/ryan-vance.png",
+    bio: "Ryan designs the durable computational foundations behind CORTEXIO Softsolutions engagements. His work turns fragmented enterprise operations into observable, fault-tolerant platforms where data, events, and teams can move independently without losing control.",
+    stack: ["Kubernetes", "Kafka", "Go", "PostgreSQL", "OpenTelemetry"],
     education: [
-      {
-        degree: "PhD in Computer Science",
-        institution: "University of Cambridge",
-        year: "2012",
-        details: "Dissertation on consensus algorithms for geo-replicated data stores; introduced optimisations later adopted in production distributed databases.",
-      },
-      {
-        degree: "MEng in Computer Science",
-        institution: "University of Cambridge",
-        year: "2008",
-        details: "First-class honours; specialised in distributed computing, formal verification, and large-scale systems design.",
-      },
+      { degree: "PhD, Computer Science", institution: "University of Cambridge", year: "2013", focus: "Distributed consensus and replicated state machines" },
+      { degree: "MEng, Information Engineering", institution: "University of Cambridge", year: "2009", focus: "Systems architecture" },
     ],
     experience: [
-      {
-        role: "Principal Distributed Systems Architect",
-        company: "CORTEX Soft Solutions",
-        period: "2021 – Present",
-        highlights: [
-          "Leads architecture for CORTEXOS unified platform, serving 200+ enterprise clients across 12 regions.",
-          "Designed a custom distributed event mesh handling 2.4M events per second with zero data loss.",
-          "Mentors a team of twelve senior engineers on eventual consistency, CRDTs, and saga orchestration.",
-        ],
-      },
-      {
-        role: "Senior Principal Engineer",
-        company: "Amazon Web Services (AWS)",
-        period: "2015 – 2021",
-        highlights: [
-          "Architected core services for AWS Step Functions and EventBridge, processing trillions of events annually.",
-          "Authored internal design docs on idempotency patterns still used across AWS serverless platforms.",
-          "Led the migration of a critical control plane from monolith to micro-frontends, reducing deployment risk by 40 percent.",
-        ],
-      },
-      {
-        role: "Research Engineer",
-        company: "Microsoft Research",
-        period: "2012 – 2015",
-        highlights: [
-          "Contributed to early Azure Cosmos DB research on multi-master replication and tunable consistency.",
-          "Published three peer-reviewed papers on distributed consensus and failure recovery in cloud environments.",
-        ],
-      },
+      { role: "Principal Distributed Systems Architect", company: "CORTEXIO Softsolutions", period: "2022 — Present", highlights: ["Leads sovereign platform architecture for multi-entity enterprises", "Establishes reliability and data-governance operating models"] },
+      { role: "Senior Principal Engineer", company: "AWS", period: "2015 — 2022", highlights: ["Designed event-processing patterns for globally distributed workloads", "Advised enterprise teams on resilience and migration strategy"] },
+      { role: "Systems Research Fellow", company: "Cambridge Systems Lab", period: "2010 — 2015", highlights: ["Published research on state replication and recovery protocols"] },
     ],
     projects: [
-      {
-        title: "CortexOS Event Mesh",
-        type: "Custom Enterprise Platform",
-        description:
-          "A globally distributed event-driven backbone enabling real-time data synchronisation between ERP, CRM, and ML pipelines across enterprise clients.",
-        metrics: "2.4M events/sec • 12 regions • 99.999% availability SLA",
-        image: "/cortex/engineers/ryan-vance.png",
-        tags: ["Distributed Systems", "Event Streaming", "Kafka", "Go"],
-      },
-      {
-        title: "Geo-Replicated Control Plane",
-        type: "SaaS System",
-        description:
-          "A multi-region control plane with automatic failover, quorum-based writes, and conflict-free replicated data types for offline-capable SaaS modules.",
-        metrics: "Sub-50ms p99 latency • Zero-downtime region failover",
-        image: "/cortex/engineers/ryan-vance.png",
-        tags: ["CRDT", "Multi-Region", "TypeScript", "Kubernetes"],
-      },
-      {
-        title: "Formal Verification Suite",
-        type: "Custom Software",
-        description:
-          "An internal toolchain that applies TLA+ model checking to infrastructure-as-code templates before production deployment.",
-        metrics: "38 critical race conditions caught pre-production in the first year",
-        image: "/cortex/engineers/ryan-vance.png",
-        tags: ["TLA+", "Infrastructure", "DevOps", "Safety"],
-      },
+      { title: "Atlas Operations Mesh", category: "Enterprise ERP", description: "A modular operating backbone that joined finance, logistics, and customer events across a regional group of companies.", metrics: ["42 services", "99.99% target availability", "18 country operations"], image: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?auto=format&fit=crop&w=1400&q=80", demoUrl: "/cortex" },
+      { title: "Signal Ledger", category: "Real-time data platform", description: "An auditable event ledger for high-volume operational decisions, designed for independent domain ownership.", metrics: ["8.4M events / day", "<120ms median latency", "Full lineage"], image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80", demoUrl: "/cortex" },
     ],
   },
   {
     slug: "sofia-lin",
     name: "Sofia Lin",
-    role: "VP of Cloud Infrastructure",
-    tag: "CLOUD INFRASTRUCTURE",
-    badge: "02 // CLOUD INFRASTRUCTURE",
-    clientMessage:
-      "We run enterprise-grade infrastructure so your teams can ship faster, with fewer outages and predictable cloud spend.",
-    image: "/cortex/engineers/sofia-lin.png",
-    bio: "Sofia Lin is the VP of Cloud Infrastructure at CORTEX Soft Solutions, bringing a decade of large-scale platform engineering from Google Cloud and a deep conviction that infrastructure should be invisible, self-healing, and cost-predictable. With a master's degree from Stanford and a background spanning exascale compute clusters to serverless abstraction layers, Sofia architects the compute and storage foundations on which every CORTEX client platform is built.",
-    accordionItems: [
-      {
-        title: "Technical Core",
-        content:
-          "Multi-cloud abstraction, autoscaling primitives, FinOps orchestration, zero-trust network fabrics, and confidential computing.",
-      },
-      {
-        title: "Past Engagements",
-        content:
-          "Google Kubernetes Engine at Google Cloud, Airbnb service reliability, and a global 18,000+ node fleet managed at CORTEX.",
-      },
-      {
-        title: "Direct Portfolio Route",
-        content: "/companies/cortex-softsolutions/engineers/sofia-lin",
-      },
-    ],
+    role: "VP, Cloud Engineering & Infrastructure",
+    titleTag: "[ CLOUD // RESILIENCE ]",
+    avatar: "/cortex/engineers/sofia-lin.png",
+    bio: "Sofia directs cloud engineering with an emphasis on operational clarity: infrastructure must be secure, explainable, and inexpensive to evolve. She helps CORTEXIO Softsolutions clients retain architectural freedom while keeping high-performance systems easy to run.",
+    stack: ["Terraform", "GCP", "AWS", "Istio", "Grafana"],
     education: [
-      {
-        degree: "MS in Computer Science",
-        institution: "Stanford University",
-        year: "2013",
-        details: "Concentration in cloud computing and resource management; thesis on autoscaling heuristics for heterogeneous compute fleets.",
-      },
-      {
-        degree: "BS in Electrical Engineering & Computer Sciences",
-        institution: "University of California, Berkeley",
-        year: "2011",
-        details: "Graduated with honours; led the university's student cluster computing team to two national championships.",
-      },
+      { degree: "MS, Computer Science", institution: "Stanford University", year: "2012", focus: "Reliable distributed infrastructure" },
+      { degree: "BS, Electrical Engineering", institution: "UC Berkeley", year: "2010", focus: "Networks and systems" },
     ],
     experience: [
-      {
-        role: "VP of Cloud Infrastructure",
-        company: "CORTEX Soft Solutions",
-        period: "2020 – Present",
-        highlights: [
-          "Owns a global fleet of 18,000+ compute nodes across AWS, Azure, and GCP with 99.98% uptime.",
-          "Reduced annual cloud expenditure by 28 percent through workload rightsizing and spot-instance orchestration.",
-          "Pioneered an internal FinOps practice now embedded in every client delivery team.",
-        ],
-      },
-      {
-        role: "Senior Staff Infrastructure Engineer",
-        company: "Google Cloud",
-        period: "2015 – 2020",
-        highlights: [
-          "Designed autoscaling and load-balancing primitives for Google Kubernetes Engine serving over one billion requests daily.",
-          "Led the confidential computing launch programme, integrating Trusted Execution Environments into GKE node pools.",
-          "Authored Google's public cloud reliability playbook for multi-tenant control planes.",
-        ],
-      },
-      {
-        role: "Cloud Reliability Engineer",
-        company: "Airbnb",
-        period: "2013 – 2015",
-        highlights: [
-          "Built the first service-level-objective framework that aligned engineering KPIs with business outcomes.",
-          "Introduced chaos engineering practices that reduced mean time to recovery by 60 percent.",
-        ],
-      },
+      { role: "VP, Cloud Engineering & Infrastructure", company: "CORTEXIO Softsolutions", period: "2021 — Present", highlights: ["Builds zero-trust, observable foundation layers", "Leads cloud cost and reliability reviews for portfolio companies"] },
+      { role: "Engineering Director", company: "Google Cloud", period: "2014 — 2021", highlights: ["Guided enterprise cloud adoption programs", "Established platform reliability practices across global teams"] },
+      { role: "Infrastructure Engineer", company: "ScaleGrid Labs", period: "2012 — 2014", highlights: ["Developed automated environment provisioning and monitoring"] },
     ],
     projects: [
-      {
-        title: "Cortex Hybrid Cloud Mesh",
-        type: "ERP Integration",
-        description:
-          "A unified control plane that abstracts AWS, Azure, and GCP into a single provisioning, observability, and governance layer for CORTEX clients.",
-        metrics: "18,000+ nodes managed • 3 cloud providers • 28% cost reduction",
-        image: "/cortex/engineers/sofia-lin.png",
-        tags: ["Multi-Cloud", "Terraform", "FinOps", "Go"],
-      },
-      {
-        title: "Zero-Trust Network Fabric",
-        type: "SaaS System",
-        description:
-          "A software-defined perimeter replacing VPNs with identity-aware microsegmentation and just-in-time access for hybrid engineering teams.",
-        metrics: "Zero breaches in 3 years • 40,000+ daily access grants",
-        image: "/cortex/engineers/sofia-lin.png",
-        tags: ["Zero Trust", "Security", "Networking", "Envoy"],
-      },
-      {
-        title: "Real-Time Cost Intelligence",
-        type: "Custom Software",
-        description:
-          "An internal ERP-grade dashboard that correlates infrastructure telemetry with unit economics, alerting engineering leads before budgets deviate.",
-        metrics: "$4.2M avoided overspend in the first eighteen months",
-        image: "/cortex/engineers/sofia-lin.png",
-        tags: ["Analytics", "ERP", "FinOps", "Python"],
-      },
+      { title: "Northstar Control Plane", category: "Cloud platform", description: "A unified control plane that gives business units safe self-service environments without decentralising governance.", metrics: ["63% faster provisioning", "Policy-as-code", "Unified observability"], image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1400&q=80", demoUrl: "/cortex" },
+      { title: "Harbour Resilience Program", category: "Infrastructure modernisation", description: "A staged replatforming program that retired brittle hosting dependencies while maintaining continuous service.", metrics: ["Zero planned downtime", "41% lower run cost", "Multi-region recovery"], image: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?auto=format&fit=crop&w=1400&q=80", demoUrl: "/cortex" },
     ],
   },
   {
     slug: "marcus-sterling",
     name: "Marcus Sterling",
-    role: "Chief AI & ML Specialist",
-    tag: "AI & MACHINE LEARNING",
-    badge: "03 // AI & MACHINE LEARNING",
-    clientMessage:
-      "We embed production-grade AI directly into your workflows—cutting costs by over 60% while raising accuracy to enterprise-grade levels.",
-    image: "/cortex/engineers/marcus-sterling.png",
-    bio: "Marcus Sterling is CORTEX's Chief AI & ML Specialist, a researcher-engineer who bridges the gap between frontier model development and production-grade inference systems. Trained at MIT and shaped by DeepMind's most demanding research programmes, Marcus now leads the design of CORTEX's AI microservices layer — the engine behind predictive analytics, autonomous workflow agents, and natural-language interfaces embedded in every client engagement.",
-    accordionItems: [
-      {
-        title: "Technical Core",
-        content:
-          "Neural architecture search, efficient inference, quantisation, dynamic batching, multi-agent orchestration, and MLOps pipelines.",
-      },
-      {
-        title: "Past Engagements",
-        content:
-          "DeepMind AlphaFold and data-centre cooling RL, OpenAI early safety research, and AI microservices for 200+ CORTEX clients.",
-      },
-      {
-        title: "Direct Portfolio Route",
-        content: "/companies/cortex-softsolutions/engineers/marcus-sterling",
-      },
-    ],
+    role: "Chief AI & Machine Learning Engineer",
+    titleTag: "[ INTELLIGENCE // APPLIED ]",
+    avatar: "/cortex/engineers/marcus-sterling.png",
+    bio: "Marcus takes AI from isolated experiments into measured, governed products. He develops the data contracts, evaluation loops, and human controls that let CORTEXIO Softsolutions clients use intelligent systems as dependable operational infrastructure.",
+    stack: ["Python", "PyTorch", "Ray", "MLflow", "Vector Search"],
     education: [
-      {
-        degree: "PhD in Artificial Intelligence",
-        institution: "Massachusetts Institute of Technology (MIT)",
-        year: "2016",
-        details: "Research focused on neural architecture search and efficient inference; advisor collaboration with MIT-IBM Watson AI Lab.",
-      },
-      {
-        degree: "SM in Electrical Engineering & Computer Science",
-        institution: "Massachusetts Institute of Technology (MIT)",
-        year: "2013",
-        details: "Specialisation in machine learning and optimisation; recipient of the MIT EECS Outstanding Graduate Student Award.",
-      },
+      { degree: "PhD, Machine Learning", institution: "MIT", year: "2014", focus: "Representation learning and robust evaluation" },
+      { degree: "BS, Mathematics & Computing", institution: "Imperial College London", year: "2009", focus: "Statistical systems" },
     ],
     experience: [
-      {
-        role: "Chief AI & ML Specialist",
-        company: "CORTEX Soft Solutions",
-        period: "2019 – Present",
-        highlights: [
-          "Architects the AI microservices layer powering predictive analytics, NLP assistants, and autonomous workflow agents for CORTEX clients.",
-          "Reduced average model inference cost by 62 percent through quantisation, distillation, and dynamic batching optimisations.",
-          "Establishes the company's responsible AI governance framework, ensuring EU AI Act compliance across all client deployments.",
-        ],
-      },
-      {
-        role: "Senior Research Scientist",
-        company: "DeepMind",
-        period: "2016 – 2019",
-        highlights: [
-          "Contributed to AlphaFold and reinforcement learning for data-centre cooling, cutting Google's energy overhead by 30 percent.",
-          "Published nine first-author papers at NeurIPS, ICML, and ICLR on efficient transformers and meta-learning.",
-        ],
-      },
-      {
-        role: "Applied Scientist Intern",
-        company: "OpenAI",
-        period: "2015 – 2016",
-        highlights: [
-          "Worked on early generative model safety and instruction-tuning techniques that informed later GPT alignment research.",
-        ],
-      },
+      { role: "Chief AI & Machine Learning Engineer", company: "CORTEXIO Softsolutions", period: "2022 — Present", highlights: ["Defines applied AI delivery standards and evaluation gates", "Leads cross-functional intelligent workflow programs"] },
+      { role: "Staff Research Engineer", company: "DeepMind", period: "2015 — 2022", highlights: ["Contributed to production-oriented model evaluation systems", "Partnered with product teams on responsible deployment methods"] },
+      { role: "Quantitative Engineer", company: "DataFoundry", period: "2013 — 2015", highlights: ["Built decision-support models for complex operations"] },
     ],
     projects: [
-      {
-        title: "CortexAI Inference Gateway",
-        type: "Custom Software",
-        description:
-          "A high-throughput, low-latency gateway that routes, caches, and load-balances requests across a fleet of fine-tuned language and vision models.",
-        metrics: "50K tokens/sec throughput • 180ms p99 latency • 40% cost reduction",
-        image: "/cortex/engineers/marcus-sterling.png",
-        tags: ["LLM", "Inference", "Rust", "Kubernetes"],
-      },
-      {
-        title: "Autonomous ERP Agent",
-        type: "ERP Integration",
-        description:
-          "A multi-agent system that interprets natural-language business queries, executes ERP transactions, and surfaces anomaly explanations to finance teams.",
-        metrics: "75% reduction in month-end closing time • 92% forecast accuracy",
-        image: "/cortex/engineers/marcus-sterling.png",
-        tags: ["Agents", "ERP", "Python", "LangChain"],
-      },
-      {
-        title: "Predictive Maintenance SaaS",
-        type: "SaaS System",
-        description:
-          "A time-series forecasting platform for industrial IoT clients, combining sensor fusion with Gaussian process models to predict equipment failures.",
-        metrics: "85% reduction in unplanned downtime • 3.2M sensor streams processed daily",
-        image: "/cortex/engineers/marcus-sterling.png",
-        tags: ["IoT", "Time Series", "MLOps", "GCP"],
-      },
+      { title: "Meridian Decision Studio", category: "Applied AI platform", description: "An enterprise decision-support environment combining document intelligence, workflows, and reviewable model outputs.", metrics: ["71% less manual triage", "Traceable evaluations", "Private retrieval layer"], image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80", demoUrl: "/cortex" },
+      { title: "Aperture Forecasting Engine", category: "Predictive operations", description: "A planning system that synthesises sales, inventory, and lead-time signals into explainable forecasts.", metrics: ["27% forecast improvement", "Weekly retraining", "Scenario controls"], image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80", demoUrl: "/cortex" },
     ],
   },
   {
     slug: "elena-rostova",
     name: "Elena Rostova",
-    role: "Lead Systems Security Specialist",
-    tag: "SYSTEMS SECURITY",
-    badge: "04 // SYSTEMS SECURITY",
-    clientMessage:
-      "We bake zero-trust security into every layer of the stack—so breaches become impossible, not just unlikely.",
-    image: "/cortex/engineers/elena-rostova.png",
-    bio: "Elena Rostova is CORTEX's Lead Systems Security Specialist, an offensive-defensive engineer who has spent her career breaking, hardening, and defending the infrastructure that underpins the world's most sensitive financial and enterprise platforms. A graduate of ETH Zürich and former Stripe security principal, Elena now embeds zero-trust principles, secure-by-design architecture, and continuous verification into every CORTEX engagement.",
-    accordionItems: [
-      {
-        title: "Technical Core",
-        content:
-          "Zero-trust architecture, applied cryptography, secure SDK design, real-time fraud detection, and DevSecOps automation.",
-      },
-      {
-        title: "Past Engagements",
-        content:
-          "Stripe global payments security, PCI DSS compliance, NCC Group red-team exercises, and CORTEX client deployment security.",
-      },
-      {
-        title: "Direct Portfolio Route",
-        content: "/companies/cortex-softsolutions/engineers/elena-rostova",
-      },
-    ],
+    role: "Lead Full-Stack & Systems Security Specialist",
+    titleTag: "[ PRODUCT // SECURITY ]",
+    avatar: "/cortex/engineers/elena-rostova.png",
+    bio: "Elena bridges the interface and the security boundary. Her teams build customer-facing systems that feel deliberate at every touchpoint while retaining the identity, privacy, and audit controls expected from serious enterprise software.",
+    stack: ["Next.js", "TypeScript", "Node.js", "OIDC", "OWASP ASVS"],
     education: [
-      {
-        degree: "MSc in Information Security",
-        institution: "ETH Zürich",
-        year: "2014",
-        details: "Specialised in applied cryptography and secure systems; thesis on side-channel-resistant smart contract execution.",
-      },
-      {
-        degree: "BSc in Computer Science",
-        institution: "ETH Zürich",
-        year: "2012",
-        details: "First-class honours; active member of the ETH hacking lab and competitive CTF team.",
-      },
+      { degree: "MSc, Information Security", institution: "ETH Zürich", year: "2013", focus: "Secure systems and applied cryptography" },
+      { degree: "BSc, Software Engineering", institution: "TU Munich", year: "2011", focus: "Human-centred product systems" },
     ],
     experience: [
-      {
-        role: "Lead Systems Security Specialist",
-        company: "CORTEX Soft Solutions",
-        period: "2020 – Present",
-        highlights: [
-          "Owns security architecture for all CORTEX client deployments, from initial threat modelling to continuous penetration testing.",
-          "Reduced mean time to patch critical vulnerabilities from 14 days to 6 hours through automated dependency scanning and canary releases.",
-          "Designed a secure-by-design SDK adopted by every engineering squad, cutting security review cycles by 55 percent.",
-        ],
-      },
-      {
-        role: "Staff Security Engineer",
-        company: "Stripe",
-        period: "2015 – 2020",
-        highlights: [
-          "Led the Payments Security team responsible for PCI DSS compliance across Stripe's global processing stack.",
-          "Built real-time fraud signal pipelines processing 300M+ events daily with sub-10ms anomaly detection.",
-          "Authored Stripe's public security whitepaper on end-to-end encryption for cardholder data.",
-        ],
-      },
-      {
-        role: "Security Consultant",
-        company: "NCC Group",
-        period: "2014 – 2015",
-        highlights: [
-          "Conducted red-team exercises and secure code reviews for Fortune 500 financial institutions and government agencies.",
-        ],
-      },
+      { role: "Lead Full-Stack & Systems Security Specialist", company: "CORTEXIO Softsolutions", period: "2021 — Present", highlights: ["Leads secure application delivery from product discovery through launch", "Pairs usable experience design with auditable system controls"] },
+      { role: "Security Engineering Lead", company: "Stripe", period: "2015 — 2021", highlights: ["Supported secure product-platform integrations", "Developed application security review practices"] },
+      { role: "Software Security Engineer", company: "Alpine Systems", period: "2013 — 2015", highlights: ["Built secure web applications for regulated operations"] },
     ],
     projects: [
-      {
-        title: "Cortex Secure SDK",
-        type: "Custom Software",
-        description:
-          "A hardened client-side SDK with built-in input sanitisation, encrypted local storage, certificate pinning, and runtime integrity checks for enterprise applications.",
-        metrics: "Zero critical CVEs in production for 24+ months • 55% faster security reviews",
-        image: "/cortex/engineers/elena-rostova.png",
-        tags: ["Security", "SDK", "TypeScript", "Cryptography"],
-      },
-      {
-        title: "Zero-Trust Identity Mesh",
-        type: "SaaS System",
-        description:
-          "An identity-aware access layer enforcing device posture, continuous authentication, and fine-grained authorisation across CORTEX's multi-cloud estate.",
-        metrics: "300M+ events daily • Sub-10ms anomaly detection • PCI DSS Level 1",
-        image: "/cortex/engineers/elena-rostova.png",
-        tags: ["IAM", "Zero Trust", "Go", "Open Policy Agent"],
-      },
-      {
-        title: "Secure ERP Deployment Framework",
-        type: "ERP Integration",
-        description:
-          "A deployment wrapper that enforces secrets management, infrastructure scanning, and runtime monitoring for every ERP client rollout.",
-        metrics: "14 days → 6 hours mean time to patch • 100% secret rotation coverage",
-        image: "/cortex/engineers/elena-rostova.png",
-        tags: ["DevSecOps", "ERP", "Terraform", "Security"],
-      },
+      { title: "Lattice Commerce OS", category: "High-performance commerce", description: "A composable commerce platform with a headless storefront, governed fulfilment flows, and a real-time customer operations desk.", metrics: ["2.1× conversion uplift", "Sub-second interactions", "Role-based operations"], image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1400&q=80", demoUrl: "/cortex" },
+      { title: "Keystone Identity Fabric", category: "Secure SaaS foundation", description: "A portable identity and permission layer that gives multi-tenant product teams a secure base for rapid delivery.", metrics: ["OIDC-first", "Full audit trail", "Tenant isolation"], image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=80", demoUrl: "/cortex" },
     ],
   },
 ];
+
+export function getCortexEngineer(slug: string) {
+  return cortexEngineers.find((engineer) => engineer.slug === slug);
+}

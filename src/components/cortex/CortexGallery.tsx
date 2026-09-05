@@ -1,100 +1,55 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { cortexEngineers, type AccordionItem } from "@/data/cortexEngineers";
-
-function Accordion({ items }: { items: AccordionItem[] }) {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  return (
-    <div className="mt-8 w-full max-w-lg divide-y divide-neutral-200 border-t border-neutral-200">
-      {items.map((item, idx) => {
-        const isOpen = openIndex === idx;
-        return (
-          <div key={item.title}>
-            <button
-              type="button"
-              onClick={() => setOpenIndex(isOpen ? null : idx)}
-              className="flex w-full items-center justify-between py-4 font-sans text-left text-xs font-semibold uppercase tracking-[0.2em] text-neutral-900 transition"
-            >
-              <span>{item.title}</span>
-              <span aria-hidden className="text-neutral-400">
-                {isOpen ? "−" : "+"}
-              </span>
-            </button>
-            <div
-              className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
-              }`}
-            >
-              <p className="pb-4 font-sans text-sm leading-relaxed text-neutral-600">
-                {item.content}
-              </p>
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
+import { cortexEngineers } from "@/data/cortexEngineers";
 
 export function CortexGallery() {
   return (
-    <section className="bg-[#F7F8FA]">
+    <section aria-labelledby="cortex-leadership-heading" className="bg-[#F7F8FA] pb-24 pt-6">
       <div className="mx-auto max-w-7xl px-6">
-        {cortexEngineers.map((engineer, index) => {
-          const isReversed = index % 2 === 1;
-          return (
-            <div
+        <div className="flex flex-col justify-between gap-5 border-t border-neutral-200 pt-10 md:flex-row md:items-end">
+          <div>
+            <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-neutral-500">
+              CORTEXIO Softsolutions / People systems
+            </p>
+            <h2 id="cortex-leadership-heading" className="mt-3 font-serif text-3xl text-neutral-950 sm:text-4xl">
+              Engineering Leadership &amp; Core Specialists
+            </h2>
+          </div>
+          <p className="max-w-md text-sm leading-relaxed text-neutral-600">
+            A senior technical bench assembled for systems that need to stay legible, resilient, and owned by the organisation that runs them.
+          </p>
+        </div>
+
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {cortexEngineers.map((engineer, index) => (
+            <Link
               key={engineer.slug}
-              className={`flex flex-col lg:flex-row ${
-                isReversed ? "lg:flex-row-reverse" : ""
-              }`}
+              href={`/companies/cortex-softsolutions/engineers/${engineer.slug}`}
+              className="group block overflow-hidden border border-neutral-200 bg-white transition-all duration-300 hover:border-neutral-900 hover:shadow-xl"
             >
-              <div className="w-full lg:w-1/2 flex flex-col justify-center p-8 lg:p-16">
-                <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-neutral-400 mb-2">
-                  {engineer.badge}
+              <div className="relative aspect-[4/5] overflow-hidden bg-neutral-100">
+                <Image
+                  src={engineer.avatar}
+                  alt={`${engineer.name}, ${engineer.role}`}
+                  fill
+                  sizes="(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 100vw"
+                  className="object-cover grayscale transition duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                />
+                <span className="absolute left-4 top-4 bg-white/90 px-2 py-1 font-mono text-[10px] tracking-[0.18em] text-neutral-700 backdrop-blur-sm">
+                  {String(index + 1).padStart(2, "0")} {"//"}
                 </span>
-                <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-neutral-950 font-normal tracking-tight">
-                  {engineer.name}
-                </h3>
-                <span className="font-mono text-xs uppercase tracking-wider text-neutral-500 mt-1 block">
-                  {engineer.role}
+              </div>
+              <div className="p-5">
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-500">{engineer.titleTag}</p>
+                <h3 className="mt-3 font-serif text-2xl text-neutral-950">{engineer.name}</h3>
+                <p className="mt-2 font-mono text-[10px] uppercase leading-relaxed tracking-[0.16em] text-neutral-600">{engineer.role}</p>
+                <span className="mt-5 inline-flex font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-950 transition-transform duration-300 group-hover:translate-x-1">
+                  View portfolio →
                 </span>
-                <blockquote className="mt-4 border-l-2 border-neutral-900 pl-4 italic text-neutral-700 font-serif text-base sm:text-lg">
-                  &ldquo;{engineer.clientMessage}&rdquo;
-                </blockquote>
-                <p className="text-neutral-600 font-sans text-xs sm:text-sm leading-relaxed mt-4 max-w-lg">
-                  {engineer.bio}
-                </p>
-                <Accordion items={engineer.accordionItems} />
-                <div className="mt-8">
-                  <Link
-                    href={`/companies/cortex-softsolutions/engineers/${engineer.slug}`}
-                    className="inline-flex items-center gap-2 rounded-full border border-neutral-900 px-6 py-3 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-900 transition hover:bg-neutral-900 hover:text-white"
-                  >
-                    Explore Full Portfolio
-                    <span aria-hidden>→</span>
-                  </Link>
-                </div>
               </div>
-              <div className="w-full lg:w-1/2 relative min-h-[420px] sm:min-h-[520px] lg:min-h-[600px] bg-[#F9F9FB] flex items-center justify-center p-8 sm:p-12 overflow-hidden">
-                <div className="relative w-full max-w-[420px] aspect-[4/5] overflow-hidden border border-neutral-200 shadow-sm">
-                  <Image
-                    src={engineer.image}
-                    alt={engineer.name}
-                    fill
-                    priority
-                    sizes="(min-width: 1024px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-700 hover:scale-105"
-                  />
-                </div>
-              </div>
-            </div>
-          );
-        })}
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -40,10 +40,10 @@ export function CortexHero({ onInquiry }: CortexHeroProps) {
           <span className="grid h-7 w-7 place-items-center rounded-md bg-gradient-to-br from-violet-600 via-fuchsia-500 to-cyan-500 text-xs text-white shadow-sm">
             C
           </span>
-          CORTEX
+          CORTEXIO
         </a>
 
-        <nav aria-label="Cortex navigation" className="hidden gap-8 font-mono text-xs tracking-wider text-neutral-600 md:flex">
+        <nav aria-label="CORTEXIO navigation" className="hidden gap-8 font-mono text-xs tracking-wider text-neutral-600 md:flex">
           {navigation.map((item) => (
             <a key={item} href="#capabilities" className="transition-colors hover:text-black">
               {item}

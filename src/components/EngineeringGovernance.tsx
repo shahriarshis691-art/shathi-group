@@ -157,7 +157,7 @@ const categoryShortLabel = (category: string) => {
 export function EngineeringGovernance() {
   const openInquiry = useInquiryButton({
     id: "cortex-softsolutions",
-    name: "Cortex SoftSolutions",
+    name: "CORTEXIO Softsolutions",
   });
 
   return (
@@ -178,7 +178,7 @@ export function EngineeringGovernance() {
           </h2>
           <div className="my-5 h-0.5 w-16 bg-indigo-400/70" />
           <p className="font-sans text-sm leading-relaxed text-slate-400 md:text-[15px]">
-            Cortex SoftSolutions pairs dedicated technical domain heads with
+            CORTEXIO Softsolutions pairs dedicated technical domain heads with
             focused engineering squads. Every deployment follows strict
             code-quality governance, enterprise security standards, and
             resilient cloud architecture.
@@ -283,7 +283,7 @@ export function EngineeringGovernance() {
                         ${isIvory ? "text-neutral-900" : "text-neutral-100"}
                       `}
                     >
-                      CORTEX
+                      CORTEXIO
                     </span>
                     <span className="text-[10px] tracking-[0.2em] uppercase text-neutral-400 font-mono">
                       {discipline.id} / {shortLabel}

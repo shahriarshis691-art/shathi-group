@@ -139,7 +139,7 @@ export function CortexSlider() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-6 md:flex-row">
           <h3 className="text-2xl font-extrabold uppercase tracking-tight text-neutral-950 md:text-3xl md:max-w-xs md:leading-none">
-            Cortex Architecture Collection
+            CORTEXIO Architecture Collection
           </h3>
 
           <div className="flex items-center gap-3 font-mono text-xs">

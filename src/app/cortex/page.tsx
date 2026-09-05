@@ -9,7 +9,7 @@ import { CortexSlider } from "@/components/cortex/CortexSlider";
 export default function CortexPage() {
   const openInquiry = useInquiryButton({
     id: "cortex-softsolutions",
-    name: "CORTEX Soft Solutions",
+    name: "CORTEXIO Softsolutions",
   });
 
   return (

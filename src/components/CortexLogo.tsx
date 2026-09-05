@@ -16,7 +16,7 @@ export const CortexLogo: React.FC<LogoProps> = ({
 
   return (
     <svg
-      viewBox="0 0 320 64"
+      viewBox="0 0 390 64"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
@@ -51,7 +51,7 @@ export const CortexLogo: React.FC<LogoProps> = ({
         fontWeight="800"
         letterSpacing="0.18em"
       >
-        CORTEX
+        CORTEXIO
       </text>
 
       <text

@@ -16,10 +16,10 @@ export function CortexShowcase() {
     >
       <aside className="flex flex-col gap-8 border-b border-neutral-200 p-6 sm:p-8 lg:basis-[15%] lg:justify-between lg:border-r lg:border-b-0">
         <div className="font-mono text-sm font-bold tracking-[0.25em] text-neutral-900">
-          CORTEX
+          CORTEXIO
         </div>
 
-        <nav aria-label="Cortex initiative specs">
+        <nav aria-label="CORTEXIO initiative specs">
           <ul className="grid grid-cols-2 gap-x-5 gap-y-4 text-[11px] font-mono uppercase tracking-widest text-neutral-500 lg:block lg:space-y-4">
             {architectureSpecs.map((item) => (
               <li key={item}>{item}</li>
@@ -28,10 +28,10 @@ export function CortexShowcase() {
         </nav>
 
         <a
-          href="mailto:info@cortexsoftsolutions.com"
+          href="mailto:info@cortexio-softsolutions.com"
           className="w-fit font-mono text-xs text-neutral-400 transition-colors hover:text-neutral-950"
         >
-          info@cortexsoftsolutions.com
+          info@cortexio-softsolutions.com
         </a>
       </aside>
 
@@ -46,7 +46,7 @@ export function CortexShowcase() {
           BESPOKE SOFTWARE & APPS — LIFETIME FREE FOR 10 ENTERPRISES
         </h2>
         <p className="text-neutral-600 font-sans text-xs sm:text-sm leading-relaxed mt-5 max-w-lg">
-          Cortex Soft Solutions is selecting 10 ambitious businesses to receive
+          CORTEXIO Softsolutions is selecting 10 ambitious businesses to receive
           custom enterprise software, bespoke e-commerce systems, and
           high-performance apps completely free for life. From tailored
           architecture to full deployment—accelerate your operational scale with
@@ -62,7 +62,7 @@ export function CortexShowcase() {
 
       <div className="relative h-[400px] w-full overflow-hidden lg:h-auto lg:flex-1">
         <Image
-          alt="Cortex Soft Solutions Leadership"
+          alt="CORTEXIO Softsolutions leadership"
           className="object-cover object-top filter grayscale contrast-105 transition-transform duration-700 hover:scale-105"
           fill
           priority

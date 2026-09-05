@@ -1,211 +1,133 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { cortexEngineers } from "@/data/cortexEngineers";
+import type { Metadata } from "next";
+import { cortexEngineers, getCortexEngineer } from "@/data/cortexEngineers";
 
 export function generateStaticParams() {
-  return cortexEngineers.map((engineer) => ({
-    slug: engineer.slug,
-  }));
+  return cortexEngineers.map((engineer) => ({ slug: engineer.slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const engineer = cortexEngineers.find((e) => e.slug === slug);
+  const engineer = getCortexEngineer(slug);
 
-  if (!engineer) {
-    return { title: "Engineer Not Found | CORTEX Soft Solutions" };
-  }
-
-  return {
-    title: `${engineer.name} | CORTEX Engineering Portfolio`,
-    description: engineer.bio,
-  };
+  return engineer
+    ? { title: `${engineer.name} | CORTEXIO Softsolutions` }
+    : { title: "Engineer Not Found | CORTEXIO Softsolutions" };
 }
 
-export default async function EngineerPortfolioPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function CortexEngineerPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const engineer = cortexEngineers.find((e) => e.slug === slug);
+  const engineer = getCortexEngineer(slug);
 
   if (!engineer) {
     notFound();
   }
 
   return (
-    <main className="min-h-screen bg-[#F7F8FA] text-[#0A0A0A]">
-      <nav className="border-b border-neutral-200/80 bg-white/80 backdrop-blur-sm" aria-label="Breadcrumb">
-        <div className="mx-auto max-w-6xl px-6">
-          <Link
-            href="/companies/cortex-softsolutions"
-            className="inline-flex items-center gap-2 py-4 font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-600 transition hover:text-navy-800"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4" aria-hidden>
-              <path d="m15 18-6-6 6-6" />
-            </svg>
-            Back to CORTEX Overview
+    <main className="min-h-screen bg-[#f6f7f9] text-neutral-950">
+      <header className="border-b border-neutral-200 bg-white/80 px-6 py-5 backdrop-blur-md md:px-10">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
+          <Link href="/companies/cortex-softsolutions" className="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-600 transition-colors hover:text-neutral-950">
+            ← Return to CORTEXIO Systems Overview
           </Link>
+          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-400">Engineering portfolio / 01</span>
         </div>
-      </nav>
+      </header>
 
-      <section className="py-16 sm:py-24">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="grid gap-12 lg:grid-cols-[280px_1fr]">
-            <div className="relative mx-auto w-full max-w-[280px] lg:mx-0">
-              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-neutral-200/80 shadow-sm">
-                <Image
-                  src={engineer.image}
-                  alt={engineer.name}
-                  fill
-                  priority
-                  sizes="280px"
-                  className="object-cover"
-                />
-              </div>
-              <span className="mt-4 block font-mono text-[11px] font-medium uppercase tracking-[0.25em] text-neutral-500">
-                {engineer.tag}
-              </span>
+      <section className="relative overflow-hidden bg-[#11131a] px-6 py-14 text-white md:px-10 md:py-20">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_75%_30%,rgba(34,211,238,0.18)_0%,transparent_42%)]" />
+        <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(19rem,0.62fr)] lg:items-end">
+          <div>
+            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-cyan-300">CORTEXIO Softsolutions {engineer.titleTag}</p>
+            <h1 className="mt-5 max-w-4xl font-serif text-5xl leading-[0.95] sm:text-6xl lg:text-7xl">{engineer.name}</h1>
+            <p className="mt-5 font-mono text-xs uppercase tracking-[0.18em] text-neutral-300">{engineer.role}</p>
+            <p className="mt-8 max-w-2xl text-base leading-relaxed text-neutral-300">{engineer.bio}</p>
+            <div className="mt-8 flex flex-wrap gap-2">
+              {engineer.stack.map((technology) => (
+                <span key={technology} className="border border-white/15 bg-white/5 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-cyan-100">
+                  {technology}
+                </span>
+              ))}
             </div>
-
-            <div>
-              <h1 className="font-serif text-4xl font-bold uppercase tracking-[0.12em] text-neutral-900 sm:text-5xl">
-                {engineer.name}
-              </h1>
-              <p className="mt-3 font-mono text-sm font-medium uppercase tracking-[0.2em] text-neutral-700">
-                {engineer.role}
-              </p>
-              <p className="mt-6 font-sans text-base leading-relaxed text-neutral-700 md:text-lg">
-                {engineer.bio}
-              </p>
-            </div>
+          </div>
+          <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden border border-white/15 bg-neutral-900">
+            <Image src={engineer.avatar} alt={`${engineer.name}, ${engineer.role}`} fill priority sizes="(min-width: 1024px) 30vw, 80vw" className="object-cover grayscale" />
+            <span className="absolute bottom-4 left-4 font-mono text-[10px] uppercase tracking-[0.18em] text-white/80">CORTEXIO / specialist file</span>
           </div>
         </div>
       </section>
 
-      <section className="border-t border-neutral-200/80 bg-white py-16 sm:py-24">
-        <div className="mx-auto max-w-6xl px-6">
-          <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-500">
-            Multinational Career History
-          </p>
-          <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] text-neutral-900 sm:text-4xl">
-            Career History
-          </h2>
-
-          <div className="mt-12 space-y-0">
-            {engineer.experience.map((item, idx) => (
-              <div key={idx} className="relative grid gap-6 border-b border-neutral-100 py-10 last:border-b-0 sm:grid-cols-[200px_1fr]">
-                <div>
-                  <p className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
-                    {item.period}
-                  </p>
-                  <p className="mt-1 font-sans text-sm font-semibold text-neutral-900">
-                    {item.role}
-                  </p>
-                  <p className="font-sans text-sm text-neutral-600">
-                    {item.company}
-                  </p>
-                </div>
-                <ul className="space-y-3">
-                  {item.highlights.map((highlight, hIdx) => (
-                    <li key={hIdx} className="flex gap-3 font-sans text-sm leading-relaxed text-neutral-700">
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-900" aria-hidden />
-                      {highlight}
-                    </li>
-                  ))}
+      <section className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:px-10 lg:grid-cols-[0.75fr_1.25fr] lg:py-24">
+        <div>
+          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-neutral-500">01 / Multinational experience</p>
+          <h2 className="mt-4 font-serif text-4xl leading-none text-neutral-950">Systems shaped in demanding environments.</h2>
+        </div>
+        <div className="border-t border-neutral-300">
+          {engineer.experience.map((entry, index) => (
+            <article key={`${entry.company}-${entry.period}`} className="grid gap-5 border-b border-neutral-300 py-7 sm:grid-cols-[4rem_minmax(0,1fr)_10rem]">
+              <span className="font-mono text-[10px] text-neutral-400">{String(index + 1).padStart(2, "0")}</span>
+              <div>
+                <h3 className="font-serif text-2xl text-neutral-950">{entry.role}</h3>
+                <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-500">{entry.company}</p>
+                <ul className="mt-4 space-y-2 text-sm leading-relaxed text-neutral-600">
+                  {entry.highlights.map((highlight) => <li key={highlight}>— {highlight}</li>)}
                 </ul>
               </div>
-            ))}
-          </div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-500 sm:text-right">{entry.period}</p>
+            </article>
+          ))}
         </div>
       </section>
 
-      <section className="border-t border-neutral-200/80 bg-[#F7F8FA] py-16 sm:py-24">
-        <div className="mx-auto max-w-6xl px-6">
-          <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-500">
-            Academic Credentials
-          </p>
-          <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] text-neutral-900 sm:text-4xl">
-            Academic Credentials
-          </h2>
-
-          <div className="mt-12 grid gap-6 sm:grid-cols-2">
-            {engineer.education.map((edu, idx) => (
-              <div key={idx} className="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-sm">
-                <p className="font-mono text-[11px] font-medium uppercase tracking-[0.2em] text-neutral-500">
-                  {edu.year}
-                </p>
-                <h3 className="mt-2 font-serif text-xl font-bold uppercase tracking-[0.14em] text-neutral-900">
-                  {edu.degree}
-                </h3>
-                <p className="mt-1 font-sans text-sm font-semibold text-neutral-700">
-                  {edu.institution}
-                </p>
-                <p className="mt-3 font-sans text-sm leading-relaxed text-neutral-600">
-                  {edu.details}
-                </p>
-              </div>
-            ))}
+      <section className="border-y border-neutral-200 bg-white px-6 py-16 md:px-10 lg:py-24">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.75fr_1.25fr]">
+          <div>
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-neutral-500">02 / Educational credentials</p>
+            <h2 className="mt-4 font-serif text-4xl leading-none text-neutral-950">Depth before delivery.</h2>
           </div>
-        </div>
-      </section>
-
-      <section className="border-t border-neutral-200/80 bg-white py-16 sm:py-24">
-        <div className="mx-auto max-w-6xl px-6">
-          <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-500">
-            Software & Systems Showcase
-          </p>
-          <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-[0.12em] text-neutral-900 sm:text-4xl">
-            Software & Systems Showcase
-          </h2>
-
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {engineer.projects.map((project, idx) => (
-              <article key={idx} className="flex flex-col overflow-hidden rounded-2xl border border-neutral-200/80 bg-[#F7F8FA] shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover transition duration-700 ease-out group-hover:scale-105"
-                  />
-                </div>
-                <div className="flex flex-1 flex-col p-6">
-                  <span className="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-neutral-500">
-                    {project.type}
-                  </span>
-                  <h3 className="mt-2 font-serif text-lg font-bold uppercase tracking-[0.14em] text-neutral-900">
-                    {project.title}
-                  </h3>
-                  <p className="mt-3 font-sans text-sm leading-relaxed text-neutral-700">
-                    {project.description}
-                  </p>
-                  <div className="mt-auto pt-6">
-                    <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-neutral-900">
-                      {project.metrics}
-                    </p>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="inline-flex items-center rounded-full border border-neutral-200 bg-white px-3 py-1 font-sans text-[10px] font-semibold uppercase tracking-[0.16em] text-neutral-700"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {engineer.education.map((education) => (
+              <article key={`${education.degree}-${education.institution}`} className="border border-neutral-200 p-6">
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-500">{education.year}</p>
+                <h3 className="mt-5 font-serif text-2xl text-neutral-950">{education.degree}</h3>
+                <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.15em] text-neutral-600">{education.institution}</p>
+                <p className="mt-6 text-sm leading-relaxed text-neutral-600">{education.focus}</p>
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:py-24">
+        <div className="flex flex-col justify-between gap-5 border-b border-neutral-300 pb-7 md:flex-row md:items-end">
+          <div>
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-neutral-500">03 / Selected builds</p>
+            <h2 className="mt-4 font-serif text-4xl leading-none text-neutral-950">Featured project demos.</h2>
+          </div>
+          <p className="max-w-md text-sm leading-relaxed text-neutral-600">Representative product systems built around measurable operations, ownership, and performance.</p>
+        </div>
+
+        <div className="mt-9 grid gap-6 lg:grid-cols-2">
+          {engineer.projects.map((project) => (
+            <article key={project.title} className="group overflow-hidden border border-neutral-200 bg-white transition-shadow hover:shadow-xl">
+              <div className="relative aspect-[16/9] overflow-hidden bg-neutral-900">
+                <Image src={project.image} alt={`${project.title} software interface concept`} fill sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover opacity-80 transition duration-700 group-hover:scale-105 group-hover:opacity-100" />
+                <span className="absolute left-5 top-5 bg-[#11131a]/90 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-cyan-100">{project.category}</span>
+              </div>
+              <div className="p-6">
+                <h3 className="font-serif text-3xl text-neutral-950">{project.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-neutral-600">{project.description}</p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {project.metrics.map((metric) => <span key={metric} className="border border-neutral-200 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.14em] text-neutral-600">{metric}</span>)}
+                </div>
+                <Link href={project.demoUrl} className="mt-7 inline-flex font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-950 transition-transform group-hover:translate-x-1">
+                  Explore project context →
+                </Link>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
     </main>
