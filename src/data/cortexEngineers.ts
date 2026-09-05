@@ -21,16 +21,24 @@ export interface Project {
   tags: string[];
 }
 
+export interface AccordionItem {
+  title: string;
+  content: string;
+}
+
 export interface CortexEngineer {
   slug: string;
   name: string;
   role: string;
   tag: string;
-  image: string;
+  badge: string;
+  clientMessage: string;
   bio: string;
+  image: string;
   education: Education[];
   experience: Experience[];
   projects: Project[];
+  accordionItems: AccordionItem[];
 }
 
 export const cortexEngineers: CortexEngineer[] = [
@@ -39,8 +47,27 @@ export const cortexEngineers: CortexEngineer[] = [
     name: "Dr. Ryan Vance",
     role: "Principal Distributed Systems Architect",
     tag: "DISTRIBUTED SYSTEMS",
+    badge: "01 // CLOUD ARCHITECTURE",
+    clientMessage:
+      "We architect software that guarantees 99.99% uptime while eliminating unnecessary licensing overhead.",
     image: "/cortex/engineers/ryan-vance.png",
     bio: "Dr. Ryan Vance is a principal distributed systems architect with over fourteen years of experience designing fault-tolerant cloud infrastructure at planetary scale. After completing his PhD at Cambridge on consensus algorithms for geo-replicated data stores, he joined AWS where he led the architecture of several foundational services used by millions of developers worldwide. At CORTEX, Ryan translates that pedigree into bespoke distributed platforms that keep mission-critical enterprise systems running with uncompromising consistency and sub-millisecond latency.",
+    accordionItems: [
+      {
+        title: "Technical Core",
+        content:
+          "Consensus algorithms, CRDTs, distributed event mesh design, fault-tolerant control planes, and formal verification with TLA+.",
+      },
+      {
+        title: "Past Engagements",
+        content:
+          "AWS Step Functions and EventBridge, Microsoft Research Azure Cosmos DB, and 200+ enterprise client architectures at CORTEX.",
+      },
+      {
+        title: "Direct Portfolio Route",
+        content: "/companies/cortex-softsolutions/engineers/ryan-vance",
+      },
+    ],
     education: [
       {
         degree: "PhD in Computer Science",
@@ -121,8 +148,27 @@ export const cortexEngineers: CortexEngineer[] = [
     name: "Sofia Lin",
     role: "VP of Cloud Infrastructure",
     tag: "CLOUD INFRASTRUCTURE",
+    badge: "02 // CLOUD INFRASTRUCTURE",
+    clientMessage:
+      "We run enterprise-grade infrastructure so your teams can ship faster, with fewer outages and predictable cloud spend.",
     image: "/cortex/engineers/sofia-lin.png",
     bio: "Sofia Lin is the VP of Cloud Infrastructure at CORTEX Soft Solutions, bringing a decade of large-scale platform engineering from Google Cloud and a deep conviction that infrastructure should be invisible, self-healing, and cost-predictable. With a master's degree from Stanford and a background spanning exascale compute clusters to serverless abstraction layers, Sofia architects the compute and storage foundations on which every CORTEX client platform is built.",
+    accordionItems: [
+      {
+        title: "Technical Core",
+        content:
+          "Multi-cloud abstraction, autoscaling primitives, FinOps orchestration, zero-trust network fabrics, and confidential computing.",
+      },
+      {
+        title: "Past Engagements",
+        content:
+          "Google Kubernetes Engine at Google Cloud, Airbnb service reliability, and a global 18,000+ node fleet managed at CORTEX.",
+      },
+      {
+        title: "Direct Portfolio Route",
+        content: "/companies/cortex-softsolutions/engineers/sofia-lin",
+      },
+    ],
     education: [
       {
         degree: "MS in Computer Science",
@@ -203,8 +249,27 @@ export const cortexEngineers: CortexEngineer[] = [
     name: "Marcus Sterling",
     role: "Chief AI & ML Specialist",
     tag: "AI & MACHINE LEARNING",
+    badge: "03 // AI & MACHINE LEARNING",
+    clientMessage:
+      "We embed production-grade AI directly into your workflows—cutting costs by over 60% while raising accuracy to enterprise-grade levels.",
     image: "/cortex/engineers/marcus-sterling.png",
     bio: "Marcus Sterling is CORTEX's Chief AI & ML Specialist, a researcher-engineer who bridges the gap between frontier model development and production-grade inference systems. Trained at MIT and shaped by DeepMind's most demanding research programmes, Marcus now leads the design of CORTEX's AI microservices layer — the engine behind predictive analytics, autonomous workflow agents, and natural-language interfaces embedded in every client engagement.",
+    accordionItems: [
+      {
+        title: "Technical Core",
+        content:
+          "Neural architecture search, efficient inference, quantisation, dynamic batching, multi-agent orchestration, and MLOps pipelines.",
+      },
+      {
+        title: "Past Engagements",
+        content:
+          "DeepMind AlphaFold and data-centre cooling RL, OpenAI early safety research, and AI microservices for 200+ CORTEX clients.",
+      },
+      {
+        title: "Direct Portfolio Route",
+        content: "/companies/cortex-softsolutions/engineers/marcus-sterling",
+      },
+    ],
     education: [
       {
         degree: "PhD in Artificial Intelligence",
@@ -283,8 +348,27 @@ export const cortexEngineers: CortexEngineer[] = [
     name: "Elena Rostova",
     role: "Lead Systems Security Specialist",
     tag: "SYSTEMS SECURITY",
+    badge: "04 // SYSTEMS SECURITY",
+    clientMessage:
+      "We bake zero-trust security into every layer of the stack—so breaches become impossible, not just unlikely.",
     image: "/cortex/engineers/elena-rostova.png",
     bio: "Elena Rostova is CORTEX's Lead Systems Security Specialist, an offensive-defensive engineer who has spent her career breaking, hardening, and defending the infrastructure that underpins the world's most sensitive financial and enterprise platforms. A graduate of ETH Zürich and former Stripe security principal, Elena now embeds zero-trust principles, secure-by-design architecture, and continuous verification into every CORTEX engagement.",
+    accordionItems: [
+      {
+        title: "Technical Core",
+        content:
+          "Zero-trust architecture, applied cryptography, secure SDK design, real-time fraud detection, and DevSecOps automation.",
+      },
+      {
+        title: "Past Engagements",
+        content:
+          "Stripe global payments security, PCI DSS compliance, NCC Group red-team exercises, and CORTEX client deployment security.",
+      },
+      {
+        title: "Direct Portfolio Route",
+        content: "/companies/cortex-softsolutions/engineers/elena-rostova",
+      },
+    ],
     education: [
       {
         degree: "MSc in Information Security",
