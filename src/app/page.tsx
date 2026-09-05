@@ -6,23 +6,23 @@ import { FounderSection } from "@/components/FounderSection";
 import { ContactSection } from "@/components/ContactSection";
 import { CortexEntryModal } from "@/components/CortexEntryModal";
 import { CortexShowcase } from "@/components/CortexShowcase";
+import { VelorixShowcase } from "@/components/VelorixShowcase";
 import { ShisFashionShowcase } from "@/components/ShisFashionShowcase";
 import { XeroxiiShowcase } from "@/components/XeroxiiShowcase";
 import { CeravoShowcase } from "@/components/CeravoShowcase";
-import { VelorixShowcase } from "@/components/VelorixShowcase";
 
 export default function Home() {
   return (
     <main className="overflow-x-hidden bg-transparent">
       <HeroSection />
       <CortexShowcase />
-        <ShisFashionShowcase />
-        <XeroxiiShowcase />
-        <CeravoShowcase />
-        <StatsSection />
+      <VelorixShowcase />
+      <ShisFashionShowcase />
+      <XeroxiiShowcase />
+      <CeravoShowcase />
+      <StatsSection />
       <AboutSection />
       <BusinessGrid />
-      <VelorixShowcase />
       <FounderSection />
       <ContactSection />
       <CortexEntryModal />
