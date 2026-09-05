@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const modules = [
   {
@@ -37,24 +37,57 @@ const modules = [
 
 export function CortexSlider() {
   const [active, setActive] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const resetTimer = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    if (!isPaused) {
+      intervalRef.current = setInterval(() => {
+        setActive((prev) => (prev + 1) % modules.length);
+      }, 4000);
+    }
+  };
+
+  useEffect(() => {
+    resetTimer();
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isPaused]);
+
+  const handleManualChange = (index: number) => {
+    setActive(index);
+    resetTimer();
+  };
+
   const prev = (active - 1 + modules.length) % modules.length;
   const next = (active + 1) % modules.length;
 
   return (
     <section className="w-full bg-[#EAECEF] py-20 px-6 mt-24">
-      <div className="mx-auto max-w-6xl">
+      <div
+        className="mx-auto max-w-6xl"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
         <div className="flex items-center justify-center gap-4 md:gap-6 overflow-hidden">
           <button
             type="button"
-            onClick={() => setActive(prev)}
+            onClick={() => handleManualChange(prev)}
             className="hidden md:block font-mono text-xs text-neutral-500 hover:text-black transition-colors"
             aria-label="Previous module"
           >
             Left &lt;
           </button>
 
-          <div className="flex flex-1 items-center justify-center gap-4 md:gap-6">
-            <div className="hidden md:flex flex-1 flex-col items-center justify-center opacity-40 transition-all duration-500">
+          <div className="flex flex-1 items-center justify-center gap-4 md:gap-6 overflow-hidden">
+            <div className="hidden md:flex flex-1 flex-col items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] scale-95 opacity-40 blur-[0.5px]">
               <div className="aspect-[4/3] w-full max-w-sm rounded-2xl border border-neutral-300 bg-white/60 p-6 shadow-sm">
                 <p className="font-mono text-[10px] uppercase tracking-widest text-neutral-500">
                   {modules[prev].title}
@@ -65,9 +98,9 @@ export function CortexSlider() {
               </div>
             </div>
 
-            <div className="flex flex-col items-center justify-center transition-all duration-500">
-              <div className="aspect-[4/3] w-full max-w-md rounded-3xl border border-neutral-200 bg-white p-8 shadow-xl">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full border border-neutral-200 bg-neutral-50 text-2xl text-neutral-800 shadow-sm mx-auto mb-6">
+            <div className="flex flex-col items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] scale-105 opacity-100 z-20">
+              <div className="aspect-[4/3] w-full max-w-md rounded-3xl border border-neutral-100/80 bg-white p-8 shadow-[0_20px_50px_rgba(0,0,0,0.08)]">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full border border-neutral-200 bg-neutral-50 text-2xl text-neutral-800 shadow-sm mx-auto mb-6 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]">
                   {modules[active].icon}
                 </div>
                 <p className="font-mono text-[10px] uppercase tracking-widest text-neutral-500 text-center">
@@ -82,7 +115,7 @@ export function CortexSlider() {
               </div>
             </div>
 
-            <div className="hidden md:flex flex-1 flex-col items-center justify-center opacity-40 transition-all duration-500">
+            <div className="hidden md:flex flex-1 flex-col items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] scale-95 opacity-40 blur-[0.5px]">
               <div className="aspect-[4/3] w-full max-w-sm rounded-2xl border border-neutral-300 bg-white/60 p-6 shadow-sm">
                 <p className="font-mono text-[10px] uppercase tracking-widest text-neutral-500">
                   {modules[next].title}
@@ -96,7 +129,7 @@ export function CortexSlider() {
 
           <button
             type="button"
-            onClick={() => setActive(next)}
+            onClick={() => handleManualChange(next)}
             className="hidden md:block font-mono text-xs text-neutral-500 hover:text-black transition-colors"
             aria-label="Next module"
           >
@@ -109,14 +142,16 @@ export function CortexSlider() {
             Cortex Architecture Collection
           </h3>
 
-          <div className="flex items-center gap-3 font-mono text-xs text-neutral-500">
+          <div className="flex items-center gap-3 font-mono text-xs">
             {modules.map((mod, idx) => (
               <button
                 key={mod.title}
                 type="button"
-                onClick={() => setActive(idx)}
-                className={`transition-colors ${
-                  idx === active ? "text-black font-semibold" : "hover:text-black"
+                onClick={() => handleManualChange(idx)}
+                className={`transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  idx === active
+                    ? "font-bold text-neutral-950 scale-110"
+                    : "text-neutral-400 hover:text-neutral-600"
                 }`}
                 aria-label={`Module ${String(idx + 1).padStart(2, "0")}`}
               >
