@@ -151,7 +151,7 @@ export function CortexProjectSlider() {
   const [activeIndex, setActiveIndex] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const itemRefs = useRef<Map<number, HTMLDivElement>>(new Map());
+  const itemRefs = useRef<Map<number, HTMLElement>>(new Map());
   const isUserInteracting = useRef(false);
   const interactionTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
   const touchStartX = useRef(0);
