@@ -11,25 +11,7 @@ export function ShisFashionShowcase() {
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(255,255,255,0.95),transparent_38%)]" aria-hidden="true" />
 
-      <nav
-        aria-label="SHIS Fashion collection navigation"
-        className="absolute inset-x-0 top-0 z-30 flex items-center justify-between border-b border-neutral-200/80 bg-[#F5F6F8]/80 px-5 py-5 backdrop-blur-sm md:px-10"
-      >
-        <span className="font-mono text-sm font-bold tracking-widest text-black">
-          SHIS
-        </span>
-        <div className="hidden gap-8 font-mono text-xs tracking-wider text-neutral-600 md:flex">
-          <span>Men</span>
-          <span>Women</span>
-          <span>Collections</span>
-          <span>Lookbook</span>
-        </div>
-        <span className="bg-black px-5 py-2 font-mono text-xs uppercase tracking-widest text-white">
-          Bag / 00
-        </span>
-      </nav>
-
-      <div className="relative z-10 w-full px-6 pt-24 sm:px-10 lg:w-[48%] lg:px-16 lg:pt-16">
+      <div className="relative z-10 w-full px-6 sm:px-10 lg:w-[48%] lg:px-16">
         <p className="font-mono text-xs uppercase tracking-[0.3em] text-neutral-500">
           Contemporary Men&apos;s Apparel // Oversized Essentials
         </p>
