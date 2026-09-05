@@ -9,7 +9,7 @@ import { CortexProjectSlider } from "@/components/cortex/CortexProjectSlider";
 export function CortexPageClient() {
   return (
     <main className="min-h-screen bg-[#F7F8FA] text-[#0A0A0A]">
-      <CortexShowcaseBanner className="pt-28" />
+      <CortexShowcaseBanner />
       <CortexAbout />
       <CortexProjectSlider />
       <CortexGallery />

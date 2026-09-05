@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 
-/** Editorial product statement shown immediately after the CORTEXIO hero. */
+/** Primary hero section for the CORTEXIO detail page. */
 export function CortexShowcaseBanner({ className }: { className?: string }) {
   return (
     <section
+      id="hero"
       aria-labelledby="build-your-website"
-      className={`relative flex min-h-[720px] items-center justify-center overflow-hidden bg-white px-6 py-16 text-neutral-900 sm:px-12 lg:min-h-[860px] ${className ?? ""}`}
+      className={`relative min-h-[85vh] lg:min-h-screen bg-white flex items-center overflow-hidden pt-28 lg:pt-32 pb-16 px-6 text-neutral-900 sm:px-12 ${className ?? ""}`}
     >
       <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[58%] md:block">
         <Image
@@ -42,7 +43,7 @@ export function CortexShowcaseBanner({ className }: { className?: string }) {
           </div>
         </div>
 
-        <div className="relative mt-12 h-[390px] w-full md:hidden sm:h-[480px]">
+        <div className="relative mt-10 h-[360px] w-full md:hidden sm:h-[420px]">
           <Image
             src="/cortex/build-your-vision.png"
             alt="CORTEXIO engineer working on a laptop with a live product interface"
@@ -55,7 +56,7 @@ export function CortexShowcaseBanner({ className }: { className?: string }) {
 
       <a
         href="tel:+8801335550675"
-        className="absolute bottom-7 left-6 z-20 bg-white/85 px-2 py-1 font-mono text-xs font-semibold tracking-wider text-neutral-700 backdrop-blur-sm transition-colors hover:text-neutral-950 sm:left-12 sm:text-sm md:bg-transparent md:p-0 md:backdrop-blur-none"
+        className="absolute bottom-7 left-6 z-20 min-h-[44px] min-w-[44px] flex items-center justify-center bg-white/85 px-3 py-2 font-mono text-xs font-semibold tracking-wider text-neutral-700 backdrop-blur-sm transition-colors hover:text-neutral-950 sm:left-12 sm:text-sm md:bg-transparent md:p-0 md:backdrop-blur-none"
       >
         +880 1335550675
       </a>
