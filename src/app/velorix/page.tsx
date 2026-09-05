@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { VelorixDetailPage } from "@/components/velorix/VelorixDetailPage";
 
 export default function VelorixRoot() {
-  redirect("/companies/velorix-motors");
+  return <VelorixDetailPage />;
 }

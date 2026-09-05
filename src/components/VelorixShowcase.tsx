@@ -49,21 +49,23 @@ export function VelorixShowcase() {
       </header>
 
       <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-1 items-center justify-center">
-        <motion.div
-          animate={{ y: [-5, 5, -5] }}
-          transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-          whileHover={{ scale: 1.03, rotateZ: 0.5 }}
-          className="relative flex h-[340px] w-full items-center justify-center sm:h-[420px] md:h-[500px]"
-        >
-          <Image
-            src="/velorix/velorix-studio.png"
-            alt="Velorix EX-01 autonomous electric speedster"
-            fill
-            priority
-            sizes="(min-width: 1024px) 800px, 100vw"
-            className="object-contain drop-shadow-2xl"
-          />
-        </motion.div>
+        <Link href="/velorix" aria-label="Explore the Velorix vehicle platform" className="group relative block w-full max-w-5xl">
+          <motion.div
+            animate={{ y: [-5, 5, -5] }}
+            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+            whileHover={{ scale: 1.03, rotateZ: 0.5 }}
+            className="relative flex h-[340px] w-full items-center justify-center sm:h-[420px] md:h-[500px]"
+          >
+            <Image
+              src="/velorix/velorix-studio.png"
+              alt="Velorix EX-01 autonomous electric speedster"
+              fill
+              priority
+              sizes="(min-width: 1024px) 800px, 100vw"
+              className="object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
+            />
+          </motion.div>
+        </Link>
 
         <div
           aria-hidden="true"
@@ -94,7 +96,7 @@ export function VelorixShowcase() {
           ))}
         </div>
 
-        <div className="flex flex-col items-center gap-3 sm:flex-row">
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-4 sm:mt-0 sm:justify-end">
           <Link
             href="/velorix"
             className="inline-flex items-center justify-center rounded-full bg-neutral-950 px-8 py-3.5 font-mono text-xs uppercase tracking-[0.2em] text-white shadow-xl transition-all hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-950"
