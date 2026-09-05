@@ -1,10 +1,10 @@
 import Image from "next/image";
 
 const materialSystems = [
-  "Porcelain slabs",
-  "Ceramic tiles",
-  "Architectural facades",
-  "Specifications",
+  "Porcelain tiles",
+  "Luxury ceramics",
+  "Marble & slab finishes",
+  "Real estate specifications",
 ];
 
 export function CeravoShowcase() {
@@ -36,34 +36,38 @@ export function CeravoShowcase() {
 
       <div className="flex w-full flex-col justify-center p-8 sm:p-12 lg:basis-[38%] lg:p-16">
         <p className="mb-3 text-[10px] font-mono uppercase tracking-[0.35em] text-neutral-400">
-          Premium Ceramic Systems // Shathi Group
+          Premium Tiles & Ceramic Solutions // Shathi Group
         </p>
         <h2
           id="ceravo-heading"
           className="text-3xl font-extrabold leading-tight tracking-tight text-neutral-950 uppercase md:text-5xl"
         >
-          Architectural ceramics for the modern monolith
+          Architectural ceramics & luxury building materials
         </h2>
         <p className="mt-4 max-w-md text-xs leading-relaxed text-neutral-600 md:text-sm">
-          High-density sintered slabs, engineered precision ceramics, and bespoke
-          architectural finishes built for enduring commercial and residential scale.
+          Engineered for high-end residential, commercial real estate, and modern
+          developments. CE R A VO provides premium porcelain slabs, architectural ceramic
+          finishes, and precision building surfaces crafted for structural longevity and
+          luxury interior design.
         </p>
         <a
-          href="#contact"
+          href="https://www.ceravo.online"
+          target="_blank"
+          rel="noopener noreferrer"
           className="mt-8 inline-flex w-fit items-center justify-center border border-neutral-950 px-8 py-3.5 font-mono text-xs uppercase tracking-[0.2em] text-neutral-950 transition-all duration-300 hover:bg-neutral-950 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-950"
         >
-          Request consultation →
+          Visit ceravo.online ↗
         </a>
       </div>
 
-      <div className="relative h-[400px] w-full overflow-hidden lg:h-auto lg:flex-1">
+      <div className="relative h-full min-h-[450px] w-full overflow-hidden bg-neutral-100 lg:min-h-full lg:basis-[47%]">
         <Image
-          src="/Headquarters of Fran Silvestre Arquitectos.jpg"
-          alt="CE R A VO Architectural Ceramics"
+          src="/ceravo/real-estate-ceramics.png"
+          alt="CE R A VO Luxury Ceramic Surfaces and Architectural Materials"
           fill
           priority
-          sizes="(min-width: 1024px) 47vw, 100vw"
-          className="object-cover object-bottom contrast-110"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className="object-cover object-center contrast-105 transition-transform duration-700 hover:scale-105"
         />
         <div
           aria-hidden="true"
