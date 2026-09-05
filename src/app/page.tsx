@@ -6,6 +6,7 @@ import { FounderSection } from "@/components/FounderSection";
 import { ContactSection } from "@/components/ContactSection";
 import { CortexEntryModal } from "@/components/CortexEntryModal";
 import { CortexShowcase } from "@/components/CortexShowcase";
+import { ShisFashionShowcase } from "@/components/ShisFashionShowcase";
 import { VelorixShowcase } from "@/components/VelorixShowcase";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
     <main className="overflow-x-hidden bg-transparent">
       <HeroSection />
       <CortexShowcase />
+      <ShisFashionShowcase />
       <StatsSection />
       <AboutSection />
       <BusinessGrid />
