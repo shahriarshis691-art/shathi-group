@@ -69,6 +69,12 @@ export interface SocialLink {
   readonly icon: string;
 }
 
+export interface OperationalHours {
+  readonly label: string;
+  readonly value: string;
+  readonly published: boolean;
+}
+
 export interface SiteConfig {
   readonly crawlSource: string;
   readonly crawledOn: string;
@@ -101,6 +107,7 @@ export interface SiteConfig {
     readonly email: ContactLink;
     readonly phone: ContactLink;
     readonly secondaryContacts: readonly ContactLink[];
+    readonly operationalHours: OperationalHours;
   };
   readonly socialLinks: readonly SocialLink[];
   readonly iconography: {
@@ -114,9 +121,8 @@ const liveUrl = "https://www.shathigroup.space";
 
 export const navigationLinks: readonly NavigationLink[] = [
   { label: "Home", href: "/", location: "primary" },
-  { label: "About Us", href: "/about", location: "primary" },
-  { label: "Our Businesses", href: "/#businesses", location: "primary" },
-  { label: "Leadership", href: "/leadership", location: "primary" },
+  { label: "Ventures", href: "/#ventures", location: "primary" },
+  { label: "Our Story", href: "/#story", location: "primary" },
   { label: "Contact", href: "/#contact", location: "primary" },
   { label: "ESG & CSR", href: "/esg", location: "footer" },
   { label: "Careers", href: "/careers", location: "footer" },
@@ -146,6 +152,11 @@ export const navigationLinks: readonly NavigationLink[] = [
     href: "/companies/cortex-softsolutions/engineers/sm-shahriar-walid",
     location: "sitemap",
   },
+];
+
+export const policyLinks: readonly NavigationLink[] = [
+  { label: "Privacy Policy", href: "/privacy", location: "footer" },
+  { label: "Terms of Use", href: "/terms", location: "footer" },
 ];
 
 export const storyMetrics: readonly StoryMetric[] = [
@@ -233,6 +244,11 @@ export const siteConfig: SiteConfig = {
         href: "https://wa.me/8801979614216?text=Hello%20CORTEXIO",
       },
     ],
+    operationalHours: {
+      label: "Operational hours",
+      value: "Not published on the live website",
+      published: false,
+    },
   },
   socialLinks: [
     { label: "LinkedIn", href: "https://linkedin.com", icon: "Linkedin" },

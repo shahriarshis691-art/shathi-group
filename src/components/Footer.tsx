@@ -1,212 +1,120 @@
 "use client";
 
+import { ArrowUp, Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  Mail,
-  MapPin,
-  Phone,
-  Twitter,
-  Youtube,
-} from "lucide-react";
-import { companies } from "@/data/companies";
-import { directContacts } from "@/data/contact";
-import { Logo } from "./Logo";
-import { useInquiryButton } from "@/hooks/useInquiryButton";
+import { usePathname } from "next/navigation";
+import { assetInventory, navigationLinks, policyLinks, siteConfig, ventures } from "@/data/shathigroup";
 
-const quickLinks = [
-  { label: "About Us", href: "/about" },
-  { label: "Our Businesses", href: "/#businesses" },
-  { label: "Leadership", href: "/leadership" },
-  { label: "ESG & CSR", href: "/esg" },
-  { label: "Careers", href: "/careers" },
-  { label: "Contact", href: "/#contact" },
-];
+interface FooterProps {
+  /** Renders only on the homepage; the application shell renders all remaining routes. */
+  readonly homeOnly?: boolean;
+}
 
-const socialLinks = [
-  { label: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
-  { label: "Facebook", href: "https://facebook.com", icon: Facebook },
-  { label: "Instagram", href: "https://instagram.com", icon: Instagram },
-  { label: "Twitter", href: "https://twitter.com", icon: Twitter },
-  { label: "YouTube", href: "https://youtube.com", icon: Youtube },
-];
+const footerVentureIds = new Set(["shis-fashion", "xeroxii", "ceravo-tiles", "velorix-motors"]);
+const footerVentures = ventures.filter((venture) => footerVentureIds.has(venture.id));
+const primaryLinks = navigationLinks.filter((link) => link.location === "primary" && link.label !== "Home");
+const brandLogo = assetInventory.find(
+  (asset) => asset.kind === "logo" && asset.alt === "SHATHI Group mark",
+);
 
-export function Footer() {
-  const year = new Date().getFullYear();
-  const openInquiry = useInquiryButton();
+function SocialIcon({ label }: { readonly label: string }) {
+  const Icon =
+    label === "LinkedIn" ? Linkedin :
+    label === "Facebook" ? Facebook :
+    label === "Instagram" ? Instagram :
+    label === "Twitter" ? Twitter :
+    Youtube;
+
+  return <Icon className="h-4 w-4" aria-hidden />;
+}
+
+export function Footer({ homeOnly = false }: FooterProps) {
+  const pathname = usePathname();
+  const isHomepage = pathname === "/";
+
+  if (homeOnly ? !isHomepage : isHomepage) return null;
 
   return (
-    <footer className="relative bg-white text-neutral-950">
-      <div className="container-corporate py-16">
-        <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-4">
-            <Logo variant="default" />
-            <p className="mt-4 max-w-sm font-sans text-sm md:text-[15px] font-normal leading-relaxed text-neutral-600">
-              SHATHI Group of Companies is a diversified corporate portfolio
-              spanning fashion, luxury, building materials, and home living —
-              united by integrity, craftsmanship, and long-term value.
-            </p>
-
-            <button
-              type="button"
-              onClick={openInquiry}
-              className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-full border border-neutral-900 bg-neutral-950 px-5 py-2.5 font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-white shadow-corporate transition hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400 md:text-xs"
-            >
-              Corporate Inquiry
-            </button>
-
-            <div className="mt-6 flex items-center gap-3">
-              {socialLinks.map(({ label, href, icon: Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-600 transition hover:border-neutral-950 hover:bg-neutral-950 hover:text-white sm:h-9 sm:w-9"
-                >
-                  <Icon className="h-4 w-4" aria-hidden />
-                </a>
-              ))}
-            </div>
-          </div>
-
-          <div className="lg:col-span-3">
-            <h3 className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
-              Quick Links
-            </h3>
-            <ul className="mt-4 space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                     className="font-sans text-sm md:text-[15px] font-normal text-neutral-600 transition hover:text-neutral-950"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
+    <footer className="border-t border-white/[0.08] bg-[#070708] text-luxury-50">
+      <div className="container-corporate py-16 sm:py-20">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-5">
-            <h3 className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
-              Sister Concerns
-            </h3>
-            <ul className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
-              {companies.map((company) => (
-                <li key={company.id}>
-                   <a
-                    href={company.websiteUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-start gap-3 rounded-md border border-neutral-200 bg-white p-3 transition hover:border-neutral-950 hover:bg-neutral-50"
-                  >
-                      <span className="mt-1 inline-block h-2 w-2 flex-none rounded-full bg-neutral-400" />
-                    <span>
-                      <span className="block font-serif text-sm font-bold uppercase tracking-[0.14em] text-neutral-950">
-                        {company.name}
-                      </span>
-                      <span className="block font-sans text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.16em] text-neutral-500">
-                        {company.category}
-                      </span>
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <div className="mt-12 grid gap-6 border-t border-neutral-200 pt-8 sm:grid-cols-3">
-          <div className="flex items-start gap-3">
-            <span className="inline-flex h-9 w-9 flex-none items-center justify-center rounded-full bg-white border border-neutral-200 text-neutral-900">
-              <MapPin className="h-4 w-4" aria-hidden />
-            </span>
-            <div>
-              <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
-                Corporate Office
-              </p>
-               <p className="mt-1 font-sans text-sm md:text-[15px] font-normal text-neutral-600">
-                SHATHI Tower, Corporate Park,
-                <br />
-                Main Business District, India
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-3">
-            <span className="inline-flex h-9 w-9 flex-none items-center justify-center rounded-full bg-white border border-neutral-200 text-neutral-900">
-              <Phone className="h-4 w-4" aria-hidden />
-            </span>
-            <div>
-              <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
-                Phone
-              </p>
-                 <a
-                  href="tel:+8801979614216"
-                   className="mt-1 block font-sans text-sm md:text-[15px] font-normal text-neutral-600 transition hover:text-neutral-950"
-              >
-                 +880 1979614216
-              </a>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-3">
-            <span className="inline-flex h-9 w-9 flex-none items-center justify-center rounded-full bg-white border border-neutral-200 text-neutral-900">
-              <Mail className="h-4 w-4" aria-hidden />
-            </span>
-            <div>
-              <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
-                Direct Email
-              </p>
-              <div className="mt-1 flex flex-col gap-2">
+            <Link href="/" className="inline-flex items-center gap-3" aria-label={`${siteConfig.shortName} home`}>
+              <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d4af37]/35 bg-[#d4af37]/10 p-2.5">
+                {brandLogo ? <Image src={brandLogo.url} alt="" width={20} height={20} className="h-full w-full object-contain brightness-0 invert" /> : <span className="font-serif text-[#d4af37]">S</span>}
+              </span>
+              <span className="font-serif text-base font-semibold uppercase tracking-[0.18em] text-luxury-50">{siteConfig.shortName}</span>
+            </Link>
+            <p className="mt-6 max-w-md text-sm leading-relaxed text-luxury-300">{siteConfig.description}</p>
+            <div className="mt-7 flex flex-wrap gap-2">
+              {siteConfig.socialLinks.map((social) => (
                 <a
-                  href={directContacts.corporate.href}
-                  className="inline-flex min-h-11 items-center font-mono text-xs text-neutral-800 underline underline-offset-4 transition-colors hover:text-neutral-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950 sm:text-sm"
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={social.label}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.08] text-luxury-300 transition hover:border-[#d4af37]/55 hover:bg-[#d4af37]/10 hover:text-[#f4d77a]"
                 >
-                  {directContacts.corporate.email}
+                  <SocialIcon label={social.label} />
                 </a>
-                <div className="flex flex-col gap-1">
-                  <span className="font-mono text-[10px] tracking-widest uppercase text-neutral-400">
-                    {directContacts.cortex.label}
-                  </span>
-                  <a
-                    href={directContacts.cortex.href}
-                    aria-label={`Email ${directContacts.cortex.label}`}
-                    className="inline-flex items-center font-mono text-xs text-neutral-800 underline underline-offset-4 transition-colors hover:text-neutral-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950 sm:text-sm"
-                  >
-                    {directContacts.cortex.email}
-                  </a>
-                </div>
-              </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-10 sm:grid-cols-2 lg:col-span-7 lg:grid-cols-3">
+            <div>
+              <h2 className="font-sans text-[10px] font-semibold uppercase tracking-luxury text-[#c5a880]">Navigate</h2>
+              <ul className="mt-5 space-y-3">
+                {primaryLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className="text-sm text-luxury-300 transition hover:text-[#f4d77a]">{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="sm:col-span-2 lg:col-span-1">
+              <h2 className="font-sans text-[10px] font-semibold uppercase tracking-luxury text-[#c5a880]">Ventures</h2>
+              <ul className="mt-5 space-y-3">
+                {footerVentures.map((venture) => (
+                  <li key={venture.id}>
+                    <Link href={venture.route} className="text-sm text-luxury-300 transition hover:text-[#f4d77a]">{venture.displayName}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="font-sans text-[10px] font-semibold uppercase tracking-luxury text-[#c5a880]">Corporate</h2>
+              <ul className="mt-5 space-y-3">
+                {policyLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className="text-sm text-luxury-300 transition hover:text-[#f4d77a]">{link.label}</Link>
+                  </li>
+                ))}
+                <li><a href={siteConfig.contact.email.href} className="text-sm text-luxury-300 transition hover:text-[#f4d77a]">Corporate desk</a></li>
+              </ul>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="border-t border-neutral-200">
-        <div className="container-corporate flex flex-col items-center justify-between gap-3 py-5 font-sans text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.16em] text-neutral-500 sm:flex-row">
-        <p>
-          &copy; {year} SHATHI Group of Companies. All rights reserved.
-        </p>
-        <div className="flex items-center gap-4">
-          <Link
-            href="/privacy"
-            className="transition hover:text-neutral-950"
+        <div className="mt-14 flex flex-col gap-5 border-t border-white/[0.08] pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="font-sans text-[10px] font-medium uppercase tracking-[0.14em] text-luxury-500">
+            © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+          </p>
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="group inline-flex min-h-10 items-center gap-2 self-start font-sans text-[10px] font-semibold uppercase tracking-[0.16em] text-luxury-300 transition hover:text-[#f4d77a] sm:self-auto"
           >
-            Privacy Policy
-          </Link>
-          <Link
-            href="/terms"
-            className="transition hover:text-neutral-950"
-          >
-            Terms of Use
-          </Link>
+            Back to top
+            <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/[0.08] transition group-hover:border-[#d4af37]/55 group-hover:bg-[#d4af37]/10">
+              <ArrowUp className="h-3.5 w-3.5" aria-hidden />
+            </span>
+          </button>
         </div>
-      </div>
       </div>
     </footer>
   );
