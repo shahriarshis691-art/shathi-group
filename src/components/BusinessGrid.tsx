@@ -9,7 +9,6 @@ export function BusinessGrid() {
   return (
     <section
       aria-labelledby="businesses-heading"
-      id="businesses"
       className="bg-white"
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8 max-w-[90rem] mx-auto px-6 py-16">
