@@ -25,10 +25,9 @@ const fallbackVariant: Record<LogoVariant, string> = {
 export interface LogoProps {
   className?: string;
   variant?: LogoVariant;
-  priority?: boolean;
 }
 
-export function Logo({ className, variant = "default", priority = false }: LogoProps) {
+export function Logo({ className, variant = "default" }: LogoProps) {
   const [imgError, setImgError] = useState(false);
 
   return (
@@ -48,9 +47,10 @@ export function Logo({ className, variant = "default", priority = false }: LogoP
           alt="SHATHI Group mark"
           width={32}
           height={32}
-          priority={priority}
           onError={() => setImgError(true)}
           className="h-8 w-8 object-contain"
+          loading="lazy"
+          decoding="async"
         />
       )}
       <span className="font-serif text-lg font-bold uppercase tracking-[0.12em]">

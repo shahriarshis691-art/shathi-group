@@ -1,24 +1,26 @@
 import { HeroSection } from "@/components/HeroSection";
 import { StatsSection } from "@/components/StatsSection";
 import { AboutSection } from "@/components/AboutSection";
-import { BusinessGrid } from "@/components/BusinessGrid";
-import { FounderSection } from "@/components/FounderSection";
-import { ContactSection } from "@/components/ContactSection";
-import { CortexEntryModal } from "@/components/CortexEntryModal";
 import { CortexShowcase } from "@/components/CortexShowcase";
 import { VelorixShowcase } from "@/components/VelorixShowcase";
 import { ShisFashionShowcase } from "@/components/ShisFashionShowcase";
-import { XeroxiiShowcase } from "@/components/XeroxiiShowcase";
 import { CeravoShowcase } from "@/components/CeravoShowcase";
+import {
+  DeferredBusinessGrid,
+  DeferredContactSection,
+  DeferredCortexEntryModal,
+  DeferredFounderSection,
+  DeferredXeroxiiShowcase,
+} from "@/components/HomeDeferredSections";
 
 export default function Home() {
   return (
-    <main className="overflow-x-hidden bg-transparent">
+    <main className="overflow-x-clip bg-transparent">
       <HeroSection />
       <CortexShowcase />
       <VelorixShowcase />
       <ShisFashionShowcase />
-      <XeroxiiShowcase />
+      <DeferredXeroxiiShowcase />
       <CeravoShowcase />
       <StatsSection />
       <AboutSection />
@@ -31,10 +33,10 @@ export default function Home() {
         </h2>
         <div className="w-12 h-[1px] bg-neutral-300 mt-6" />
       </section>
-      <BusinessGrid />
-      <FounderSection />
-      <ContactSection />
-      <CortexEntryModal />
+      <DeferredBusinessGrid />
+      <DeferredFounderSection />
+      <DeferredContactSection />
+      <DeferredCortexEntryModal />
     </main>
   );
 }

@@ -117,9 +117,10 @@ export function CeravoDetailPage() {
             src="/ceravo/material-architecture.png"
             alt="CE R A VO porcelain cladding at a contemporary architectural entrance"
             fill
-            priority
             sizes="(min-width: 1024px) 34vw, 100vw"
             className="object-cover object-center"
+            loading="eager"
+            decoding="async"
           />
           <div className="absolute bottom-5 left-5 border-l border-white/80 pl-3 font-mono text-[9px] uppercase tracking-[0.2em] text-white/90">
             Material study / 01
@@ -146,7 +147,7 @@ export function CeravoDetailPage() {
           {materialStudies.map((study) => (
             <article key={study.title} className="bg-[#d6d4ce] p-4">
               <div className="relative aspect-[4/3] overflow-hidden">
-                <Image src={study.image} alt={study.title} fill sizes="(min-width: 1024px) 22vw, 50vw" className={`object-cover ${study.position}`} />
+                <Image src={study.image} alt={study.title} fill sizes="(min-width: 1024px) 22vw, 50vw" className={`object-cover ${study.position}`} loading="lazy" decoding="async" />
               </div>
               <div className="pt-4">
                 <h3 className="font-sans text-sm uppercase tracking-tight text-[#33322e]">{study.title}</h3>
@@ -189,7 +190,7 @@ export function CeravoDetailPage() {
           {journal.map((article) => (
             <article key={article.title}>
               <div className="relative aspect-[16/10] overflow-hidden bg-[#bbb9b1]">
-                <Image src={article.image} alt="" fill sizes="(min-width: 768px) 30vw, 100vw" className={`object-cover ${article.position}`} />
+                <Image src={article.image} alt="" fill sizes="(min-width: 768px) 30vw, 100vw" className={`object-cover ${article.position}`} loading="lazy" decoding="async" />
               </div>
               <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.2em] text-[#79776f]">{article.label}</p>
               <h3 className="mt-2 max-w-xs font-sans text-lg leading-tight text-[#33322e]">{article.title}</h3>

@@ -36,7 +36,7 @@ export interface CortexEngineer {
 }
 
 export const cortexEngineers: CortexEngineer[] = [
- {
+  {
     slug: "navid-islam",
     name: "Navid Islam",
     role: "Lead UI/UX Architect",
@@ -53,6 +53,28 @@ export const cortexEngineers: CortexEngineer[] = [
     ],
     projects: [
       { title: "Enterprise Dashboard Suite", category: "SaaS Design System", description: "A dark-mode-first analytics dashboard with real-time telemetry.", metrics: ["42% faster task completion"], image: "/cortex/engineers/navid.jpg", demoUrl: "/companies/cortex-softsolutions" },
+    ],
+  },
+  {
+    slug: "maskat-md-mahadi-hassan",
+    name: "Maskat Md Mahadi Hassan",
+    role: "DIGITAL BUSINESS & INNOVATION LEAD",
+    titleTag: "02 // DIGITAL BUSINESS & INNOVATION",
+    avatar: "/cortex/engineers/maskat-md-mahadi-hassan.jpg",
+    bio: "Specializing in digital strategy, business model innovation, and technological scalability. Leveraging global perspective from Tokyo International University to architect high-impact digital ventures.",
+    clientMessage: "Transforming enterprise capabilities through sovereign digital architectures and sustainable market innovation.",
+    stack: ["Digital Business Strategy & Modeling", "Enterprise Technology Transformation", "Cross-Border Market Architecture", "Product Innovation Lifecycle"],
+    education: [
+      { degree: "Digital Business & Innovation", institution: "Tokyo International University", year: "", focus: "Digital strategy, business model innovation, and technological scalability." },
+    ],
+    experience: [
+      { role: "DIGITAL BUSINESS & INNOVATION LEAD", company: "CORTEXIO Softsolutions", period: "Present", highlights: ["Transforming enterprise capabilities through sovereign digital architectures and sustainable market innovation."] },
+      { role: "Digital Systems Specialist", company: "Tokyo International University", period: "Previous", highlights: ["Specialized in digital systems and enterprise technology transformation."] },
+      { role: "Strategy Consultant", company: "Enterprise Strategy Frameworks", period: "Previous", highlights: ["Developed enterprise strategy frameworks for digital ventures."] },
+      { role: "Venture Planning Lead", company: "Global Commercial Venture Planning", period: "Previous", highlights: ["Led global commercial venture planning initiatives."] },
+    ],
+    projects: [
+      { title: "Sovereign Digital Venture Architecture", category: "Digital Business", description: "High-impact digital venture architecture combining sovereign digital systems with sustainable market innovation.", metrics: ["Sovereign digital architectures", "Sustainable market innovation", "Cross-border scalability"], image: "/cortex/engineers/maskat-md-mahadi-hassan.jpg", demoUrl: "/companies/cortex-softsolutions" },
     ],
   },
   {

@@ -274,6 +274,7 @@ export function CortexProjectSlider() {
                     sizes="(max-width: 768px) 85vw, 400px"
                     className="object-cover object-top hover:scale-[1.02] transition-transform duration-500"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="pt-6 pb-4">

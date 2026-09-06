@@ -33,7 +33,9 @@ export function FounderSection() {
                     alt="S M SHAHRIAR WALID - Founder & CEO"
                     fill
                     className="object-cover object-top"
-                    sizes="(min-width: 1024px) 420px, 100vw"
+                    sizes="(min-width: 1024px) 420px, (min-width: 640px) 40vw, 48vw"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>

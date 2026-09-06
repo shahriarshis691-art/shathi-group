@@ -26,7 +26,7 @@ export function ShisFashionShowcase() {
           href={shisUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-6 inline-flex min-h-11 items-center rounded-sm bg-[#FF1818] px-8 py-3.5 font-mono text-xs font-bold uppercase tracking-widest text-white shadow-lg transition-all duration-300 hover:bg-[#D90F0F] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FF1818]"
+          className="mt-6 inline-flex min-h-11 items-center rounded-sm bg-[#FF1818] px-8 py-3.5 font-mono text-xs font-bold uppercase tracking-widest text-white shadow-lg transition-colors duration-300 hover:bg-[#D90F0F] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FF1818]"
         >
           Visit Store →
         </a>
@@ -39,6 +39,8 @@ export function ShisFashionShowcase() {
           fill
           sizes="(min-width: 1024px) 58vw, 100vw"
           className="object-contain object-right-bottom"
+          loading="lazy"
+          decoding="async"
         />
         <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-[#F5F6F8] via-[#F5F6F8]/70 to-transparent" />
       </div>

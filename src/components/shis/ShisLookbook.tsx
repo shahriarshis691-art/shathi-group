@@ -2,8 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const modelImage = "/shis/shis-editorial-model.png";
 
@@ -18,67 +16,79 @@ export function ShisLookbook() {
     const section = sectionRef.current;
     if (!section) return;
 
-    gsap.registerPlugin(ScrollTrigger);
+    const desktopMotion = window.matchMedia(
+      "(min-width: 768px) and (prefers-reduced-motion: no-preference)"
+    );
+    if (!desktopMotion.matches) return;
 
-    const matchMedia = gsap.matchMedia();
-    const context = gsap.context(() => {
-      matchMedia.add(
-        "(min-width: 768px) and (prefers-reduced-motion: no-preference)",
-        () => {
-          const select = gsap.utils.selector(section);
-          const layers = [
-            // Lower travel values read as distant, slower planes.
-            { selector: "[data-shis-layer='ambient']", travel: 8 },
-            { selector: "[data-shis-layer='background']", travel: 14 },
-            { selector: "[data-shis-layer='headline']", travel: 24 },
-            // Increase these values for a stronger foreground parallax effect.
-            { selector: "[data-shis-layer='midground']", travel: 32 },
-            { selector: "[data-shis-layer='foreground']", travel: 46 },
-            { selector: "[data-shis-layer='caption']", travel: 36 },
-          ];
+    let context: { revert: () => void } | undefined;
+    let disposed = false;
 
-          layers.forEach(({ selector, travel }) => {
-            gsap.fromTo(
-              select(selector),
-              { yPercent: -travel / 2, force3D: true },
-              {
-                yPercent: travel / 2,
-                ease: "none",
-                force3D: true,
-                scrollTrigger: {
-                  trigger: section,
-                  start: "top top",
-                  end: "bottom bottom",
-                  scrub: 0.65,
-                  invalidateOnRefresh: true,
-                },
-              }
-            );
+    void Promise.all([import("gsap"), import("gsap/ScrollTrigger")]).then(
+      ([{ gsap }, { ScrollTrigger }]) => {
+        if (disposed) return;
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        context = gsap.context(() => {
+          ScrollTrigger.matchMedia({
+            "(min-width: 768px) and (prefers-reduced-motion: no-preference)": () => {
+              const select = gsap.utils.selector(section);
+              const layers = [
+                // Lower travel values read as distant, slower planes.
+                { selector: "[data-shis-layer='ambient']", travel: 8 },
+                { selector: "[data-shis-layer='background']", travel: 14 },
+                { selector: "[data-shis-layer='headline']", travel: 24 },
+                // Increase these values for a stronger foreground parallax effect.
+                { selector: "[data-shis-layer='midground']", travel: 32 },
+                { selector: "[data-shis-layer='foreground']", travel: 46 },
+                { selector: "[data-shis-layer='caption']", travel: 36 },
+              ];
+
+              layers.forEach(({ selector, travel }) => {
+                gsap.fromTo(
+                  select(selector),
+                  { yPercent: -travel / 2, force3D: true },
+                  {
+                    yPercent: travel / 2,
+                    ease: "none",
+                    force3D: true,
+                    scrollTrigger: {
+                      trigger: section,
+                      start: "top top",
+                      end: "bottom bottom",
+                      scrub: 0.65,
+                      invalidateOnRefresh: true,
+                    },
+                  }
+                );
+              });
+
+              gsap.fromTo(
+                select("[data-shis-image]"),
+                { scale: 1.03, force3D: true },
+                {
+                  scale: 1.1,
+                  ease: "none",
+                  force3D: true,
+                  scrollTrigger: {
+                    trigger: section,
+                    start: "top top",
+                    end: "bottom bottom",
+                    scrub: 0.65,
+                    invalidateOnRefresh: true,
+                  },
+                }
+              );
+            },
           });
-
-          gsap.fromTo(
-            select("[data-shis-image]"),
-            { scale: 1.03, force3D: true },
-            {
-              scale: 1.1,
-              ease: "none",
-              force3D: true,
-              scrollTrigger: {
-                trigger: section,
-                start: "top top",
-                end: "bottom bottom",
-                scrub: 0.65,
-                invalidateOnRefresh: true,
-              },
-            }
-          );
-        }
-      );
-    }, section);
+        }, section);
+      }
+    );
 
     return () => {
-      matchMedia.revert();
-      context.revert();
+      disposed = true;
+      context?.revert();
     };
   }, []);
 
@@ -125,6 +135,8 @@ export function ShisLookbook() {
             sizes="(min-width: 768px) 22vw, 47vw"
             className="object-cover object-[67%_center]"
             data-shis-image
+            loading="lazy"
+            decoding="async"
           />
         </figure>
 
@@ -139,6 +151,8 @@ export function ShisLookbook() {
             sizes="(min-width: 768px) 18vw, 38vw"
             className="object-cover object-[57%_18%]"
             data-shis-image
+            loading="lazy"
+            decoding="async"
           />
         </figure>
 
@@ -153,6 +167,8 @@ export function ShisLookbook() {
             sizes="(min-width: 768px) 14vw, 31vw"
             className="object-cover object-[75%_78%]"
             data-shis-image
+            loading="lazy"
+            decoding="async"
           />
         </figure>
 

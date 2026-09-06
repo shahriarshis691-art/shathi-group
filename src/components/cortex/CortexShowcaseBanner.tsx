@@ -21,8 +21,10 @@ export function CortexShowcaseBanner({
           src="/cortex/build-your-vision.png"
           alt="CORTEXIO engineer using a laptop with a live product interface"
           fill
+          priority
           sizes="(max-width: 1024px) 58vw, 50vw"
           className="object-cover object-center [mask-image:linear-gradient(to_right,transparent_0%,black_18%,black_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_18%,black_100%)]"
+          decoding="async"
         />
       </div>
 
@@ -53,9 +55,11 @@ export function CortexShowcaseBanner({
           <Image
             src="/cortex/build-your-vision.png"
             alt="CORTEXIO engineer working on a laptop with a live product interface"
-            fill
-            sizes="(max-width: 640px) calc(100vw - 3rem), 672px"
-            className="object-contain object-center"
+          fill
+          priority
+          sizes="(max-width: 640px) calc(100vw - 3rem), 672px"
+          className="object-contain object-center"
+          decoding="async"
           />
         </div>
       </div>

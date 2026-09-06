@@ -147,9 +147,10 @@ export function VelorixDetailPage() {
                 src="/velorix/velorix-hero.png"
                 alt="Velorix GT matte silver electric hypercar"
                 fill
-                priority
                 sizes="(min-width: 1280px) 1100px, (min-width: 640px) 90vw, 100vw"
                 className="object-contain mix-blend-screen"
+                loading="eager"
+                decoding="async"
               />
             </motion.div>
             <ChassisOverlay active={wireframeActive} />
@@ -206,7 +207,7 @@ export function VelorixDetailPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.55, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-6 backdrop-blur-md transition-all duration-300 hover:border-cyan-500/50"
+              className="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-6 backdrop-blur-md transition-colors duration-300 hover:border-cyan-500/50"
             >
               <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-500">{item.title}</p>
               <p className="mt-5 font-sans text-2xl font-black tracking-tight text-white">{item.metric}</p>

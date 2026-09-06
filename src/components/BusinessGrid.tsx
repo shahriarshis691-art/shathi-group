@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
@@ -56,10 +58,12 @@ function SubsidiaryCard({ company, index }: { company: Company; index: number })
           >
             <Image
               alt={company.imageAlt}
-              className="object-cover filter grayscale contrast-[1.05] transition-all duration-700 ease-out group-hover:grayscale-0 group-hover:scale-[1.02]"
+              className="object-cover filter grayscale contrast-[1.05] transition-transform duration-700 ease-out group-hover:grayscale-0 group-hover:scale-[1.02]"
               fill
               sizes="(min-width: 1024px) 20vw, 50vw"
               src={company.image}
+              loading="lazy"
+              decoding="async"
             />
           </ParallaxContainer>
         </div>

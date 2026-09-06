@@ -1,10 +1,13 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import {
-  InquiryModal,
-  type InquiryCategory,
-} from "@/components/InquiryModal";
+import dynamic from "next/dynamic";
+import type { InquiryCategory } from "@/components/InquiryModal";
+
+const InquiryModal = dynamic(
+  () => import("@/components/InquiryModal").then((module) => module.InquiryModal),
+  { ssr: false }
+);
 
 export interface InquiryTarget {
   id: string;
@@ -47,6 +50,8 @@ export function InquiryProvider() {
   const handleClose = useCallback(() => {
     setIsOpen(false);
   }, []);
+
+  if (!isOpen) return null;
 
   return (
     <InquiryModal

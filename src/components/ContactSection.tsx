@@ -56,7 +56,7 @@ function validate(values: FormState): FormErrors {
 }
 
 const inputBase =
-  "w-full bg-[#FAFAFA] border border-neutral-200 px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 focus:bg-white focus:border-neutral-950 focus:outline-none transition-all duration-200 rounded-none";
+  "w-full bg-[#FAFAFA] border border-neutral-200 px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 focus:bg-white focus:border-neutral-950 focus:outline-none transition-colors duration-200 rounded-none";
 
 const inputIdle =
   "border-neutral-200 hover:border-neutral-400 focus:border-neutral-950";

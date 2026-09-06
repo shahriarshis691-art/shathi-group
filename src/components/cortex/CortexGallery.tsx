@@ -125,6 +125,8 @@ function EngineerEditorialRow({
           fill
           sizes="(min-width: 1024px) 420px, 42vw"
           className="object-cover object-top"
+          loading="lazy"
+          decoding="async"
         />
       </div>
     </div>

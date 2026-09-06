@@ -74,6 +74,8 @@ export function CeravoMaterialTriptych() {
                   fill
                   sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
                   className={`object-cover ${card.position} transition-transform duration-700 group-hover:scale-105 ${card.tint}`}
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div
                   aria-hidden="true"

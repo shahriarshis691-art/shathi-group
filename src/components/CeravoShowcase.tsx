@@ -54,7 +54,7 @@ export function CeravoShowcase() {
         <div className="mt-4 flex flex-col items-stretch gap-2 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
           <Link
             href="/ceravo"
-            className="inline-flex min-h-11 items-center justify-center bg-neutral-950 px-2 py-3 font-mono text-[7px] uppercase tracking-[0.08em] text-white shadow-xl transition-all duration-300 hover:bg-neutral-800 sm:px-8 sm:text-xs sm:tracking-[0.2em]"
+            className="inline-flex min-h-11 items-center justify-center bg-neutral-950 px-2 py-3 font-mono text-[7px] uppercase tracking-[0.08em] text-white shadow-xl transition-colors duration-300 hover:bg-neutral-800 sm:px-8 sm:text-xs sm:tracking-[0.2em]"
           >
             VIEW DETAILS &amp; COLLECTION →
           </Link>
@@ -62,7 +62,7 @@ export function CeravoShowcase() {
             href="https://www.ceravo.online"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-11 items-center justify-center border border-neutral-950 px-2 py-3 font-mono text-[7px] uppercase tracking-[0.08em] text-neutral-950 transition-all duration-300 hover:bg-neutral-950 hover:text-white sm:px-8 sm:text-xs sm:tracking-[0.2em]"
+            className="inline-flex min-h-11 items-center justify-center border border-neutral-950 px-2 py-3 font-mono text-[7px] uppercase tracking-[0.08em] text-neutral-950 transition-colors duration-300 hover:bg-neutral-950 hover:text-white sm:px-8 sm:text-xs sm:tracking-[0.2em]"
           >
             VISIT CERAVO.ONLINE ↗
           </a>
@@ -76,6 +76,8 @@ export function CeravoShowcase() {
           fill
           sizes="(min-width: 1024px) 47vw, 38vw"
           className="object-cover object-center contrast-105 transition-transform duration-700 hover:scale-105"
+          loading="lazy"
+          decoding="async"
         />
         <div
           aria-hidden="true"

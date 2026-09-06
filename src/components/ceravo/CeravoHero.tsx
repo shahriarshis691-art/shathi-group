@@ -65,7 +65,7 @@ export function CeravoHero({ onInquiry }: CeravoHeroProps) {
           <button
             type="button"
             onClick={onInquiry}
-            className="mt-10 inline-flex w-fit items-center justify-center border border-neutral-950 px-8 py-3.5 font-mono text-xs uppercase tracking-[0.2em] text-neutral-950 transition-all duration-300 hover:bg-neutral-950 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-900"
+            className="mt-10 inline-flex w-fit items-center justify-center border border-neutral-950 px-8 py-3.5 font-mono text-xs uppercase tracking-[0.2em] text-neutral-950 transition-colors duration-300 hover:bg-neutral-950 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-900"
           >
             REQUEST SAMPLES / CATALOGUE →
           </button>
@@ -80,9 +80,10 @@ export function CeravoHero({ onInquiry }: CeravoHeroProps) {
             src="/ceravo/real-estate-ceramics.png"
             alt="CE R A VO monolithic porcelain and luxury marble architectural surfaces in a refined interior"
             fill
-            priority
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover object-center transition-transform duration-700 hover:scale-105"
+            loading="eager"
+            decoding="async"
           />
           <div
             aria-hidden="true"

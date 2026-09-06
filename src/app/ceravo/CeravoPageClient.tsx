@@ -13,7 +13,7 @@ export function CeravoPageClient() {
   });
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#F9F9FB] text-neutral-950 selection:bg-neutral-900 selection:text-white">
+    <main className="min-h-screen overflow-x-clip bg-[#F9F9FB] text-neutral-950 selection:bg-neutral-900 selection:text-white">
       <div className="border-l border-neutral-200">
         <div className="border-t border-neutral-200">
           <CeravoTopBar />

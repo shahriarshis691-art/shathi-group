@@ -9,15 +9,52 @@ import { useInquiryButton } from "@/hooks/useInquiryButton";
 import { CortexShowcaseBanner } from "@/components/cortex/CortexShowcaseBanner";
 import { CeravoDetailPage } from "@/components/ceravo/CeravoDetailPage";
 import { CortexAbout } from "@/components/cortex/CortexAbout";
-import { CortexGallery } from "@/components/cortex/CortexGallery";
-import { CortexSlider } from "@/components/cortex/CortexSlider";
-import { CortexProjectSlider } from "@/components/cortex/CortexProjectSlider";
+import { DeferredSection } from "@/components/DeferredSection";
 
 const ShisLookbook = dynamic(
   () =>
     import("@/components/shis/ShisLookbook").then(
       (module) => module.ShisLookbook
-    )
+    ),
+  {
+    ssr: false,
+    loading: () => (
+      <section aria-hidden className="min-h-[820px] bg-[#151515] sm:min-h-[960px] md:min-h-[185vh]" />
+    ),
+  }
+);
+
+const CortexProjectSlider = dynamic(
+  () =>
+    import("@/components/cortex/CortexProjectSlider").then(
+      (module) => module.CortexProjectSlider
+    ),
+  {
+    ssr: false,
+    loading: () => <section aria-hidden className="min-h-[600px] bg-white" />,
+  }
+);
+
+const CortexGallery = dynamic(
+  () =>
+    import("@/components/cortex/CortexGallery").then(
+      (module) => module.CortexGallery
+    ),
+  {
+    ssr: false,
+    loading: () => <section aria-hidden className="min-h-[540px] bg-white" />,
+  }
+);
+
+const CortexSlider = dynamic(
+  () =>
+    import("@/components/cortex/CortexSlider").then(
+      (module) => module.CortexSlider
+    ),
+  {
+    ssr: false,
+    loading: () => <section aria-hidden className="min-h-[620px] bg-[#EAECEF]" />,
+  }
 );
 
 type Slug = Company["slug"];
@@ -218,6 +255,8 @@ function VisualFeatureCard({
         fill
         sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
         className="object-cover opacity-35 transition duration-700 group-hover:scale-105"
+        loading="lazy"
+        decoding="async"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-[#121417]/10 via-[#121417]/65 to-[#121417]" />
       <div className="relative flex w-full flex-col">
@@ -276,9 +315,10 @@ export function CompanyClient({ company }: CompanyClientProps) {
             src={company.image}
             alt={company.imageAlt}
             fill
-            priority
             sizes="100vw"
             className="object-cover opacity-75"
+            loading="eager"
+            decoding="async"
           />
           <div
             aria-hidden="true"
@@ -360,16 +400,24 @@ export function CompanyClient({ company }: CompanyClientProps) {
         <section className="pt-20 sm:pt-24 lg:pt-28">
           <CortexShowcaseBanner onOpenInquiry={openInquiry} />
           <CortexAbout />
-          <CortexProjectSlider />
-          <CortexGallery />
-          <CortexSlider />
+          <DeferredSection className="min-h-[600px] bg-white">
+            <CortexProjectSlider />
+          </DeferredSection>
+          <DeferredSection className="min-h-[540px] bg-white">
+            <CortexGallery />
+          </DeferredSection>
+          <DeferredSection className="min-h-[620px] bg-[#EAECEF]">
+            <CortexSlider />
+          </DeferredSection>
         </section>
       )}
 
       {/* SHIS FASHION */}
       {company.slug === "shis-fashion" && (
         <>
-          <ShisLookbook />
+          <DeferredSection className="min-h-[820px] bg-[#151515] sm:min-h-[960px] md:min-h-[185vh]">
+            <ShisLookbook />
+          </DeferredSection>
 
           <section className={`py-16 sm:py-20 ${t.sectionAltClass}`}>
             <div className="container-corporate">

@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 const watchImage = "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=1200&q=80";
@@ -26,11 +25,8 @@ export function XeroxiiShowcase() {
 
       <div className="relative z-10 flex items-center justify-center">
         <div className="relative">
-          <motion.div
-            animate={{ y: [-6, 6, -6] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            whileHover={{ scale: 1.04, rotateZ: 1 }}
-            className="relative z-20 h-[260px] w-[260px] sm:h-[340px] sm:w-[340px] md:h-[420px] md:w-[420px]"
+          <div
+            className="relative z-20 h-[260px] w-[260px] transform-gpu will-change-transform motion-safe:animate-[showcase-float_5s_ease-in-out_infinite] transition-transform duration-300 hover:scale-[1.04] hover:rotate-1 sm:h-[340px] sm:w-[340px] md:h-[420px] md:w-[420px]"
           >
             <Image
               src={watchImage}
@@ -38,8 +34,10 @@ export function XeroxiiShowcase() {
               fill
               className="object-contain drop-shadow-2xl"
               sizes="(min-width: 768px) 420px, (min-width: 640px) 340px, 260px"
+              loading="lazy"
+              decoding="async"
             />
-          </motion.div>
+          </div>
         </div>
       </div>
 
@@ -66,7 +64,7 @@ export function XeroxiiShowcase() {
           href="https://www.xeroxii.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-neutral-950 text-white font-mono text-xs tracking-[0.2em] uppercase hover:bg-neutral-800 transition-all duration-300 shadow-xl mt-4"
+          className="mt-4 inline-flex items-center gap-3 rounded-full bg-neutral-950 px-8 py-3.5 font-mono text-xs uppercase tracking-[0.2em] text-white shadow-xl transition-colors duration-300 hover:bg-neutral-800"
         >
           Discover Timepiece
           <span aria-hidden>↗</span>

@@ -1,28 +1,14 @@
-"use client";
-
-import { useRef } from "react";
 import { ArrowRight, Building2, Sparkles } from "lucide-react";
 import { CorporateProfileButton } from "./CorporateProfileButton";
 import Image from "next/image";
-import { SlideIn } from "@/components/ui/ScrollReveal";
-import { ParallaxContainer } from "@/components/ui/ParallaxContainer";
 
 export function HeroSection() {
-  const heroRef = useRef<HTMLElement>(null);
-
   return (
     <section
-      ref={heroRef}
       aria-labelledby="hero-heading"
       className="relative w-full min-h-screen overflow-hidden flex items-center"
     >
-      <ParallaxContainer
-        target={heroRef}
-        depth="background"
-        className="pointer-events-none absolute inset-0 -z-10"
-        planeClassName="h-full"
-        contentClassName="relative h-full"
-      >
+      <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 z-0 overflow-hidden bg-neutral-950">
           <Image
             alt="Shathi Group Corporate Overview"
@@ -31,17 +17,17 @@ export function HeroSection() {
             priority
             sizes="100vw"
             src="/hero-image/hero-architecture-v2.png"
+            decoding="async"
           />
 
           {/* Balanced corporate scrim for high text contrast */}
           <div className="absolute inset-0 bg-neutral-950/50 backdrop-brightness-90" />
         </div>
-      </ParallaxContainer>
+      </div>
 
       <div className="relative z-20 w-full">
         <div className="container-corporate">
-          <SlideIn direction="left" className="max-w-3xl">
-            <ParallaxContainer target={heroRef} depth="foreground" yRange={[-18, 32]}>
+          <div className="max-w-3xl">
               <div className="flex items-center gap-3 text-neutral-300">
                 <Building2 className="h-8 w-8" aria-hidden />
                 <span className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em]">
@@ -76,8 +62,7 @@ export function HeroSection() {
               <div className="mt-10">
                 <CorporateProfileButton />
               </div>
-            </ParallaxContainer>
-          </SlideIn>
+          </div>
         </div>
       </div>
     </section>

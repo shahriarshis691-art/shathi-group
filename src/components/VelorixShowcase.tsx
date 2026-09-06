@@ -35,12 +35,14 @@ export function VelorixShowcase() {
             fill
             sizes="(min-width: 1024px) 62vw, 68vw"
             className="object-contain drop-shadow-[0_25px_30px_rgba(0,0,0,0.22)]"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 
         <Link
           href="/velorix"
-          className="relative z-10 mx-auto inline-flex min-h-11 items-center justify-center rounded-full border border-neutral-900 px-3 py-3 font-mono text-[7px] uppercase tracking-[0.08em] text-neutral-900 transition-all duration-300 hover:bg-neutral-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-900 sm:px-10 sm:text-xs sm:tracking-[0.25em]"
+          className="relative z-10 mx-auto inline-flex min-h-11 items-center justify-center rounded-full border border-neutral-900 px-3 py-3 font-mono text-[7px] uppercase tracking-[0.08em] text-neutral-900 transition-colors duration-300 hover:bg-neutral-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-900 sm:px-10 sm:text-xs sm:tracking-[0.25em]"
         >
           Explore Velorix →
         </Link>

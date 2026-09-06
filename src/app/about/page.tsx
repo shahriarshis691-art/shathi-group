@@ -33,7 +33,7 @@ const principles = [
 
 export default function AboutPage() {
   return (
-    <main className="overflow-x-hidden bg-neutral-50 pt-16 text-neutral-950">
+    <main className="overflow-x-clip bg-neutral-50 pt-16 text-neutral-950">
       <section className="relative overflow-hidden border-b border-neutral-200 bg-white px-6 py-16 sm:px-10 lg:px-16 lg:py-24">
         <div
           aria-hidden="true"

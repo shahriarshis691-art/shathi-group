@@ -87,7 +87,7 @@ export function CortexSlider() {
           </button>
 
           <div className="flex flex-1 items-center justify-center gap-4 md:gap-6 overflow-hidden">
-            <div className="hidden md:flex flex-1 flex-col items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] scale-95 opacity-40 blur-[0.5px]">
+            <div className="hidden md:flex flex-1 flex-col items-center justify-center transition-[transform,opacity,filter] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] scale-95 opacity-40 blur-[0.5px]">
               <div className="aspect-[4/3] w-full max-w-sm rounded-2xl border border-neutral-300 bg-white/60 p-6 shadow-sm">
                 <p className="font-mono text-[10px] uppercase tracking-widest text-neutral-500">
                   {modules[prev].title}
@@ -98,7 +98,7 @@ export function CortexSlider() {
               </div>
             </div>
 
-            <div className="flex flex-col items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] scale-105 opacity-100 z-20">
+            <div className="z-20 flex flex-col items-center justify-center transition-[transform,opacity] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] scale-105 opacity-100">
               <div className="aspect-[4/3] w-full max-w-md rounded-3xl border border-neutral-100/80 bg-white p-8 shadow-[0_20px_50px_rgba(0,0,0,0.08)]">
                 <div className="flex h-16 w-16 items-center justify-center rounded-full border border-neutral-200 bg-neutral-50 text-2xl text-neutral-800 shadow-sm mx-auto mb-6 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]">
                   {modules[active].icon}
@@ -115,7 +115,7 @@ export function CortexSlider() {
               </div>
             </div>
 
-            <div className="hidden md:flex flex-1 flex-col items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] scale-95 opacity-40 blur-[0.5px]">
+            <div className="hidden md:flex flex-1 flex-col items-center justify-center transition-[transform,opacity,filter] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] scale-95 opacity-40 blur-[0.5px]">
               <div className="aspect-[4/3] w-full max-w-sm rounded-2xl border border-neutral-300 bg-white/60 p-6 shadow-sm">
                 <p className="font-mono text-[10px] uppercase tracking-widest text-neutral-500">
                   {modules[next].title}
@@ -148,7 +148,7 @@ export function CortexSlider() {
                 key={mod.title}
                 type="button"
                 onClick={() => handleManualChange(idx)}
-                className={`inline-flex h-11 w-11 items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] md:h-auto md:w-auto ${
+                className={`inline-flex h-11 w-11 items-center justify-center transition-[transform,color] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] md:h-auto md:w-auto ${
                   idx === active
                     ? "font-bold text-neutral-950 scale-110"
                     : "text-neutral-400 hover:text-neutral-600"

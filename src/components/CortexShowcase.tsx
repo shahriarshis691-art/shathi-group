@@ -54,7 +54,7 @@ export function CortexShowcase() {
         </p>
         <Link
           href="/companies/cortex-softsolutions"
-          className="mt-4 inline-flex min-h-11 w-full items-center justify-center border border-neutral-950 px-2 py-3 font-mono text-[7px] uppercase tracking-[0.08em] text-neutral-950 transition-all duration-300 hover:bg-neutral-950 hover:text-white sm:mt-8 sm:w-fit sm:px-8 sm:text-xs sm:tracking-[0.2em]"
+          className="mt-4 inline-flex min-h-11 w-full items-center justify-center border border-neutral-950 px-2 py-3 font-mono text-[7px] uppercase tracking-[0.08em] text-neutral-950 transition-colors duration-300 hover:bg-neutral-950 hover:text-white sm:mt-8 sm:w-fit sm:px-8 sm:text-xs sm:tracking-[0.2em]"
         >
           CLAIM YOUR FREE ACCESS [10 SPOTS] →
         </Link>
@@ -67,6 +67,8 @@ export function CortexShowcase() {
           fill
           sizes="(min-width: 1024px) 47vw, 38vw"
           src="/cortex/image-Picsart-AiImageEnhancer.png"
+          loading="lazy"
+          decoding="async"
         />
       </div>
     </section>

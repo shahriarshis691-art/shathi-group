@@ -97,7 +97,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${jakarta.variable} ${display.variable}`}>
-      <body className="flex min-h-screen flex-col bg-white text-neutral-950 antialiased font-sans relative overflow-x-hidden">
+      <body className="relative flex min-h-screen flex-col overflow-x-clip bg-white font-sans text-neutral-950 antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}

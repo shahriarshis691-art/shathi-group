@@ -29,7 +29,7 @@ const pathways = [
 
 export default function CareersPage() {
   return (
-    <main className="overflow-x-hidden bg-white pt-16 text-neutral-950">
+    <main className="overflow-x-clip bg-white pt-16 text-neutral-950">
       <section className="border-b border-neutral-200 bg-neutral-950 px-6 py-16 text-white sm:px-10 lg:px-16 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">

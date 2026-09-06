@@ -229,6 +229,8 @@ export function EngineeringGovernance() {
                         fill
                         sizes="(max-width: 1023px) 50vw, 25vw"
                         src={discipline.image}
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
                   </>
@@ -241,6 +243,8 @@ export function EngineeringGovernance() {
                         fill
                         sizes="(max-width: 1023px) 50vw, 25vw"
                         src={discipline.image}
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
 

@@ -67,7 +67,7 @@ export default async function CortexEngineerPage({ params }: { params: Promise<{
             </div>
           </div>
           <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden border border-white/15 bg-neutral-900">
-            <Image src={engineer.avatar} alt={`${engineer.name}, ${engineer.role}`} fill priority sizes="(min-width: 1024px) 30vw, 80vw" className="object-cover grayscale" />
+            <Image src={engineer.avatar} alt={`${engineer.name}, ${engineer.role}`} fill sizes="(min-width: 1024px) 30vw, 80vw" className="object-cover grayscale" loading="lazy" decoding="async" />
             <span className="absolute bottom-4 left-4 font-mono text-[10px] uppercase tracking-[0.18em] text-white/80">CORTEXIO / specialist file</span>
           </div>
         </div>
@@ -127,7 +127,7 @@ export default async function CortexEngineerPage({ params }: { params: Promise<{
           {engineer.projects.map((project) => (
             <article key={project.title} className="group overflow-hidden border border-neutral-200 bg-white transition-shadow hover:shadow-xl">
               <div className="relative aspect-[16/9] overflow-hidden bg-neutral-900">
-                <Image src={project.image} alt={`${project.title} software interface concept`} fill sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover opacity-80 transition duration-700 group-hover:scale-105 group-hover:opacity-100" />
+                <Image src={project.image} alt={`${project.title} software interface concept`} fill sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover opacity-80 transition duration-700 group-hover:scale-105 group-hover:opacity-100" loading="lazy" decoding="async" />
                 <span className="absolute left-5 top-5 bg-[#11131a]/90 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-cyan-100">{project.category}</span>
               </div>
               <div className="p-6">

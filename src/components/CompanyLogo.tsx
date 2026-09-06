@@ -41,6 +41,8 @@ export function CompanyLogo({
       height={size}
       onError={() => setErrored(true)}
       className="rounded-xl object-contain"
+      loading="lazy"
+      decoding="async"
     />
   );
 }
