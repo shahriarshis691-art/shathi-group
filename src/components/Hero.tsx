@@ -40,10 +40,18 @@ export function Hero() {
   className="object-cover object-center opacity-20 mix-blend-luminosity"
 />
       </div>
-      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,#070708_5%,rgba(7,7,8,0.87)_45%,rgba(7,7,8,0.45)_100%)]" />
-      <div aria-hidden="true" className="absolute inset-0 -z-10 opacity-30 [background-image:linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] [background-size:5rem_5rem]" />
+<div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,#070708_5%,rgba(7,7,8,0.87)_45%,rgba(7,7,8,0.45)_100%)]" />
+       <div aria-hidden="true" className="absolute inset-0 -z-10 opacity-30 [background-image:linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] [background-size:5rem_5rem]" />
 
-      <motion.div
+       <div className="mb-4 flex items-center gap-2">
+         <span className="inline-flex items-center gap-2 rounded-full border border-white/[0.1] bg-white/[0.05] px-3 py-1 font-sans text-[9px] font-semibold uppercase tracking-luxury text-[#d4af37] backdrop-blur-sm">
+           Flagship
+           <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
+         </span>
+         <a href="/cortexio" className="ml-2 text-[#d4af37] hover:text-[#fff3c4] font-sans text-[9px] font-semibold uppercase tracking-luxury">CORTEXIO</a>
+       </div>
+
+       <motion.div
         className="container-corporate relative w-full"
         initial="hidden"
         animate="visible"

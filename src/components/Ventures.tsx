@@ -14,21 +14,23 @@ import { type PointerEvent } from "react";
 import { type Venture, ventures } from "@/data/shathigroup";
 
 const featuredVentureIds = [
-  "shis-fashion",
-  "xeroxii",
-  "ceravo-tiles",
-  "velorix-motors",
-] as const;
+   "cortex-softsolutions",
+   "shis-fashion",
+   "xeroxii",
+   "ceravo-tiles",
+   "velorix-motors",
+ ] as const;
 
 const featuredVentures = featuredVentureIds
   .map((id) => ventures.find((venture) => venture.id === id))
   .filter((venture): venture is Venture => venture !== undefined);
 
 const cardLayouts = [
-  "lg:col-span-7 lg:row-span-2",
-  "lg:col-span-5",
-  "lg:col-span-5",
-  "lg:col-span-7",
+   "lg:col-span-7 lg:row-span-2",
+   "lg:col-span-5",
+   "lg:col-span-5",
+   "lg:col-span-7",
+   "lg:col-span-7 lg:row-span-2",
 ] as const;
 
 const darkBlurDataUrl =
