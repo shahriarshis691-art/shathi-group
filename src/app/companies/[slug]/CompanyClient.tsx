@@ -398,7 +398,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
       )}
 
       {company.slug === "cortex-softsolutions" && (
-        <section className="pt-20 sm:pt-24 lg:pt-28">
+        <section className="pt-0">
           <CortexShowcaseBanner onOpenInquiry={openInquiry} />
           <section
             aria-label="CORTEXIO direct contact"

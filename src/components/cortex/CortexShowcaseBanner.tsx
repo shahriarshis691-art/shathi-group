@@ -15,63 +15,36 @@ export function CortexShowcaseBanner({
     <section
       id="hero"
       aria-labelledby="build-your-website"
-      className={`relative w-full min-h-[85vh] sm:min-h-screen flex items-center justify-center pt-20 sm:pt-24 ${onOpenInquiry ? "pb-52 md:pb-16" : "pb-12 md:pb-16"} px-6 sm:px-10 lg:px-16 overflow-hidden bg-white ${className ?? ""}`}
+      className={`relative w-full min-h-0 pt-20 sm:pt-24 pb-10 px-6 sm:px-12 bg-white ${className ?? ""}`}
     >
-      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8 lg:gap-12">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8 min-h-[500px]">
         
-        {/* Left Column: Typography & Contact */}
-        <div className="flex flex-col justify-center text-left z-10">
-          <span className="font-sans text-sm sm:text-base md:text-lg font-normal text-neutral-800 tracking-tight mb-2">
+        {/* Left Column: Heading & Content */}
+        <div className="flex flex-col justify-center">
+          <span className="font-sans text-sm md:text-base text-neutral-800 mb-2 block">
             Build Your
           </span>
-          <h1
-            id="build-your-website"
-            className="font-sans text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-neutral-950 leading-[1.05] mb-6"
-          >
+          <h1 className="font-sans text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-neutral-950 leading-[1.08] mb-5">
             Website
           </h1>
-          
           <div className="border-l-2 border-neutral-300 pl-4 mb-6">
-            <p className="text-sm sm:text-base text-neutral-600 max-w-sm leading-relaxed">
+            <p className="text-sm md:text-base text-neutral-600 max-w-sm leading-relaxed">
               We create professional websites that grow your brand.
             </p>
           </div>
-
-          <div className="pt-2 flex flex-col gap-2">
-            <a
-              href="tel:+8801979614216"
-              className="inline-flex min-h-11 items-center font-mono text-[10px] font-semibold text-neutral-900 underline underline-offset-4 transition-colors hover:text-neutral-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950 sm:text-xs"
+          <div>
+            <a 
+              href="tel:+8801979614216" 
+              className="font-mono text-xs sm:text-sm font-semibold tracking-wider text-neutral-900 hover:text-neutral-600 transition-colors inline-block"
             >
               +880 1979614216
-            </a>
-            <a
-              href={directContacts.corporate.href}
-              className="inline-flex min-h-11 items-center break-all font-mono text-[10px] text-neutral-800 underline underline-offset-4 transition-colors hover:text-neutral-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950 sm:text-xs"
-            >
-              {directContacts.corporate.email}
-            </a>
-            <a
-              href={directContacts.cortex.href}
-              className="inline-flex min-h-11 items-center break-all font-mono text-[10px] text-neutral-800 underline underline-offset-4 transition-colors hover:text-neutral-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950 sm:text-xs"
-            >
-              {directContacts.cortex.email}
             </a>
           </div>
         </div>
 
-        {/* Right Column: Hero Visual */}
-        <div className="relative w-full h-[320px] sm:h-[450px] md:h-[520px] lg:h-[600px] flex items-center justify-center md:justify-end">
-          <div className="relative w-full h-full overflow-hidden rounded-sm">
-            <Image
-              src="/cortex/build-your-vision.png"
-              alt="CORTEXIO engineer working on a laptop with a live product interface"
-              fill
-              priority
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover object-center"
-              decoding="async"
-            />
-          </div>
+        {/* Right Column: Visual */}
+        <div className="relative w-full h-[320px] sm:h-[420px] md:h-[480px] rounded-sm overflow-hidden flex items-center justify-end">
+          <Image alt="CORTEXIO Architecture" className="object-cover object-center" fill priority sizes="(max-width: 768px) 100vw, 50vw" src="/cortex/build-your-vision.jpg"/>
         </div>
 
       </div>
