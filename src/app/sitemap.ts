@@ -1,38 +1,98 @@
-import { type MetadataRoute } from "next";
-import { companies } from "@/data/companies";
-import { cortexEngineers } from "@/data/cortexEngineers";
-import { siteConfig } from "@/data/site";
+// src/app/sitemap.ts
+import { MetadataRoute } from 'next'
+import { siteConfig } from '@/data/shathigroup'
+import { ventures } from '@/data/shathigroup'
+import { companies } from '@/data/companies'
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
-  const route = (
-    path: string,
-    priority: number,
-    changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]
-  ): MetadataRoute.Sitemap[number] => ({
-    url: new URL(path, siteConfig.url).href,
-    lastModified,
-    changeFrequency,
-    priority,
-  });
+const YEARLY = 'yearly' as const
 
-  return [
-    route("/", 1, "yearly"),
-    route("/about", 0.7, "yearly"),
-    route("/leadership", 0.7, "yearly"),
-    route("/esg", 0.6, "yearly"),
-    route("/careers", 0.6, "monthly"),
-    route("/ceravo", 0.8, "monthly"),
-    route("/velorix", 0.8, "monthly"),
-    ...companies.map((company) =>
-      route(`/companies/${company.slug}`, 0.8, "monthly")
-    ),
-    ...cortexEngineers.map((engineer) =>
-      route(
-        `/companies/cortex-softsolutions/engineers/${engineer.slug}`,
-        0.6,
-        "monthly"
-      )
-    ),
-  ];
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = siteConfig.canonicalUrl
+
+  const routes: MetadataRoute.Sitemap = [
+    {
+      url: baseUrl,
+      lastModified: new Date(),
+      changeFrequency: YEARLY,
+      priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/cortexio`,
+      lastModified: new Date(),
+      changeFrequency: YEARLY,
+      priority: 0.9,
+    },
+    // Top-level sections
+    {
+      url: `${baseUrl}/about`,
+      lastModified: new Date(),
+      changeFrequency: YEARLY,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/careers`,
+      lastModified: new Date(),
+      changeFrequency: YEARLY,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/ceravo`,
+      lastModified: new Date(),
+      changeFrequency: YEARLY,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/esg`,
+      lastModified: new Date(),
+      changeFrequency: YEARLY,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/leadership`,
+      lastModified: new Date(),
+      changeFrequency: YEARLY,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/velorix`,
+      lastModified: new Date(),
+      changeFrequency: YEARLY,
+      priority: 0.8,
+    },
+    // Subsidiary sections (ventures)
+    ...ventures.map(venture => ({
+      url: `${baseUrl}${venture.route}`,
+      lastModified: new Date(),
+      changeFrequency: YEARLY,
+      priority: 0.7,
+    })),
+    // Company pages (from companies data)
+    ...companies.map(company => ({
+      url: `${baseUrl}/companies/${company.slug}`,
+      lastModified: new Date(),
+      changeFrequency: YEARLY,
+      priority: 0.7,
+    })),
+    // Engineer pages (under cortex-softsolutions)
+    {
+      url: `${baseUrl}/companies/cortex-softsolutions/engineers/sarker-adhara`,
+      lastModified: new Date(),
+      changeFrequency: YEARLY,
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/companies/cortex-softsolutions/engineers/maskat-md-mahadi-hassan`,
+      lastModified: new Date(),
+      changeFrequency: YEARLY,
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/companies/cortex-softsolutions/engineers/sm-shahriar-walid`,
+      lastModified: new Date(),
+      changeFrequency: YEARLY,
+      priority: 0.6,
+    },
+  ]
+
+  return routes
 }

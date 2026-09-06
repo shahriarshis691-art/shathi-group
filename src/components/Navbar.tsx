@@ -128,16 +128,16 @@ export function Navbar({ homeOnly = false }: NavbarProps) {
           {siteConfig.hero.primaryCta.label}
         </button>
 
-        <button
-          type="button"
-          onClick={() => setIsOpen((open) => !open)}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/[0.08] text-luxury-100 transition hover:border-[#d4af37]/55 hover:bg-white/[0.05] lg:hidden"
-          aria-label={isOpen ? "Close menu" : "Open menu"}
-          aria-expanded={isOpen}
-          aria-controls="mobile-menu"
-        >
-          {isOpen ? <X className="h-4 w-4" aria-hidden /> : <Menu className="h-4 w-4" aria-hidden />}
-        </button>
+<button
+  type="button"
+  onClick={() => setIsOpen((open) => !open)}
+  className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/[0.08] text-luxury-100 transition hover:border-[#d4af37]/55 hover:bg-white/[0.05] lg:hidden"
+  aria-label={isOpen ? "Close menu" : "Open menu"}
+  aria-expanded={isOpen}
+  aria-controls="mobile-menu"
+>
+  {isOpen ? <X className="h-5 w-5" aria-hidden /> : <Menu className="h-5 w-5" aria-hidden />}
+</button>
       </motion.nav>
 
       <AnimatePresence>
