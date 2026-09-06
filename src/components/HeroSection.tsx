@@ -30,7 +30,7 @@ export function HeroSection() {
             fill
             priority
             sizes="100vw"
-            src="/hero-image/hero.2.jpg"
+            src="/hero-image/hero-architecture-v2.png"
           />
 
           {/* Balanced corporate scrim for high text contrast */}
