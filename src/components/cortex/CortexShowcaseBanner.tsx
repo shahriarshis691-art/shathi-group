@@ -44,7 +44,7 @@ export function CortexShowcaseBanner({
 
         {/* Right Column: Visual */}
         <div className="relative w-full h-[320px] sm:h-[420px] md:h-[480px] rounded-sm overflow-hidden flex items-center justify-end">
-          <Image alt="CORTEXIO Architecture" className="object-cover object-center" fill priority sizes="(max-width: 768px) 100vw, 50vw" src="/cortex/build-your-vision.jpg"/>
+          <Image alt="CORTEXIO Architecture" className="object-cover object-center rounded-sm" fill priority sizes="(max-width: 768px) 100vw, 50vw" src="/cortex/build-your-vision.png"/>
         </div>
 
       </div>
