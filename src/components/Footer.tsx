@@ -145,10 +145,10 @@ export function Footer() {
                 Phone
               </p>
                  <a
-                  href="tel:+910000000000"
+                  href="tel:+8801979614216"
                    className="mt-1 block font-sans text-sm md:text-[15px] font-normal text-neutral-600 transition hover:text-neutral-950"
               >
-                +91 00000 00000
+                 +880 1979614216
               </a>
             </div>
           </div>

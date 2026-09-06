@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { InquiryProvider } from "@/components/InquiryProvider";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
+import { DirectContactDock } from "@/components/common/DirectContactDock";
 import { siteConfig } from "@/data/site";
 
 const playfair = Playfair_Display({
@@ -107,6 +108,7 @@ export default function RootLayout({
           <div className="flex-1">{children}</div>
           <Footer />
           <InquiryProvider />
+          <DirectContactDock />
         </SmoothScrollProvider>
       </body>
     </html>

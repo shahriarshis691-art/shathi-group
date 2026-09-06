@@ -43,7 +43,7 @@ export const siteConfig = {
   language: "en",
   locale: "en_IN",
   email: "info@shathigroup.com",
-  phone: "+91 00000 00000",
+  phone: "+880 1979614216",
   address: "SHATHI Tower, Corporate Park, Main Business District, India",
   social: {
     linkedin: "https://linkedin.com",

@@ -190,10 +190,10 @@ export function ContactSection() {
                       Direct Line
                     </p>
                     <a
-                      href="tel:+910000000000"
+                      href="tel:+8801979614216"
                       className="text-sm font-medium text-neutral-950 leading-snug hover:text-neutral-600 transition-colors"
                     >
-                      +91 00000 00000
+                       +880 1979614216
                     </a>
                   </div>
                 </div>
