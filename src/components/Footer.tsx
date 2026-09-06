@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { assetInventory, navigationLinks, policyLinks, siteConfig, ventures } from "@/data/shathigroup";
+import { requestSmoothScroll } from "@/lib/smooth-scroll";
 
 interface FooterProps {
   /** Renders only on the homepage; the application shell renders all remaining routes. */
@@ -34,6 +35,20 @@ export function Footer({ homeOnly = false }: FooterProps) {
   const isHomepage = pathname === "/";
 
   if (homeOnly ? !isHomepage : isHomepage) return null;
+
+  const scrollToTop = () => {
+    if (document.documentElement.dataset.smoothScroll === "lenis") {
+      requestSmoothScroll({ target: 0, offset: 0, duration: 1.1 });
+      return;
+    }
+
+    window.scrollTo({
+      top: 0,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth",
+    });
+  };
 
   return (
     <footer className="border-t border-white/[0.08] bg-[#070708] text-luxury-50">
@@ -106,7 +121,7 @@ export function Footer({ homeOnly = false }: FooterProps) {
           </p>
           <button
             type="button"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            onClick={scrollToTop}
             className="group inline-flex min-h-10 items-center gap-2 self-start font-sans text-[10px] font-semibold uppercase tracking-[0.16em] text-luxury-300 transition hover:text-[#f4d77a] sm:self-auto"
           >
             Back to top

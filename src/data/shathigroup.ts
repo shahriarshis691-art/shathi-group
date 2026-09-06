@@ -80,6 +80,8 @@ export interface SiteConfig {
   readonly crawledOn: string;
   readonly name: string;
   readonly shortName: string;
+  readonly locale: string;
+  readonly keywords: readonly string[];
   readonly canonicalUrl: string;
   readonly openGraphImage: string;
   readonly description: string;
@@ -191,6 +193,16 @@ export const siteConfig: SiteConfig = {
   crawledOn: "2026-09-06",
   name: "SHATHI Group of Companies",
   shortName: "SHATHI Group",
+  locale: "en_IN",
+  keywords: [
+    "SHATHI Group",
+    "SHATHI Group of Companies",
+    "lifestyle apparel",
+    "luxury timepieces",
+    "premium tiles",
+    "designer sanitaryware",
+    "corporate conglomerate",
+  ],
   canonicalUrl: "https://shathigroup.com",
   openGraphImage: "https://shathigroup.com/hero-image/hero.2.jpg",
   description:

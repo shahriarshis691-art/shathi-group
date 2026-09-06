@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight, Sparkles } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { siteConfig, storyMetrics } from "@/data/shathigroup";
 
@@ -9,6 +10,9 @@ const entrance = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0 },
 };
+
+const darkBlurDataUrl =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect width='16' height='10' fill='%230e0e11'/%3E%3C/svg%3E";
 
 export function Hero() {
   const { hero } = siteConfig;
@@ -22,11 +26,18 @@ export function Hero() {
         aria-hidden="true"
         className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_68%_38%,rgba(212,175,55,0.15),transparent_23%),radial-gradient(circle_at_42%_50%,rgba(197,168,128,0.10),transparent_30%),linear-gradient(115deg,#070708_0%,#0e0e11_52%,#070708_100%)]"
       />
-      <div
-        aria-hidden="true"
-        className="absolute inset-y-0 right-0 -z-10 hidden w-[56%] bg-cover bg-center opacity-20 mix-blend-luminosity sm:block"
-        style={{ backgroundImage: `url(${hero.imageUrl})` }}
-      />
+      <div aria-hidden="true" className="absolute inset-y-0 right-0 -z-10 hidden w-[56%] overflow-hidden bg-[#0e0e11] sm:block">
+        <Image
+          src={hero.imageUrl}
+          alt=""
+          fill
+          priority
+          sizes="(min-width: 1280px) 56vw, (min-width: 640px) 60vw, 0px"
+          placeholder="blur"
+          blurDataURL={darkBlurDataUrl}
+          className="object-cover object-center opacity-20 mix-blend-luminosity"
+        />
+      </div>
       <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,#070708_5%,rgba(7,7,8,0.87)_45%,rgba(7,7,8,0.45)_100%)]" />
       <div aria-hidden="true" className="absolute inset-0 -z-10 opacity-30 [background-image:linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] [background-size:5rem_5rem]" />
 

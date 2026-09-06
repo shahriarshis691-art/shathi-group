@@ -5,9 +5,10 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import { assetInventory, navigationLinks, siteConfig } from "@/data/shathigroup";
 import { useInquiryButton } from "@/hooks/useInquiryButton";
+import { requestSmoothScroll } from "@/lib/smooth-scroll";
 
 interface NavbarProps {
   /** Renders only on the homepage; the global layout renders the remaining routes. */
@@ -49,6 +50,29 @@ export function Navbar({ homeOnly = false }: NavbarProps) {
     openInquiry();
     closeMenu();
   };
+  const handleNavigation = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
+    closeMenu();
+
+    if (pathname !== "/" || !href.startsWith("/#")) return;
+
+    const target = document.getElementById(href.slice(2));
+    if (!target) return;
+
+    event.preventDefault();
+
+    if (document.documentElement.dataset.smoothScroll === "lenis") {
+      requestSmoothScroll({ target: href.slice(1), offset: -96 });
+    } else {
+      target.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "auto"
+          : "smooth",
+        block: "start",
+      });
+    }
+
+    window.history.replaceState(null, "", href);
+  };
 
   return (
     <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-5">
@@ -87,6 +111,7 @@ export function Navbar({ homeOnly = false }: NavbarProps) {
             <li key={link.href}>
               <Link
                 href={link.href}
+                onClick={(event) => handleNavigation(event, link.href)}
                 className="relative inline-flex min-h-11 items-center px-3 font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-luxury-300 transition-colors duration-300 hover:text-[#f2eee4] after:absolute after:bottom-2 after:left-3 after:h-px after:w-0 after:bg-[#d4af37] after:shadow-[0_0_12px_rgba(212,175,55,0.85)] after:transition-all after:duration-300 hover:after:w-[calc(100%-1.5rem)]"
               >
                 {link.label}
@@ -130,7 +155,7 @@ export function Navbar({ homeOnly = false }: NavbarProps) {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    onClick={closeMenu}
+                    onClick={(event) => handleNavigation(event, link.href)}
                     className="flex min-h-12 items-center rounded-xl px-4 font-sans text-xs uppercase tracking-[0.16em] text-luxury-200 transition hover:bg-white/[0.05] hover:text-[#f4d77a]"
                   >
                     {link.label}

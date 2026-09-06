@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, type ReactNode } from "react";
+import { smoothScrollEvent, type SmoothScrollRequest } from "@/lib/smooth-scroll";
 
 interface SmoothScrollProviderProps {
   readonly children: ReactNode;
@@ -31,31 +32,38 @@ export function SmoothScrollProvider({
 
       if (!desktopPointer.matches || motionPreference.matches) return;
 
-      void Promise.all([
-        import("lenis"),
-        import("gsap"),
-        import("gsap/ScrollTrigger"),
-      ]).then(([{ default: Lenis }, { gsap }, { ScrollTrigger }]) => {
+      void import("lenis").then(({ default: Lenis }) => {
         if (disposed || currentGeneration !== generation) return;
-
-        gsap.registerPlugin(ScrollTrigger);
 
         const lenis = new Lenis({
           autoRaf: false,
           duration: 1.2,
           easing: (time: number) => Math.min(1, 1.001 - Math.pow(2, -10 * time)),
           syncTouch: false,
+          anchors: { offset: -96, duration: 1.1 },
+          overscroll: false,
         });
-        const updateScrollTrigger = () => ScrollTrigger.update();
-        const updateLenis = (time: number) => lenis.raf(time * 1000);
+        let animationFrame = 0;
 
-        lenis.on("scroll", updateScrollTrigger);
-        gsap.ticker.add(updateLenis);
-        gsap.ticker.lagSmoothing(0);
+        const raf = (time: number) => {
+          lenis.raf(time);
+          animationFrame = window.requestAnimationFrame(raf);
+        };
+        const handleScrollRequest = (event: Event) => {
+          const { target, offset = -96, duration = 1.1 } = (
+            event as CustomEvent<SmoothScrollRequest>
+          ).detail;
+          lenis.scrollTo(target, { offset, duration });
+        };
+
+        document.documentElement.dataset.smoothScroll = "lenis";
+        animationFrame = window.requestAnimationFrame(raf);
+        window.addEventListener(smoothScrollEvent, handleScrollRequest);
 
         cleanup = () => {
-          lenis.off("scroll", updateScrollTrigger);
-          gsap.ticker.remove(updateLenis);
+          window.cancelAnimationFrame(animationFrame);
+          window.removeEventListener(smoothScrollEvent, handleScrollRequest);
+          delete document.documentElement.dataset.smoothScroll;
           lenis.destroy();
         };
       });

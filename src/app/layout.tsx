@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 import { InquiryProvider } from "@/components/InquiryProvider";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 import { DirectContactDock } from "@/components/common/DirectContactDock";
-import { siteConfig } from "@/data/site";
+import { siteConfig } from "@/data/shathigroup";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -30,23 +30,23 @@ const display = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL(siteConfig.crawlSource),
   title: {
     default: siteConfig.name,
     template: `${siteConfig.shortName} | %s`,
   },
   description: siteConfig.description,
-  keywords: siteConfig.keywords,
+  keywords: [...siteConfig.keywords],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.shortName,
   publisher: siteConfig.shortName,
   alternates: {
-    canonical: "/",
+    canonical: siteConfig.canonicalUrl,
   },
   openGraph: {
     type: "website",
     locale: siteConfig.locale,
-    url: siteConfig.url,
+    url: siteConfig.canonicalUrl,
     siteName: siteConfig.name,
     title: {
       default: siteConfig.name,
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: siteConfig.ogImage,
+        url: siteConfig.openGraphImage,
         width: 735,
         height: 381,
         alt: `${siteConfig.name} — ${siteConfig.shortName} corporate mark`,
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
       template: `${siteConfig.shortName} | %s`,
     },
     description: siteConfig.description,
-    images: [siteConfig.ogImage],
+    images: [siteConfig.openGraphImage],
     site: "@shathigroup",
     creator: "@shathigroup",
   },
@@ -81,13 +81,13 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: siteConfig.name,
   alternateName: siteConfig.shortName,
-  url: siteConfig.url,
+  url: siteConfig.canonicalUrl,
   description: siteConfig.description,
-  email: siteConfig.email,
-  telephone: siteConfig.phone,
+  email: siteConfig.contact.email.value,
+  telephone: siteConfig.contact.phone.value,
   address: {
     "@type": "PostalAddress",
-    streetAddress: siteConfig.address,
+    streetAddress: siteConfig.contact.address,
   },
 };
 

@@ -21,6 +21,10 @@ html {
   scroll-padding-top: 5rem;
 }
 
+html[data-smooth-scroll="lenis"] {
+  scroll-behavior: auto;
+}
+
 html,
 body {
   color: var(--foreground);
@@ -60,6 +64,10 @@ body {
 
 main {
   min-width: 0;
+}
+
+section[id] {
+  scroll-margin-top: 6.5rem;
 }
 
 .glass-panel {
