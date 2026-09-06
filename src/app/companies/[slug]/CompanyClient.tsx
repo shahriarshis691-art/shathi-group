@@ -300,16 +300,15 @@ export function CompanyClient({ company }: CompanyClientProps) {
       {/* Back navigation */}
 {company.slug !== "cortex-softsolutions" && (
        <nav className={`border-b ${t.backNavClass}`} aria-label="Breadcrumb">
-         <div className="container-corporate">
-           <Button
-             variant="secondary"
-             as={Link}
-             href="/"
-           >
-             <ArrowLeft className="h-4 w-4" aria-hidden />
-             Back to SHATHI Group
-           </Button>
-         </div>
+<div className="container-corporate">
+            <Link
+              href="/"
+              className="inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] rounded-none transition-colors px-7 py-3.5 sm:px-9 sm:py-4 border border-[#C5A265] bg-black/60 text-[#C5A265] hover:bg-[#C5A265] hover:text-[#0A0A0A]"
+            >
+              <ArrowLeft className="h-4 w-4" aria-hidden />
+              Back to SHATHI Group
+            </Link>
+          </div>
        </nav>
      )}
 
@@ -362,17 +361,16 @@ export function CompanyClient({ company }: CompanyClientProps) {
                  Direct Inquiry / Schedule Meeting
                </Button>
 {company.storeUrl && company.slug === "shis-fashion" && (
-                 <Button
-                   variant="primary"
-                   as="a"
-                   href={company.storeUrl}
-                   target="_blank"
-                   rel="noopener noreferrer"
-                 >
-                   Request Catalog
-                   <ArrowUpRight className="h-4 w-4" aria-hidden />
-                 </Button>
-               )}
+                  <a
+                    href={company.storeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] rounded-none transition-colors px-7 py-3.5 sm:px-9 sm:py-4 bg-[#C5A265] text-[#0A0A0A] hover:bg-[#d4b074]"
+                  >
+                    Request Catalog
+                    <ArrowUpRight className="h-4 w-4" aria-hidden />
+                  </a>
+                )}
             </div>
           </div>
         </section>

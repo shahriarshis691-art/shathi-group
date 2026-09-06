@@ -68,7 +68,7 @@ export function CortexSlider() {
   };
 
   const prev = (active - 1 + modules.length) % modules.length;
-  const next = (active + 1) % modules.length;
+  const nextIndex = (active + 1) % modules.length;
 
   return (
     <section className="w-full bg-[#EAECEF] py-20 px-6 mt-24">
@@ -78,14 +78,14 @@ export function CortexSlider() {
         onMouseLeave={() => setIsPaused(false)}
       >
 <div className="flex items-center justify-center gap-4 md:gap-6 overflow-hidden">
-           <button
-             type="button"
-             onClick={() => handleManualChange(prev)}
-             className="hidden md:block font-mono text-xs text-neutral-500 hover:text-black transition-colors"
-             aria-label="Previous module"
-           >
-             Left <
-           </button>
+<button
+              type="button"
+              onClick={() => handleManualChange(prev)}
+              className="hidden md:block font-mono text-xs text-neutral-500 hover:text-black transition-colors"
+              aria-label="Previous module"
+            >
+              Left {'<'}
+            </button>
 
           <div className="flex flex-1 items-center justify-center gap-4 md:gap-6 overflow-hidden">
             <div className="hidden md:flex flex-1 flex-col items-center justify-center transition-[transform,opacity,filter] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] scale-95 opacity-40 blur-[0.5px]">
@@ -118,24 +118,24 @@ export function CortexSlider() {
 
             <div className="hidden md:flex flex-1 flex-col items-center justify-center transition-[transform,opacity,filter] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] scale-95 opacity-40 blur-[0.5px]">
               <div className="aspect-[4/3] w-full max-w-sm rounded-2xl border border-neutral-300 bg-white/60 p-6 shadow-sm">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-neutral-500">
-                  {modules[next].title}
-                </p>
-                <p className="mt-3 text-xs leading-relaxed text-neutral-600">
-                  {modules[next].description}
-                </p>
+<p className="font-mono text-[10px] uppercase tracking-widest text-neutral-500">
+                   {modules[nextIndex].title}
+                 </p>
+                 <p className="mt-3 text-xs leading-relaxed text-neutral-600">
+                   {modules[nextIndex].description}
+                 </p>
               </div>
             </div>
           </div>
 
 <Button
-             variant="secondary"
-             onClick={() => handleManualChange(next)}
-             className="hidden md:block"
-             aria-label="Next module"
-           >
-             > Right
-           </Button>
+               variant="secondary"
+               onClick={() => handleManualChange(nextIndex)}
+               className="hidden md:block"
+               aria-label="Next module"
+             >
+               {'>'} Right
+             </Button>
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-6 md:flex-row">

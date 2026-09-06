@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Sparkles } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/Button";
 import { siteConfig, storyMetrics } from "@/data/shathigroup";
 
 const entrance = {
@@ -88,22 +87,19 @@ export function Hero() {
             transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             className="mt-9 flex flex-col gap-3 sm:flex-row"
           >
-<Button
-          variant="primary"
-          as={Link}
-          href={hero.primaryCta.href}
-          className="group"
-        >
-          {hero.primaryCta.label}
-          <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
-        </Button>
-<Button
-          variant="secondary"
-          as={Link}
-          href={hero.secondaryCta.href}
-        >
-          {hero.secondaryCta.label}
-        </Button>
+<Link
+              href={hero.primaryCta.href}
+              className="inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] rounded-none transition-colors px-7 py-3.5 sm:px-9 sm:py-4 bg-[#C5A265] text-[#0A0A0A] hover:bg-[#d4b074] group"
+            >
+              {hero.primaryCta.label}
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
+            </Link>
+<Link
+              href={hero.secondaryCta.href}
+              className="inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] rounded-none transition-colors px-7 py-3.5 sm:px-9 sm:py-4 border border-[#C5A265] bg-black/60 text-[#C5A265] hover:bg-[#C5A265] hover:text-[#0A0A0A]"
+            >
+              {hero.secondaryCta.label}
+            </Link>
           </motion.div>
         </div>
 
