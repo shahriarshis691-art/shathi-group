@@ -28,12 +28,18 @@ export function CortexShowcase() {
           </ul>
         </nav>
 
-        <a
-          href={directContacts.cortex.href}
-          className="w-full break-all font-mono text-[7px] text-neutral-400 transition-colors hover:text-neutral-950 sm:w-fit sm:text-xs"
-        >
-          {directContacts.cortex.email}
-        </a>
+        <div className="flex w-full flex-col gap-1 sm:w-fit">
+          <span className="font-mono text-[6px] uppercase tracking-widest text-neutral-500 sm:text-[8px]">
+            {directContacts.cortex.label}
+          </span>
+          <a
+            href={directContacts.cortex.href}
+            aria-label={`Email ${directContacts.cortex.label}`}
+            className="w-full break-all font-mono text-[7px] text-neutral-400 transition-colors hover:text-neutral-950 sm:w-fit sm:text-xs"
+          >
+            {directContacts.cortex.email}
+          </a>
+        </div>
       </aside>
 
       <div className="flex basis-[40%] flex-col justify-center p-3 sm:basis-[38%] sm:p-12 lg:p-16">

@@ -62,13 +62,18 @@ export function DirectContactDock() {
           <span>{directContacts.corporate.email}</span>
         </a>
         <span className="hidden text-neutral-400 sm:inline" aria-hidden="true">/</span>
-        <a
-          href={directContacts.cortex.href}
-          aria-label={`Email ${directContacts.cortex.label}`}
-          className="flex min-h-11 items-center gap-1.5 font-mono text-xs text-neutral-800 underline underline-offset-4 transition-colors hover:text-neutral-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950 sm:text-sm"
-        >
-          <span>{directContacts.cortex.email}</span>
-        </a>
+        <div className="flex flex-col gap-1">
+          <span className="font-mono text-[10px] tracking-widest uppercase text-neutral-400">
+            {directContacts.cortex.label}
+          </span>
+          <a
+            href={directContacts.cortex.href}
+            aria-label={`Email ${directContacts.cortex.label}`}
+            className="flex min-h-11 items-center gap-1.5 font-mono text-xs text-neutral-800 underline underline-offset-4 transition-colors hover:text-neutral-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950 sm:text-sm"
+          >
+            <span>{directContacts.cortex.email}</span>
+          </a>
+        </div>
       </div>
     </div>
   );

@@ -82,7 +82,7 @@ export function CortexShowcaseBanner({
               href={directContacts.cortex.href}
               className="flex min-h-14 flex-col items-center justify-center gap-0.5 border-b border-neutral-800 px-2 py-2 font-mono text-[10px] font-semibold tracking-wider text-white transition-colors hover:text-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-white"
             >
-              CORTEXIO Email
+              MD & Cybersecurity
               <span className="break-all text-center text-[9px] font-normal tracking-normal text-neutral-400">
                 {directContacts.cortex.email}
               </span>

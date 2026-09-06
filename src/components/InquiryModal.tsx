@@ -289,12 +289,18 @@ export function InquiryModal({
                     <span>{directContacts.corporate.email}</span>
                   </a>
                   <span className="hidden text-slate-500 sm:inline" aria-hidden="true">/</span>
-                  <a
-                    href={directContacts.cortex.href}
-                    className="flex min-h-11 items-center gap-1.5 font-mono text-xs text-slate-100 underline underline-offset-4 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-400 sm:text-sm"
-                  >
-                    <span>{directContacts.cortex.email}</span>
-                  </a>
+                   <div className="flex flex-col gap-1">
+                    <span className="font-mono text-[10px] tracking-widest uppercase text-neutral-400">
+                      {directContacts.cortex.label}
+                    </span>
+                    <a
+                      href={directContacts.cortex.href}
+                      aria-label={`Email ${directContacts.cortex.label}`}
+                      className="flex min-h-11 items-center gap-1.5 font-mono text-xs text-neutral-200 underline underline-offset-4 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-400 sm:text-sm"
+                    >
+                      <span>{directContacts.cortex.email}</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 

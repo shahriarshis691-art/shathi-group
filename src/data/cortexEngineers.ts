@@ -47,17 +47,17 @@ export const cortexEngineers: CortexEngineer[] = [
   {
     slug: "sarker-adhara",
     name: "Sarker Adhara",
-    role: "HEAD OF CYBERSECURITY & DIGITAL RESILIENCE",
-    titleTag: "01 // CYBERSECURITY & DIGITAL RESILIENCE",
+    role: "MANAGING DIRECTOR & CYBERSECURITY ENGINEER",
+    titleTag: "01 // MANAGING DIRECTOR & CYBERSECURITY",
     avatar: "/cortex/managingdirector.png",
-    bio: "Sarker Adhara directs cybersecurity strategy and resilient systems architecture at CORTEXIO Softsolutions. Combining specialized digital business and innovation expertise from Tokyo International University with mission-critical security paradigms, she ensures enterprise platforms remain impervious to evolving threat landscapes.",
-    clientMessage: "Defending sovereign digital architecture through rigorous threat modeling, zero-trust protocols, and resilient infrastructure.",
+    bio: "Sarker Adhara serves as Managing Director & Cybersecurity Engineer at CORTEXIO Softsolutions, directing cybersecurity strategy and resilient systems architecture. Combining specialized digital business and innovation expertise from Tokyo International University with mission-critical security paradigms, she ensures enterprise platforms remain impervious to evolving threat landscapes.",
+    clientMessage: "As Managing Director & Cybersecurity Engineer, I defend sovereign digital architecture through rigorous threat modeling, zero-trust protocols, and resilient infrastructure.",
     stack: ["Zero-Trust Architecture & Threat Modeling", "Enterprise Penetration Testing & Defense", "Cloud Security Posture Management (CSPM)", "Identity & Cryptographic Protocol Design"],
     education: [
       { degree: "Digital Business & Innovation", institution: "Tokyo International University", year: "", focus: "Cybersecurity strategy, digital resilience, and enterprise security architecture." },
     ],
     experience: [
-      { role: "HEAD OF CYBERSECURITY & DIGITAL RESILIENCE", company: "CORTEXIO Softsolutions", period: "Present", highlights: ["Defending sovereign digital architecture through rigorous threat modeling, zero-trust protocols, and resilient infrastructure."] },
+      { role: "MANAGING DIRECTOR & CYBERSECURITY ENGINEER", company: "CORTEXIO Softsolutions", period: "Present", highlights: ["Directing cybersecurity strategy and resilient systems architecture for sovereign digital platforms."] },
       { role: "Digital Systems Infrastructure Specialist", company: "Tokyo International University Digital Systems Infrastructure", period: "Previous", highlights: ["Focused on digital systems infrastructure and security integration."] },
       { role: "Zero-Trust Implementation Lead", company: "Enterprise Zero-Trust Implementation", period: "Previous", highlights: ["Led enterprise zero-trust implementation and defense strategies."] },
       { role: "Cryptographic Security Auditor", company: "Cross-Border Cryptographic Security Audits", period: "Previous", highlights: ["Conducted cross-border cryptographic security audits and protocol design."] },
