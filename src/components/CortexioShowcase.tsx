@@ -45,4 +45,13 @@ export default function CortexioShowcase() {
           ref={marqueeRef}
           className="flex items-center gap-8 text-xs font-semibold uppercase tracking-[0.2em] text-[#c5a880] whitespace-nowrap"
         >
-SECOND_PLACEHOLDER
+          {offers.map((offer, index) => (
+            <div key={index} className="flex items-center gap-6">
+              <span>{offer}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
