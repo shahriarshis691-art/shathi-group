@@ -3,12 +3,18 @@
 import Image from "next/image";
 
 /** Primary hero section for the CORTEXIO detail page. */
-export function CortexShowcaseBanner({ className }: { className?: string }) {
+export function CortexShowcaseBanner({
+  className,
+  onOpenInquiry,
+}: {
+  className?: string;
+  onOpenInquiry?: () => void;
+}) {
   return (
     <section
       id="hero"
       aria-labelledby="build-your-website"
-      className={`relative min-h-[85vh] lg:min-h-screen bg-white flex items-center overflow-hidden pt-28 lg:pt-32 pb-16 px-6 text-neutral-900 sm:px-12 ${className ?? ""}`}
+      className={`relative min-h-[85vh] lg:min-h-screen bg-white flex items-center overflow-hidden pt-28 lg:pt-32 pb-24 md:pb-16 px-6 text-neutral-900 sm:px-12 ${className ?? ""}`}
     >
       <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[58%] md:block">
         <Image
@@ -56,10 +62,41 @@ export function CortexShowcaseBanner({ className }: { className?: string }) {
 
       <a
         href="tel:+8801335550675"
-        className="absolute bottom-7 left-6 z-20 min-h-[44px] min-w-[44px] flex items-center justify-center bg-white/85 px-3 py-2 font-mono text-xs font-semibold tracking-wider text-neutral-700 backdrop-blur-sm transition-colors hover:text-neutral-950 sm:left-12 sm:text-sm md:bg-transparent md:p-0 md:backdrop-blur-none"
+        className="absolute bottom-7 left-6 z-20 min-h-[44px] min-w-[44px] inline-flex items-center gap-2 py-2 font-mono text-sm tracking-wider text-neutral-800 hover:text-neutral-950 font-semibold backdrop-blur-sm transition-colors sm:left-12 md:bg-transparent md:p-0 md:backdrop-blur-none"
       >
         +880 1335550675
       </a>
+
+      {onOpenInquiry && (
+        <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden border-t border-neutral-800 bg-neutral-950">
+          <div className="flex items-stretch">
+            <a
+              href="tel:+8801335550675"
+              className="flex flex-1 flex-col items-center justify-center gap-0.5 py-3 font-mono text-xs font-semibold tracking-wider text-white transition hover:text-neutral-300"
+            >
+              Call
+              <span className="text-[10px] font-normal tracking-normal text-neutral-400">
+                +880 1335550675
+              </span>
+            </a>
+            <a
+              href="https://wa.me/8801335550675?text=Hello%20CORTEXIO,%20I%20would%20like%20to%20inquire%20about%20a%20custom%20website"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-1 flex-col items-center justify-center gap-0.5 py-3 font-mono text-xs font-semibold tracking-wider text-white transition hover:text-neutral-300"
+            >
+              WhatsApp
+            </a>
+            <button
+              type="button"
+              onClick={onOpenInquiry}
+              className="flex flex-1 flex-col items-center justify-center gap-0.5 py-3 font-mono text-xs font-semibold tracking-wider text-white transition hover:text-neutral-300"
+            >
+              Start a Consultation
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

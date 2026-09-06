@@ -358,7 +358,7 @@ export function CompanyClient({ company }: CompanyClientProps) {
 
       {company.slug === "cortex-softsolutions" && (
         <>
-          <CortexShowcaseBanner />
+          <CortexShowcaseBanner onOpenInquiry={openInquiry} />
           <CortexAbout />
           <CortexProjectSlider />
           <CortexGallery />
