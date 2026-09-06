@@ -19,12 +19,9 @@ export function Navbar() {
   const pathname = usePathname();
   const openInquiry = useInquiryButton();
   const usesDedicatedBrandHeader =
-    pathname === "/cortex" ||
     pathname === "/ceravo" ||
     pathname === "/velorix" ||
-    pathname === "/companies/ceravo-tiles" ||
-    pathname === "/companies/cortex-softsolutions" ||
-    pathname.startsWith("/companies/cortex-softsolutions/engineers/");
+    pathname === "/companies/ceravo-tiles";
 
   useEffect(() => {
     if (!open) return;

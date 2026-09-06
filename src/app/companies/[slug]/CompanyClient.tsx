@@ -357,13 +357,13 @@ export function CompanyClient({ company }: CompanyClientProps) {
       )}
 
       {company.slug === "cortex-softsolutions" && (
-        <>
+        <section className="pt-20 sm:pt-24 lg:pt-28">
           <CortexShowcaseBanner onOpenInquiry={openInquiry} />
           <CortexAbout />
           <CortexProjectSlider />
           <CortexGallery />
           <CortexSlider />
-        </>
+        </section>
       )}
 
       {/* SHIS FASHION */}
