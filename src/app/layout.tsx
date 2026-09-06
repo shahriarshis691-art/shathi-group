@@ -5,7 +5,6 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { InquiryProvider } from "@/components/InquiryProvider";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
-import { DirectContactDock } from "@/components/common/DirectContactDock";
 import { siteConfig } from "@/data/shathigroup";
 
 const playfair = Playfair_Display({
@@ -132,13 +131,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
-        <SmoothScrollProvider>
-          <Navbar />
-          <div className="flex-1">{children}</div>
-          <Footer />
-          <InquiryProvider />
-          <DirectContactDock />
-        </SmoothScrollProvider>
+<SmoothScrollProvider>
+      <Navbar />
+      <div className="flex-1">{children}</div>
+      <Footer />
+      <InquiryProvider />
+    </SmoothScrollProvider>
       </body>
     </html>
   );
