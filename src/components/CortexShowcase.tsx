@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { directContacts } from "@/data/contact";
 
 const architectureSpecs = [
   "01 / 10 EXCLUSIVE SLOTS",
@@ -28,10 +29,10 @@ export function CortexShowcase() {
         </nav>
 
         <a
-          href="mailto:info@cortexio-softsolutions.com"
+          href={directContacts.cortex.href}
           className="w-full break-all font-mono text-[7px] text-neutral-400 transition-colors hover:text-neutral-950 sm:w-fit sm:text-xs"
         >
-          info@cortexio-softsolutions.com
+          {directContacts.cortex.email}
         </a>
       </aside>
 

@@ -4,6 +4,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import { ArrowLeft, ArrowUpRight, CheckCircle2, ExternalLink, Factory, Gauge, Gem, Shield, Sparkles } from "lucide-react";
 import { type Company } from "@/data/companies";
+import { directContacts } from "@/data/contact";
 import { CompanyLogo } from "@/components/CompanyLogo";
 import { useInquiryButton } from "@/hooks/useInquiryButton";
 import { CortexShowcaseBanner } from "@/components/cortex/CortexShowcaseBanner";
@@ -399,6 +400,31 @@ export function CompanyClient({ company }: CompanyClientProps) {
       {company.slug === "cortex-softsolutions" && (
         <section className="pt-20 sm:pt-24 lg:pt-28">
           <CortexShowcaseBanner onOpenInquiry={openInquiry} />
+          <section
+            aria-label="CORTEXIO direct contact"
+            className="border-y border-neutral-200 bg-white"
+          >
+            <div className="mx-auto flex w-full max-w-7xl flex-col gap-3 px-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-500">
+                Direct communications
+              </p>
+              <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center sm:pt-0">
+                <a
+                  href={directContacts.corporate.href}
+                  className="flex min-h-11 items-center gap-1.5 font-mono text-xs text-neutral-800 underline underline-offset-4 transition-colors hover:text-neutral-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950 sm:text-sm"
+                >
+                  <span>{directContacts.corporate.email}</span>
+                </a>
+                <span className="hidden text-neutral-400 sm:inline" aria-hidden="true">/</span>
+                <a
+                  href={directContacts.cortex.href}
+                  className="flex min-h-11 items-center gap-1.5 font-mono text-xs text-neutral-800 underline underline-offset-4 transition-colors hover:text-neutral-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950 sm:text-sm"
+                >
+                  <span>{directContacts.cortex.email}</span>
+                </a>
+              </div>
+            </div>
+          </section>
           <CortexAbout />
           <DeferredSection className="min-h-[600px] bg-white">
             <CortexProjectSlider />

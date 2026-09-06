@@ -12,6 +12,7 @@ import {
   Youtube,
 } from "lucide-react";
 import { companies } from "@/data/companies";
+import { directContacts } from "@/data/contact";
 import { Logo } from "./Logo";
 import { useInquiryButton } from "@/hooks/useInquiryButton";
 
@@ -159,14 +160,22 @@ export function Footer() {
             </span>
             <div>
               <p className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
-                Email
+                Direct Email
               </p>
-                 <a
-                  href="mailto:info@shathigroup.com"
-                   className="mt-1 block font-sans text-sm md:text-[15px] font-normal text-neutral-600 transition hover:text-neutral-950"
-              >
-                info@shathigroup.com
-              </a>
+              <div className="mt-1 flex flex-col gap-2">
+                <a
+                  href={directContacts.corporate.href}
+                  className="inline-flex min-h-11 items-center font-mono text-xs text-neutral-800 underline underline-offset-4 transition-colors hover:text-neutral-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950 sm:text-sm"
+                >
+                  {directContacts.corporate.email}
+                </a>
+                <a
+                  href={directContacts.cortex.href}
+                  className="inline-flex min-h-11 items-center font-mono text-xs text-neutral-800 underline underline-offset-4 transition-colors hover:text-neutral-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950 sm:text-sm"
+                >
+                  {directContacts.cortex.email}
+                </a>
+              </div>
             </div>
           </div>
         </div>

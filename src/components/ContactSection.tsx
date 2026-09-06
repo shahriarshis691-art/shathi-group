@@ -9,6 +9,7 @@ import {
   Send,
 } from "lucide-react";
 import { companies } from "@/data/companies";
+import { directContacts } from "@/data/contact";
 import { SlideIn } from "@/components/ui/ScrollReveal";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -172,14 +173,22 @@ export function ContactSection() {
                   <Mail className="h-4 w-4 text-neutral-900 mt-0.5 shrink-0" aria-hidden />
                   <div>
                     <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-500 block mb-1">
-                      Inquiries
+                      Direct Email
                     </p>
-                    <a
-                      href="mailto:info@shathigroup.com"
-                      className="text-sm font-medium text-neutral-950 leading-snug hover:text-neutral-600 transition-colors"
-                    >
-                      info@shathigroup.com
-                    </a>
+                    <div className="flex flex-col gap-2">
+                      <a
+                        href={directContacts.corporate.href}
+                        className="inline-flex min-h-11 items-center font-mono text-xs text-neutral-800 underline underline-offset-4 transition-colors hover:text-neutral-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950 sm:text-sm"
+                      >
+                        {directContacts.corporate.email}
+                      </a>
+                      <a
+                        href={directContacts.cortex.href}
+                        className="inline-flex min-h-11 items-center font-mono text-xs text-neutral-800 underline underline-offset-4 transition-colors hover:text-neutral-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950 sm:text-sm"
+                      >
+                        {directContacts.cortex.email}
+                      </a>
+                    </div>
                   </div>
                 </div>
 

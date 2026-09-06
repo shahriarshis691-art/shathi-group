@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { directContacts } from "@/data/contact";
 import { resend } from "@/lib/resend";
 import { renderAdminNotification, renderClientConfirmation } from "@/lib/email-renderer";
 
@@ -67,14 +68,14 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         success: false,
-        message: "Inquiry delivery is temporarily unavailable. Please email info@shathigroup.com directly.",
+        message: `Inquiry delivery is temporarily unavailable. Please email ${directContacts.corporate.email} directly.`,
       },
       { status: 503 }
     );
   }
 
   const fromEmail = process.env.CONTACT_FROM_EMAIL || "SHATHI Group <onboarding@resend.dev>";
-  const adminTo = process.env.CONTACT_TO_EMAIL || "corporate@shathigroup.com";
+  const adminTo = process.env.CONTACT_TO_EMAIL || directContacts.corporate.email;
 
   const validatedPayload = payload as B2BInquiryPayload;
 

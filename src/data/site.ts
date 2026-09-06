@@ -1,3 +1,5 @@
+import { directContacts } from "./contact";
+
 export interface NavItem {
   label: string;
   href: string;
@@ -42,7 +44,7 @@ export const siteConfig = {
   ogImage: "/hero-image/hero.2.jpg",
   language: "en",
   locale: "en_IN",
-  email: "info@shathigroup.com",
+  email: directContacts.corporate.email,
   phone: "+880 1979614216",
   address: "SHATHI Tower, Corporate Park, Main Business District, India",
   social: {

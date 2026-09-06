@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { directContacts } from "@/data/contact";
 
 /** Primary hero section for the CORTEXIO detail page. */
 export function CortexShowcaseBanner({
@@ -14,7 +15,7 @@ export function CortexShowcaseBanner({
     <section
       id="hero"
       aria-labelledby="build-your-website"
-      className={`relative min-h-[85vh] lg:min-h-screen bg-white flex items-center overflow-hidden pt-28 lg:pt-32 pb-24 md:pb-16 text-neutral-900 ${className ?? ""}`}
+      className={`relative flex min-h-[85vh] items-center overflow-hidden bg-white pt-28 text-neutral-900 lg:min-h-screen lg:pt-32 ${onOpenInquiry ? "pb-52 md:pb-16" : "pb-24 md:pb-16"} ${className ?? ""}`}
     >
       <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-2 items-center gap-2 sm:gap-6 min-h-[60vh] sm:min-h-[75vh] px-4 sm:px-8 lg:px-12">
         <div>
@@ -34,12 +35,26 @@ export function CortexShowcaseBanner({
               We create professional websites that grow your brand.
             </p>
           </div>
-          <a
-            href="tel:+8801979614216"
-            className="font-mono text-[10px] sm:text-xs text-neutral-900 font-semibold mt-4 block"
-          >
-            +880 1979614216
-          </a>
+          <div className="mt-4 flex flex-col gap-2">
+            <a
+              href="tel:+8801979614216"
+              className="inline-flex min-h-11 items-center font-mono text-[10px] font-semibold text-neutral-900 underline underline-offset-4 transition-colors hover:text-neutral-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950 sm:text-xs"
+            >
+              +880 1979614216
+            </a>
+            <a
+              href={directContacts.corporate.href}
+              className="inline-flex min-h-11 items-center break-all font-mono text-[10px] text-neutral-800 underline underline-offset-4 transition-colors hover:text-neutral-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950 sm:text-xs"
+            >
+              {directContacts.corporate.email}
+            </a>
+            <a
+              href={directContacts.cortex.href}
+              className="inline-flex min-h-11 items-center break-all font-mono text-[10px] text-neutral-800 underline underline-offset-4 transition-colors hover:text-neutral-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950 sm:text-xs"
+            >
+              {directContacts.cortex.email}
+            </a>
+          </div>
         </div>
 
         <div className="relative w-full h-[260px] sm:h-[400px] md:h-[500px] flex items-center justify-end overflow-hidden">
@@ -57,10 +72,10 @@ export function CortexShowcaseBanner({
 
       {onOpenInquiry && (
         <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden border-t border-neutral-800 bg-neutral-950">
-          <div className="flex items-stretch">
+          <div className="grid grid-cols-2 items-stretch">
             <a
               href="tel:+8801979614216"
-              className="flex flex-1 flex-col items-center justify-center gap-0.5 py-3 font-mono text-xs font-semibold tracking-wider text-white transition hover:text-neutral-300"
+              className="flex min-h-14 flex-col items-center justify-center gap-0.5 border-b border-r border-neutral-800 px-2 py-2 font-mono text-xs font-semibold tracking-wider text-white transition-colors hover:text-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-white"
             >
               Call
               <span className="text-[10px] font-normal tracking-normal text-neutral-400">
@@ -71,14 +86,32 @@ export function CortexShowcaseBanner({
               href="https://wa.me/8801979614216?text=Hello%20CORTEXIO"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-1 flex-col items-center justify-center gap-0.5 py-3 font-mono text-xs font-semibold tracking-wider text-white transition hover:text-neutral-300"
+              className="flex min-h-14 flex-col items-center justify-center gap-0.5 border-b border-neutral-800 px-2 py-2 font-mono text-xs font-semibold tracking-wider text-white transition-colors hover:text-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-white"
             >
               WhatsApp
+            </a>
+            <a
+              href={directContacts.corporate.href}
+              className="flex min-h-14 flex-col items-center justify-center gap-0.5 border-b border-r border-neutral-800 px-2 py-2 font-mono text-[10px] font-semibold tracking-wider text-white transition-colors hover:text-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-white"
+            >
+              Founder Email
+              <span className="break-all text-center text-[9px] font-normal tracking-normal text-neutral-400">
+                {directContacts.corporate.email}
+              </span>
+            </a>
+            <a
+              href={directContacts.cortex.href}
+              className="flex min-h-14 flex-col items-center justify-center gap-0.5 border-b border-neutral-800 px-2 py-2 font-mono text-[10px] font-semibold tracking-wider text-white transition-colors hover:text-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-white"
+            >
+              CORTEXIO Email
+              <span className="break-all text-center text-[9px] font-normal tracking-normal text-neutral-400">
+                {directContacts.cortex.email}
+              </span>
             </a>
             <button
               type="button"
               onClick={onOpenInquiry}
-              className="flex flex-1 flex-col items-center justify-center gap-0.5 py-3 font-mono text-xs font-semibold tracking-wider text-white transition hover:text-neutral-300"
+              className="col-span-2 flex min-h-12 flex-col items-center justify-center gap-0.5 px-3 py-2 font-mono text-xs font-semibold tracking-wider text-white transition-colors hover:text-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-white"
             >
               Start a Consultation
             </button>

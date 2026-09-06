@@ -8,6 +8,7 @@ import {
   type ReactNode,
 } from "react";
 import { CheckCircle2, Loader2, Send, X } from "lucide-react";
+import { directContacts } from "@/data/contact";
 
 const subsidiaries = [
   "SHATHI Group — Corporate",
@@ -275,6 +276,27 @@ export function InquiryModal({
                   {errorMessage}
                 </p>
               )}
+
+              <div className="border-y border-slate-700/60 py-4">
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-slate-400">
+                  Prefer a direct email?
+                </p>
+                <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center">
+                  <a
+                    href={directContacts.corporate.href}
+                    className="flex min-h-11 items-center gap-1.5 font-mono text-xs text-slate-100 underline underline-offset-4 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-400 sm:text-sm"
+                  >
+                    <span>{directContacts.corporate.email}</span>
+                  </a>
+                  <span className="hidden text-slate-500 sm:inline" aria-hidden="true">/</span>
+                  <a
+                    href={directContacts.cortex.href}
+                    className="flex min-h-11 items-center gap-1.5 font-mono text-xs text-slate-100 underline underline-offset-4 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-400 sm:text-sm"
+                  >
+                    <span>{directContacts.cortex.email}</span>
+                  </a>
+                </div>
+              </div>
 
               <div className="grid gap-5 sm:grid-cols-2">
                 <Field
