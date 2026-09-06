@@ -15,27 +15,29 @@ export function CortexShowcaseBanner({
     <section
       id="hero"
       aria-labelledby="build-your-website"
-      className={`relative flex min-h-[85vh] items-center overflow-hidden bg-white pt-28 text-neutral-900 lg:min-h-screen lg:pt-32 ${onOpenInquiry ? "pb-52 md:pb-16" : "pb-24 md:pb-16"} ${className ?? ""}`}
+      className={`relative w-full min-h-[85vh] sm:min-h-screen flex items-center justify-center pt-20 sm:pt-24 ${onOpenInquiry ? "pb-52 md:pb-16" : "pb-12 md:pb-16"} px-6 sm:px-10 lg:px-16 overflow-hidden bg-white ${className ?? ""}`}
     >
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-2 items-center gap-2 sm:gap-6 min-h-[60vh] sm:min-h-[75vh] px-4 sm:px-8 lg:px-12">
-        <div>
-          <p className="font-sans text-xs sm:text-base text-neutral-800">Build Your</p>
-          <h2
+      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8 lg:gap-12">
+        
+        {/* Left Column: Typography & Contact */}
+        <div className="flex flex-col justify-center text-left z-10">
+          <span className="font-sans text-sm sm:text-base md:text-lg font-normal text-neutral-800 tracking-tight mb-2">
+            Build Your
+          </span>
+          <h1
             id="build-your-website"
-            className="mt-1 font-sans text-2xl sm:text-4xl md:text-6xl font-bold tracking-tight text-neutral-950 leading-[1.1]"
+            className="font-sans text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-neutral-950 leading-[1.05] mb-6"
           >
             Website
-          </h2>
-          <div className="mt-4 flex items-center gap-3 sm:gap-5">
-            <span
-              aria-hidden="true"
-              className="inline-block h-6 w-10 sm:h-8 sm:w-16 border-l border-t border-neutral-300/80"
-            />
-            <p className="text-[11px] sm:text-sm md:text-base text-neutral-600 max-w-[280px]">
+          </h1>
+          
+          <div className="border-l-2 border-neutral-300 pl-4 mb-6">
+            <p className="text-sm sm:text-base text-neutral-600 max-w-sm leading-relaxed">
               We create professional websites that grow your brand.
             </p>
           </div>
-          <div className="mt-4 flex flex-col gap-2">
+
+          <div className="pt-2 flex flex-col gap-2">
             <a
               href="tel:+8801979614216"
               className="inline-flex min-h-11 items-center font-mono text-[10px] font-semibold text-neutral-900 underline underline-offset-4 transition-colors hover:text-neutral-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950 sm:text-xs"
@@ -57,17 +59,21 @@ export function CortexShowcaseBanner({
           </div>
         </div>
 
-        <div className="relative w-full h-[260px] sm:h-[400px] md:h-[500px] flex items-center justify-end overflow-hidden">
-          <Image
-            src="/cortex/build-your-vision.png"
-            alt="CORTEXIO engineer working on a laptop with a live product interface"
-            fill
-            priority
-            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 50vw"
-            className="object-cover object-center"
-            decoding="async"
-          />
+        {/* Right Column: Hero Visual */}
+        <div className="relative w-full h-[320px] sm:h-[450px] md:h-[520px] lg:h-[600px] flex items-center justify-center md:justify-end">
+          <div className="relative w-full h-full overflow-hidden rounded-sm">
+            <Image
+              src="/cortex/build-your-vision.png"
+              alt="CORTEXIO engineer working on a laptop with a live product interface"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover object-center"
+              decoding="async"
+            />
+          </div>
         </div>
+
       </div>
 
       {onOpenInquiry && (
