@@ -41,7 +41,7 @@ export const cortexEngineers: CortexEngineer[] = [
     name: "Sarker Adhara",
     role: "HEAD OF CYBERSECURITY & DIGITAL RESILIENCE",
     titleTag: "01 // CYBERSECURITY & DIGITAL RESILIENCE",
-    avatar: "/cortex/engineers/sarker-adhara.jpg",
+    avatar: "/cortex/managingdirector.png",
     bio: "Sarker Adhara directs cybersecurity strategy and resilient systems architecture at CORTEXIO Softsolutions. Combining specialized digital business and innovation expertise from Tokyo International University with mission-critical security paradigms, she ensures enterprise platforms remain impervious to evolving threat landscapes.",
     clientMessage: "Defending sovereign digital architecture through rigorous threat modeling, zero-trust protocols, and resilient infrastructure.",
     stack: ["Zero-Trust Architecture & Threat Modeling", "Enterprise Penetration Testing & Defense", "Cloud Security Posture Management (CSPM)", "Identity & Cryptographic Protocol Design"],
@@ -55,7 +55,7 @@ export const cortexEngineers: CortexEngineer[] = [
       { role: "Cryptographic Security Auditor", company: "Cross-Border Cryptographic Security Audits", period: "Previous", highlights: ["Conducted cross-border cryptographic security audits and protocol design."] },
     ],
     projects: [
-      { title: "Sovereign Digital Resilience Architecture", category: "Cybersecurity", description: "Enterprise cybersecurity architecture combining zero-trust protocols, threat modeling, and resilient infrastructure for sovereign digital platforms.", metrics: ["Zero-trust architecture", "Threat modeling rigor", "Resilient infrastructure"], image: "/cortex/engineers/sarker-adhara.jpg", demoUrl: "/companies/cortex-softsolutions" },
+      { title: "Sovereign Digital Resilience Architecture", category: "Cybersecurity", description: "Enterprise cybersecurity architecture combining zero-trust protocols, threat modeling, and resilient infrastructure for sovereign digital platforms.", metrics: ["Zero-trust architecture", "Threat modeling rigor", "Resilient infrastructure"], image: "/cortex/managingdirector.png", demoUrl: "/companies/cortex-softsolutions" },
     ],
   },
   {

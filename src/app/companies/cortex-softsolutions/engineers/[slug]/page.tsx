@@ -67,7 +67,7 @@ export default async function CortexEngineerPage({ params }: { params: Promise<{
             </div>
           </div>
           <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden border border-white/15 bg-neutral-900">
-            <Image src={engineer.avatar} alt={`${engineer.name}, ${engineer.role}`} fill sizes="(min-width: 1024px) 30vw, 80vw" className="object-cover grayscale" loading="lazy" decoding="async" />
+            <Image src={engineer.avatar} alt={`${engineer.name}, ${engineer.role}`} fill sizes="(min-width: 1024px) 30vw, 80vw" className="object-cover object-top grayscale" loading="lazy" decoding="async" />
             <span className="absolute bottom-4 left-4 font-mono text-[10px] uppercase tracking-[0.18em] text-white/80">CORTEXIO / specialist file</span>
           </div>
         </div>
