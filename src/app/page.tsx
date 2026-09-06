@@ -1,5 +1,7 @@
 import { Hero } from "@/components/Hero";
 import { Navbar } from "@/components/Navbar";
+import { Story } from "@/components/Story";
+import { Ventures } from "@/components/Ventures";
 import { StatsSection } from "@/components/StatsSection";
 import { AboutSection } from "@/components/AboutSection";
 import { CortexShowcase } from "@/components/CortexShowcase";
@@ -20,6 +22,8 @@ export default function Home() {
       <Navbar homeOnly />
       <main className="overflow-x-clip bg-transparent">
         <Hero />
+        <Ventures />
+        <Story />
         <CortexShowcase />
         <VelorixShowcase />
         <ShisFashionShowcase />
