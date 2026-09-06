@@ -32,14 +32,23 @@ const display = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.crawlSource),
   title: {
-    default: siteConfig.name,
-    template: `${siteConfig.shortName} | %s`,
+    default: "Shathi Group | Vanguard of Modern Enterprise & Luxury Brands",
+    template: "%s | Shathi Group",
   },
-  description: siteConfig.description,
-  keywords: [...siteConfig.keywords],
-  authors: [{ name: siteConfig.name }],
-  creator: siteConfig.shortName,
-  publisher: siteConfig.shortName,
+  description:
+    "Shathi Group is a pioneering corporate conglomerate overseeing distinguished ventures including Shis Fashion (contemporary menswear), XeroXii (luxury timepieces), Impress Tiles (architectural surfaces), and Bath & Beyond (designer sanitaryware). United by integrity, craftsmanship, and long-term value, the group drives excellence across lifestyle apparel, horology, building materials, and home living.",
+  keywords: [
+    "Shathi Group",
+    "Shis Fashion",
+    "XeroXii",
+    "Impress Tiles",
+    "Bath and Beyond",
+    "Luxury Lifestyle Bangladesh",
+    "Corporate Conglomerate",
+  ],
+  authors: [{ name: "Shathi Group" }],
+  creator: "Shathi Group",
+  publisher: "Shathi Group",
   alternates: {
     canonical: siteConfig.canonicalUrl,
   },
@@ -47,13 +56,21 @@ export const metadata: Metadata = {
     type: "website",
     locale: siteConfig.locale,
     url: siteConfig.canonicalUrl,
-    siteName: siteConfig.name,
+    siteName: "Shathi Group",
     title: {
-      default: siteConfig.name,
-      template: `${siteConfig.shortName} | %s`,
+      default: "Shathi Group | Vanguard of Modern Enterprise & Luxury Brands",
+      template: "%s | Shathi Group",
     },
-    description: siteConfig.description,
+    description:
+      "Shathi Group is a pioneering corporate conglomerate overseeing distinguished ventures including Shis Fashion (contemporary menswear), XeroXii (luxury timepieces), Impress Tiles (architectural surfaces), and Bath & Beyond (designer sanitaryware). United by integrity, craftsmanship, and long-term value, the group drives excellence across lifestyle apparel, horology, building materials, and home living.",
     images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Shathi Group OpenGraph image",
+        type: "image/png",
+      },
       {
         url: siteConfig.openGraphImage,
         width: 735,
@@ -66,14 +83,26 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: {
-      default: siteConfig.name,
-      template: `${siteConfig.shortName} | %s`,
+      default: "Shathi Group | Vanguard of Modern Enterprise & Luxury Brands",
+      template: "%s | Shathi Group",
     },
-    description: siteConfig.description,
-    images: [siteConfig.openGraphImage],
+    description:
+      "Shathi Group is a pioneering corporate conglomerate overseeing distinguished ventures including Shis Fashion (contemporary menswear), XeroXii (luxury timepieces), Impress Tiles (architectural surfaces), and Bath & Beyond (designer sanitaryware). United by integrity, craftsmanship, and long-term value, the group drives excellence across lifestyle apparel, horology, building materials, and home living.",
+    images: [
+      "/og-image.png",
+      siteConfig.openGraphImage,
+    ],
     site: "@shathigroup",
     creator: "@shathigroup",
   },
+};
+
+export const viewport = {
+  themeColor: "#070708",
+  width: {
+    deviceWidth: true,
+  },
+  initialScale: 1,
 };
 
 const organizationJsonLd = {
