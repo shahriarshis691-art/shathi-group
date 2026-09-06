@@ -11,6 +11,7 @@ import {
 import { companies } from "@/data/companies";
 import { directContacts } from "@/data/contact";
 import { SlideIn } from "@/components/ui/ScrollReveal";
+import { Button } from "@/components/ui/Button";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -376,26 +377,27 @@ export function ContactSection() {
                   ) : null}
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={status === "submitting"}
-                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 bg-neutral-950 text-white text-xs font-mono tracking-[0.2em] uppercase hover:bg-neutral-800 transition-colors duration-200 rounded-none mt-2 disabled:cursor-not-allowed disabled:opacity-60"
-                >
-                  {status === "submitting" ? (
-                    <>
-                      <span
-                        className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"
-                        aria-hidden="true"
-                      />
-                      Sending…
-                    </>
-                  ) : (
-                    <>
-                      Send Transmission
-                      <Send className="h-4 w-4" aria-hidden />
-                    </>
-                  )}
-                </button>
+<Button
+                   variant="primary"
+                   type="submit"
+                   disabled={status === "submitting"}
+                   className="mt-2"
+                 >
+                   {status === "submitting" ? (
+                     <>
+                       <span
+                         className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"
+                         aria-hidden="true"
+                       />
+                       Sending…
+                     </>
+                   ) : (
+                     <>
+                       Send Transmission
+                       <Send className="h-4 w-4" aria-hidden />
+                     </>
+                   )}
+                 </Button>
               </div>
             </form>
           </SlideIn>

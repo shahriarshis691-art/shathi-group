@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
+import { Button } from "@/components/ui/Button";
 
 const projects = [
   {
@@ -203,50 +204,48 @@ export function CortexProjectSlider() {
               What we do
             </h2>
           </div>
-          <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={goPrev}
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => setIsPaused(false)}
-              className="min-h-[44px] min-w-[44px] h-10 w-10 border border-neutral-200 rounded-full flex items-center justify-center hover:bg-neutral-900 hover:text-white transition-colors"
-              aria-label="Previous project"
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M19 12H5M12 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <button
-              type="button"
-              onClick={goNext}
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => setIsPaused(false)}
-              className="min-h-[44px] min-w-[44px] h-10 w-10 border border-neutral-200 rounded-full flex items-center justify-center hover:bg-neutral-900 hover:text-white transition-colors"
-              aria-label="Next project"
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
+<div className="flex items-center gap-2">
+             <Button
+               variant="secondary"
+               onClick={goPrev}
+               onMouseEnter={() => setIsPaused(true)}
+               onMouseLeave={() => setIsPaused(false)}
+               aria-label="Previous project"
+             >
+               <svg
+                 width="16"
+                 height="16"
+                 viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 strokeWidth="2"
+                 strokeLinecap="round"
+                 strokeLinejoin="round"
+               >
+                 <path d="M19 12H5M12 19l-7-7 7-7" />
+               </svg>
+             </Button>
+             <Button
+               variant="secondary"
+               onClick={goNext}
+               onMouseEnter={() => setIsPaused(true)}
+               onMouseLeave={() => setIsPaused(false)}
+               aria-label="Next project"
+             >
+               <svg
+                 width="16"
+                 height="16"
+                 viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 strokeWidth="2"
+                 strokeLinecap="round"
+                 strokeLinejoin="round"
+               >
+                 <path d="M5 12h14M12 5l7 7-7 7" />
+               </svg>
+             </Button>
+           </div>
         </div>
 
         <div

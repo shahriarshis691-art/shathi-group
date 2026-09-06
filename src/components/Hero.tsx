@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Sparkles } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "@/components/ui/Button";
 import { siteConfig, storyMetrics } from "@/data/shathigroup";
 
 const entrance = {
@@ -87,19 +88,22 @@ export function Hero() {
             transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             className="mt-9 flex flex-col gap-3 sm:flex-row"
           >
-            <Link
-              href={hero.primaryCta.href}
-              className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#d4af37]/75 bg-[#d4af37]/10 px-6 font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-[#f4d77a] shadow-luxury-gold transition duration-300 hover:border-[#d4af37] hover:bg-[#d4af37] hover:text-[#070708]"
-            >
-              {hero.primaryCta.label}
-              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
-            </Link>
-            <Link
-              href={hero.secondaryCta.href}
-              className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/[0.1] bg-white/[0.05] px-6 font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-luxury-100 backdrop-blur-md transition duration-300 hover:border-white/[0.2] hover:bg-white/[0.1]"
-            >
-              {hero.secondaryCta.label}
-            </Link>
+<Button
+          variant="primary"
+          as={Link}
+          href={hero.primaryCta.href}
+          className="group"
+        >
+          {hero.primaryCta.label}
+          <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
+        </Button>
+<Button
+          variant="secondary"
+          as={Link}
+          href={hero.secondaryCta.href}
+        >
+          {hero.secondaryCta.label}
+        </Button>
           </motion.div>
         </div>
 

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { Button } from "@/components/ui/Button";
 import { cortexEngineers } from "@/data/cortexEngineers";
 import type { CortexEngineer } from "@/data/cortexEngineers";
 
@@ -147,23 +148,23 @@ function AccordionItem({
   onToggle: (key: string) => void;
 }) {
   const isOpen = open === title;
-  return (
-    <div className="border-t border-neutral-200 py-3 first:border-t-0">
-      <button
-        type="button"
-        onClick={() => onToggle(isOpen ? "" : title)}
-        className="flex min-h-11 w-full items-center justify-between gap-2 text-left font-mono text-[8px] uppercase tracking-[0.08em] text-neutral-500 sm:min-h-0 sm:text-xs sm:tracking-[0.15em]"
-      >
-        <span>{title}</span>
-        <span className="font-sans text-sm text-neutral-400">
-          {isOpen ? "−" : "+"}
-        </span>
-      </button>
-      {isOpen && (
-        <p className="mt-3 font-sans text-[10px] leading-relaxed text-neutral-600 sm:text-sm">
-          {content}
-        </p>
-      )}
-    </div>
-  );
-}
+return (
+     <div className="border-t border-neutral-200 py-3 first:border-t-0">
+       <Button
+         variant="secondary"
+         onClick={() => onToggle(isOpen ? "" : title)}
+         className="block w-full min-h-11 flex items-center justify-between gap-2 px-7 py-3.5 sm:px-9 sm:py-4"
+       >
+         <span>{title}</span>
+         <span className="font-sans text-sm text-neutral-400">
+           {isOpen ? "−" : "+"}
+         </span>
+       </Button>
+       {isOpen && (
+         <p className="mt-3 font-sans text-[10px] leading-relaxed text-neutral-600 sm:text-sm">
+           {content}
+         </p>
+       )}
+     </div>
+   );
+ }

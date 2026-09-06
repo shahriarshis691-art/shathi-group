@@ -3,6 +3,8 @@
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { ArrowLeft, ArrowUpRight, CheckCircle2, ExternalLink, Factory, Gauge, Gem, Shield, Sparkles } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/Button";
 import { type Company } from "@/data/companies";
 import { directContacts } from "@/data/contact";
 import { CompanyLogo } from "@/components/CompanyLogo";
@@ -296,19 +298,20 @@ export function CompanyClient({ company }: CompanyClientProps) {
   return (
     <>
       {/* Back navigation */}
-      {company.slug !== "cortex-softsolutions" && (
-      <nav className={`border-b ${t.backNavClass}`} aria-label="Breadcrumb">
-        <div className="container-corporate">
-          <a
-            href="/"
-            className="inline-flex items-center gap-2 py-4 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-slate-600 transition hover:text-navy-800"
-          >
-            <ArrowLeft className="h-4 w-4" aria-hidden />
-            Back to SHATHI Group
-          </a>
-        </div>
-      </nav>
-      )}
+{company.slug !== "cortex-softsolutions" && (
+       <nav className={`border-b ${t.backNavClass}`} aria-label="Breadcrumb">
+         <div className="container-corporate">
+           <Button
+             variant="secondary"
+             as={Link}
+             href="/"
+           >
+             <ArrowLeft className="h-4 w-4" aria-hidden />
+             Back to SHATHI Group
+           </Button>
+         </div>
+       </nav>
+     )}
 
       {company.slug !== "cortex-softsolutions" && (
         <section className={`relative overflow-hidden ${t.heroClass}`}>
@@ -351,25 +354,25 @@ export function CompanyClient({ company }: CompanyClientProps) {
               {company.description}
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <button
-                type="button"
-                onClick={openInquiry}
-                className={`inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] shadow-corporate transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 ${t.ctaClass} ${t.ctaHover}`}
-              >
-                Direct Inquiry / Schedule Meeting
-              </button>
-              {company.storeUrl && company.slug === "shis-fashion" && (
-                <a
-                  href={company.storeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em] text-white backdrop-blur-sm transition hover:border-white/40 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
-                >
-                  Request Catalog
-                  <ArrowUpRight className="h-4 w-4" aria-hidden />
-                </a>
-              )}
+<div className="mt-8 flex flex-col gap-3 sm:flex-row">
+               <Button
+                 variant="primary"
+                 onClick={openInquiry}
+               >
+                 Direct Inquiry / Schedule Meeting
+               </Button>
+{company.storeUrl && company.slug === "shis-fashion" && (
+                 <Button
+                   variant="primary"
+                   as="a"
+                   href={company.storeUrl}
+                   target="_blank"
+                   rel="noopener noreferrer"
+                 >
+                   Request Catalog
+                   <ArrowUpRight className="h-4 w-4" aria-hidden />
+                 </Button>
+               )}
             </div>
           </div>
         </section>

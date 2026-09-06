@@ -10,6 +10,7 @@ import {
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "@/components/ui/Button";
 import { type PointerEvent } from "react";
 import { type Venture, ventures } from "@/data/shathigroup";
 
@@ -112,13 +113,15 @@ function VentureCard({ venture, index, layout }: VentureCardProps) {
           </p>
         </div>
 
-        <Link
+<Button
+          variant="primary"
+          as={Link}
           href={venture.route}
-          className="inline-flex w-fit items-center gap-2 font-sans text-[10px] font-semibold uppercase tracking-[0.16em] text-[#f4d77a] transition group-hover:text-[#fff3c4]"
+          className="group"
         >
           Explore brand
           <ArrowUpRight className="h-4 w-4 transition duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden />
-        </Link>
+        </Button>
       </div>
     </motion.article>
   );

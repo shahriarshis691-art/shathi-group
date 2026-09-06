@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { directContacts } from "@/data/contact";
+import { Button } from "@/components/ui/Button";
 
 /** Primary hero section for the CORTEXIO detail page. */
 export function CortexShowcaseBanner({
@@ -48,54 +49,54 @@ export function CortexShowcaseBanner({
         </div>
       </div>
 
-      {onOpenInquiry && (
-        <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden border-t border-neutral-800 bg-neutral-950">
-          <div className="grid grid-cols-2 items-stretch">
-            <a
-              href="tel:+8801979614216"
-              className="flex min-h-14 flex-col items-center justify-center gap-0.5 border-b border-r border-neutral-800 px-2 py-2 font-mono text-xs font-semibold tracking-wider text-white transition-colors hover:text-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-white"
-            >
-              Call
-              <span className="text-[10px] font-normal tracking-normal text-neutral-400">
-                +880 1979614216
-              </span>
-            </a>
-            <a
-              href="https://wa.me/8801979614216?text=Hello%20CORTEXIO"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex min-h-14 flex-col items-center justify-center gap-0.5 border-b border-neutral-800 px-2 py-2 font-mono text-xs font-semibold tracking-wider text-white transition-colors hover:text-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-white"
-            >
-              WhatsApp
-            </a>
-            <a
-              href={directContacts.corporate.href}
-              className="flex min-h-14 flex-col items-center justify-center gap-0.5 border-b border-r border-neutral-800 px-2 py-2 font-mono text-[10px] font-semibold tracking-wider text-white transition-colors hover:text-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-white"
-            >
-              Founder Email
-              <span className="break-all text-center text-[9px] font-normal tracking-normal text-neutral-400">
-                {directContacts.corporate.email}
-              </span>
-            </a>
-            <a
-              href={directContacts.cortex.href}
-              className="flex min-h-14 flex-col items-center justify-center gap-0.5 border-b border-neutral-800 px-2 py-2 font-mono text-[10px] font-semibold tracking-wider text-white transition-colors hover:text-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-white"
-            >
-              MD & Cybersecurity
-              <span className="break-all text-center text-[9px] font-normal tracking-normal text-neutral-400">
-                {directContacts.cortex.email}
-              </span>
-            </a>
-            <button
-              type="button"
-              onClick={onOpenInquiry}
-              className="col-span-2 flex min-h-12 flex-col items-center justify-center gap-0.5 px-3 py-2 font-mono text-xs font-semibold tracking-wider text-white transition-colors hover:text-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-white"
-            >
-              Start a Consultation
-            </button>
-          </div>
-        </div>
-      )}
+{onOpenInquiry && (
+         <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden border-t border-neutral-800 bg-neutral-950">
+           <div className="grid grid-cols-2 items-stretch">
+             <a
+               href="tel:+8801979614216"
+               className="flex min-h-14 flex-col items-center justify-center gap-0.5 border-b border-r border-neutral-800 px-2 py-2 font-mono text-xs font-semibold tracking-wider text-white transition-colors hover:text-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-white"
+             >
+               Call
+               <span className="text-[10px] font-normal tracking-normal text-neutral-400">
+                 +880 1979614216
+               </span>
+             </a>
+             <a
+               href="https://wa.me/8801979614216?text=Hello%20CORTEXIO"
+               target="_blank"
+               rel="noopener noreferrer"
+               className="flex min-h-14 flex-col items-center justify-center gap-0.5 border-b border-neutral-800 px-2 py-2 font-mono text-xs font-semibold tracking-wider text-white transition-colors hover:text-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-white"
+             >
+               WhatsApp
+             </a>
+             <a
+               href={directContacts.corporate.href}
+               className="flex min-h-14 flex-col items-center justify-center gap-0.5 border-b border-r border-neutral-800 px-2 py-2 font-mono text-[10px] font-semibold tracking-wider text-white transition-colors hover:text-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-white"
+             >
+               Founder Email
+               <span className="break-all text-center text-[9px] font-normal tracking-normal text-neutral-400">
+                 {directContacts.corporate.email}
+               </span>
+             </a>
+             <a
+               href={directContacts.cortex.href}
+               className="flex min-h-14 flex-col items-center justify-center gap-0.5 border-b border-neutral-800 px-2 py-2 font-mono text-[10px] font-semibold tracking-wider text-white transition-colors hover:text-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-white"
+             >
+               MD & Cybersecurity
+               <span className="break-all text-center text-[9px] font-normal tracking-normal text-neutral-400">
+                 {directContacts.cortex.email}
+               </span>
+             </a>
+             <Button
+               variant="primary"
+               className="col-span-2"
+               onClick={onOpenInquiry}
+             >
+               Start a Consultation
+             </Button>
+           </div>
+         </div>
+       )}
     </section>
   );
 }

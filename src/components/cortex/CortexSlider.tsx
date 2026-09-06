@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Button } from "@/components/ui/Button";
 
 const modules = [
   {
@@ -76,15 +77,15 @@ export function CortexSlider() {
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        <div className="flex items-center justify-center gap-4 md:gap-6 overflow-hidden">
-          <button
-            type="button"
-            onClick={() => handleManualChange(prev)}
-            className="hidden md:block font-mono text-xs text-neutral-500 hover:text-black transition-colors"
-            aria-label="Previous module"
-          >
-            Left &lt;
-          </button>
+<div className="flex items-center justify-center gap-4 md:gap-6 overflow-hidden">
+           <button
+             type="button"
+             onClick={() => handleManualChange(prev)}
+             className="hidden md:block font-mono text-xs text-neutral-500 hover:text-black transition-colors"
+             aria-label="Previous module"
+           >
+             Left <
+           </button>
 
           <div className="flex flex-1 items-center justify-center gap-4 md:gap-6 overflow-hidden">
             <div className="hidden md:flex flex-1 flex-col items-center justify-center transition-[transform,opacity,filter] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] scale-95 opacity-40 blur-[0.5px]">
@@ -127,14 +128,14 @@ export function CortexSlider() {
             </div>
           </div>
 
-          <button
-            type="button"
-            onClick={() => handleManualChange(next)}
-            className="hidden md:block font-mono text-xs text-neutral-500 hover:text-black transition-colors"
-            aria-label="Next module"
-          >
-            &gt; Right
-          </button>
+<Button
+             variant="secondary"
+             onClick={() => handleManualChange(next)}
+             className="hidden md:block"
+             aria-label="Next module"
+           >
+             > Right
+           </Button>
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-6 md:flex-row">
@@ -142,23 +143,19 @@ export function CortexSlider() {
             CORTEXIO Architecture Collection
           </h3>
 
-          <div className="flex items-center gap-3 font-mono text-xs">
-            {modules.map((mod, idx) => (
-              <button
-                key={mod.title}
-                type="button"
-                onClick={() => handleManualChange(idx)}
-                className={`inline-flex h-11 w-11 items-center justify-center transition-[transform,color] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] md:h-auto md:w-auto ${
-                  idx === active
-                    ? "font-bold text-neutral-950 scale-110"
-                    : "text-neutral-400 hover:text-neutral-600"
-                }`}
-                aria-label={`Module ${String(idx + 1).padStart(2, "0")}`}
-              >
-                {String(idx + 1).padStart(2, "0")}
-              </button>
-            ))}
-          </div>
+<div className="flex items-center gap-3 font-mono text-xs">
+             {modules.map((mod, idx) => (
+               <Button
+                 key={mod.title}
+                 variant="secondary"
+                 onClick={() => handleManualChange(idx)}
+                 className={`${idx === active ? "font-bold text-neutral-950 scale-110" : "text-neutral-400 hover:text-neutral-600"}`}
+                 aria-label={`Module ${String(idx + 1).padStart(2, "0")}`}
+               >
+                 {String(idx + 1).padStart(2, "0")}
+               </Button>
+             ))}
+           </div>
 
           <div className="flex items-center gap-4 font-mono text-xs text-neutral-500" aria-label="CORTEXIO social channels coming soon">
             <span>TW</span>

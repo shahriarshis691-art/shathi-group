@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "@/components/ui/Button";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, type MouseEvent } from "react";
 import { assetInventory, navigationLinks, siteConfig } from "@/data/shathigroup";
@@ -120,24 +121,23 @@ export function Navbar({ homeOnly = false }: NavbarProps) {
           ))}
         </ul>
 
-        <button
-          type="button"
+        <Button
+          variant="primary"
+          className="hidden lg:inline-flex"
           onClick={handleInquiry}
-          className="hidden min-h-10 items-center rounded-full border border-[#d4af37]/65 bg-[#d4af37]/10 px-4 font-sans text-[10px] font-semibold uppercase tracking-[0.16em] text-[#f4d77a] shadow-luxury-gold transition duration-300 hover:border-[#d4af37] hover:bg-[#d4af37] hover:text-[#070708] lg:inline-flex"
         >
           {siteConfig.hero.primaryCta.label}
-        </button>
+        </Button>
 
-<button
-  type="button"
-  onClick={() => setIsOpen((open) => !open)}
-  className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/[0.08] text-luxury-100 transition hover:border-[#d4af37]/55 hover:bg-white/[0.05] lg:hidden"
-  aria-label={isOpen ? "Close menu" : "Open menu"}
-  aria-expanded={isOpen}
-  aria-controls="mobile-menu"
->
-  {isOpen ? <X className="h-5 w-5" aria-hidden /> : <Menu className="h-5 w-5" aria-hidden />}
-</button>
+<Button
+          variant="secondary"
+          onClick={() => setIsOpen((open) => !open)}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu"
+        >
+          {isOpen ? <X className="h-5 w-5" aria-hidden /> : <Menu className="h-5 w-5" aria-hidden />}
+        </Button>
       </motion.nav>
 
       <AnimatePresence>
