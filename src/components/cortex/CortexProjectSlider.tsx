@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
+import Image from "next/image";
 
 const projects = [
   {
@@ -10,7 +11,7 @@ const projects = [
       "Scalable multi-tenant infrastructure built for high concurrency and zero-downtime deployments across global regions.",
     link: "#",
     linkText: "VIEW ARCHITECTURE →",
-    mockup: "browser",
+    image: "/cortex/projects/enterprise-cloud-suite.webp",
   },
   {
     title: "Fintech Mobile App",
@@ -19,7 +20,7 @@ const projects = [
       "Secure, high-throughput transaction engine with biometric auth and real-time ledger reconciliation.",
     link: "#",
     linkText: "READ MORE",
-    mockup: "mobile",
+    image: "/cortex/projects/fintech-mobile-app.webp",
   },
   {
     title: "Editorial Headless Commerce",
@@ -28,7 +29,7 @@ const projects = [
       "Composable storefront with edge-cached product discovery and multi-channel fulfillment orchestration.",
     link: "#",
     linkText: "VIEW ARCHITECTURE →",
-    mockup: "browser",
+    image: "/cortex/projects/editorial-commerce.webp",
   },
   {
     title: "AI Analytics Dashboard",
@@ -37,115 +38,9 @@ const projects = [
       "Real-time predictive analytics layer with model governance, anomaly detection, and natural-language querying.",
     link: "#",
     linkText: "READ MORE",
-    mockup: "dashboard",
-  },
-  {
-    title: "Supply Chain OS",
-    category: "Operations",
-    summary:
-      "End-to-end logistics orchestration platform with IoT sensor fusion and autonomous exception handling.",
-    link: "#",
-    linkText: "VIEW ARCHITECTURE →",
-    mockup: "dashboard",
+    image: "/cortex/projects/ai-analytics.webp",
   },
 ];
-
-function MockupBrowser() {
-  return (
-    <div className="flex h-full w-full flex-col bg-neutral-900 text-neutral-100">
-      <div className="flex items-center gap-2 border-b border-neutral-800 px-3 py-2">
-        <div className="flex gap-1">
-          <div className="h-2 w-2 rounded-full bg-neutral-700" />
-          <div className="h-2 w-2 rounded-full bg-neutral-700" />
-          <div className="h-2 w-2 rounded-full bg-neutral-700" />
-        </div>
-        <div className="h-4 flex-1 rounded bg-neutral-800" />
-      </div>
-      <div className="flex flex-1">
-        <div className="w-12 border-r border-neutral-800 p-2 space-y-2">
-          <div className="h-2 w-8 rounded bg-neutral-800" />
-          <div className="h-2 w-6 rounded bg-neutral-800" />
-          <div className="h-2 w-10 rounded bg-neutral-800" />
-        </div>
-        <div className="flex-1 p-3 space-y-2">
-          <div className="h-3 w-3/4 rounded bg-neutral-800" />
-          <div className="h-3 w-1/2 rounded bg-neutral-800" />
-          <div className="mt-3 grid grid-cols-3 gap-2">
-            <div className="aspect-square rounded bg-neutral-800" />
-            <div className="aspect-square rounded bg-neutral-800" />
-            <div className="aspect-square rounded bg-neutral-800" />
-          </div>
-          <div className="mt-3 h-16 rounded bg-neutral-800" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function MockupMobile() {
-  return (
-    <div className="flex h-full w-full items-center justify-center bg-neutral-100 p-4">
-      <div className="flex h-full w-full max-w-[160px] flex-col rounded-[2rem] border-4 border-neutral-900 bg-white shadow-xl overflow-hidden">
-        <div className="h-5 w-full bg-neutral-900" />
-        <div className="flex-1 space-y-2 p-2">
-          <div className="h-20 rounded-xl bg-neutral-100" />
-          <div className="h-2 w-3/4 rounded bg-neutral-200" />
-          <div className="h-2 w-1/2 rounded bg-neutral-200" />
-          <div className="mt-3 space-y-2">
-            <div className="h-8 rounded-lg bg-neutral-100" />
-            <div className="h-8 rounded-lg bg-neutral-100" />
-            <div className="h-8 rounded-lg bg-neutral-100" />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function MockupDashboard() {
-  return (
-    <div className="flex h-full w-full flex-col bg-slate-900 p-3 text-neutral-100">
-      <div className="flex items-center justify-between">
-        <div className="h-2 w-20 rounded bg-slate-700" />
-        <div className="flex gap-1">
-          <div className="h-2 w-8 rounded bg-slate-700" />
-          <div className="h-2 w-8 rounded bg-slate-700" />
-        </div>
-      </div>
-      <div className="mt-3 grid grid-cols-3 gap-2">
-        <div className="rounded bg-slate-800 p-2">
-          <div className="h-2 w-6 rounded bg-slate-700" />
-          <div className="mt-1 h-5 w-10 rounded bg-slate-700" />
-        </div>
-        <div className="rounded bg-slate-800 p-2">
-          <div className="h-2 w-6 rounded bg-slate-700" />
-          <div className="mt-1 h-5 w-10 rounded bg-slate-700" />
-        </div>
-        <div className="rounded bg-slate-800 p-2">
-          <div className="h-2 w-6 rounded bg-slate-700" />
-          <div className="mt-1 h-5 w-10 rounded bg-slate-700" />
-        </div>
-      </div>
-      <div className="mt-3 h-24 rounded bg-slate-800 p-2">
-        <div className="flex h-full items-end gap-1">
-          {[...Array(8)].map((_, i) => (
-            <div
-              key={i}
-              className="flex-1 rounded-t bg-cyan-500/60"
-              style={{ height: `${40 + ((i * 37) % 60)}%` }}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-const mockups: Record<string, () => JSX.Element> = {
-  browser: MockupBrowser,
-  mobile: MockupMobile,
-  dashboard: MockupDashboard,
-};
 
 export function CortexProjectSlider() {
   const [activeIndex, setActiveIndex] = useState(1);
@@ -363,7 +258,6 @@ export function CortexProjectSlider() {
           onTouchEnd={handleTouchEnd}
         >
           {extendedProjects.map((project, index) => {
-            const Mockup = mockups[project.mockup];
             return (
               <article
                 key={`${project.title}-${index}`}
@@ -372,8 +266,15 @@ export function CortexProjectSlider() {
                 }}
                 className="w-[85vw] sm:w-[380px] shrink-0 snap-start"
               >
-                <div className="aspect-[4/3] overflow-hidden rounded-none bg-neutral-100">
-                  <Mockup />
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-900 border border-neutral-200/60">
+                  <Image
+                    src={project.image}
+                    alt={`${project.title} interface mockup`}
+                    fill
+                    sizes="(max-width: 768px) 85vw, 400px"
+                    className="object-cover object-top hover:scale-[1.02] transition-transform duration-500"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="pt-6 pb-4">
                   <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-500">
