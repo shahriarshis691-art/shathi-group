@@ -63,7 +63,7 @@ export const cortexEngineers: CortexEngineer[] = [
     name: "Maskat Md Mahadi Hassan",
     role: "DIGITAL BUSINESS & INNOVATION LEAD",
     titleTag: "02 // DIGITAL BUSINESS & INNOVATION",
-    avatar: "/cortex/engineers/maskat-md-mahadi-hassan.jpg",
+    avatar: "/cortex/engineers/navid.jpg",
     bio: "Specializing in digital strategy, business model innovation, and technological scalability. Leveraging global perspective from Tokyo International University to architect high-impact digital ventures.",
     clientMessage: "Transforming enterprise capabilities through sovereign digital architectures and sustainable market innovation.",
     stack: ["Digital Business Strategy & Modeling", "Enterprise Technology Transformation", "Cross-Border Market Architecture", "Product Innovation Lifecycle"],
