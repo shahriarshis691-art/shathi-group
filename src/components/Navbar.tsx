@@ -76,13 +76,13 @@ export function Navbar({ homeOnly = false }: NavbarProps) {
   };
 
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-5">
+    <header className="sticky top-0 z-50 bg-[#070708]/95 backdrop-blur-md border-b border-white/10">
       <motion.nav
         aria-label="Primary navigation"
         initial={{ opacity: 0, y: -18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-        className="pointer-events-auto mx-auto flex min-h-16 max-w-7xl items-center justify-between rounded-2xl border border-white/[0.08] bg-[#0e0e11]/80 px-4 shadow-luxury backdrop-blur-md sm:px-5"
+        className="pointer-events-auto mx-auto flex h-16 items-center justify-between px-4 sm:px-5"
       >
         <Link
           href="/"
@@ -102,9 +102,9 @@ export function Navbar({ homeOnly = false }: NavbarProps) {
               <span className="font-serif text-sm text-[#d4af37]">S</span>
             )}
           </span>
-          <span className="font-serif text-sm font-semibold uppercase tracking-[0.18em] text-luxury-50 sm:text-base">
-            {siteConfig.shortName}
-          </span>
+<span className="text-[#C5A265] font-semibold tracking-wider text-base">
+               {siteConfig.shortName}
+             </span>
         </Link>
 
         <ul className="hidden items-center gap-1 lg:flex">
@@ -121,23 +121,24 @@ export function Navbar({ homeOnly = false }: NavbarProps) {
           ))}
         </ul>
 
-        <Button
-          variant="primary"
-          className="hidden lg:inline-flex"
-          onClick={handleInquiry}
-        >
-          {siteConfig.hero.primaryCta.label}
-        </Button>
+<Button
+           variant="primary"
+           className="hidden lg:inline-flex bg-transparent border-0 text-[#C5A265] hover:text-[f4d77a] px-0 py-0"
+           onClick={handleInquiry}
+         >
+           {siteConfig.hero.primaryCta.label}
+         </Button>
 
 <Button
-          variant="secondary"
-          onClick={() => setIsOpen((open) => !open)}
-          aria-label={isOpen ? "Close menu" : "Open menu"}
-          aria-expanded={isOpen}
-          aria-controls="mobile-menu"
-        >
-          {isOpen ? <X className="h-5 w-5" aria-hidden /> : <Menu className="h-5 w-5" aria-hidden />}
-        </Button>
+           variant="secondary"
+           className="bg-transparent border-0 text-luxury-50 hover:text-[f4d77a] px-0 py-0"
+           onClick={() => setIsOpen((open) => !open)}
+           aria-label={isOpen ? "Close menu" : "Open menu"}
+           aria-expanded={isOpen}
+           aria-controls="mobile-menu"
+         >
+           {isOpen ? <X className="h-5 w-5" aria-hidden /> : <Menu className="h-5 w-5" aria-hidden />}
+         </Button>
       </motion.nav>
 
       <AnimatePresence>

@@ -65,22 +65,14 @@ export function Hero() {
             </p>
           </motion.div>
 
-          <motion.h1
-            id="hero-heading"
-            variants={entrance}
-            transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-7 max-w-4xl font-serif text-5xl font-semibold leading-[0.93] tracking-[-0.045em] text-[#faf9f5] sm:text-7xl lg:text-8xl"
-          >
-            {hero.headline}
-          </motion.h1>
-
-          <motion.p
-            variants={entrance}
-            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-7 max-w-2xl text-sm leading-relaxed text-luxury-300 sm:text-base"
-          >
-            {hero.tagline}
-          </motion.p>
+<motion.h1
+             id="hero-heading"
+             variants={entrance}
+             transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+             className="mt-7 max-w-4xl font-serif text-5xl font-semibold leading-[0.93] tracking-[-0.045em] text-[#faf9f5] sm:text-7xl lg:text-8xl"
+           >
+             {hero.headline}
+           </motion.h1>
 
           <motion.div
             variants={entrance}
