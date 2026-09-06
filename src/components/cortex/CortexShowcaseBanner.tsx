@@ -15,38 +15,37 @@ export function CortexShowcaseBanner({
     <section
       id="hero"
       aria-labelledby="build-your-website"
-      className={`relative w-full overflow-hidden pt-16 sm:pt-20 pb-4 px-4 sm:px-8 lg:px-12 flex items-center min-h-[55vh] sm:min-h-[70vh] bg-white ${className ?? ""}`}
+      className={`relative w-full bg-white overflow-hidden pt-12 sm:pt-16 pb-8 min-h-[420px] sm:min-h-[580px] md:min-h-[640px] flex items-center ${className ?? ""}`}
     >
-      <div className="w-full max-w-7xl mx-auto grid grid-cols-12 items-center gap-2 sm:gap-6">
-        
-        {/* Left Column: Fixed Left Typography (5 cols on mobile, 5 cols on desktop) */}
-        <div className="col-span-5 sm:col-span-5 flex flex-col justify-center z-10 select-none pl-1 sm:pl-4">
-          <span className="font-sans text-[11px] sm:text-base md:text-xl font-normal text-neutral-800 tracking-tight mb-1">
+      {/* Background Panoramic Asset */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none flex justify-end">
+        <div className="relative w-full md:w-[75%] lg:w-[65%] h-full">
+          <Image alt="Build Your Website" className="object-cover object-right select-none" fill priority sizes="100vw" src="/cortex/build-your-vision.png"/>
+          <div className="absolute inset-y-0 left-0 w-24 sm:w-48 bg-gradient-to-r from-white via-white/80 to-transparent pointer-events-none" />
+        </div>
+      </div>
+
+      {/* Overlay Content Pinned to Left */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
+        <div className="max-w-[280px] sm:max-w-md md:max-w-lg">
+          <span className="font-sans text-sm sm:text-lg md:text-xl font-normal text-neutral-800 tracking-tight block mb-1">
             Build Your
           </span>
-          <h1 className="font-sans text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-neutral-950 leading-[1.05] mb-2 sm:mb-4">
+          <h1 className="font-sans text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-neutral-950 leading-[1.05] mb-4">
             Website
           </h1>
-          <div className="border-l border-neutral-400 pl-2 sm:pl-3 mb-2 sm:mb-4">
-            <p className="text-[9px] sm:text-xs md:text-sm text-neutral-600 leading-tight max-w-[200px] sm:max-w-xs">
+          <div className="border-l-2 border-neutral-300 pl-3 mb-4">
+            <p className="text-xs sm:text-sm md:text-base text-neutral-600 leading-snug">
               We create professional websites that grow your brand.
             </p>
           </div>
-          <a 
-            href="tel:+8801979614216" 
-            className="font-mono text-[9px] sm:text-xs md:text-sm font-semibold tracking-wider text-neutral-900 hover:text-neutral-600 transition-colors"
+          <a
+            href="tel:+8801979614216"
+            className="font-mono text-xs sm:text-sm font-semibold tracking-wider text-neutral-900 hover:text-neutral-600 transition-colors inline-block"
           >
             +880 1979614216
           </a>
         </div>
-
-        {/* Right Column: Panoramic Figure (7 cols on mobile, 7 cols on desktop) */}
-        <div className="col-span-7 sm:col-span-7 relative h-[260px] sm:h-[420px] md:h-[500px] flex items-center justify-end overflow-hidden">
-          <div className="relative w-full h-full">
-            <Image alt="CORTEXIO Website Architecture" className="object-cover object-center rounded-sm" fill priority sizes="(max-width: 768px) 60vw, 50vw" src="/cortex/build-your-vision.png"/>
-          </div>
-        </div>
-
       </div>
 
       {onOpenInquiry && (
