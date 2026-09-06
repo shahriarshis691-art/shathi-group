@@ -25,7 +25,7 @@ export interface CortexEngineer {
   slug: string;
   name: string;
   role: string;
-  titleTag: string;
+  titleTag?: string;
   avatar: string;
   bio: string;
   clientMessage?: string;
@@ -33,9 +33,45 @@ export interface CortexEngineer {
   education: CortexEducation[];
   experience: CortexExperience[];
   projects: CortexProject[];
+  id?: string;
+  index?: string;
+  category?: string;
+  quote?: string;
+  technicalCore?: string[];
+  pastEngagements?: string[];
+  directPortfolioRoute?: string;
+  image?: string;
 }
 
 export const cortexEngineers: CortexEngineer[] = [
+  {
+    id: "sm-shahriar-walid",
+    slug: "sm-shahriar-walid",
+    index: "01",
+    category: "FOUNDER & CHIEF ARCHITECT",
+    name: "SM Shahriar Walid",
+    role: "FOUNDER & CEO, SHATHI GROUP // LEAD & FOUNDER, CORTEXIO",
+    quote: "Architecting autonomous digital ecosystems and high-impact enterprises designed for generational resilience.",
+    bio: "SM Shahriar Walid is the Founder & CEO of Shathi Group and the visionary lead behind CORTEXIO Softsolutions. Directing corporate strategy, technological innovation, and scalable digital architectures across the conglomerate's diverse portfolio.",
+    technicalCore: [
+      "Enterprise Digital Architecture",
+      "Strategic Conglomerate Governance",
+      "High-Scale Systems Design",
+      "Technology Venture Incubation"
+    ],
+    pastEngagements: [
+      "Shathi Group Conglomerate Architecture",
+      "CORTEXIO Autonomous Ecosystems",
+      "Multi-Industry Digital Integration"
+    ],
+    directPortfolioRoute: "/companies/cortex-softsolutions/engineers/sm-shahriar-walid",
+    image: "/cortex/engineers/engineer.founder.png.jpg",
+    avatar: "/cortex/engineers/engineer.founder.png.jpg",
+    stack: [],
+    education: [],
+    experience: [],
+    projects: []
+  },
   {
     slug: "sarker-adhara",
     name: "Sarker Adhara",
