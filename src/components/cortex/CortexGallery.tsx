@@ -7,8 +7,8 @@ import type { CortexEngineer } from "@/data/cortexEngineers";
 export function CortexGallery() {
   return (
     <section aria-labelledby="cortex-leadership-heading" className="bg-white">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 md:px-10 lg:py-24">
-        <header className="mb-8 sm:mb-12">
+      <div className="mx-auto max-w-7xl px-6 py-16 sm:px-10 lg:px-16 lg:py-24">
+        <header className="mb-10 sm:mb-14">
           <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-neutral-500">
             CORTEXIO Softsolutions / People systems
           </p>
@@ -20,13 +20,9 @@ export function CortexGallery() {
           </h2>
         </header>
 
-        <div className="space-y-4">
-          {cortexEngineers.map((engineer, index) => (
-            <EngineerEditorialRow
-              key={engineer.slug}
-              engineer={engineer}
-              reversed={index % 2 === 0}
-            />
+        <div className="space-y-16 sm:space-y-24">
+          {cortexEngineers.map((engineer) => (
+            <EngineerEditorialRow key={engineer.slug} engineer={engineer} />
           ))}
         </div>
       </div>
@@ -34,101 +30,140 @@ export function CortexGallery() {
   );
 }
 
-function EngineerEditorialRow({
-  engineer,
-  reversed,
-}: {
-  engineer: CortexEngineer;
-  reversed: boolean;
-}) {
+function EngineerEditorialRow({ engineer }: { engineer: CortexEngineer }) {
   const [open, setOpen] = useState<string | null>(null);
 
-  const accordionItems = [
-    {
-      title: "Technical Core",
-      content: engineer.stack.join(", "),
-    },
-    {
-      title: "Past Engagements",
-      content: engineer.experience
-        .map((entry) => `${entry.role}, ${entry.company} (${entry.period})`)
-        .join("; "),
-    },
-    {
-      title: "Direct Portfolio Route",
-      content: `/companies/cortex-softsolutions/engineers/${engineer.slug}`,
-    },
-  ];
+  const technicalCoreContent = engineer.technicalCore?.length
+    ? engineer.technicalCore.join(", ")
+    : engineer.stack?.length
+      ? engineer.stack.join(", ")
+      : "";
+
+  const pastEngagementsContent = engineer.pastEngagements?.length
+    ? engineer.pastEngagements.join(", ")
+    : engineer.experience?.length
+      ? engineer.experience
+          .map((entry) => `${entry.role}, ${entry.company} (${entry.period})`)
+          .join("; ")
+      : "";
+
+  const portfolioRoute =
+    engineer.directPortfolioRoute ||
+    `/companies/cortex-softsolutions/engineers/${engineer.slug}`;
+
+  const quoteText = engineer.quote || engineer.clientMessage || "";
 
   return (
-    <div
-      className={`flex flex-row items-start gap-4 sm:gap-8 lg:gap-12 lg:items-start${
-        reversed ? " lg:flex-row-reverse" : ""
-      }`}
-    >
-      <div className="min-w-0 flex-1 lg:max-w-[640px]">
-        <span className="font-mono text-[8px] tracking-[0.08em] uppercase text-neutral-400 sm:text-xs sm:tracking-widest">
-          {engineer.titleTag}
-        </span>
-        <h3 className="mt-2 leading-tight font-serif text-[clamp(1.35rem,6vw,2.25rem)] font-normal tracking-tight text-neutral-900 sm:mt-3">
-          {engineer.name}
-        </h3>
-        <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.08em] text-neutral-500 sm:text-xs sm:tracking-wider">
-          {engineer.role}
-        </p>
-
-        {engineer.clientMessage ? (
-          <blockquote className="my-3 border-l-2 border-neutral-900 pl-3 font-serif text-xs italic text-neutral-700 sm:my-4 sm:pl-4 sm:text-lg">
-            {engineer.clientMessage}
-          </blockquote>
-        ) : null}
-
-        <p className="mt-3 font-sans text-[10px] leading-relaxed text-neutral-700 sm:mt-4 sm:text-base">
-          {engineer.bio}
-        </p>
-
-        <div className="mt-5 border-y border-neutral-200 sm:mt-8">
-          {accordionItems.map((item) => (
-            <div key={item.title} className="border-t border-neutral-200 py-3 first:border-t-0">
-              <button
-                type="button"
-                onClick={() => setOpen(open === item.title ? null : item.title)}
-                className="flex min-h-11 w-full items-center justify-between gap-2 text-left font-mono text-[8px] uppercase tracking-[0.08em] text-neutral-500 sm:min-h-0 sm:text-xs sm:tracking-[0.15em]"
-              >
-                <span>{item.title}</span>
-                <span className="font-sans text-sm text-neutral-400">
-                  {open === item.title ? "-" : "+"}
-                </span>
-              </button>
-              {open === item.title ? (
-                <p className="mt-3 font-sans text-[10px] leading-relaxed text-neutral-600 sm:text-sm">
-                  {item.content}
-                </p>
-              ) : null}
-            </div>
-          ))}
+    <div className="w-full border-t border-neutral-200 py-12 lg:py-20">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+        {/* Column 1: Portrait Canvas */}
+        <div className="lg:col-span-5 w-full">
+          <div className="relative w-full aspect-[4/5] overflow-hidden rounded-sm bg-neutral-100 shadow-sm">
+            <Image
+              alt={engineer.name}
+              className="object-cover object-top transition-transform duration-700 hover:scale-105"
+              fill
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              src={engineer.avatar}
+            />
+          </div>
         </div>
 
-        <Link
-          href={`/companies/cortex-softsolutions/engineers/${engineer.slug}`}
-          className="mt-5 inline-flex min-h-11 items-center gap-2 font-mono text-[8px] uppercase tracking-[0.08em] text-neutral-900 transition-transform hover:translate-x-1 sm:mt-8 sm:min-h-0 sm:text-xs sm:tracking-[0.18em]"
-        >
-          <span>View full portfolio</span>
-          <span aria-hidden>→</span>
-        </Link>
-      </div>
+        {/* Column 2: Editorial Details & Accordion */}
+        <div className="lg:col-span-7 flex flex-col justify-start pt-1">
+          <span className="font-mono text-xs uppercase tracking-widest text-neutral-400 mb-3 block">
+            {`${engineer.index} // ${engineer.category}`}
+          </span>
 
-      <div className="relative aspect-[4/5] w-[42%] shrink-0 overflow-hidden border border-neutral-200 shadow-sm sm:w-[38%] lg:max-w-[420px]">
-        <Image
-          src={engineer.avatar}
-          alt={`${engineer.name}, ${engineer.role}`}
-          fill
-          sizes="(min-width: 1024px) 420px, 42vw"
-          className="object-cover object-top"
-          loading="lazy"
-          decoding="async"
-        />
+          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-neutral-950 font-normal tracking-tight leading-[1.15] mb-2 pt-1">
+            {engineer.name}
+          </h2>
+
+          <p className="font-mono text-[11px] sm:text-xs uppercase tracking-wider text-neutral-500 mb-6">
+            {engineer.role}
+          </p>
+
+          {quoteText && (
+            <div className="border-l-2 border-neutral-950 pl-4 my-4">
+              <p className="font-serif italic text-base sm:text-lg text-neutral-800 leading-relaxed">
+                &quot;{quoteText}&quot;
+              </p>
+            </div>
+          )}
+
+          <p className="font-sans text-sm sm:text-base text-neutral-600 leading-relaxed mb-8">
+            {engineer.bio}
+          </p>
+
+          <div className="w-full border-t border-neutral-200 divide-y divide-neutral-200 font-mono text-xs sm:text-sm">
+            {technicalCoreContent && (
+              <AccordionItem
+                title="Technical Core"
+                content={technicalCoreContent}
+                open={open}
+                onToggle={setOpen}
+              />
+            )}
+            {pastEngagementsContent && (
+              <AccordionItem
+                title="Past Engagements"
+                content={pastEngagementsContent}
+                open={open}
+                onToggle={setOpen}
+              />
+            )}
+            <AccordionItem
+              title="Direct Portfolio Route"
+              content={portfolioRoute}
+              open={open}
+              onToggle={setOpen}
+            />
+          </div>
+
+          <div className="pt-8">
+            <Link
+              className="font-mono text-xs uppercase tracking-widest text-neutral-900 hover:text-neutral-500 inline-flex items-center gap-2 group transition-colors"
+              href={portfolioRoute}
+            >
+              <span>VIEW FULL PORTFOLIO</span>
+              <span className="transition-transform group-hover:translate-x-1">→</span>
+            </Link>
+          </div>
+        </div>
       </div>
+    </div>
+  );
+}
+
+function AccordionItem({
+  title,
+  content,
+  open,
+  onToggle,
+}: {
+  title: string;
+  content: string;
+  open: string | null;
+  onToggle: (key: string) => void;
+}) {
+  const isOpen = open === title;
+  return (
+    <div className="border-t border-neutral-200 py-3 first:border-t-0">
+      <button
+        type="button"
+        onClick={() => onToggle(isOpen ? "" : title)}
+        className="flex min-h-11 w-full items-center justify-between gap-2 text-left font-mono text-[8px] uppercase tracking-[0.08em] text-neutral-500 sm:min-h-0 sm:text-xs sm:tracking-[0.15em]"
+      >
+        <span>{title}</span>
+        <span className="font-sans text-sm text-neutral-400">
+          {isOpen ? "−" : "+"}
+        </span>
+      </button>
+      {isOpen && (
+        <p className="mt-3 font-sans text-[10px] leading-relaxed text-neutral-600 sm:text-sm">
+          {content}
+        </p>
+      )}
     </div>
   );
 }
