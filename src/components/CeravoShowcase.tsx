@@ -12,15 +12,15 @@ export function CeravoShowcase() {
   return (
     <section
       aria-labelledby="ceravo-heading"
-      className="relative flex min-h-screen w-full flex-col overflow-hidden border-b border-neutral-200 bg-[#FAFAFA] text-neutral-950 select-none lg:flex-row"
+      className="relative flex min-h-[660px] w-full flex-row overflow-hidden border-b border-neutral-200 bg-[#FAFAFA] text-neutral-950 select-none lg:min-h-screen"
     >
-      <aside className="flex flex-col gap-8 border-b border-neutral-200 p-6 sm:p-8 lg:basis-[15%] lg:justify-between lg:border-r lg:border-b-0">
-        <div className="font-mono text-sm font-bold tracking-[0.25em] text-neutral-900">
+      <aside className="flex basis-[22%] flex-col justify-between gap-4 border-r border-neutral-200 p-3 sm:basis-[15%] sm:gap-8 sm:p-8">
+        <div className="font-mono text-[9px] font-bold tracking-[0.1em] text-neutral-900 sm:text-sm sm:tracking-[0.25em]">
           CE R A VO
         </div>
 
         <nav aria-label="CE R A VO collections">
-          <ul className="grid grid-cols-2 gap-x-5 gap-y-4 text-[11px] font-mono uppercase tracking-widest text-neutral-500 lg:block lg:space-y-4">
+          <ul className="hidden grid-cols-2 gap-x-5 gap-y-4 text-[11px] font-mono uppercase tracking-widest text-neutral-500 sm:grid lg:block lg:space-y-4">
             {materialSystems.map((system) => (
               <li key={system}>{system}</li>
             ))}
@@ -29,32 +29,32 @@ export function CeravoShowcase() {
 
         <a
           href="tel:+8801712345678"
-          className="w-fit font-mono text-xs text-neutral-400 transition-colors hover:text-neutral-950"
+          className="w-full break-all font-mono text-[8px] text-neutral-400 transition-colors hover:text-neutral-950 sm:w-fit sm:text-xs"
         >
           +880 17 1234 5678
         </a>
       </aside>
 
-      <div className="flex w-full flex-col justify-center p-8 sm:p-12 lg:basis-[38%] lg:p-16">
-        <p className="mb-3 text-[10px] font-mono uppercase tracking-[0.35em] text-neutral-400">
+      <div className="flex basis-[40%] flex-col justify-center p-3 sm:basis-[38%] sm:p-12 lg:p-16">
+        <p className="mb-2 text-[7px] font-mono uppercase tracking-[0.12em] text-neutral-400 sm:mb-3 sm:text-[10px] sm:tracking-[0.35em]">
           Premium Tiles & Ceramic Solutions // Shathi Group
         </p>
         <h2
           id="ceravo-heading"
-          className="text-3xl font-extrabold leading-tight tracking-tight text-neutral-950 uppercase md:text-5xl"
+          className="text-base font-extrabold leading-tight tracking-tight text-neutral-950 uppercase sm:text-3xl md:text-5xl"
         >
           Architectural ceramics & luxury building materials
         </h2>
-        <p className="mt-4 max-w-md text-xs leading-relaxed text-neutral-600 md:text-sm">
+        <p className="mt-3 max-w-md text-[9px] leading-relaxed text-neutral-600 sm:mt-4 sm:text-xs md:text-sm">
           Engineered for high-end residential, commercial real estate, and modern
           developments. CE R A VO provides premium porcelain slabs, architectural ceramic
           finishes, and precision building surfaces crafted for structural longevity and
           luxury interior design.
         </p>
-        <div className="mt-8 flex flex-wrap items-center gap-4">
+        <div className="mt-4 flex flex-col items-stretch gap-2 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
           <Link
             href="/ceravo"
-            className="inline-flex items-center justify-center px-8 py-3.5 bg-neutral-950 text-white font-mono text-xs tracking-[0.2em] uppercase hover:bg-neutral-800 transition-all duration-300 shadow-xl"
+            className="inline-flex min-h-11 items-center justify-center bg-neutral-950 px-2 py-3 font-mono text-[7px] uppercase tracking-[0.08em] text-white shadow-xl transition-all duration-300 hover:bg-neutral-800 sm:px-8 sm:text-xs sm:tracking-[0.2em]"
           >
             VIEW DETAILS &amp; COLLECTION →
           </Link>
@@ -62,19 +62,19 @@ export function CeravoShowcase() {
             href="https://www.ceravo.online"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-3.5 border border-neutral-950 text-neutral-950 font-mono text-xs tracking-[0.2em] uppercase hover:bg-neutral-950 hover:text-white transition-all duration-300"
+            className="inline-flex min-h-11 items-center justify-center border border-neutral-950 px-2 py-3 font-mono text-[7px] uppercase tracking-[0.08em] text-neutral-950 transition-all duration-300 hover:bg-neutral-950 hover:text-white sm:px-8 sm:text-xs sm:tracking-[0.2em]"
           >
             VISIT CERAVO.ONLINE ↗
           </a>
         </div>
       </div>
 
-      <div className="relative h-full min-h-[450px] w-full overflow-hidden bg-neutral-100 lg:min-h-full lg:basis-[47%]">
+      <div className="relative min-h-0 flex-1 overflow-hidden bg-neutral-100">
         <Image
           src="/ceravo/real-estate-ceramics.png"
           alt="CE R A VO Luxury Ceramic Surfaces and Architectural Materials"
           fill
-          sizes="(max-width: 1024px) 100vw, 50vw"
+          sizes="(min-width: 1024px) 47vw, 38vw"
           className="object-cover object-center contrast-105 transition-transform duration-700 hover:scale-105"
         />
         <div
@@ -82,7 +82,7 @@ export function CeravoShowcase() {
           className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/15"
         />
 
-        <div className="absolute inset-y-0 right-0 flex w-16 flex-col items-center justify-between border-l border-white/40 bg-white/15 py-6 font-mono text-[10px] text-neutral-700 backdrop-blur-[2px] sm:w-20 sm:py-8">
+        <div className="absolute inset-y-0 right-0 flex w-10 flex-col items-center justify-between border-l border-white/40 bg-white/15 py-4 font-mono text-[8px] text-neutral-700 backdrop-blur-[2px] sm:w-20 sm:py-8 sm:text-[10px]">
           <span aria-hidden="true" className="h-16 w-px bg-neutral-700/50" />
           <span className="[writing-mode:vertical-rl] rotate-180 tracking-[0.2em]">
             01 / 03

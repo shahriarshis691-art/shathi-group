@@ -51,22 +51,22 @@ export function HeroSection() {
 
               <h1
                 id="hero-heading"
-                className="mt-6 font-serif text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl text-balance"
+                className="mt-6 max-w-[12ch] font-serif text-[clamp(2.25rem,10vw,3.75rem)] font-bold leading-[0.98] tracking-tight text-white text-balance"
               >
                 SHATHI Group of Companies
               </h1>
 
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <div className="mt-8 flex flex-row flex-wrap gap-3 sm:gap-4">
                 <a
                   href="#contact"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-neutral-950 px-8 py-3.5 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-wider text-white transition hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-neutral-950 px-5 py-3 font-sans text-[10px] font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400 sm:px-8 sm:text-xs sm:tracking-wider"
                 >
                   <Sparkles className="h-4 w-4" aria-hidden />
                   Partner With Us
                 </a>
                 <a
                   href="#businesses"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-neutral-900 bg-white px-8 py-3.5 font-sans text-[11px] md:text-xs font-semibold uppercase tracking-wider text-neutral-950 backdrop-blur-sm transition hover:bg-neutral-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-neutral-900 bg-white px-5 py-3 font-sans text-[10px] font-semibold uppercase tracking-[0.12em] text-neutral-950 backdrop-blur-sm transition hover:bg-neutral-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400 sm:px-8 sm:text-xs sm:tracking-wider"
                 >
                   Explore Our Brands
                   <ArrowRight className="h-4 w-4" aria-hidden />

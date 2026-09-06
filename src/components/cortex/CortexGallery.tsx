@@ -7,8 +7,8 @@ import type { CortexEngineer } from "@/data/cortexEngineers";
 export function CortexGallery() {
   return (
     <section aria-labelledby="cortex-leadership-heading" className="bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:py-24">
-        <header className="mb-12">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 md:px-10 lg:py-24">
+        <header className="mb-8 sm:mb-12">
           <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-neutral-500">
             CORTEXIO Softsolutions / People systems
           </p>
@@ -62,38 +62,38 @@ function EngineerEditorialRow({
 
   return (
     <div
-      className={`flex flex-col gap-12 lg:items-start lg:flex-row${
+      className={`flex flex-row items-start gap-4 sm:gap-8 lg:gap-12 lg:items-start${
         reversed ? " lg:flex-row-reverse" : ""
       }`}
     >
-      <div className="lg:w-1/2 lg:max-w-[640px]">
-        <span className="font-mono text-xs tracking-widest uppercase text-neutral-400">
+      <div className="min-w-0 flex-1 lg:max-w-[640px]">
+        <span className="font-mono text-[8px] tracking-[0.08em] uppercase text-neutral-400 sm:text-xs sm:tracking-widest">
           {engineer.titleTag}
         </span>
-        <h3 className="mt-3 font-serif text-3xl sm:text-4xl font-normal text-neutral-900 tracking-tight">
+        <h3 className="mt-2 font-serif text-[clamp(1.35rem,6vw,2.25rem)] font-normal tracking-tight text-neutral-900 sm:mt-3">
           {engineer.name}
         </h3>
-        <p className="mt-1 font-mono text-xs uppercase tracking-wider text-neutral-500">
+        <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.08em] text-neutral-500 sm:text-xs sm:tracking-wider">
           {engineer.role}
         </p>
 
         {engineer.clientMessage ? (
-          <blockquote className="border-l-2 border-neutral-900 pl-4 italic text-neutral-700 font-serif text-base sm:text-lg my-4">
+          <blockquote className="my-3 border-l-2 border-neutral-900 pl-3 font-serif text-xs italic text-neutral-700 sm:my-4 sm:pl-4 sm:text-lg">
             {engineer.clientMessage}
           </blockquote>
         ) : null}
 
-        <p className="mt-4 font-sans text-base leading-relaxed text-neutral-700">
+        <p className="mt-3 font-sans text-[10px] leading-relaxed text-neutral-700 sm:mt-4 sm:text-base">
           {engineer.bio}
         </p>
 
-        <div className="mt-8 border-y border-neutral-200">
+        <div className="mt-5 border-y border-neutral-200 sm:mt-8">
           {accordionItems.map((item) => (
             <div key={item.title} className="border-t border-neutral-200 py-3 first:border-t-0">
               <button
                 type="button"
                 onClick={() => setOpen(open === item.title ? null : item.title)}
-                className="flex w-full items-center justify-between gap-2 text-left font-mono text-xs uppercase tracking-[0.15em] text-neutral-500"
+                className="flex min-h-11 w-full items-center justify-between gap-2 text-left font-mono text-[8px] uppercase tracking-[0.08em] text-neutral-500 sm:min-h-0 sm:text-xs sm:tracking-[0.15em]"
               >
                 <span>{item.title}</span>
                 <span className="font-sans text-sm text-neutral-400">
@@ -101,7 +101,7 @@ function EngineerEditorialRow({
                 </span>
               </button>
               {open === item.title ? (
-                <p className="mt-3 font-sans text-sm leading-relaxed text-neutral-600">
+                <p className="mt-3 font-sans text-[10px] leading-relaxed text-neutral-600 sm:text-sm">
                   {item.content}
                 </p>
               ) : null}
@@ -111,19 +111,19 @@ function EngineerEditorialRow({
 
         <Link
           href={`/companies/cortex-softsolutions/engineers/${engineer.slug}`}
-          className="mt-8 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-neutral-900 transition-transform hover:translate-x-1"
+          className="mt-5 inline-flex min-h-11 items-center gap-2 font-mono text-[8px] uppercase tracking-[0.08em] text-neutral-900 transition-transform hover:translate-x-1 sm:mt-8 sm:min-h-0 sm:text-xs sm:tracking-[0.18em]"
         >
           <span>View full portfolio</span>
           <span aria-hidden>→</span>
         </Link>
       </div>
 
-      <div className="relative mx-auto aspect-[4/5] max-w-[420px] w-full shrink-0 overflow-hidden shadow-sm border border-neutral-200">
+      <div className="relative aspect-[4/5] w-[42%] shrink-0 overflow-hidden border border-neutral-200 shadow-sm sm:w-[38%] lg:max-w-[420px]">
         <Image
           src={engineer.avatar}
           alt={`${engineer.name}, ${engineer.role}`}
           fill
-          sizes="(min-width: 1024px) 420px, 80vw"
+          sizes="(min-width: 1024px) 420px, 42vw"
           className="object-cover object-top"
         />
       </div>

@@ -11,7 +11,7 @@ export function BusinessGrid() {
       aria-labelledby="businesses-heading"
       className="bg-white"
     >
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8 max-w-[90rem] mx-auto px-6 py-16">
+      <div className="grid grid-cols-2 gap-3 px-4 py-12 sm:gap-6 sm:px-6 sm:py-16 lg:grid-cols-5 lg:gap-8 max-w-[90rem] mx-auto">
         {companies.map((company, index) => (
           <SlideIn
             key={company.id}
@@ -58,14 +58,14 @@ function SubsidiaryCard({ company, index }: { company: Company; index: number })
               alt={company.imageAlt}
               className="object-cover filter grayscale contrast-[1.05] transition-all duration-700 ease-out group-hover:grayscale-0 group-hover:scale-[1.02]"
               fill
-              sizes="(min-width: 1024px) 20vw, (min-width: 640px) 50vw, 100vw"
+              sizes="(min-width: 1024px) 20vw, 50vw"
               src={company.image}
             />
           </ParallaxContainer>
         </div>
       </Link>
 
-      <div className="mt-4">
+      <div className="mt-3 sm:mt-4">
         <p className="text-[10px] font-mono tracking-[0.25em] text-neutral-400 block mb-1">
           {numeral}
         </p>
@@ -81,7 +81,7 @@ function SubsidiaryCard({ company, index }: { company: Company; index: number })
         <Link
           href={cardHref}
           aria-label={`Explore ${company.name}`}
-          className="inline-flex items-center gap-1 text-[11px] font-mono text-neutral-500 uppercase tracking-widest mt-1 hover:text-neutral-950 transition-colors"
+          className="inline-flex min-h-11 items-center gap-1 text-[9px] font-mono text-neutral-500 uppercase tracking-[0.12em] hover:text-neutral-950 transition-colors sm:min-h-0 sm:text-[11px] sm:tracking-widest"
         >
           {actionLabel}
           <ArrowUpRight className="h-3 w-3" aria-hidden />

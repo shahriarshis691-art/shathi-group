@@ -187,7 +187,7 @@ export function EngineeringGovernance() {
 
         <ul
           role="list"
-          className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4"
+          className="mt-8 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-6 md:grid-cols-2 lg:grid-cols-4"
         >
           {disciplines.map((discipline, index) => {
             const isIvory = index % 2 === 0;
@@ -200,7 +200,7 @@ export function EngineeringGovernance() {
               <li
                 key={discipline.id}
                 className={`
-                  group min-h-[620px] rounded-none md:rounded-sm overflow-hidden flex flex-col justify-between
+                  group min-h-[480px] rounded-none overflow-hidden flex flex-col justify-between sm:min-h-[620px] md:rounded-sm
                   border transition duration-500 hover:-translate-y-1
                   ${isIvory
                     ? "bg-[#F7F5F0] text-neutral-900 border-neutral-200"
@@ -210,14 +210,14 @@ export function EngineeringGovernance() {
               >
                 {isOptionA ? (
                   <>
-                    <div className="flex h-full flex-col justify-center p-6 sm:p-7 text-center">
-                      <p className="text-[10px] tracking-[0.28em] uppercase text-neutral-400 font-mono">
+                    <div className="flex h-full flex-col justify-center p-4 text-center sm:p-7">
+                      <p className="font-mono text-[8px] uppercase tracking-[0.08em] text-neutral-400 sm:text-[10px] sm:tracking-[0.28em]">
                         {discipline.id} / {categoryLabel}
                       </p>
-                      <h3 className="font-display text-xl tracking-[0.08em] uppercase font-bold text-center mt-2 mb-6">
+                      <h3 className="mt-2 mb-4 text-center font-display text-sm font-bold uppercase tracking-[0.04em] sm:mb-6 sm:text-xl sm:tracking-[0.08em]">
                         {discipline.role}
                       </h3>
-                      <p className="font-sans text-xs leading-relaxed text-neutral-600 max-w-xs mx-auto">
+                      <p className="mx-auto max-w-xs font-sans text-[10px] leading-relaxed text-neutral-600 sm:text-xs">
                         {discipline.responsibilities}
                       </p>
                     </div>
@@ -227,7 +227,7 @@ export function EngineeringGovernance() {
                         alt={discipline.role}
                         className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                         fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                        sizes="(max-width: 1023px) 50vw, 25vw"
                         src={discipline.image}
                       />
                     </div>
@@ -239,19 +239,19 @@ export function EngineeringGovernance() {
                         alt={discipline.role}
                         className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                         fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                        sizes="(max-width: 1023px) 50vw, 25vw"
                         src={discipline.image}
                       />
                     </div>
 
-                    <div className="flex h-full flex-col justify-center p-6 sm:p-7 text-center">
-                      <p className="text-[10px] tracking-[0.28em] uppercase text-neutral-400 font-mono">
+                    <div className="flex h-full flex-col justify-center p-4 text-center sm:p-7">
+                      <p className="font-mono text-[8px] uppercase tracking-[0.08em] text-neutral-400 sm:text-[10px] sm:tracking-[0.28em]">
                         {discipline.id} / {categoryLabel}
                       </p>
-                      <h3 className="font-display text-xl tracking-[0.08em] uppercase font-bold text-center mt-2 mb-6">
+                      <h3 className="mt-2 mb-4 text-center font-display text-sm font-bold uppercase tracking-[0.04em] sm:mb-6 sm:text-xl sm:tracking-[0.08em]">
                         {discipline.role}
                       </h3>
-                      <div className="font-sans text-xs leading-relaxed text-neutral-400 max-w-xs mx-auto space-y-2">
+                      <div className="mx-auto space-y-2 font-sans text-[10px] leading-relaxed text-neutral-400 sm:max-w-xs sm:text-xs">
                         <p>
                           <span className="font-semibold text-neutral-300">
                             Squad:
