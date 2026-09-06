@@ -4,7 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { InquiryProvider } from "@/components/InquiryProvider";
-import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
+import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 import { DirectContactDock } from "@/components/common/DirectContactDock";
 import { siteConfig } from "@/data/site";
 
@@ -98,7 +98,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${jakarta.variable} ${display.variable}`}>
-      <body className="relative flex min-h-screen flex-col overflow-x-clip bg-white font-sans text-neutral-950 antialiased">
+      <body className="relative flex min-h-screen flex-col overflow-x-clip bg-luxury-black font-sans text-luxury-50 antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
