@@ -2,7 +2,7 @@ import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Navbar } from "@/components/Navbar";
-import { Story } from "@/components/Story";
+import CortexioShowcase from "@/components/CortexioShowcase";
 import { Ventures } from "@/components/Ventures";
 
 export default function Home() {
@@ -12,7 +12,7 @@ export default function Home() {
       <main className="overflow-x-clip bg-luxury-black">
         <Hero />
         <Ventures />
-        <Story />
+        <CortexioShowcase />
         <Contact />
       </main>
       <Footer homeOnly />
