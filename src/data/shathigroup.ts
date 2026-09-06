@@ -80,6 +80,7 @@ export interface SiteConfig {
   readonly hero: {
     readonly eyebrow: string;
     readonly headline: string;
+    readonly tagline: string;
     /** The live hero has no separately rendered sub-headline. */
     readonly subheadline: null;
     readonly summary: string;
@@ -186,6 +187,8 @@ export const siteConfig: SiteConfig = {
   hero: {
     eyebrow: "SHATHI Group",
     headline: "SHATHI Group of Companies",
+    tagline:
+      "A diversified portfolio of trusted businesses, united by integrity, craftsmanship, and long-term value.",
     subheadline: null,
     summary:
       "SHATHI Group of Companies is a diversified portfolio of trusted businesses spanning lifestyle apparel, luxury timepieces, premium tiles, and designer sanitaryware — united by integrity, craftsmanship, and long-term value.",
