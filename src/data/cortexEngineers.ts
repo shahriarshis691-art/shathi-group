@@ -45,34 +45,6 @@ export interface CortexEngineer {
 
 export const cortexEngineers: CortexEngineer[] = [
   {
-    id: "sm-shahriar-walid",
-    slug: "sm-shahriar-walid",
-    index: "01",
-    category: "FOUNDER & CHIEF ARCHITECT",
-    name: "SM Shahriar Walid",
-    role: "FOUNDER & CEO, SHATHI GROUP // LEAD & FOUNDER, CORTEXIO",
-    quote: "Architecting autonomous digital ecosystems and high-impact enterprises designed for generational resilience.",
-    bio: "SM Shahriar Walid is the Founder & CEO of Shathi Group and the visionary lead behind CORTEXIO Softsolutions. Directing corporate strategy, technological innovation, and scalable digital architectures across the conglomerate's diverse portfolio.",
-    technicalCore: [
-      "Enterprise Digital Architecture",
-      "Strategic Conglomerate Governance",
-      "High-Scale Systems Design",
-      "Technology Venture Incubation"
-    ],
-    pastEngagements: [
-      "Shathi Group Conglomerate Architecture",
-      "CORTEXIO Autonomous Ecosystems",
-      "Multi-Industry Digital Integration"
-    ],
-    directPortfolioRoute: "/companies/cortex-softsolutions/engineers/sm-shahriar-walid",
-    image: "/cortex/engineers/engineer.founder.png.jpg",
-    avatar: "/cortex/engineers/engineer.founder.png.jpg",
-    stack: [],
-    education: [],
-    experience: [],
-    projects: []
-  },
-  {
     slug: "sarker-adhara",
     name: "Sarker Adhara",
     role: "HEAD OF CYBERSECURITY & DIGITAL RESILIENCE",
@@ -115,6 +87,33 @@ export const cortexEngineers: CortexEngineer[] = [
     projects: [
       { title: "Sovereign Digital Venture Architecture", category: "Digital Business", description: "High-impact digital venture architecture combining sovereign digital systems with sustainable market innovation.", metrics: ["Sovereign digital architectures", "Sustainable market innovation", "Cross-border scalability"], image: "/cortex/engineers/maskat-md-mahadi-hassan.jpg", demoUrl: "/companies/cortex-softsolutions" },
     ],
+  },
+  {
+    id: "sm-shahriar-walid",
+    slug: "sm-shahriar-walid",
+    titleTag: "03 // FOUNDER & CHIEF ARCHITECT",
+    name: "SM Shahriar Walid",
+    role: "FOUNDER & CEO, SHATHI GROUP // LEAD & FOUNDER, CORTEXIO",
+    quote: "Architecting autonomous digital ecosystems and high-impact enterprises designed for generational resilience.",
+    bio: "SM Shahriar Walid is the Founder & CEO of Shathi Group and the visionary lead behind CORTEXIO Softsolutions. Directing corporate strategy, technological innovation, and scalable digital architectures across the conglomerate's diverse portfolio.",
+    technicalCore: [
+      "Enterprise Digital Architecture",
+      "Strategic Conglomerate Governance",
+      "High-Scale Systems Design",
+      "Technology Venture Incubation"
+    ],
+    pastEngagements: [
+      "Shathi Group Conglomerate Architecture",
+      "CORTEXIO Autonomous Ecosystems",
+      "Multi-Industry Digital Integration"
+    ],
+    directPortfolioRoute: "/companies/cortex-softsolutions/engineers/sm-shahriar-walid",
+    image: "/cortex/engineers/engineer.founder.png.jpg",
+    avatar: "/cortex/engineers/engineer.founder.png.jpg",
+    stack: [],
+    education: [],
+    experience: [],
+    projects: []
   },
 ];
 

@@ -70,7 +70,7 @@ function EngineerEditorialRow({
         <span className="font-mono text-[8px] tracking-[0.08em] uppercase text-neutral-400 sm:text-xs sm:tracking-widest">
           {engineer.titleTag}
         </span>
-        <h3 className="mt-2 font-serif text-[clamp(1.35rem,6vw,2.25rem)] font-normal tracking-tight text-neutral-900 sm:mt-3">
+        <h3 className="mt-2 leading-tight font-serif text-[clamp(1.35rem,6vw,2.25rem)] font-normal tracking-tight text-neutral-900 sm:mt-3">
           {engineer.name}
         </h3>
         <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.08em] text-neutral-500 sm:text-xs sm:tracking-wider">
