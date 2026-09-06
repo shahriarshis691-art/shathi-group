@@ -269,7 +269,7 @@ export function ClientConfirmationEmail({
                   >
                     SHATHI Group of Companies
                     <br />
-                    SHATHI Tower, Corporate Park, Main Business District, India
+                    SHATHI Tower, Corporate Park, Main Business District, Bangladesh
                   </p>
                 </div>
               </div>

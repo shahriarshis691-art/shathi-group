@@ -38,7 +38,7 @@ export const siteConfig = {
     "luxury",
     "corporate conglomerate",
     "conglomerate",
-    "India",
+    "Bangladesh",
     "trusted brands",
   ],
   ogImage: "/hero-image/hero.2.jpg",
@@ -46,7 +46,7 @@ export const siteConfig = {
   locale: "en_IN",
   email: directContacts.corporate.email,
   phone: "+880 1979614216",
-  address: "SHATHI Tower, Corporate Park, Main Business District, India",
+  address: "SHATHI Tower, Corporate Park, Main Business District, Bangladesh",
   social: {
     linkedin: "https://linkedin.com",
     facebook: "https://facebook.com",

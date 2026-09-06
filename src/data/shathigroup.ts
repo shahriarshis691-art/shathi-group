@@ -174,12 +174,12 @@ export const storyMetrics: readonly StoryMetric[] = [
     description: "Certified standards",
     icon: "Award",
   },
-  {
-    value: "Pan-India",
-    label: "Nationwide Footprint",
-    description: "Dealer & retail network",
-    icon: "MapPin",
-  },
+{
+     value: "All-Bangladesh",
+     label: "Across Bangladesh",
+     description: "Dealer & retail network across Bangladesh",
+     icon: "MapPin",
+   },
   {
     value: "Always",
     label: "Customer First",
@@ -228,12 +228,12 @@ export const siteConfig: SiteConfig = {
     mission:
       "To deliver category-defining products and services through brands that customers trust — combining craftsmanship, innovation, and operational excellence across every market we serve.",
     vision:
-      "To be recognized as a globally respected Indian conglomerate that elevates standards in every category it enters, while uplifting the communities and partners that share our journey.",
+      "To be recognized as a globally respected Bangladeshi conglomerate that elevates standards in every category it enters, while uplifting the communities and partners that share our journey.",
     governance:
       "We are guided by an independent board, strict compliance protocols, and transparent reporting. Ethical conduct, accountability, and sustainability are non-negotiables — embedded in every policy and every decision.",
   },
   contact: {
-    address: "SHATHI Tower, Corporate Park, Main Business District, India",
+    address: "SHATHI Tower, Corporate Park, Main Business District, Bangladesh",
     email: {
       label: "Corporate & Founder",
       value: "shahriarshis691@gmail.com",
@@ -550,7 +550,7 @@ export const ventures: readonly Venture[] = [
       "Marblea large-format porcelain series",
       "PEI IV wear-rated finishes",
       "Custom sizing and logo imprinting",
-      "100+ dealer partners across India",
+      "100+ dealer partners across Bangladesh",
     ],
     metrics: [
       { value: "1200 × 2400 / 1600 × 3200", label: "Porcelain slab systems", description: "Residential and hospitality applications", icon: "Building2" },

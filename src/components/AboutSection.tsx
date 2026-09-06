@@ -16,7 +16,7 @@ const pillars = [
   {
     icon: Eye,
     title: "Our Vision",
-    body: "To be recognized as a globally respected Indian conglomerate that elevates standards in every category it enters, while uplifting the communities and partners that share our journey.",
+    body: "To be recognized as a globally respected Bangladeshi conglomerate that elevates standards in every category it enters, while uplifting the communities and partners that share our journey.",
   },
   {
     icon: ShieldCheck,

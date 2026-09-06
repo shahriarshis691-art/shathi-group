@@ -164,7 +164,7 @@ export function ContactSection() {
                       <br />
                       Main Business District,
                       <br />
-                      India
+                      Bangladesh
                     </p>
                   </div>
                 </div>

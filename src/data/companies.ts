@@ -171,7 +171,7 @@ export const companies: Company[] = [
       "'Marblea' large-format porcelain series",
       "PEI IV wear-rated finishes",
       "Custom sizing and logo imprinting",
-      "100+ dealer partners across India",
+      "100+ dealer partners across Bangladesh",
     ],
   },
   {

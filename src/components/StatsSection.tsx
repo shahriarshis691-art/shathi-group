@@ -17,9 +17,9 @@ const stats = [
   },
   {
     icon: MapPin,
-    value: "Pan-India",
-    label: "Nationwide Footprint",
-    sub: "Dealer & retail network",
+value: "All-Bangladesh",
+     label: "Across Bangladesh",
+     sub: "Dealer & retail network across Bangladesh",
   },
   {
     icon: HeartHandshake,
