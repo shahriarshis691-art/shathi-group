@@ -653,13 +653,13 @@ export function CompanyClient({ company }: CompanyClientProps) {
                 A selection of residential and commercial spaces specified with Ceravo surfaces.
               </p>
 
-              <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
-                {[
-                  { label: "Luxury Residence", location: "Mumbai", gradient: "bg-gradient-to-br from-teal-100 to-teal-200" },
-                  { label: "Corporate Lobby", location: "Delhi", gradient: "bg-gradient-to-br from-slate-100 to-slate-200" },
-                  { label: "Boutique Hotel", location: "Bangalore", gradient: "bg-gradient-to-br from-orange-100 to-orange-200" },
-                  { label: "Retail Showroom", location: "Pune", gradient: "bg-gradient-to-br from-stone-100 to-stone-200" },
-                ].map((project) => (
+<div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
+                 {[
+                   { label: "Luxury Residence", location: "Dhaka", gradient: "bg-gradient-to-br from-teal-100 to-teal-200" },
+                   { label: "Corporate Lobby", location: "Chittagong", gradient: "bg-gradient-to-br from-slate-100 to-slate-200" },
+                   { label: "Boutique Hotel", location: "Khulna", gradient: "bg-gradient-to-br from-orange-100 to-orange-200" },
+                   { label: "Retail Showroom", location: "Sylhet", gradient: "bg-gradient-to-br from-stone-100 to-stone-200" },
+                 ].map((project) => (
                   <div
                     key={project.label}
                     className={`group overflow-hidden rounded-2xl border ${t.cardBorder} ${t.cardClass} shadow-sm transition hover:shadow-md`}
