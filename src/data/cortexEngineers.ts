@@ -37,29 +37,10 @@ export interface CortexEngineer {
 
 export const cortexEngineers: CortexEngineer[] = [
   {
-    slug: "navid-islam",
-    name: "Navid Islam",
-    role: "Lead UI/UX Architect",
-    titleTag: "01 // PRODUCT DESIGN & INTERACTION",
-    avatar: "/cortex/engineers/navid.jpg",
-    bio: "Navid Islam is a lead UI/UX architect specializing in enterprise design systems and high-conversion SaaS digital products.",
-    clientMessage: "We craft seamless digital interfaces where architectural precision meets intuitive human behavior.",
-    stack: ["Figma", "Tailwind CSS", "Design Tokens", "React", "Next.js"],
-    education: [
-      { degree: "B.Sc. in Computer Science & Human-Computer Interaction", institution: "BRAC University", year: "2019", focus: "Interaction design and ergonomic user workflows." },
-    ],
-    experience: [
-      { role: "Lead UI/UX Architect", company: "CORTEXIO Softsolutions", period: "2023 — Present", highlights: ["Builds token-based design systems and high-conversion SaaS interfaces."] },
-    ],
-    projects: [
-      { title: "Enterprise Dashboard Suite", category: "SaaS Design System", description: "A dark-mode-first analytics dashboard with real-time telemetry.", metrics: ["42% faster task completion"], image: "/cortex/engineers/navid.jpg", demoUrl: "/companies/cortex-softsolutions" },
-    ],
-  },
-  {
     slug: "sarker-adhara",
     name: "Sarker Adhara",
     role: "HEAD OF CYBERSECURITY & DIGITAL RESILIENCE",
-    titleTag: "02 // CYBERSECURITY & DIGITAL RESILIENCE",
+    titleTag: "01 // CYBERSECURITY & DIGITAL RESILIENCE",
     avatar: "/cortex/engineers/sarker-adhara.jpg",
     bio: "Sarker Adhara directs cybersecurity strategy and resilient systems architecture at CORTEXIO Softsolutions. Combining specialized digital business and innovation expertise from Tokyo International University with mission-critical security paradigms, she ensures enterprise platforms remain impervious to evolving threat landscapes.",
     clientMessage: "Defending sovereign digital architecture through rigorous threat modeling, zero-trust protocols, and resilient infrastructure.",
@@ -81,7 +62,7 @@ export const cortexEngineers: CortexEngineer[] = [
     slug: "maskat-md-mahadi-hassan",
     name: "Maskat Md Mahadi Hassan",
     role: "DIGITAL BUSINESS & INNOVATION LEAD",
-    titleTag: "03 // DIGITAL BUSINESS & INNOVATION",
+    titleTag: "02 // DIGITAL BUSINESS & INNOVATION",
     avatar: "/cortex/engineers/maskat-md-mahadi-hassan.jpg",
     bio: "Specializing in digital strategy, business model innovation, and technological scalability. Leveraging global perspective from Tokyo International University to architect high-impact digital ventures.",
     clientMessage: "Transforming enterprise capabilities through sovereign digital architectures and sustainable market innovation.",
