@@ -73,7 +73,7 @@ function VentureCard({ venture, index, layout }: VentureCardProps) {
       transition={{ duration: 0.65, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
       onPointerMove={updateSpotlight}
       onPointerLeave={resetSpotlight}
-      className={`group relative min-h-[22rem] touch-manipulation overflow-hidden rounded-3xl border border-white/[0.08] bg-luxury-surface shadow-luxury transition-[border-color,box-shadow] duration-500 hover:border-[#d4af37]/55 hover:shadow-luxury-gold ${layout}`}
+      className={`group relative min-h-[16rem] sm:min-h-[22rem] touch-manipulation overflow-hidden rounded-3xl border border-white/[0.08] bg-luxury-surface shadow-luxury transition-[border-color,box-shadow] duration-500 hover:border-[#d4af37]/55 hover:shadow-luxury-gold ${layout}`}
     >
       <Image
         src={venture.imageUrls[0]}
@@ -92,7 +92,7 @@ function VentureCard({ venture, index, layout }: VentureCardProps) {
         className="pointer-events-none absolute inset-0 hidden opacity-0 transition-opacity duration-500 group-hover:opacity-100 sm:block"
       />
 
-      <div className="relative flex h-full min-h-[22rem] flex-col justify-between p-6 sm:p-8">
+      <div className="relative flex h-full flex-col justify-between p-4 sm:p-6">
         <div className="flex items-start justify-between gap-4">
           <span className="inline-flex rounded-full border border-white/[0.1] bg-white/[0.05] px-3 py-1.5 font-sans text-[9px] font-semibold uppercase tracking-[0.14em] text-[#d8c7a5] backdrop-blur-md">
             {venture.category}
@@ -129,7 +129,7 @@ export function Ventures() {
     <section
       id="ventures"
       aria-labelledby="ventures-heading"
-      className="relative overflow-hidden bg-luxury-charcoal py-20 sm:py-28"
+      className="relative overflow-hidden bg-luxury-charcoal py-10 sm:py-20"
     >
       <div aria-hidden="true" className="absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] [background-size:5rem_5rem]" />
       <div aria-hidden="true" className="absolute left-1/2 top-0 h-72 w-2/3 -translate-x-1/2 rounded-full bg-[#d4af37]/10 blur-[120px]" />
@@ -153,7 +153,7 @@ export function Ventures() {
           </p>
         </motion.div>
 
-        <div className="mt-12 grid gap-4 lg:auto-rows-[17rem] lg:grid-cols-12 lg:gap-5">
+        <div className="mt-6 grid gap-2 lg:gap-5 lg:auto-rows-[17rem] lg:grid-cols-12">
           {featuredVentures.map((venture, index) => (
             <VentureCard
               key={venture.id}

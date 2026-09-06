@@ -33,7 +33,7 @@ export function StatsSection() {
   return (
     <section
       aria-labelledby="stats-heading"
-      className="relative overflow-hidden bg-white py-16 sm:py-20"
+      className="relative overflow-hidden bg-white py-10 sm:py-20"
     >
       <div
         aria-hidden="true"

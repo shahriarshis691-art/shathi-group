@@ -193,7 +193,7 @@ export const siteConfig: SiteConfig = {
   crawledOn: "2026-09-06",
   name: "SHATHI Group of Companies",
   shortName: "SHATHI Group",
-  locale: "en_IN",
+  locale: "en_BD",
   keywords: [
     "SHATHI Group",
     "SHATHI Group of Companies",
@@ -205,16 +205,16 @@ export const siteConfig: SiteConfig = {
   ],
   canonicalUrl: "https://shathigroup.com",
   openGraphImage: "https://shathigroup.com/hero-image/hero.2.jpg",
-  description:
-    "SHATHI Group of Companies is a diversified portfolio of trusted businesses spanning lifestyle apparel, luxury timepieces, premium tiles, and designer sanitaryware — united by integrity, craftsmanship, and long-term value.",
+description:
+     "A diversified Bangladeshi conglomerate spanning fashion, timepieces, tiles, and sanitaryware — united by integrity, craftsmanship, and long-term value.",
   hero: {
     eyebrow: "SHATHI Group",
     headline: "SHATHI Group of Companies",
-    tagline:
-      "A diversified portfolio of trusted businesses, united by integrity, craftsmanship, and long-term value.",
+tagline:
+       "A diversified Bangladeshi conglomerate, united by integrity, craftsmanship, and long-term value.",
     subheadline: null,
-    summary:
-      "SHATHI Group of Companies is a diversified portfolio of trusted businesses spanning lifestyle apparel, luxury timepieces, premium tiles, and designer sanitaryware — united by integrity, craftsmanship, and long-term value.",
+summary:
+       "A diversified Bangladeshi conglomerate spanning fashion, timepieces, tiles, and sanitaryware — united by integrity, craftsmanship, and long-term value.",
     primaryCta: { label: "Partner With Us", href: "#contact", location: "primary" },
     secondaryCta: { label: "Explore Our Brands", href: "#businesses", location: "primary" },
     imageUrl: `${liveUrl}/hero-image/hero-architecture-v2.png`,
@@ -225,10 +225,10 @@ export const siteConfig: SiteConfig = {
       "Founded on the principle that lasting businesses are built through integrity, SHATHI Group of Companies brings together a diversified portfolio spanning fashion, luxury, building materials, and home living. Each subsidiary operates with shared values and an unwavering focus on long-term value creation.",
     history:
       "SHATHI Group brings together specialist companies across technology, fashion, precision luxury, architectural materials, and mobility. Its shared focus is to create relevance today while building durable value for tomorrow.",
-    mission:
-      "To deliver category-defining products and services through brands that customers trust — combining craftsmanship, innovation, and operational excellence across every market we serve.",
-    vision:
-      "To be recognized as a globally respected Bangladeshi conglomerate that elevates standards in every category it enters, while uplifting the communities and partners that share our journey.",
+mission:
+       "To deliver category-defining products through trusted brands, combining craftsmanship, innovation, and operational excellence.",
+vision:
+       "To be a leading Bangladeshi conglomerate, setting industry standards and empowering communities.",
     governance:
       "We are guided by an independent board, strict compliance protocols, and transparent reporting. Ethical conduct, accountability, and sustainability are non-negotiables — embedded in every policy and every decision.",
   },
@@ -330,8 +330,8 @@ export const ventures: readonly Venture[] = [
     category: "Technology & Enterprise Software",
     route: "/companies/cortex-softsolutions",
     tagline: "Scalable Software & Digital Transformation",
-    summary:
-      "CORTEXIO Softsolutions builds cloud-native enterprise platforms that power digital transformation — from AI-driven workflows to fully custom software that scales with its clients.",
+summary:
+       "CORTEXIO builds cloud-native enterprise platforms for digital transformation — from AI workflows to custom scalable software.",
     brandStory:
       "CORTEXIO Softsolutions was founded on a singular belief: enterprise infrastructure should outlive the subscription cycles that constrain it. It eliminates recurring cloud dependencies by engineering custom microservices and sovereign architectures that belong entirely to the client. Every system is built for lifetime ownership — no vendor lock-in, no perpetually renewing licenses, and no hidden operational drift.",
     featurePoints: [
@@ -415,8 +415,8 @@ export const ventures: readonly Venture[] = [
     route: "/companies/shis-fashion",
     externalUrl: "https://www.shisfashion.com",
     tagline: "Contemporary & Premium Men's Apparel",
-    summary:
-      "A contemporary menswear house built on premium cotton fabrics, modern urban fits, and signature acid-washed graphics — for the modern individualist.",
+summary:
+       "Contemporary menswear on premium cotton, modern fits, and signature acid-wash graphics.",
     brandStory:
       "SHIS Fashion specializes in contemporary, premium menswear — from sharp tailoring to elevated casual staples. Built on premium cotton fabrics and modern urban fits, every piece carries the brand's signature acid-washed graphics and laid-back-luxe attitude.",
     featurePoints: [
@@ -466,8 +466,8 @@ export const ventures: readonly Venture[] = [
     route: "/companies/xeroxii",
     externalUrl: "https://www.xeroxii.com",
     tagline: "Haute Horology & Fine Jewellery Maison",
-    summary:
-      "XEROXII is a modern luxury watchmaker where precision engineering meets minimalist design, protected by scratch-resistant sapphire crystal and built to age gracefully.",
+summary:
+       "Modern luxury watchmaker: precision engineering, minimalist design, sapphire crystal.",
     brandStory:
       "XEROXII is a modern luxury watchmaker where precision engineering meets minimalist design. Each timepiece is built around Swiss-grade movements and protected by scratch-resistant sapphire crystal, designed to age gracefully through the decades.",
     featurePoints: [
@@ -524,8 +524,8 @@ export const ventures: readonly Venture[] = [
     route: "/ceravo",
     externalUrl: "https://www.ceravo.online",
     tagline: "Architectural Elegance & Surface Innovation",
-    summary:
-      "CE R A VO engineers premium porcelain and ceramic surfaces for residential and commercial architecture, fusing high durability with architectural finishes.",
+summary:
+       "Engineers premium porcelain/ceramic surfaces for architecture, fusing durability with finishes.",
     brandStory:
       "CE R A VO specifies ceramic surfaces as part of the architecture — not as an afterthought. Every collection is selected for scale, tactile quality, and real-world endurance; porcelain, ceramic, and engineered stone systems are brought into a disciplined architectural palette.",
     featurePoints: [
@@ -587,8 +587,8 @@ export const ventures: readonly Venture[] = [
     route: "/velorix",
     externalUrl: "https://www.velorixmotors.com",
     tagline: "Performance Mobility, Refined for Modern Roads",
-    summary:
-      "VELORIX Motors develops performance-led mobility solutions with sculpted design, connected technology, and a focus on every detail of the driving experience.",
+summary:
+       "Develops performance-led mobility with sculpted design and connected technology.",
     brandStory:
       "VELORIX Motors brings together expressive automotive design and modern engineering. Every vehicle is shaped around responsive performance, thoughtful technology, and a quiet confidence that lasts well beyond the journey.",
     featurePoints: [

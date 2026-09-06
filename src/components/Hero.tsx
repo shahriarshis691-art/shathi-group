@@ -20,7 +20,7 @@ export function Hero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative isolate flex min-h-[760px] overflow-hidden bg-luxury-black pb-14 pt-36 text-luxury-50 sm:min-h-screen sm:items-center sm:py-28"
+      className="relative isolate flex min-h-[50vh] overflow-hidden bg-luxury-black pb-4 pt-10 text-luxury-50 sm:min-h-screen sm:items-center sm:py-28"
     >
       <div
         aria-hidden="true"

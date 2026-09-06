@@ -12,7 +12,7 @@ const storyPillars = [
 
 export function Story() {
   return (
-    <section id="story" aria-labelledby="story-heading" className="bg-luxury-black py-20 sm:py-28">
+    <section id="story" aria-labelledby="story-heading" className="bg-luxury-black py-10 sm:py-20">
       <div className="container-corporate">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <motion.div

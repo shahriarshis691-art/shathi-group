@@ -30,7 +30,7 @@ export function AboutSection() {
     <section
       aria-labelledby="about-heading"
       id="about"
-      className="relative overflow-hidden bg-white py-20 sm:py-24"
+      className="relative overflow-hidden bg-white py-10 sm:py-20"
     >
       <div
         aria-hidden="true"

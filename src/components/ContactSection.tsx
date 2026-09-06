@@ -136,7 +136,7 @@ export function ContactSection() {
       id="contact"
       className="bg-white"
     >
-      <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
+      <div className="max-w-6xl mx-auto px-6 py-10 md:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <SlideIn direction="left" className="lg:col-span-4">
             <aside>
